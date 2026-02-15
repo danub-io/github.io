@@ -6,7 +6,7 @@ date: 2026-02-15
 image: "/images/posts/01.jpg"
 categories: ["Sau{00fa}de Mental"]
 author: "Dan Coelho"
-tags: ["neuroplasticidade", "ansiedade", "santificau{00e7}u{00e3}o"]
+tags: ["neuroplasticidade", "ansiedade", "Mente Renovada"]
 draft: false
 ---
 

@@ -6,7 +6,7 @@ date: 2026-02-15T12:57:02Z
 image: "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=1000&q=80"
 categories: ["Reflexu{00e3}o"]
 authors: ["Dan"]
-tags: ["Fu{00e9}", "Confianu{00e7}a"]
+tags: ["Fé", "Confiança", "Mente Renovada"]
 draft: false
 ---
 
