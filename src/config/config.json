@@ -23,11 +23,17 @@
     "meta_image": "/images/og-image.png",
     "meta_description": "GospelReads por Dan Coelho: Reflexões profundas sobre fé cristã, saúde mental bíblica e o impacto do Evangelho. Viva o Principal Mandamento na prática."
   },
+  "google_tag_manager": {
+    "enable": false,
+    "gtm_id": "GTM-XXXXXX"
+  },
   "params": {
+    "contact_form_action": "#",
     "copyright": "Copyright © 2026 GospelReads. Todos os direitos reservados."
   },
   "contactinfo": {
     "address": "Brasil",
-    "email": "contato@gospelreads.com"
+    "email": "contato@gospelreads.com",
+    "phone": ""
   }
 }
