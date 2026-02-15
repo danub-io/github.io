@@ -6,21 +6,21 @@
                  },
                  {
                      "name":  "Sobre",
-                     "url":  "/about"
+                     "url":  "/sobre"
                  },
                  {
                      "name":  "Categorias",
-                     "url":  "/categories"
+                     "url":  "/categorias"
                  }
              ],
     "footer":  [
                    {
                        "name":  "Sobre",
-                       "url":  "/about"
+                       "url":  "/sobre"
                    },
                    {
                        "name":  "Categorias",
-                       "url":  "/categories"
+                       "url":  "/categorias"
                    },
                    {
                        "name":  "Tags",
