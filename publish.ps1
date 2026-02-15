@@ -9,10 +9,10 @@ $date = Get-Date -Format "dd MMM yyyy"
 $filePath = "posts/$Filename.html"
 if (!(Test-Path "posts")) { New-Item -ItemType Directory -Path "posts" }
 
-# Salva o arquivo HTML
+# Salva o HTML
 $Content | Out-File -FilePath $filePath -Encoding utf8
 
-# Atualiza o posts.json
+# Atualiza o JSON com segurança
 $jsonPath = "posts.json"
 $newPost = [PSCustomObject]@{
     titulo    = $Title
@@ -21,16 +21,28 @@ $newPost = [PSCustomObject]@{
     categoria = $Category
     data      = $date
 }
+
 if (Test-Path $jsonPath) {
-    $currentJson = Get-Content $jsonPath | ConvertFrom-Json
-    $updatedJson = @($newPost) + $currentJson
+    $rawJson = Get-Content $jsonPath -Raw
+    if ([string]::IsNullOrWhiteSpace($rawJson) -or $rawJson -eq "[]") {
+        $updatedJson = @($newPost)
+    } else {
+        try {
+            $currentJson = $rawJson | ConvertFrom-Json
+            $updatedJson = @($newPost) + $currentJson
+        } catch {
+            $updatedJson = @($newPost)
+        }
+    }
 } else {
     $updatedJson = @($newPost)
 }
+
 $updatedJson | ConvertTo-Json -Depth 10 | Out-File $jsonPath -Encoding utf8
 
-# Envia para o GitHub
+# Sincronia total com o seu repositório danub-io/github.io
 git add .
 git commit -m "Post: $Title"
-git push
-Write-Host "🚀 PUBLICAÇÃO CONCLUÍDA: $Title já está no ar!" -ForegroundColor Cyan
+git push origin main
+
+Write-Host "🚀 TUDO PRONTO! O post '$Title' já está disponível no GospelReads." -ForegroundColor Cyan
