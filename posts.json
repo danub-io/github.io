@@ -1,1 +1,16 @@
-﻿[]
+﻿[
+  {
+    "titulo": "O Poder Transformador da Gratidão Diária",
+    "resumo": "Descubra como o cultivo de um coração grato pode renovar sua perspectiva espiritual mesmo em tempos de crise.",
+    "url": "posts/poder-da-gratidao.html",
+    "categoria": "Vida Cristã",
+    "data": "15 Fev 2026"
+  },
+  {
+    "titulo": "A Importância da Leitura Diária",
+    "resumo": "Um guia prático sobre como a leitura diária pode fortalecer sua mente e seu espírito.",
+    "url": "posts/primeiro-post-teste.html",
+    "categoria": "Reflexão",
+    "data": "15 Fev 2026"
+  }
+]
