@@ -19,6 +19,15 @@
   @apply p-3 text-lg font-semibold text-dark transition hover:text-primary md:p-4;
 }
 
+/* Ajustes de UX para Menu Aberto (Mobile) */
+#nav-menu .nav-item {
+  @apply my-2 md:my-0 w-full text-center;
+}
+
+#nav-menu .nav-link {
+  @apply text-2xl font-bold tracking-tight py-4 block md:text-lg md:font-semibold;
+}
+
 .nav-dropdown-list {
   @apply z-10 rounded-lg bg-white px-6 py-3 shadow transition;
 }

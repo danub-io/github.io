@@ -1,4 +1,4 @@
-﻿---
+---
 import Logo from "@/components/Logo.astro";
 import menu from "@/config/menu.json";
 import { IoSearch } from "react-icons/io5";
@@ -73,7 +73,20 @@ const { main }: { main: NavigationLink[] } = menu;
                       </a>
                     </li>
                   ))}
-                </ul>
+                  <li class="nav-item md:hidden w-full mt-8 px-4">
+        <form action="/" method="GET" class="relative w-full max-w-sm mx-auto">
+          <input 
+            type="text" 
+            name="q" 
+            placeholder="Buscar no GospelReads..." 
+            class="form-input w-full rounded-full border-border py-3 pl-6 pr-12 focus:border-primary focus:ring-0 text-dark bg-light"
+          />
+          <button type="submit" class="absolute right-4 top-1/2 -translate-y-1/2 text-primary text-xl">
+            <IoSearch />
+          </button>
+        </form>
+      </li>
+    </ul>
               </li>
             ) : (
               <li class="nav-item">
@@ -85,6 +98,19 @@ const { main }: { main: NavigationLink[] } = menu;
           </>
         ))
       }
+      <li class="nav-item md:hidden w-full mt-8 px-4">
+        <form action="/" method="GET" class="relative w-full max-w-sm mx-auto">
+          <input 
+            type="text" 
+            name="q" 
+            placeholder="Buscar no GospelReads..." 
+            class="form-input w-full rounded-full border-border py-3 pl-6 pr-12 focus:border-primary focus:ring-0 text-dark bg-light"
+          />
+          <button type="submit" class="absolute right-4 top-1/2 -translate-y-1/2 text-primary text-xl">
+            <IoSearch />
+          </button>
+        </form>
+      </li>
     </ul>
     <div class="order-1 ml-auto md:order-2 md:ml-0"></div>
   </nav>
