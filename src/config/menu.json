@@ -11,25 +11,6 @@
     {
       "name": "Categorias",
       "url": "/categories"
-    },
-    {
-      "name": "Páginas",
-      "url": "",
-      "hasChildren": true,
-      "children": [
-        {
-          "name": "Autores",
-          "url": "/authors"
-        },
-        {
-          "name": "Tags",
-          "url": "/tags"
-        },
-        {
-          "name": "Elementos",
-          "url": "/elements"
-        }
-      ]
     }
   ],
   "footer": [
@@ -43,8 +24,3 @@
     }
   ]
 }
-
-
-
-
-
