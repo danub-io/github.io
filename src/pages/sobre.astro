@@ -3,15 +3,11 @@ import Base from "@/layouts/Base.astro";
 import { getEntry, render } from "astro:content";
 import { Image } from "astro:assets";
 
-// Busca a entrada na coleção 'about'
 const entry = await getEntry("about", "-index");
-
-// Se a entrada não existir, evita que o build quebre
 if (!entry) {
   return Astro.redirect("/404");
 }
 
-// Nova forma de renderizar conteúdo no Astro
 const { Content } = await render(entry);
 const { title, description, meta_title, image } = entry.data;
 ---
@@ -30,7 +26,7 @@ const { title, description, meta_title, image } = entry.data;
             image && (
               <Image
                 src={image}
-                class="mx-auto mt-10 mb-6 rounded-lg"
+                class="mx-auto mt-16 mb-6 rounded-lg"
                 width={150}
                 height={150}
                 alt={title}
