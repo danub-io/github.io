@@ -23,11 +23,7 @@ const title = humanize(tag || "");
     <div class="container">
       <p class="text-center text-2xl mb-4">Posts com a tag</p>
       <h1 class="h2 mb-16 text-center text-primary">#{title}</h1>
-      {sortedPosts.length > 0 ? (
-        <Posts posts={sortedPosts} fluid={false} />
-      ) : (
-        <p class="text-center">Nenhum post encontrado para esta tag.</p>
-      )}
+      <Posts posts={sortedPosts} fluid={false} />
     </div>
   </div>
 </Base>
