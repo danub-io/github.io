@@ -5,7 +5,7 @@ description: "Sentindo que seu barco vai afundar? Aprenda como manter a fé e en
 date: 2026-02-15
 image: "/images/como-vencer-as-tempestades-da-vida-com-fe.jpg"
 categories: ["Reflexão"]
-author: "dan"
+autor: "dan"
 tags: ["fé em tempos difíceis", "vencer o medo", "confiança em Deus"]
 draft: false
 ---
