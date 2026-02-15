@@ -1,34 +1,25 @@
 ﻿{
-    "site":  {
-                 "title":  "Bookworm Light Astro | Blog Template",
-                 "base_url":  "https://gospelreads.com",
-                 "base_path":  "/",
-                 "trailing_slash":  false,
-                 "favicon":  "/favicon.svg",
-                 "logo":  "/images/logo.png",
-                 "logo_width":  "200",
-                 "logo_height":  "34",
-                 "logo_text":  "Bookworm Light"
-             },
-    "settings":  {
-                     "pagination":  5
-                 },
-    "metadata":  {
-                     "meta_author":  "Themefisher",
-                     "meta_image":  "/images/og-image.png",
-                     "meta_description":  "Bookworm Light Astro Blog Template"
-                 },
-    "google_tag_manager":  {
-                               "enable":  false,
-                               "gtm_id":  "GTM-XXXXXX"
-                           },
-    "params":  {
-                   "contact_form_action":  "#",
-                   "copyright":  "Copyright © 2026 GospelReads. Todos os direitos reservados."
-               },
-    "contactinfo":  {
-                        "address":  "355 S Grand Ave \u003cbr/\u003e Los Angeles, CA 90071",
-                        "email":  "info@bookworm.org",
-                        "phone":  "+800 567 1234"
-                    }
+    "site": {
+        "title": "GospelReads | Fé Cristã, Saúde Mental e Teologia Prática",
+        "base_url": "https://gospelreads.com",
+        "base_path": "/",
+        "trailing_slash": false,
+        "favicon": "/favicon.svg",
+        "logo": "/images/logo.png",
+        "logo_width": "200",
+        "logo_height": "34",
+        "logo_text": "GospelReads"
+    },
+    "settings": {
+        "pagination": 5
+    },
+    "metadata": {
+        "meta_author": "Dan Coelho",
+        "meta_image": "/images/og-image.png",
+        "meta_description": "Explorações profundas sobre o amor a Deus e ao próximo, saúde mental sob a ótica bíblica e o impacto do Evangelho na vida prática. Por Dan Coelho."
+    },
+    "params": {
+        "contact_form_action": "#",
+        "copyright": "Copyright © 2026 GospelReads - Dan Coelho. Todos os direitos reservados."
+    }
 }

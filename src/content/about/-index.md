@@ -1,25 +1,23 @@
 ﻿---
-title: "I’m John Doe, A content writer based in LDN, Currently at Bookworm"
-meta_title: "Sobre"
+title: "Sobre o GospelReads e Dan Coelho"
+meta_title: "Dan Coelho | Autor de O Principal Mandamento"
 image: "/images/author.png"
 draft: false
 
 what_i_do:
-  title: "O que eu faço"
+  title: "Missão do Ministério"
   items:
-  - title: "Content Writing"
-    description: "Purus eget ipsum elementum venenatis, quis rutrum mi semper nonpurus eget ipsum elementum venenatis."
+  - title: "Literatura Edificante"
+    description: "Criação de obras como 'O Principal Mandamento', focadas no cerne da mensagem de Jesus."
   
-  - title: "Photography"
-    description: "Aenean maximus urna magna elementum, quis rutrum mi semper non purus eget ipsum venenatis."
+  - title: "Saúde Mental & Fé"
+    description: "Diálogo honesto entre a espiritualidade cristã e a saúde emocional (Projeto Modelo)."
   
-  - title: "Web Research"
-    description: "Aenean maximus urna magna elementum venenatis, quis semper non purus eget ipsum venenatis."
+  - title: "Teologia Prática"
+    description: "Conteúdo focado na aplicação real do Evangelho no dia a dia, além das aparências religiosas."
 
 ---
 
-A content writer with over 12 years experience working across brand identity, publishing and digital products. Maecenas sit amet purus eget ipsum elementum venenatis. Aenean maximus urna magna elementum venenatis quis non purus.
+Bem-vindo ao GospelReads. Este espaço nasceu do desejo de obedecer ao chamado divino de compartilhar as verdades essenciais da fé cristã. Sou Dan Coelho, autor apaixonado pela Palavra de Deus, dedicado a encorajar cada pessoa a viver uma fé autêntica e transformadora.
 
-Purus eget ipsum elementum venenatis. Aenean maximus urna magna elementum venenatis, quis rutrum mi semper non purus eget ipsum elementum venenatis, aenean maximus urna magna elementum.
-
-
+Aqui, você encontrará reflexões que confrontam o abismo entre o ideal bíblico e a realidade, buscando sempre o caminho do amor sacrificial e da renovação da mente através do Espírito Santo.
