@@ -1,11 +1,18 @@
 ﻿---
 import Base from "@/layouts/Base.astro";
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 import { Image } from "astro:assets";
 
-// getEntry substitui o getEntryBySlug descontinuado
+// Busca a entrada na coleção 'about'
 const entry = await getEntry("about", "-index");
-const { Content } = await entry.render();
+
+// Se a entrada não existir, evita que o build quebre
+if (!entry) {
+  return Astro.redirect("/404");
+}
+
+// Nova forma de renderizar conteúdo no Astro
+const { Content } = await render(entry);
 const { title, description, meta_title, image } = entry.data;
 ---
 
@@ -27,6 +34,7 @@ const { title, description, meta_title, image } = entry.data;
                 width={150}
                 height={150}
                 alt={title}
+                format="svg"
               />
             )
           }
