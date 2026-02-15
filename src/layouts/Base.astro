@@ -1,10 +1,11 @@
----
+﻿---
 import TwSizeIndicator from "@/components/TwSizeIndicator.astro";
 import config from "@/config/config.json";
 import theme from "@/config/theme.json";
 import { plainify } from "@/lib/utils/textConverter";
 import Footer from "@/partials/Footer.astro";
-import Header from "@/partials/Header.astro";`nimport BackToTop from "@/components/BackToTop.astro";
+import Header from "@/partials/Header.astro";
+import BackToTop from "@/components/BackToTop.astro";
 import "@/styles/main.css";
 import {
   GoogleTagmanager,
@@ -13,9 +14,7 @@ import {
 import { AstroFont } from "astro-font";
 import { ClientRouter } from "astro:transitions";
 
-// font families
 const pf = theme.fonts.font_family.primary;
-
 let fontPrimary;
 if (theme.fonts.font_family.primary) {
   fontPrimary = theme.fonts.font_family.primary
@@ -23,7 +22,6 @@ if (theme.fonts.font_family.primary) {
     .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;]+/gi, "");
 }
 
-// types for frontmatters
 export interface Props {
   title?: string;
   meta_title?: string;
@@ -31,20 +29,16 @@ export interface Props {
   image?: string;
   noindex?: boolean;
   canonical?: string;
-  author?: string; // Propriedade adicionada
-  date?: any;      // Propriedade adicionada para posts
+  author?: string;
+  date?: any;
 }
 
-// distructure frontmatters
 const { title, meta_title, description, image, noindex, canonical, author, date } = Astro.props;
-
-// DefiniÃ§Ã£o segura das variÃ¡veis para evitar erro de "not defined"
 const meta_author = author || config.metadata.meta_author;
 const meta_description = plainify(description ? description : config.metadata.meta_description);
 const og_image = image || config.metadata.meta_image;
 const site_url = config.site.base_url;
 
-// Estrutura JSON-LD (Dados Estruturados)
 const schema = {
   "@context": "https://schema.org",
   "@type": date ? "BlogPosting" : "WebPage",
@@ -54,7 +48,7 @@ const schema = {
   "author": {
     "@type": "Person",
     "name": meta_author,
-    "url": `${site_url}/about`
+    "url": `${site_url}/sobre`
   },
   "publisher": {
     "@type": "Organization",
@@ -75,25 +69,12 @@ if (date) {
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    {
-      config.google_tag_manager.enable && (
-        <GoogleTagmanager id={config.google_tag_manager.gtm_id} />
-      )
-    }
-
+    {config.google_tag_manager.enable && <GoogleTagmanager id={config.google_tag_manager.gtm_id} />}
     <link rel="shortcut icon" href={config.site.favicon} />
     <meta name="theme-name" content="bookworm-light-astro" />
     <meta name="msapplication-TileColor" content="#000000" />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: light)"
-      content="#fff"
-    />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: dark)"
-      content="#000"
-    />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
     <meta name="generator" content={Astro.generator} />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -111,66 +92,29 @@ if (date) {
       ]}
     />
 
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=5"
-    />
-
-    <title>
-      {plainify(meta_title ? meta_title : title ? title : config.site.title)}
-    </title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <title>{plainify(meta_title ? meta_title : title ? title : config.site.title)}</title>
     {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
-
     {noindex && <meta name="robots" content="noindex,nofollow" />}
-
     <meta name="description" content={meta_description} />
-
     <ClientRouter />
-
     <meta name="author" content={meta_author} />
-
-    <meta
-      property="og:title"
-      content={plainify(meta_title ? meta_title : title ? title : config.site.title)}
-    />
-
+    <meta property="og:title" content={plainify(meta_title ? meta_title : title ? title : config.site.title)} />
     <meta property="og:description" content={meta_description} />
     <meta property="og:type" content={date ? "article" : "website"} />
     <meta property="og:url" content={`${site_url}${Astro.url.pathname}`} />
-
-    <meta
-      name="twitter:title"
-      content={plainify(meta_title ? meta_title : title ? title : config.site.title)}
-    />
-
+    <meta name="twitter:title" content={plainify(meta_title ? meta_title : title ? title : config.site.title)} />
     <meta name="twitter:description" content={meta_description} />
-
-    <meta
-      property="og:image"
-      content={og_image.startsWith('http') ? og_image : `${site_url}${og_image}`}
-    />
-
-    <meta
-      name="twitter:image"
-      content={og_image.startsWith('http') ? og_image : `${site_url}${og_image}`}
-    />
+    <meta property="og:image" content={og_image.startsWith('http') ? og_image : `${site_url}${og_image}`} />
+    <meta name="twitter:image" content={og_image.startsWith('http') ? og_image : `${site_url}${og_image}`} />
     <meta name="twitter:card" content="summary_large_image" />
-
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; default-src 'self' https:; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https:; script-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; frame-src 'self' https://www.youtube.com https://youtube.com;" />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   </head>
   <body>
-    {/* google tag manager noscript */}
-    {
-      config.google_tag_manager.enable && (
-        <GoogleTagmanagerNoscript id={config.google_tag_manager.gtm_id} />
-      )
-    }
-
+    {config.google_tag_manager.enable && <GoogleTagmanagerNoscript id={config.google_tag_manager.gtm_id} />}
     <TwSizeIndicator />
-    <Header />`n    <BackToTop />
+    <Header />
+    <BackToTop />
     <main id="main-content" class="min-h-[60vh]">
       <slot />
     </main>
