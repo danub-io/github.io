@@ -1,6 +1,6 @@
 ﻿---
 title: Dan
-image: /images/autor.webp
+image: /favicon.svg
 description: "Criador do GospelReads, dedicado a explorar a intersecção entre a fé cristã e a saúde mental."
 social:
   facebook: "https://facebook.com"
