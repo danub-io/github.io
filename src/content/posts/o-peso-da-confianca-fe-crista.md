@@ -12,3 +12,4 @@ draft: false
 ---
 
 A confiança em Deus não é uma emoção que flutua, mas uma decisão baseada na Sua fidelidade.
+

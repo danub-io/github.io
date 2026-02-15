@@ -1,6 +1,6 @@
----
-title: "Dan Coelho"
-image: "/images/autor.webp"
+﻿---
+title: Dan
+image: /images/autor.webp
 description: "Criador do GospelReads, dedicado a explorar a intersecção entre a fé cristã e a saúde mental."
 social:
   facebook: "https://facebook.com"

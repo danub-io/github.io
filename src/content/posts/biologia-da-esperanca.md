@@ -12,3 +12,4 @@ draft: false
 ---
 
 A ciência moderna tem vindo a descobrir o que a Bíblia afirma há milênios: não somos prisioneiros da nossa estrutura mental inicial.
+
