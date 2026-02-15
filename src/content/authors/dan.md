@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dan
 image: /favicon.svg
 description: "Criador do GospelReads, dedicado a explorar a intersecção entre a fé cristã e a saúde mental."
