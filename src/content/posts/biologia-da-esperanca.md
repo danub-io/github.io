@@ -4,14 +4,12 @@ meta_title: "Neuroplasticidade e Fé Cristã: A Renovação da Mente | GospelRea
 description: "Descubra como a neuroplasticidade comprova a promessa bíblica da renovação da mente. Aprenda a transformar a sua saúde mental através da fé em Cristo."
 date: 2026-02-15
 image: "/images/posts/01.jpg"
-categories: ["Saúde Mental e Fé", "Teologia Prática"]
+categories: ["Saúde Mental"]
 author: "Dan Coelho"
-tags: ["neuroplasticidade", "ansiedade", "santificação", "esperança"]
+tags: ["neuroplasticidade", "ansiedade", "santificação"]
 draft: false
 ---
 
-A ciência moderna tem vindo a descobrir o que a Bíblia afirma há milénios: não somos prisioneiros da nossa estrutura mental inicial. Existe uma margem de manobra divinamente instalada na arquitetura da sua mente.
+A ciência moderna tem vindo a descobrir o que a Bíblia afirma há milênios: não somos prisioneiros da nossa estrutura mental inicial. Existe uma margem de manobra divinamente instalada na arquitetura da sua mente.
 
 O processo de santificação é, em grande parte, o processo de permitir que o caráter de Cristo seja mapeado nos nossos circuitos neurais.
-
-> "O cérebro que você tem hoje não precisa ser o cérebro com o qual você terminará o ano."
