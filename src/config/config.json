@@ -1,39 +1,33 @@
 {
-    "site":  {
-                 "title":  "GospelReads | Fu{00e9} Cristu{00e3}, Sau{00fa}de Mental e Teologia Pru{00e1}tica",
-                 "base_url":  "https://gospelreads.com",
-                 "base_path":  "/",
-                 "trailing_slash":  false,
-                 "favicon":  "/favicon.svg",
-                 "logo":  "/images/logo.png",
-                 "logo_width":  "200",
-                 "logo_height":  "34",
-                 "logo_text":  "GospelReads"
-             },
-    "settings":  {
-                     "pagination":  5,
-                     "summary_length":  200,
-                     "search":  {
-                                    "enable":  true,
-                                    "placeholder":  "Buscar reflexu{00f5}es..."
-                                }
-                 },
-    "metadata":  {
-                     "meta_author":  "Dan Coelho",
-                     "meta_image":  "/images/og-image.png",
-                     "meta_description":  "GospelReads por Dan Coelho: Reflex??es profundas sobre f?? crist??, sa??de mental b??blica e o impacto do Evangelho. Viva o Principal Mandamento na pr??tica."
-                 },
-    "google_tag_manager":  {
-                               "enable":  false,
-                               "gtm_id":  "GTM-XXXXXX"
-                           },
-    "params":  {
-                   "contact_form_action":  "#",
-                   "copyright":  "Copyright u{00a9} 2026 GospelReads. Todos os direitos reservados."
-               },
-    "contactinfo":  {
-                        "address":  "Brasil",
-                        "email":  "contato@gospelreads.com",
-                        "phone":  ""
-                    }
+  "site": {
+    "title": "GospelReads | Fé Cristã, Saúde Mental e Teologia Prática",
+    "base_url": "https://gospelreads.com",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/favicon.svg",
+    "logo": "/images/logo.png",
+    "logo_width": "200",
+    "logo_height": "34",
+    "logo_text": "GospelReads"
+  },
+  "settings": {
+    "pagination": 5,
+    "summary_length": 200,
+    "search": {
+      "enable": true,
+      "placeholder": "Buscar reflexões..."
+    }
+  },
+  "metadata": {
+    "meta_author": "Dan Coelho",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "GospelReads por Dan Coelho: Reflexões profundas sobre fé cristã, saúde mental bíblica e o impacto do Evangelho. Viva o Principal Mandamento na prática."
+  },
+  "params": {
+    "copyright": "Copyright © 2026 GospelReads. Todos os direitos reservados."
+  },
+  "contactinfo": {
+    "address": "Brasil",
+    "email": "contato@gospelreads.com"
+  }
 }

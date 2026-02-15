@@ -1,13 +1,15 @@
 ---
-title: "A Biologia da Esperanu{00e7}a: A Neuroplasticidade u{00c0} Luz da Fu{00e9}"
-meta_title: "Neuroplasticidade e Renovau{00e7}u{00e3}o da Mente Bu{00ed}blica | GospelReads"
-description: "Descubra como a neuroplasticidade comprova a promessa bu{00ed}blica da renovau{00e7}u{00e3}o da mente."
+title: "A Biologia da Esperança: A Neuroplasticidade à Luz da Fé"
+meta_title: "Neuroplasticidade e Fé Cristã: A Renovação da Mente | GospelReads"
+description: "Descubra como a neuroplasticidade comprova a promessa bíblica da renovação da mente. Aprenda a transformar a sua saúde mental através da fé em Cristo."
 date: 2026-02-15
 image: "/images/posts/01.jpg"
-categories: ["Sau{00fa}de Mental"]
+categories: ["Saúde Mental"]
 author: "Dan Coelho"
 tags: ["neuroplasticidade", "ansiedade", "Mente Renovada"]
 draft: false
 ---
 
-A ciu{00ea}ncia moderna tem vindo a descobrir o que a Bu{00ed}blia afirma hu{00e1} milu{00ea}nios: nu{00e3}o somos prisioneiros da nossa estrutura mental inicial.
+A ciência moderna tem vindo a descobrir o que a Bíblia afirma há milênios: não somos prisioneiros da nossa estrutura mental inicial. Existe uma margem de manobra divinamente instalada na arquitetura da sua mente.
+
+O processo de santificação é, em grande parte, o processo de permitir que o caráter de Cristo seja mapeado nos nossos circuitos neurais.
