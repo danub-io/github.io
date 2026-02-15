@@ -1,7 +1,7 @@
 ﻿{
   "main": [
     {
-      "name": "Home",
+      "name": "Início",
       "url": "/"
     },
     {
@@ -13,12 +13,12 @@
       "url": "/categories"
     },
     {
-      "name": "Pages",
+      "name": "Páginas",
       "url": "",
       "hasChildren": true,
       "children": [
         {
-          "name": "Authors",
+          "name": "Autores",
           "url": "/authors"
         },
         {
@@ -26,7 +26,7 @@
           "url": "/tags"
         },
         {
-          "name": "Elements",
+          "name": "Elementos",
           "url": "/elements"
         }
       ]
@@ -43,3 +43,7 @@
     }
   ]
 }
+
+
+
+

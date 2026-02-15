@@ -1,4 +1,4 @@
----
+﻿---
 import Share from "@/components/Share.astro";
 import SimilarPosts from "@/components/SimilarPosts.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
@@ -127,9 +127,10 @@ const { title, description, authors, categories, image, date, tags } =
   similarPosts.length > 0 && (
     <section class="section pt-0">
       <div class="container">
-        <h2 class="mb-8 text-center h3">Similar Posts</h2>
+        <h2 class="mb-8 text-center h3">Posts Semelhantes</h2>
         <SimilarPosts posts={similarPosts.slice(0, 3)} />
       </div>
     </section>
   )
 }
+
