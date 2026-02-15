@@ -1,4 +1,4 @@
----
+﻿---
 import Logo from "@/components/Logo.astro";
 import menu from "@/config/menu.json";
 import { IoSearch } from "react-icons/io5";
@@ -113,7 +113,16 @@ const { main }: { main: NavigationLink[] } = menu;
       </li>
     </ul>
     <div class="order-1 ml-auto md:order-2 md:ml-0"></div>
-  </nav>
+      <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+      <button
+        class="search-icon p-2 text-dark hover:text-[#0077B5] transition hidden md:inline-block"
+        aria-label="search"
+        data-search-trigger
+      >
+        <IoSearch />
+      </button>
+    </div> 
+ </nav>
 </header>
 
 
