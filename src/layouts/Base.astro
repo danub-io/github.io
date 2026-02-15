@@ -164,7 +164,43 @@ const { title, meta_title, description, image, noindex, canonical } =
       }`}
     />
     <meta name="twitter:card" content="summary_large_image" />
-  </head>
+    <script type="application/ld+json" is:inline define:vars={{ 
+    title, 
+    description, 
+    image, 
+    author, 
+    date,
+    site_title: "GospelReads",
+    base_url: "https://gospelreads.com"
+  }}>
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": date ? "BlogPosting" : "WebPage",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": base_url
+      },
+      "headline": title,
+      "description": description,
+      "image": image ? (image.startsWith('http') ? image : base_url + image) : base_url + "/images/og-image.png",
+      "author": {
+        "@type": "Person",
+        "name": author || "Dan Coelho",
+        "url": base_url + "/about"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GospelReads",
+        "logo": {
+          "@type": "ImageObject",
+          "url": base_url + "/images/logo.png"
+        }
+      },
+      "datePublished": date ? new Date(date).toISOString() : new Date().toISOString()
+    };
+    document.head.insertAdjacentHTML('beforeend', `<script type="application/ld+json">${JSON.stringify(schema)}<\/script>`);
+  </script>
+</head>
   <body>
     {/* google tag manager noscript */}
     {
