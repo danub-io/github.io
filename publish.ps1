@@ -7,7 +7,12 @@
 )
 $date = Get-Date -Format "dd MMM yyyy"
 $filePath = "posts/$Filename.html"
+if (!(Test-Path "posts")) { New-Item -ItemType Directory -Path "posts" }
+
+# Salva o arquivo HTML
 $Content | Out-File -FilePath $filePath -Encoding utf8
+
+# Atualiza o posts.json
 $jsonPath = "posts.json"
 $newPost = [PSCustomObject]@{
     titulo    = $Title
@@ -23,7 +28,9 @@ if (Test-Path $jsonPath) {
     $updatedJson = @($newPost)
 }
 $updatedJson | ConvertTo-Json -Depth 10 | Out-File $jsonPath -Encoding utf8
+
+# Envia para o GitHub
 git add .
-git commit -m "Novo post: $Title"
+git commit -m "Post: $Title"
 git push
-Write-Host "✅ Sucesso! Post '$Title' publicado." -ForegroundColor Green
+Write-Host "🚀 PUBLICAÇÃO CONCLUÍDA: $Title já está no ar!" -ForegroundColor Cyan
