@@ -38,7 +38,7 @@ export interface Props {
 // distructure frontmatters
 const { title, meta_title, description, image, noindex, canonical, author, date } = Astro.props;
 
-// Definição segura das variáveis para evitar erro de "not defined"
+// DefiniÃ§Ã£o segura das variÃ¡veis para evitar erro de "not defined"
 const meta_author = author || config.metadata.meta_author;
 const meta_description = plainify(description ? description : config.metadata.meta_description);
 const og_image = image || config.metadata.meta_image;
@@ -158,6 +158,8 @@ if (date) {
     <meta name="twitter:card" content="summary_large_image" />
 
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; default-src 'self' https:; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https:; script-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; frame-src 'self' https://www.youtube.com https://youtube.com;" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   </head>
   <body>
     {/* google tag manager noscript */}
