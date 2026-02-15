@@ -11,6 +11,7 @@ export async function getStaticPaths() {
   const categories = await getTaxonomy("posts", "categories");
   return categories.map((category) => ({ params: { categoria: category } }));
 }
+
 const { categoria } = Astro.params;
 const posts = await getSinglePage("posts");
 const filterByCategory = taxonomyFilter(posts, "categories", categoria);
@@ -20,6 +21,7 @@ const title = humanize(categoria || "");
 <Base title={title}>
   <div class="section">
     <div class="container">
+      <p class="text-center text-2xl mb-4">Exibindo posts de</p>
       <h1 class="h2 mb-16 text-center text-primary">{title}</h1>
       <Posts posts={sortedPosts} fluid={false} />
     </div>
