@@ -11,3 +11,8 @@ draft: false
 ---
 
 A confiança em Deus não é uma emoção que flutua conforme as circunstâncias, mas uma decisão baseada na Sua fidelidade. 
+
+## A Base da Fé
+Quando olhamos para as Escrituras, vemos que a fé é descrita como a certeza de coisas que se esperam. 
+
+> "Ora, a fé é a certeza de coisas que se esperam, a convicção de fatos que se não veem." (Hebreus 11:1)
