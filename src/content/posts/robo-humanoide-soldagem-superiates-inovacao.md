@@ -2,7 +2,7 @@
 title: "A Revolução nos Mares: O Robô Humanoide que está Redefinindo a Construção de Superiates"
 meta_title: "A Revolução nos Mares: O Robô Humanoide que está Redefinindo a Construção de Superiates"
 description: "Descubra como a engenharia italiana criou um robô humanoide capaz de soldar superiates de 130 metros. Inovação, precisão e o futuro da construção naval."
-date: 2026-02-15T20:49:07
+date: 2026-02-15T20:50:58
 image: "/images/robo-humanoide-soldagem-superiates-inovacao.jpg"
 categories: ["Reflexão"]
 authors: ["Dan"]
