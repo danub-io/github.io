@@ -1,4 +1,4 @@
-{
+﻿{
   "main": [
     {
       "name": "Home",
@@ -9,8 +9,8 @@
       "url": "/about"
     },
     {
-      "name": "Contact",
-      "url": "/contact"
+      "name": "Categorias",
+      "url": "/categories"
     },
     {
       "name": "Pages",
@@ -20,10 +20,6 @@
         {
           "name": "Authors",
           "url": "/authors"
-        },
-        {
-          "name": "Categories",
-          "url": "/categories"
         },
         {
           "name": "Tags",
@@ -46,12 +42,8 @@
       "url": "/about"
     },
     {
-      "name": "Contact",
-      "url": "/contact"
-    },
-    {
-      "name": "Elements",
-      "url": "/elements"
+      "name": "Categorias",
+      "url": "/categories"
     },
     {
       "name": "Privacy Policy",
