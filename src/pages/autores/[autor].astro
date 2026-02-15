@@ -1,0 +1,27 @@
+﻿---
+import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import AuthorSingle from "@/partials/AuthorSingle.astro";
+
+export async function getStaticPaths() {
+  const authors = await getSinglePage("authors");
+  const paths = authors.map((author) => ({
+    params: {
+      autor: author.id,
+    },
+    props: { author },
+  }));
+  return paths;
+}
+
+const { author } = Astro.props;
+const { title, description, image } = author.data;
+---
+
+<Base
+  title={title}
+  description={description}
+  image={image}
+>
+  <AuthorSingle author={author} />
+</Base>
