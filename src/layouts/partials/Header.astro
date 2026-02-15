@@ -1,7 +1,7 @@
 ﻿---
 import Logo from "@/components/Logo.astro";
 import menu from "@/config/menu.json";
-import { IoSearch } from "react-icons/io5";
+import { IoSearch, IoClose } from "react-icons/io5";
 
 export interface ChildNavigationLink {
   name: string;
@@ -18,13 +18,12 @@ export interface NavigationLink {
 const { main }: { main: NavigationLink[] } = menu;
 ---
 
-<header class="header pt-6">
-  <nav class="navbar container">
-    <!-- logo -->
+<header class="header pt-6 relative">
+  <nav class="navbar container relative">
     <div class="order-0">
       <Logo />
     </div>
-    <!-- navbar toggler -->
+
     <input id="nav-toggle" type="checkbox" class="hidden" />
     <label
       id="show-button"
@@ -48,8 +47,6 @@ const { main }: { main: NavigationLink[] } = menu;
           transform="rotate(45 10 10)"></polygon>
       </svg>
     </label>
-    <!-- /navbar toggler -->
-
     <ul
       id="nav-menu"
       class="navbar-nav order-3 hidden w-full md:order-1 md:flex md:w-auto"
@@ -73,20 +70,7 @@ const { main }: { main: NavigationLink[] } = menu;
                       </a>
                     </li>
                   ))}
-                  <li class="nav-item md:hidden w-full mt-8 px-4">
-        <form action="/" method="GET" class="relative w-full max-w-sm mx-auto">
-          <input 
-            type="text" 
-            name="q" 
-            placeholder="Buscar no GospelReads..." 
-            class="form-input w-full rounded-full border-border py-3 pl-6 pr-12 focus:border-primary focus:ring-0 text-dark bg-light"
-          />
-          <button type="submit" class="absolute right-4 top-1/2 -translate-y-1/2 text-primary text-xl">
-            <IoSearch />
-          </button>
-        </form>
-      </li>
-    </ul>
+                </ul>
               </li>
             ) : (
               <li class="nav-item">
@@ -98,6 +82,7 @@ const { main }: { main: NavigationLink[] } = menu;
           </>
         ))
       }
+      
       <li class="nav-item md:hidden w-full mt-8 px-4">
         <form action="/" method="GET" class="relative w-full max-w-sm mx-auto">
           <input 
@@ -112,17 +97,77 @@ const { main }: { main: NavigationLink[] } = menu;
         </form>
       </li>
     </ul>
-    <div class="order-1 ml-auto md:order-2 md:ml-0"></div>
-      <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+
+    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
       <button
-        class="search-icon p-2 text-dark hover:text-[#0077B5] transition hidden md:inline-block"
+        class="search-icon p-2 text-dark hover:text-[#0077B5] transition hidden md:inline-block cursor-pointer"
         aria-label="search"
         data-search-trigger
       >
         <IoSearch />
       </button>
-    </div> 
- </nav>
+    </div>
+
+    <div class="search-modal" id="search-modal">
+      <button
+        class="search-close z-50 absolute right-4 top-4 text-3xl text-dark cursor-pointer hover:text-primary transition"
+        id="search-close"
+        aria-label="close search"
+      >
+        <IoClose />
+      </button>
+      
+      <div class="container h-full flex items-center justify-center">
+        <form action="/" method="GET" class="relative w-full max-w-3xl">
+          <input
+            class="form-input w-full border-0 border-b-2 border-border bg-transparent pb-4 text-3xl text-dark placeholder:text-gray-400 focus:border-primary focus:ring-0 text-center"
+            placeholder="O que você procura hoje?"
+            type="text"
+            name="q"
+            id="search-input-desktop"
+            autocomplete="off"
+          />
+        </form>
+      </div>
+    </div>
+
+  </nav>
 </header>
 
+<script>
+  // Script compatível com View Transitions (Astro)
+  // Garante que funcione mesmo navegando entre páginas sem recarregar
+  document.addEventListener('astro:page-load', () => {
+    const searchModal = document.getElementById('search-modal');
+    const searchTriggers = document.querySelectorAll('[data-search-trigger]');
+    const searchClose = document.getElementById('search-close');
+    const searchInput = document.getElementById('search-input-desktop');
 
+    // Abrir Modal
+    searchTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        searchModal?.classList.add('open');
+        setTimeout(() => searchInput?.focus(), 100); // Foca no campo automaticamente
+      });
+    });
+
+    // Fechar Modal (Botão X)
+    searchClose?.addEventListener('click', () => {
+      searchModal?.classList.remove('open');
+    });
+
+    // Fechar com ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        searchModal?.classList.remove('open');
+      }
+    });
+    
+    // Fechar clicando fora (Opcional, mas útil)
+    searchModal?.addEventListener('click', (e) => {
+      if (e.target === searchModal) {
+        searchModal.classList.remove('open');
+      }
+    });
+  });
+</script>
