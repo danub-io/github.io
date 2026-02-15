@@ -1,5 +1,5 @@
 ﻿---
-title: Admin
+title: Dan
 image: /images/author.png
 about: Criador e editor do conteúdo.
 social:
