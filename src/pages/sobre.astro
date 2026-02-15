@@ -18,7 +18,7 @@ const { title, description, meta_title, image } = entry.data;
   description={description}
   image={image}
 >
-  <section class="section-sm">
+  <section class="section-sm py-20">
     <div class="container">
       <div class="row justify-center">
         <div class="text-center md:col-10 lg:col-7">
@@ -26,7 +26,8 @@ const { title, description, meta_title, image } = entry.data;
             image && (
               <Image
                 src={image}
-                class="mx-auto mt-16 mb-6 rounded-lg"
+                /* mt-16 removido para zerar a distância do topo da imagem */
+                class="mx-auto mb-10 rounded-lg"
                 width={150}
                 height={150}
                 alt={title}
