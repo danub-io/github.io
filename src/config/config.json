@@ -1,4 +1,4 @@
-{
+﻿{
   "site": {
     "title": "GospelReads | Fé Cristã, Saúde Mental e Teologia Prática",
     "base_url": "https://gospelreads.com",
@@ -24,8 +24,8 @@
     "meta_description": "GospelReads por Dan Coelho: Reflexões profundas sobre fé cristã, saúde mental bíblica e o impacto do Evangelho."
   },
   "google_tag_manager": {
-    "enable": false,
-    "gtm_id": "GTM-XXXXXX"
+    "enable": true,
+    "gtm_id": "GTM-PJ33ZTZW"
   },
   "params": {
     "contact_form_action": "#",
