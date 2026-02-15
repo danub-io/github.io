@@ -1,0 +1,24 @@
+﻿---
+import Base from "@/layouts/Base.astro";
+import SearchBar from "@/helpers/SearchBar";
+import { getSinglePage } from "@/lib/contentParser.astro";
+
+// Recuperar todos os posts para alimentar o motor de busca
+const posts = await getSinglePage("posts");
+
+// Preparar a lista no formato que o SearchBar.tsx espera
+const searchList = posts.map((post) => ({
+  slug: post.id,
+  data: post.data,
+  content: post.body,
+}));
+---
+
+<Base title="Pesquisa">
+  <section class="section">
+    <div class="container">
+      <h1 class="h2 mb-8 text-center">Resultados da Pesquisa</h1>
+      <SearchBar client:load searchList={searchList} />
+    </div>
+  </section>
+</Base>
