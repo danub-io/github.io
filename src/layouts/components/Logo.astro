@@ -1,39 +1,7 @@
+﻿---
 ---
-import { Image } from "astro:assets";
-import config from "@/config/config.json";
-const { src } = Astro.props;
-const {
-  logo,
-  logo_width,
-  logo_height,
-  logo_text,
-  title,
-}: {
-  logo: string;
-  logo_width: any;
-  logo_height: any;
-  logo_text: string;
-  title: string;
-} = config.site;
----
-
-<a href="/" class="navbar-brand block">
-  {
-    src || logo ? (
-      <Image
-        width={logo_width.replace("px", "") * 2}
-        height={logo_height.replace("px", "") * 2}
-        src={src ? src : logo}
-        alt={title}
-        style={{
-          height: logo_height.replace("px", "") + "px",
-          width: logo_width.replace("px", "") + "px",
-        }}
-      />
-    ) : logo_text ? (
-      logo_text
-    ) : (
-      title
-    )
-  }
+<a href="/" class="navbar-brand block no-underline transition duration-300 group">
+  <span class="text-3xl font-extrabold tracking-tight text-[#152035] group-hover:text-[#01AD9F] transition">
+    Gospel<span class="text-[#01AD9F] group-hover:text-[#152035] transition">Reads</span>
+  </span>
 </a>
