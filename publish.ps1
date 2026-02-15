@@ -1,48 +1,16 @@
-﻿param (
-    [Parameter(Mandatory=$true)] [string]$Filename,
-    [Parameter(Mandatory=$true)] [string]$Title,
-    [Parameter(Mandatory=$true)] [string]$Category,
-    [Parameter(Mandatory=$true)] [string]$Summary,
-    [Parameter(Mandatory=$true)] [string]$Content
-)
-$date = Get-Date -Format "dd MMM yyyy"
+﻿param ($Filename, $Title, $Category, $Summary, $Content, $ImageUrl = "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?q=80&w=1000")
+$date = Get-Date -Format "dd MMM, yyyy"
 $filePath = "posts/$Filename.html"
 if (!(Test-Path "posts")) { New-Item -ItemType Directory -Path "posts" }
-
-# Salva o HTML
 $Content | Out-File -FilePath $filePath -Encoding utf8
-
-# Atualiza o JSON com segurança
+$newPost = [PSCustomObject]@{titulo=$Title; resumo=$Summary; url=$filePath; categoria=$Category; data=$date; imagem=$ImageUrl}
 $jsonPath = "posts.json"
-$newPost = [PSCustomObject]@{
-    titulo    = $Title
-    resumo    = $Summary
-    url       = $filePath
-    categoria = $Category
-    data      = $date
-}
-
 if (Test-Path $jsonPath) {
-    $rawJson = Get-Content $jsonPath -Raw
-    if ([string]::IsNullOrWhiteSpace($rawJson) -or $rawJson -eq "[]") {
-        $updatedJson = @($newPost)
-    } else {
-        try {
-            $currentJson = $rawJson | ConvertFrom-Json
-            $updatedJson = @($newPost) + $currentJson
-        } catch {
-            $updatedJson = @($newPost)
-        }
-    }
-} else {
-    $updatedJson = @($newPost)
-}
-
-$updatedJson | ConvertTo-Json -Depth 10 | Out-File $jsonPath -Encoding utf8
-
-# Sincronia total com o seu repositório danub-io/github.io
+    $raw = Get-Content $jsonPath -Raw
+    $updated = if ([string]::IsNullOrWhiteSpace($raw) -or $raw -eq "[]") { @($newPost) } else { @($newPost) + ($raw | ConvertFrom-Json) }
+} else { $updated = @($newPost) }
+$updated | ConvertTo-Json -Depth 10 | Out-File $jsonPath -Encoding utf8
 git add .
-git commit -m "Post: $Title"
+git commit -m "Design Bookworm ativado"
 git push origin main
-
-Write-Host "🚀 TUDO PRONTO! O post '$Title' já está disponível no GospelReads." -ForegroundColor Cyan
+Write-Host "✅ TUDO PRONTO E NO GITHUB!" -ForegroundColor Green
