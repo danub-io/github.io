@@ -5,7 +5,7 @@
       "url": "/"
     },
     {
-      "name": "About",
+      "name": "Sobre",
       "url": "/about"
     },
     {
@@ -34,7 +34,7 @@
   ],
   "footer": [
     {
-      "name": "About",
+      "name": "Sobre",
       "url": "/about"
     },
     {
@@ -43,6 +43,7 @@
     }
   ]
 }
+
 
 
 

@@ -1,11 +1,11 @@
----
+﻿---
 title: "I’m John Doe, A content writer based in LDN, Currently at Bookworm"
-meta_title: "About"
+meta_title: "Sobre"
 image: "/images/author.png"
 draft: false
 
 what_i_do:
-  title: "What I Do"
+  title: "O que eu faço"
   items:
   - title: "Content Writing"
     description: "Purus eget ipsum elementum venenatis, quis rutrum mi semper nonpurus eget ipsum elementum venenatis."
@@ -21,3 +21,5 @@ what_i_do:
 A content writer with over 12 years experience working across brand identity, publishing and digital products. Maecenas sit amet purus eget ipsum elementum venenatis. Aenean maximus urna magna elementum venenatis quis non purus.
 
 Purus eget ipsum elementum venenatis. Aenean maximus urna magna elementum venenatis, quis rutrum mi semper non purus eget ipsum elementum venenatis, aenean maximus urna magna elementum.
+
+
