@@ -28,6 +28,8 @@ const { className, posts, fluid } = Astro.props;
             class="rounded-lg block hover:text-primary overflow-hidden group"
           >
             <Image
+          loading={i === 0 ? "eager" : "lazy"}
+          fetchpriority={i === 0 ? "high" : "auto"}
               class="group-hover:scale-[1.03] transition duration-300 w-full"
               src={post.data.image}
               alt={post.data.title}
@@ -51,6 +53,8 @@ const { className, posts, fluid } = Astro.props;
                 >
                   {author.data.image && (
                     <Image
+          loading={i === 0 ? "eager" : "lazy"}
+          fetchpriority={i === 0 ? "high" : "auto"}
                       src={author.data.image}
                       alt={author.data.title}
                       height={50}
