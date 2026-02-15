@@ -1,49 +1,51 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GospelReads | Blog</title>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GospelReads | Inspiração e Fé</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #01AD9F; --dark: #152035; --text: #747577; }
         body { font-family: 'Mulish', sans-serif; color: var(--text); background: #fff; }
-        .btn-primary { background: var(--primary); color: #fff; padding: 10px 25px; border-radius: 8px; transition: 0.3s; }
-        .nav-link { font-weight: 600; color: var(--dark); transition: 0.2s; }
-        .nav-link:hover { color: var(--primary); }
+        .navbar-brand { font-size: 24px; font-weight: 700; color: var(--dark); text-decoration: none; }
+        .search-input { display: none; }
+        .search-input.active { display: block; }
         #nav-menu.active { display: block !important; }
+        .post-card img { transition: 0.3s; border-radius: 0.75rem; }
+        .post-card:hover img { transform: scale(1.02); }
     </style>
 </head>
 <body>
     <header class="py-6 border-b border-gray-100 bg-white sticky top-0 z-50">
-        <div class="container mx-auto px-4 max-w-[1000px] flex items-center justify-between flex-wrap">
-            <a href="index.html" class="text-2xl font-bold text-[#152035]">Gospel<span class="text-[#01AD9F]">Reads</span></a>
-            
-            <button id="nav-toggle" class="md:hidden text-2xl">☰</button>
-
-            <nav id="nav-menu" class="hidden w-full md:flex md:w-auto mt-4 md:mt-0">
-                <ul class="flex flex-col md:flex-row md:space-x-8 items-center">
-                    <li><a href="index.html" class="nav-link py-2 block">Início</a></li>
-                    <li><input type="text" id="searchInput" placeholder="Pesquisar..." class="border border-gray-200 rounded-lg px-3 py-1 text-sm focus:border-[#01AD9F] outline-none"></li>
-                </ul>
-            </nav>
+        <div class="container mx-auto px-4 max-w-[1000px] flex items-center justify-between">
+            <a href="index.html" class="navbar-brand">Gospel<span class="text-[#01AD9F]">Reads</span></a>
+            <div class="flex items-center space-x-5">
+                <div class="hidden md:block"><a href="index.html" class="font-bold text-[#152035] hover:text-[#01AD9F]">Início</a></div>
+                <div class="relative flex items-center">
+                    <input type="text" id="searchInput" placeholder="Pesquisar..." class="search-input border border-gray-200 rounded-lg px-3 py-1 text-sm outline-none focus:border-[#01AD9F] mr-2">
+                    <button id="searchBtn" class="text-xl text-[#152035] hover:text-[#01AD9F]">🔍</button>
+                </div>
+                <button id="nav-toggle" class="md:hidden text-2xl">☰</button>
+            </div>
         </div>
+        <nav id="nav-menu" class="hidden md:hidden container mx-auto px-4 py-4 border-t border-gray-50">
+            <a href="index.html" class="block py-2 font-bold text-[#152035]">Início</a>
+        </nav>
     </header>
-
     <main class="container mx-auto px-4 max-w-[1000px] py-16">
-        <div id="posts-container" class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div id="posts-container" class="grid grid-cols-1 md:grid-cols-2 gap-12">
             </div>
     </main>
-
-    <footer class="bg-[#152035] py-16 mt-20 text-center text-white/70">
-        <div class="container mx-auto px-4">
-            <p class="text-sm">Copyright © 2026 GospelReads. Inspirado no tema Bookworm.</p>
-        </div>
+    <footer class="bg-[#152035] py-16 mt-20 text-center text-white/60 text-sm">
+        <p>Copyright © 2026 GospelReads. Design fiel ao Bookworm.</p>
     </footer>
-
     <script>
+        // Toggle do Menu Mobile
         document.getElementById('nav-toggle').onclick = () => document.getElementById('nav-menu').classList.toggle('active');
+        
+        // Toggle da Barra de Pesquisa
+        document.getElementById('searchBtn').onclick = () => document.getElementById('searchInput').classList.toggle('active');
 
         async function loadPosts() {
             try {
@@ -54,19 +56,30 @@
                     container.innerHTML = "<p class='col-span-full text-center py-20'>Aguardando novas postagens...</p>";
                     return;
                 }
+                
+                // Renderização fiel ao Bookworm: Primeiro destaque, depois grelha
                 container.innerHTML = posts.map((p, i) => `
-                    <article class="${i === 0 ? 'md:col-span-2' : ''} group">
-                        <a href="${p.url}"><img src="${p.imagem}" class="w-full ${i === 0 ? 'h-96' : 'h-64'} object-cover rounded-xl mb-6 hover:scale-[1.02] transition duration-300"></a>
+                    <article class="post-card ${i === 0 ? 'md:col-span-2' : ''} group">
+                        <a href="${p.url}"><img src="${p.imagem}" class="w-full ${i === 0 ? 'h-[450px]' : 'h-64'} object-cover mb-6 shadow-sm"></a>
                         <div class="flex items-center space-x-3 mb-3 text-xs font-bold uppercase tracking-widest text-[#01AD9F]">
                             <span>${p.categoria}</span> <span class="text-gray-300">•</span> <span class="text-gray-400">${p.data}</span>
                         </div>
-                        <h2 class="${i === 0 ? 'text-3xl' : 'text-xl'} font-bold mb-4 text-[#152035] hover:text-[#01AD9F] transition">
+                        <h2 class="${i === 0 ? 'text-4xl' : 'text-xl'} font-bold mb-4 text-[#152035] hover:text-[#01AD9F] transition">
                             <a href="${p.url}">${p.titulo}</a>
                         </h2>
-                        <p class="text-sm leading-relaxed line-clamp-2">${p.resumo}</p>
+                        <p class="${i === 0 ? 'text-lg' : 'text-sm'} leading-relaxed line-clamp-2">${p.resumo}</p>
                     </article>`).join('');
-            } catch (e) { console.error("Erro ao carregar posts."); }
+            } catch (e) { console.error("Erro ao carregar"); }
         }
+
+        document.getElementById('searchInput').oninput = (e) => {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.post-card');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(term) ? 'block' : 'none';
+            });
+        };
         loadPosts();
     </script>
 </body>
