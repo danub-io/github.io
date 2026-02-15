@@ -1,26 +1,30 @@
 ﻿{
-  "main": [
-    {
-      "name": "Início",
-      "url": "/"
-    },
-    {
-      "name": "Sobre",
-      "url": "/about"
-    },
-    {
-      "name": "Categorias",
-      "url": "/categories"
-    }
-  ],
-  "footer": [
-    {
-      "name": "Sobre",
-      "url": "/about"
-    },
-    {
-      "name": "Categorias",
-      "url": "/categories"
-    }
-  ]
+    "main":  [
+                 {
+                     "name":  "Início",
+                     "url":  "/"
+                 },
+                 {
+                     "name":  "Sobre",
+                     "url":  "/about"
+                 },
+                 {
+                     "name":  "Categorias",
+                     "url":  "/categories"
+                 }
+             ],
+    "footer":  [
+                   {
+                       "name":  "Sobre",
+                       "url":  "/about"
+                   },
+                   {
+                       "name":  "Categorias",
+                       "url":  "/categories"
+                   },
+                   {
+                       "name":  "Tags",
+                       "url":  "/tags"
+                   }
+               ]
 }
