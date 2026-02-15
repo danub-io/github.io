@@ -1,4 +1,4 @@
-/* section style */
+﻿/* section style */
 .section {
   @apply py-20;
 }
@@ -41,7 +41,7 @@
   li {
     @apply inline-block;
     a {
-      @apply block h-11 w-11 rounded-lg border border-light bg-transparent text-center text-white transition hover:border-primary hover:bg-primary;
+      @apply block h-11 w-11 rounded-lg bg-transparent text-center text-white transition hover:text-primary hover:bg-white/10;
       svg {
         @apply m-auto h-11 text-base;
       }
@@ -191,3 +191,4 @@
 footer p a {
   @apply transition-all duration-200 hover:text-white;
 }
+
