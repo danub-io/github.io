@@ -36,6 +36,10 @@
                 const r = await fetch('posts.json?v=' + new Date().getTime());
                 const posts = await r.json();
                 const container = document.getElementById('posts-container');
+                if (!posts || posts.length === 0) {
+                   container.innerHTML = "<p class='text-center col-span-2 text-gray-400 py-10'>Aguardando novas postagens...</p>";
+                   return;
+                }
                 container.innerHTML = posts.map((p, i) => `
                 <article class="post-card ${i===0 ? 'md:col-span-2' : ''} group">
                     <a href="${p.url}" class="block overflow-hidden rounded-xl mb-6 shadow-sm">
@@ -50,7 +54,7 @@
                     </h2>
                     <p class="text-gray-500 text-sm line-clamp-2">${p.resumo}</p>
                 </article>`).join('');
-            } catch (e) { console.log("Aguardando posts..."); }
+            } catch (e) { document.getElementById('posts-container').innerHTML = "<p class='text-center col-span-2 text-gray-400'>Aguardando posts...</p>"; }
         }
         loadPosts();
     </script>
