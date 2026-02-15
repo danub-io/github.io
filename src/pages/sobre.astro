@@ -1,9 +1,10 @@
 ﻿---
 import Base from "@/layouts/Base.astro";
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import { Image } from "astro:assets";
 
-const entry = await getEntryBySlug("about", "-index");
+// getEntry substitui o getEntryBySlug descontinuado
+const entry = await getEntry("about", "-index");
 const { Content } = await entry.render();
 const { title, description, meta_title, image } = entry.data;
 ---
