@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿{
     "titulo":  "A Importância da Leitura Diária",
     "resumo":  "Um guia prático sobre como a leitura diária pode fortalecer sua mente e seu espírito.",
@@ -5,3 +6,14 @@
     "categoria":  "Reflexão",
     "data":  "15 fev 2026"
 }
+=======
+[
+  {
+    "titulo": "Primeiro Post Exemplo",
+    "resumo": "Uma breve descrição do que as pessoas encontrarão aqui...",
+    "url": "posts/primeiro-post.html",
+    "categoria": "Reflexão",
+    "data": "15 Out 2024"
+  }
+]
+>>>>>>> 28ba5081b441c8a21e639fce1105e5f707922090
