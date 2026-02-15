@@ -1,8 +1,8 @@
----
+﻿---
 title: "Sobre o GospelReads"
 meta_title: "Dan Coelho | Autor de O Principal Mandamento"
 description: "A missão de Dan Coelho e o propósito do GospelReads."
-image: "/images/author.png"
+image: "/favicon.svg"
 draft: false
 what_i_do:
   title: "Missão"
