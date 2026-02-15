@@ -1,4 +1,4 @@
----
+﻿---
 import Share from "@/components/Share.astro";
 import SimilarPosts from "@/components/SimilarPosts.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
@@ -23,7 +23,7 @@ const { title, description, authors, categories, image, date, tags } =
     <article class="row justify-center">
       <div class="md:col-10 text-center">
         <h1 set:html={markdownify(title)} class="h2" />
-        <ul class="mt-4 flex flex-wrap items-center justify-center text-text">
+        <ul class="mt-4 flex flex-wrap items-center justify-center text-text text-sm">
           <li class="mx-3">
             {
               allAuthors
@@ -43,7 +43,7 @@ const { title, description, authors, categories, image, date, tags } =
                         alt={author.data.title}
                         height={50}
                         width={50}
-                        class="mr-2 h-6 w-6 rounded-full"
+                        class="mr-2 h-4 w-4 rounded-full"
                       />
                     )}
                     <span>{author.data.title}</span>
@@ -52,11 +52,11 @@ const { title, description, authors, categories, image, date, tags } =
             }
           </li>
           <li class="mx-3 flex items-center flex-wrap font-medium">
-            <BiCalendarEdit className="mr-1 h-5 w-5 text-gray-600" />
+            <BiCalendarEdit className="mr-1 h-4 w-4 text-gray-600" />
             {dateFormat(date)}
           </li>
           <li class="mx-3 flex items-center flex-wrap">
-            <BiCategoryAlt className="mr-1 h-[18px] w-[18px] text-gray-600" />
+            <BiCategoryAlt className="mr-1 h-4 w-4 text-gray-600" />
 
             <ul>
               {

@@ -1,4 +1,4 @@
----
+﻿---
 import { getSinglePage } from "@/lib/contentParser.astro";
 import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
@@ -40,7 +40,7 @@ const { className, posts, fluid } = Astro.props;
             />
           </a>
         )}
-        <ul class="mt-6 mb-4 flex flex-wrap items-center text-text">
+        <ul class="mt-6 mb-4 flex flex-wrap items-center text-text text-sm">
           <li class="mr-5">
             {authors
               .filter((author) =>
@@ -61,7 +61,7 @@ const { className, posts, fluid } = Astro.props;
                       alt={author.data.title}
                       height={50}
                       width={50}
-                      class="mr-2 h-6 w-6 rounded-full"
+                      class="mr-2 h-4 w-4 rounded-full"
                     />
                   )}
                   <span>{author.data.title}</span>
@@ -69,11 +69,11 @@ const { className, posts, fluid } = Astro.props;
               ))}
           </li>
           <li class="mr-5 flex items-center flex-wrap font-medium">
-            <BiCalendarEdit className="mr-1 h-5 w-5 text-gray-600" />
+            <BiCalendarEdit className="mr-1 h-4 w-4 text-gray-600" />
             {dateFormat(post.data.date!)}
           </li>
           <li class="mr-5 flex items-center flex-wrap">
-            <BiCategoryAlt className="mr-1 h-[18px] w-[18px] text-gray-600" />
+            <BiCategoryAlt className="mr-1 h-4 w-4 text-gray-600" />
 
             <ul>
               {post.data.categories.map((category, i: number) => (
