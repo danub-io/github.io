@@ -1,6 +1,6 @@
-﻿---
+---
 title: Dan
-image: /images/author.png
+image: /images/author.webp
 about: Criador e editor do conteúdo.
 social:
   facebook: https://facebook.com
