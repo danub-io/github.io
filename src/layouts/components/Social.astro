@@ -35,18 +35,29 @@ const normalize = (src: any): ISocial[] => {
 const items = normalize(source);
 ---
 
-<ul class={className}>
+<ul class:list={[
+  className,
+  className === 'social-icons' && 'space-x-4',
+  className === 'social-icons-simple' && 'space-x-2'
+]}>
   {
     items.map((social: ISocial) => (
-      <li>
+      <li class="inline-block">
         <a
           aria-label={social.name}
           href={social.link}
           target="_blank"
           rel="noopener noreferrer nofollow"
+          class:list={[
+            className === 'social-icons' && 'block h-11 w-11 text-center text-white transition hover:text-primary hover:bg-white/10 flex items-center justify-center',
+            className === 'social-icons-simple' && 'block p-3 text-dark transition hover:text-primary'
+          ]}
         >
           <span class="sr-only">{social.name}</span>
-          <DynamicIcon className="inline-block" icon={social.icon} />
+          <DynamicIcon
+            className="inline-block"
+            icon={social.icon}
+          />
         </a>
       </li>
     ))

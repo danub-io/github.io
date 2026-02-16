@@ -12,12 +12,12 @@ type Props = {
 const { className, posts, fluid } = Astro.props;
 ---
 
-<div class={`row gy-3 gx-3 ${className} ${posts.length == 1 ? "justify-center" : ""} `}>
+<div class={`grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-5 ${className} ${posts.length == 1 ? "justify-items-center" : ""} `}>
   {
     posts.map((post, i: number) => {
       const isFeatured = i === 0 && fluid != false;
       return (
-        <div class={isFeatured ? "col-12 mb-6" : "col-12 sm:col-6"}>
+        <div class={isFeatured ? "col-span-1 sm:col-span-2 mb-6" : "col-span-1"}>
           {isFeatured ? (
             /* Featured Post Layout */
             <>
@@ -30,16 +30,16 @@ const { className, posts, fluid } = Astro.props;
                       class="group-hover:scale-[1.03] transition duration-300 w-full"
                       src={post.data.image}
                       alt={post.data.image_alt || post.data.title}
-                      width={665}
-                      height={349}
-                      widths={[400, 665]}
-                      sizes="(max-width: 768px) 95vw, 665px"
+                      width={800}
+                      height={420}
+                      widths={[400, 800]}
+                      sizes="(max-width: 768px) 95vw, 800px"
                     />
                   </a>
                   {post.data.categories && post.data.categories.length > 0 && (
                     <a
                       href={`/categorias/${slugify(post.data.categories[0])}`}
-                      class="absolute top-4 left-4 text-white text-sm font-bold uppercase tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] hover:underline z-10"
+                      class="absolute top-4 left-4 text-white text-sm font-bold uppercase tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] hover:underline z-10 min-w-[44px] min-h-[44px] flex items-center justify-center px-3 bg-black/20 rounded"
                     >
                       {humanize(post.data.categories[0])}
                     </a>
@@ -62,10 +62,10 @@ const { className, posts, fluid } = Astro.props;
                     class="group-hover:scale-[1.03] transition duration-300 w-full aspect-[5/3] object-cover"
                     src={post.data.image}
                     alt={post.data.image_alt || post.data.title}
-                    width={400}
-                    height={240}
-                    widths={[200, 400]}
-                    sizes="(max-width: 768px) 40vw, 400px"
+                    width={300}
+                    height={180}
+                    widths={[200, 300, 600]}
+                    sizes="(max-width: 640px) 40vw, 300px"
                   />
                 </a>
               )}
@@ -75,7 +75,7 @@ const { className, posts, fluid } = Astro.props;
                     {post.data.categories.map((category, i: number) => (
                       <a
                         href={`/categorias/${slugify(category)}`}
-                        class="text-primary font-bold normal-case text-[10px] sm:text-xs tracking-wide hover:underline mr-2"
+                        class="text-primary font-bold normal-case text-[10px] sm:text-xs tracking-wide hover:underline mr-2 py-1 px-2 -ml-2"
                       >
                         {humanize(category)}
                         {i !== post.data.categories.length - 1 && <span class="mx-1">,</span>}
@@ -84,7 +84,7 @@ const { className, posts, fluid } = Astro.props;
                   </div>
                 )}
                 <h3 class="text-[16px] sm:text-lg leading-tight sm:leading-snug">
-                  <a href={`/blog/${post.id}`} class="block hover:text-primary transition duration-300 font-bold">
+                  <a href={`/blog/${post.id}`} class="block hover:text-primary transition duration-300 font-bold py-1">
                     {post.data.title}
                   </a>
                 </h3>
