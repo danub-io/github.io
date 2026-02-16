@@ -1,37 +1,27 @@
-import mdx from "@astrojs/mdx";
-import react from "@astrojs/react";
+﻿import { defineConfig } from "astro/config";
+import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
-import tailwindcss from "@tailwindcss/vite";
-import AutoImport from "astro-auto-import";
-import { defineConfig } from "astro/config";
-import remarkCollapse from "remark-collapse";
-import remarkToc from "remark-toc";
-import sharp from "sharp";
-import config from "./src/config/config.json";
-
+import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
+import react from "@astrojs/react";
 
-// https://astro.build/config
 export default defineConfig({
-  site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
-  base: config.site.base_path ? config.site.base_path : "/",
-  trailingSlash: config.site.trailing_slash ? "always" : "never",
-  image: { service: sharp() },
-  vite: { plugins: [tailwindcss()] },
-  integrations: [react(), sitemap(), AutoImport({
-    imports: [
-      "@/shortcodes/Button",
-      "@/shortcodes/Accordion",
-      "@/shortcodes/Notice",
-      "@/shortcodes/Video",
-      "@/shortcodes/Youtube",
-      "@/shortcodes/Tabs",
-      "@/shortcodes/Tab",
-    ],
-  }), mdx(), partytown()],
+  site: "https://gospelreads.com",
+  integrations: [
+    react(),
+    sitemap(),
+    tailwind({ applyBaseStyles: false }),
+    mdx(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
+  ],
   markdown: {
-    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
-    shikiConfig: { theme: "one-dark-pro", wrap: true },
-    extendDefaultPlugins: true,
+    shikiConfig: {
+      theme: "one-dark-pro",
+      wrap: true,
+    },
   },
 });
