@@ -46,7 +46,7 @@ const { className, posts, fluid } = Astro.props;
                   )}
                 </div>
               )}
-              <h3 class="mt-4 text-2xl sm:text-3xl">
+              <h3 class="mt-4 text-xl sm:text-2xl">
                 <a href={`/blog/${post.id}`} class="block hover:text-primary transition duration-300 leading-tight">
                   {post.data.title}
                 </a>
@@ -59,11 +59,11 @@ const { className, posts, fluid } = Astro.props;
                 <a href={`/blog/${post.id}`} class="rounded-lg block hover:text-primary overflow-hidden group flex-shrink-0 w-[40%]">
                   <Image
                     loading="lazy"
-                    class="group-hover:scale-[1.03] transition duration-300 w-full aspect-[5/4] object-cover"
+                    class="group-hover:scale-[1.03] transition duration-300 w-full aspect-[5/3] object-cover"
                     src={post.data.image}
                     alt={post.data.image_alt || post.data.title}
                     width={400}
-                    height={320}
+                    height={240}
                     widths={[200, 400]}
                     sizes="(max-width: 768px) 40vw, 400px"
                   />
