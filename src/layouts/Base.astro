@@ -69,7 +69,17 @@ if (date) {
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <script is:inline>window.SharedStorage=window.AttributionReporting=navigator.SharedStorage=navigator.AttributionReporting=undefined;</script>
+    <script is:inline>
+      (function(){
+        const n = window.navigator;
+        const p = Navigator.prototype;
+        const kill = (o, k) => { if(o && o[k]) try { Object.defineProperty(o, k, { get: () => undefined, configurable: false }); } catch(e){} };
+        ['SharedStorage', 'AttributionReporting', 'adAuctionComponents', 'runAdAuction'].forEach(api => {
+          kill(window, api); kill(n, api); kill(p, api);
+        });
+      })();
+    </script>
+    
     
     
     
