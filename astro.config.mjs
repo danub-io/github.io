@@ -1,16 +1,16 @@
 ﻿import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import tailwind from "@tailwindcss/vite"; // Padrão Tailwind 4
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
 import react from "@astrojs/react";
 
+// Build ID: 20260215220747
 export default defineConfig({
   site: "https://gospelreads.com",
   integrations: [
     react(),
     sitemap(),
-    tailwind({ applyBaseStyles: false }),
     mdx(),
     partytown({
       config: {
@@ -18,6 +18,9 @@ export default defineConfig({
       },
     }),
   ],
+  vite: {
+    plugins: [tailwind()],
+  },
   markdown: {
     shikiConfig: {
       theme: "one-dark-pro",
