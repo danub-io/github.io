@@ -14,7 +14,7 @@ const posts = await getSinglePage("posts");
 const { post } = Astro.props;
 const similarPosts = similerItems(post, posts, post.slug);
 const { Content } = await render(post);
-const { title, description, authors, categories, image, date, tags } =
+const { title, description, authors, categories, image, image_alt, date, tags } =
   post.data;
 ---
 
@@ -84,7 +84,7 @@ const { title, description, authors, categories, image, date, tags } =
               src={image}
               height={500}
               width={1000}
-              alt={title}
+              alt={image_alt || title}
               class="rounded-lg"
             />
           )

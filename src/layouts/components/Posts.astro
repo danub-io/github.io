@@ -27,7 +27,7 @@ const { className, posts, fluid } = Astro.props;
               fetchpriority={i === 0 ? "high" : "auto"}
               class="group-hover:scale-[1.03] transition duration-300 w-full"
               src={post.data.image}
-              alt={post.data.title}
+              alt={post.data.image_alt || post.data.title}
               width={1200}
               height={630}
               widths={[445, 665, 925, 1200]}
