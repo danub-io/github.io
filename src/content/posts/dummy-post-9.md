@@ -1,7 +1,7 @@
 ---
-title: "Post Dummy 4"
-date: 2026-02-15
-image: "/images/post-2.jpg"
+title: "Post Dummy 9"
+date: 2026-02-11
+image: "/images/post-1.jpg"
 categories: ["reflexão"]
 authors: ["dan"]
 tags: ["estudo bíblico"]
@@ -12,7 +12,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-### Subtítulo do Dummy 4$
+### Subtítulo do Dummy 9$
 
 Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin libero.
 

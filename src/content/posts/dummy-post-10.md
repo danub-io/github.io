@@ -1,6 +1,6 @@
 ---
-title: "Post Dummy 4"
-date: 2026-02-15
+title: "Post Dummy 10"
+date: 2026-02-12
 image: "/images/post-2.jpg"
 categories: ["reflexão"]
 authors: ["dan"]
@@ -12,7 +12,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-### Subtítulo do Dummy 4$
+### Subtítulo do Dummy 10$
 
 Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin libero.
 
