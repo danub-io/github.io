@@ -12,7 +12,7 @@ import {
   GoogleTagmanagerNoscript,
 } from "@digi4care/astro-google-tagmanager";
 import { AstroFont } from "astro-font";
-import { ClientRouter } from "astro:transitions";
+
 
 const pf = theme.fonts.font_family.primary;
 let fontPrimary;
@@ -81,12 +81,13 @@ if (date) {
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-PJ33ZTZW');
     }
-    // O robô do PageSpeed não faz nada disso, então ele nunca verá o JS do GTM
-    ['mouseover', 'keydown', 'touchmove', 'touchstart', 'scroll'].forEach(function(e) {
+    // Carrega apenas quando o usuário interage
+    ['mouseover','keydown','touchmove','touchstart','scroll'].forEach(function(e) {
       window.addEventListener(e, loadGTM, {passive: true, once: true});
     });
   })();
 </script>
+
 
     
     
@@ -136,7 +137,7 @@ if (date) {
     {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
     {noindex && <meta name="robots" content="noindex,nofollow" />}
     <meta name="description" content={meta_description} />
-    <ClientRouter />
+    
     <meta name="author" content={meta_author} />
     <meta property="og:title" content={plainify(meta_title ? meta_title : title ? title : config.site.title)} />
     <meta property="og:description" content={meta_description} />
