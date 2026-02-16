@@ -1,4 +1,4 @@
----
+﻿---
 import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, slugify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
@@ -20,7 +20,7 @@ const { posts } = Astro.props;
             href={`/blog/${post.id}`}
             class="rounded-lg block hover:text-primary overflow-hidden group"
           >
-            <Image
+            <Image width={445} height={230}
               class="group-hover:scale-[1.05] transition duration-300 w-full"
               src={post.data.image}
               alt={post.data.title}
