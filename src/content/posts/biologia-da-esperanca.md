@@ -3,7 +3,7 @@ title: "A Biologia da Esperança: A Neuroplasticidade à Luz da Fé"
 meta_title: "Neuroplasticidade e Fé Cristã: A Renovação da Mente | GospelReads"
 description: "Descubra como a neuroplasticidade comprova a promessa bíblica da renovação da mente."
 date: 2026-02-15
-image: "/images/posts/01.jpg"
+image: "/images/posts/01.webp"
 image_alt: "Ilustração de conexões neurais e luz divina simbolizando a renovação da mente."
 categories: ["Saúde Mental"]
 authors: ["Dan"]
