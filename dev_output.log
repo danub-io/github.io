@@ -1,0 +1,21 @@
+yarn run v1.22.22
+$ astro dev
+19:33:32 [types] Generated 1ms
+19:33:33 [content] Syncing content
+19:33:33 [WARN] [glob-loader] The base directory "/app/src/content/pages/" does not exist.
+19:33:33 [content] Synced content
+19:33:33 [vite] Re-optimizing dependencies because vite config has changed
+
+ astro  v5.14.4 ready in 1431 ms
+
+┃ Local    http://localhost:4321/
+┃ Network  use --host to expose
+
+19:33:33 watching for file changes...
+
+ update  ▶ New version of Astro available: 5.17.2
+  Run npx @astrojs/upgrade to update
+
+19:33:58 [200] / 313ms
+19:34:01 [200] / 19ms
+19:34:08 [200] /blog/resiliencia-cedro-do-libano-licoes-biblicas 22ms
