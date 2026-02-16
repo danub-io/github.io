@@ -87,9 +87,9 @@ export default function SearchBar({ searchList }: Props) {
         </div>
       )}
 
-      <div className="row">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {searchResults?.map(({ item }) => (
-          <div key={item.slug} className={"col-12 mb-8 sm:col-6"}>
+          <div key={item.slug} className={"mb-8"}>
             {item.data.image && (
               <a
                 href={`/blog/${item.slug}`}
@@ -133,7 +133,7 @@ export default function SearchBar({ searchList }: Props) {
             <h3 className="mb-2">
               <a
                 href={`/blog/${item.slug}`}
-                className="block hover:text-primary transition duration-300"
+                className="block hover:text-primary transition duration-300 py-1"
               >
                 {item.data.title}
               </a>

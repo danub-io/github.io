@@ -22,13 +22,13 @@ export interface NavigationLink {
 const { main }: { main: NavigationLink[] } = menu;
 ---
 
-<header class="header pt-4 md:pt-6 relative z-30">
-  <nav class="navbar container relative">
+<header class="pt-4 md:pt-6 relative z-30">
+  <nav class="relative flex max-w-[1000px] px-4 mx-auto flex-wrap items-center justify-between">
     <div class="order-0">
       <Logo />
     </div>
 
-    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <input id="nav-toggle" type="checkbox" class="hidden group" />
     <label
       id="show-button"
       for="nav-toggle"
@@ -53,7 +53,7 @@ const { main }: { main: NavigationLink[] } = menu;
     </label>
     <ul
       id="nav-menu"
-      class="navbar-nav order-3 hidden w-full md:order-1 md:flex md:w-auto"
+      class="order-3 hidden w-full text-center md:order-1 md:flex md:w-auto md:text-left"
     >
       {
         main.map((menu) => (
@@ -62,18 +62,21 @@ const { main }: { main: NavigationLink[] } = menu;
               <>
                 {/* Categorias no mobile: lista plana para espaçamento uniforme */}
                 {categories.map((category) => (
-                  <li class="nav-item md:hidden">
+                  <li class="mx-1 my-0.5 w-full text-center md:my-0 md:hidden">
                     <a
                       href={`/categorias/${category}`}
-                      class="nav-link block"
+                      class="block p-3 text-xl font-bold tracking-tight text-dark transition hover:text-primary md:p-4 md:text-lg md:font-semibold"
                     >
                       {humanize(category)}
                     </a>
                   </li>
                 ))}
                 {/* Categorias no desktop: link único para a página de categorias */}
-                <li class="nav-item hidden md:block">
-                  <a href={menu.url} class="nav-link block">
+                <li class="mx-1 hidden md:block">
+                  <a
+                    href={menu.url}
+                    class="block p-3 text-lg font-semibold text-dark transition hover:text-primary md:p-4"
+                  >
                     {menu.name}
                   </a>
                 </li>
@@ -86,10 +89,13 @@ const { main }: { main: NavigationLink[] } = menu;
                     <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                   </svg>
                 </span>
-                <ul class="nav-dropdown-list hidden group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
+                <ul class="z-10 rounded-lg bg-white px-6 py-3 shadow transition hidden group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
                   {menu.children?.map((child) => (
-                    <li class="nav-dropdown-item">
-                      <a href={child.url} class="nav-dropdown-link">
+                    <li class="mb-1">
+                      <a
+                        href={child.url}
+                        class="block min-w-[150px] py-1 text-[17px] font-semibold text-dark transition hover:text-primary"
+                      >
                         {child.name}
                       </a>
                     </li>
@@ -97,8 +103,11 @@ const { main }: { main: NavigationLink[] } = menu;
                 </ul>
               </li>
             ) : (
-              <li class="nav-item">
-                <a href={menu.url} class="nav-link block">
+              <li class="mx-1 my-0.5 w-full text-center md:my-0">
+                <a
+                  href={menu.url}
+                  class="block p-3 text-xl font-bold tracking-tight text-dark transition hover:text-primary md:p-4 md:text-lg md:font-semibold"
+                >
                   {menu.name}
                 </a>
               </li>

@@ -19,8 +19,8 @@ const sortedPosts = sortByDate(filterByCategory);
 const title = humanize(categoria || "");
 ---
 <Base title={title}>
-  <div class="section">
-    <div class="container">
+  <div class="py-6">
+    <div class="max-w-[1000px] px-4 mx-auto">
       <p class="text-center text-2xl mb-4">Exibindo posts de</p>
       <h1 class="h2 mb-16 text-center text-primary">{title}</h1>
       <Posts posts={sortedPosts} fluid={false} />

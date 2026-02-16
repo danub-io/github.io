@@ -9,8 +9,8 @@ const { title, image, social } = author.data;
 const { Content } = await render(author);
 ---
 
-<section class="section">
-  <div class="container">
+<section class="py-6">
+  <div class="max-w-[1000px] px-4 mx-auto">
     <div class="mb-4 text-center md:px-24">
       {
         image && (
@@ -25,7 +25,7 @@ const { Content } = await render(author);
           </div>
         )
       }
-      <h1 set:html={markdownify(title)} class="page-heading h2 mb-8" />
+      <h1 set:html={markdownify(title)} class="h2 mb-8 text-center font-bold leading-10 after:mx-auto after:mt-4 after:block after:h-1 after:w-10 after:rounded-full after:bg-primary after:content-['']" />
 
       <Social source={social} className="social-icons-simple" />
       <div class="content">
