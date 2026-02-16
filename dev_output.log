@@ -1,14 +1,41 @@
 yarn run v1.22.22
 $ astro dev
-22:47:06 [types] Generated 2ms
-22:47:08 [content] Syncing content
-22:47:08 [WARN] [glob-loader] The base directory "/app/src/content/pages/" does not exist.
-22:47:08 [content] Synced content
-22:47:08 [vite] Port 4321 is in use, trying another one...
+23:54:09 [types] Generated 1ms
+23:54:10 [content] Syncing content
+23:54:10 [WARN] [glob-loader] The base directory "/app/src/content/pages/" does not exist.
+23:54:10 [content] Synced content
 
- astro  v5.14.4 ready in 2620 ms
+ astro  v5.14.4 ready in 1326 ms
 
-┃ Local    http://localhost:4322/
+┃ Local    http://localhost:4321/
 ┃ Network  use --host to expose
 
-22:47:08 watching for file changes...
+23:54:10 watching for file changes...
+23:54:45 [200] / 410ms
+23:54:45 [404] /images/post-3.jpg 76ms
+23:54:45 [404] /images/post-2.jpg 78ms
+23:54:45 [404] /images/post-1.jpg 79ms
+23:55:24 [watch] verify_load_more.py
+23:55:24 [watch] verify_load_more.py
+23:55:34 [200] / 86ms
+23:55:35 [404] /images/post-3.jpg 33ms
+23:55:35 [404] /images/post-2.jpg 34ms
+23:55:35 [404] /images/post-1.jpg 16ms
+23:55:57 [watch] verify_load_more.py
+23:55:57 [watch] verify_load_more.py
+23:56:08 [200] / 51ms
+23:56:08 [404] /images/post-3.jpg 19ms
+23:56:08 [404] /images/post-2.jpg 25ms
+23:56:08 [404] /images/post-1.jpg 28ms
+23:56:33 [watch] src/layouts/components/Pagination.astro
+23:56:33 [watch] src/layouts/components/Pagination.astro
+23:56:38 [200] / 68ms
+23:56:38 [404] /images/post-3.jpg 29ms
+23:56:38 [404] /images/post-2.jpg 32ms
+23:56:38 [404] /images/post-1.jpg 17ms
+23:56:39 [200] /page/2 19ms
+23:56:39 [404] /images/post-2.jpg 14ms
+23:56:39 [404] /images/post-1.jpg 17ms
+23:56:39 [404] /images/post-3.jpg 17ms
+error Command failed with exit code 143.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

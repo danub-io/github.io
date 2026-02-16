@@ -27,19 +27,20 @@ const { className, posts, fluid } = Astro.props;
                     <Image
                       loading="eager"
                       fetchpriority="high"
-                      class="group-hover:scale-[1.03] transition duration-300 w-full"
+                      class="group-hover:scale-[1.03] transition duration-300 w-full aspect-[21/9] sm:aspect-[3/1] object-cover"
                       src={post.data.image}
                       alt={post.data.image_alt || post.data.title}
-                      width={800}
-                      height={420}
-                      widths={[300, 600, 800, 1200]}
-                      sizes="(max-width: 640px) 95vw, (max-width: 1024px) 700px, 800px"
+                      width={1200}
+                      height={400}
+                      widths={[400, 800, 1200]}
+                      sizes="(max-width: 640px) 95vw, (max-width: 1024px) 700px, 1000px"
+                      format="webp"
                     />
                   </a>
                   {post.data.categories && post.data.categories.length > 0 && (
                     <a
                       href={`/categorias/${slugify(post.data.categories[0])}`}
-                      class="absolute top-4 left-4 text-white text-sm font-bold uppercase tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] hover:text-primary z-10 p-2 -m-2"
+                      class="absolute top-4 left-4 text-white text-sm font-bold tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] hover:text-primary z-10 p-2 -m-2"
                     >
                       {humanize(post.data.categories[0])}
                     </a>
@@ -66,6 +67,7 @@ const { className, posts, fluid } = Astro.props;
                     height={180}
                     widths={[150, 300, 600]}
                     sizes="(max-width: 640px) 35vw, 300px"
+                      format="webp"
                   />
                 </a>
               )}

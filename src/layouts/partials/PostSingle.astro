@@ -75,10 +75,17 @@ const recommendedPosts = [
       <div class="w-full mt-8 mb-2 flex justify-center">
         {
           image && (
-            <Image width={665} height={349} inferSize={true} loading="eager" fetchpriority="high"
+            <Image
+              width={1000}
+              height={500}
+              widths={[400, 700, 1000]}
+              sizes="(max-width: 768px) 95vw, 1000px"
+              loading="eager"
+              fetchpriority="high"
               src={image}
               alt={image_alt || title}
-              class="object-cover"
+              class="object-cover aspect-[21/9] sm:aspect-[3/1]"
+              format="webp"
             />
           )
         }
@@ -88,7 +95,7 @@ const recommendedPosts = [
         <div class="content mb-10 text-left" id="article-content">
           <Content />
         </div>
-        <div class="flex flex-wrap items-center justify-between pb-6 mb-8">
+        <div class="flex flex-wrap items-center justify-between">
           <ul class="mr-4 mb-4 space-x-3">
             {
               tags.map((tag: string) => (
@@ -118,14 +125,14 @@ const recommendedPosts = [
 <!-- recommended posts -->
 <section class="py-6 pt-0">
   <div class="max-w-[1000px] px-4 mx-auto">
-    <h2 class="mb-8 text-left h3">Recomendados</h2>
+    <h2 class="mb-8 text-left h1">Recomendados</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
       {recommendedPosts.map((p, index) => (
         <>
-          {index === 5 && (
+          {index === 3 && (
             <div class="col-span-1 md:col-span-2 mb-6">
-              <AdDummy />
+              <AdDummy className="mt-0 mb-8" />
             </div>
           )}
           <div class="flex items-start gap-3 sm:gap-4 mb-6">
@@ -138,6 +145,9 @@ const recommendedPosts = [
                   alt={p.data.image_alt || p.data.title}
                   width={300}
                   height={180}
+                  widths={[150, 300, 600]}
+                  sizes="(max-width: 640px) 35vw, 300px"
+                  format="webp"
                 />
               </a>
             )}
