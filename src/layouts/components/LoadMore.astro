@@ -1,0 +1,82 @@
+---
+const { currentPage, totalPages, section } = Astro.props;
+const hasNextPage = totalPages > currentPage;
+const nextPageUrl = `${section ? "/" + section : ""}/page/${currentPage + 1}`;
+---
+
+{
+  hasNextPage && (
+    <div class="flex justify-center my-12" id="load-more-container">
+      <a
+        href={nextPageUrl}
+        id="load-more-button"
+        class="btn btn-primary px-10 py-3 text-lg font-bold transition-all duration-300 hover:scale-105 active:scale-95"
+        data-current-page={currentPage}
+        data-total-pages={totalPages}
+        data-section={section || ""}
+      >
+        Ver Mais Postagens
+      </a>
+    </div>
+  )
+}
+
+<script>
+  function setupLoadMore() {
+    const button = document.getElementById('load-more-button') as HTMLAnchorElement;
+    const container = document.getElementById('post-container');
+    const btnContainer = document.getElementById('load-more-container');
+
+    if (!button || !container || !btnContainer) return;
+
+    button.addEventListener('click', async (e) => {
+      e.preventDefault();
+
+      const originalText = button.innerText;
+      button.innerText = "Carregando...";
+      button.classList.add('opacity-70', 'pointer-events-none');
+
+      try {
+        const nextUrl = button.href;
+        const response = await fetch(nextUrl);
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+
+        // Get the post container and its grid from the fetched page
+        const nextPostContainer = doc.getElementById('post-container');
+        const nextPostGrid = nextPostContainer?.querySelector('div');
+        const currentPostGrid = container.querySelector('div');
+
+        if (nextPostGrid && currentPostGrid) {
+          // Append new posts from the next grid to the current grid
+          const newPosts = Array.from(nextPostGrid.children);
+          newPosts.forEach(post => {
+            currentPostGrid.appendChild(post);
+          });
+
+          // Check for next button in fetched page
+          const nextBtn = doc.getElementById('load-more-button') as HTMLAnchorElement;
+          if (nextBtn) {
+            button.href = nextBtn.href;
+            button.innerText = originalText;
+            button.classList.remove('opacity-70', 'pointer-events-none');
+          } else {
+            // No more pages
+            btnContainer.remove();
+          }
+
+          // Update URL without reloading (optional, but good for UX)
+          window.history.pushState({}, '', nextUrl);
+        }
+      } catch (error) {
+        console.error('Error loading more posts:', error);
+        button.innerText = "Erro ao carregar. Tente novamente.";
+        button.classList.remove('opacity-70', 'pointer-events-none');
+      }
+    });
+  }
+
+  // Initialize on page load and after view transitions
+  document.addEventListener('astro:page-load', setupLoadMore);
+</script>

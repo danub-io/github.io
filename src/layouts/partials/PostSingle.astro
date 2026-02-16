@@ -88,7 +88,7 @@ const recommendedPosts = [
         <div class="content mb-10 text-left" id="article-content">
           <Content />
         </div>
-        <div class="flex flex-wrap items-center justify-between pb-6 mb-8">
+        <div class="flex flex-wrap items-center justify-between border-b border-border">
           <ul class="mr-4 mb-4 space-x-3">
             {
               tags.map((tag: string) => (
@@ -118,14 +118,14 @@ const recommendedPosts = [
 <!-- recommended posts -->
 <section class="py-6 pt-0">
   <div class="max-w-[1000px] px-4 mx-auto">
-    <h2 class="mb-8 text-left h3">Recomendados</h2>
+    <h1 class="mb-8 text-left h2 lg:h1">Recomendados</h1>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
       {recommendedPosts.map((p, index) => (
         <>
           {index === 5 && (
-            <div class="col-span-1 md:col-span-2 mb-6">
-              <AdDummy />
+            <div class="col-span-1 md:col-span-2">
+              <AdDummy className="mt-0 mb-6" />
             </div>
           )}
           <div class="flex items-start gap-3 sm:gap-4 mb-6">

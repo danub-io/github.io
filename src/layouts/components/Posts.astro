@@ -39,7 +39,7 @@ const { className, posts, fluid } = Astro.props;
                   {post.data.categories && post.data.categories.length > 0 && (
                     <a
                       href={`/categorias/${slugify(post.data.categories[0])}`}
-                      class="absolute top-4 left-4 text-white text-sm font-bold uppercase tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] hover:text-primary z-10 p-2 -m-2"
+                      class="absolute top-4 left-4 text-white text-sm font-bold drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] hover:text-primary z-10 p-2 -m-2"
                     >
                       {humanize(post.data.categories[0])}
                     </a>
