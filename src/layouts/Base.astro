@@ -70,14 +70,20 @@ if (date) {
 <html lang="pt-BR">
   <head>
 <style is:inline>
+  @font-face { font-family: 'Heebo'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/heebo-400.woff2') format('woff2'); }
+  @font-face { font-family: 'Heebo'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/heebo-700.woff2') format('woff2'); }
+  @font-face { font-family: 'Lato'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/lato-400.woff2') format('woff2'); }
+  @font-face { font-family: 'Lato'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/lato-700.woff2') format('woff2'); }
+</style>
+<style is:inline>
   @font-face {
     font-family: 'Heebo';
     src: url('/fonts/heebo.woff2') format('woff2');
     font-display: swap;
   }
 </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    
     {config.google_tag_manager.enable && <GoogleTagmanager id={config.google_tag_manager.gtm_id} />}
     <link rel="shortcut icon" href={config.site.favicon} />
     <meta name="theme-name" content="bookworm-light-astro" />
