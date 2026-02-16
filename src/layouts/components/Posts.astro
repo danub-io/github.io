@@ -1,10 +1,7 @@
 ﻿---
-import { getSinglePage } from "@/lib/contentParser.astro";
-import dateFormat from "@/lib/utils/dateFormat";
-import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
+import { humanize, slugify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
-import { BiCalendarEdit, BiCategoryAlt } from "react-icons/bi";
 
 type Props = {
   posts: CollectionEntry<"posts">[];
@@ -12,73 +9,90 @@ type Props = {
   fluid?: boolean;
 };
 
-const authors = await getSinglePage("authors");
 const { className, posts, fluid } = Astro.props;
 ---
 
 <div class={`row gy-5 gx-4 ${className} ${posts.length == 1 ? "justify-center" : ""} `}>
   {
-    posts.map((post, i: number) => (
-      <div class={i === 0 && fluid != false ? "col-12" : "col-12 sm:col-6"}>
-        {post.data.image && (
-          <a href={`/blog/${post.id}`} class="rounded-lg block hover:text-primary overflow-hidden group">
-            <Image
-              loading={i === 0 ? "eager" : "lazy"}
-              fetchpriority={i === 0 ? "high" : "auto"}
-              class="group-hover:scale-[1.03] transition duration-300 w-full"
-              src={post.data.image}
-              alt={post.data.image_alt || post.data.title}
-              width={665}
-              height={349}
-              widths={[400, 665]}
-              sizes="(max-width: 768px) 95vw, 665px"
-            />
-          </a>
-        )}
-        <ul class="mt-6 mb-4 flex flex-wrap items-center text-text text-sm">
-          <li class="mr-5">
-            {authors
-              .filter((author) => post.data.authors.map((a) => slugify(a)).includes(slugify(author.data.title)))
-              .map((author) => (
-                <a href={`/autores/${slugify(author.data.title)}`} class="flex items-center hover:text-primary font-medium">
-                  {author.data.image && (
+    posts.map((post, i: number) => {
+      const isFeatured = i === 0 && fluid != false;
+      return (
+        <div class={isFeatured ? "col-12 mb-8" : "col-12 sm:col-6"}>
+          {isFeatured ? (
+            /* Featured Post Layout */
+            <>
+              {post.data.image && (
+                <div class="relative rounded-lg overflow-hidden group">
+                  <a href={`/blog/${post.id}`} class="block">
                     <Image
-                      src={author.data.image}
-                      alt={author.data.title}
-                      height={349}
+                      loading="eager"
+                      fetchpriority="high"
+                      class="group-hover:scale-[1.03] transition duration-300 w-full"
+                      src={post.data.image}
+                      alt={post.data.image_alt || post.data.title}
                       width={665}
-                      class="mr-2 h-4 w-4 rounded-full"
+                      height={349}
+                      widths={[400, 665]}
+                      sizes="(max-width: 768px) 95vw, 665px"
                     />
-                  )}
-                  <span>{author.data.title}</span>
-                </a>
-              ))}
-          </li>
-          <li class="mr-5 flex items-center flex-wrap font-medium">
-            <BiCalendarEdit className="mr-1 h-4 w-4 text-gray-600" />
-            {dateFormat(post.data.date!)}
-          </li>
-          <li class="mr-5 flex items-center flex-wrap">
-            <BiCategoryAlt className="mr-1 h-4 w-4 text-gray-600" />
-            <ul>
-              {post.data.categories.map((category, i: number) => (
-                <li class="inline-block">
-                  <a href={`/categorias/${slugify(category)}`} class="mr-2 hover:text-primary font-medium">
-                    {humanize(category)}
-                    {i !== post.data.categories.length - 1 && ","}
                   </a>
-                </li>
-              ))}
-            </ul>
-          </li>
-        </ul>
-        <h3 class="mb-4">
-          <a href={`/blog/${post.id}`} class="block hover:text-primary transition duration-300">
-            {post.data.title}
-          </a>
-        </h3>
-        <p class="text-text line-clamp-2">{plainify(post.body ?? "")}</p>
-      </div>
-    ))
+                  {post.data.categories && post.data.categories.length > 0 && (
+                    <a
+                      href={`/categorias/${slugify(post.data.categories[0])}`}
+                      class="absolute top-4 left-4 text-white text-sm font-bold uppercase tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] hover:underline z-10"
+                    >
+                      {humanize(post.data.categories[0])}
+                    </a>
+                  )}
+                </div>
+              )}
+              <h3 class="mt-4 text-2xl sm:text-3xl">
+                <a href={`/blog/${post.id}`} class="block hover:text-primary transition duration-300 leading-tight">
+                  {post.data.title}
+                </a>
+              </h3>
+            </>
+          ) : (
+            /* Regular Post Layout (Side-by-side) */
+            <div class="flex items-start gap-3 sm:gap-4">
+              {post.data.image && (
+                <a href={`/blog/${post.id}`} class="rounded-lg block hover:text-primary overflow-hidden group flex-shrink-0 w-[40%]">
+                  <Image
+                    loading="lazy"
+                    class="group-hover:scale-[1.03] transition duration-300 w-full aspect-[5/4] object-cover"
+                    src={post.data.image}
+                    alt={post.data.image_alt || post.data.title}
+                    width={400}
+                    height={320}
+                    widths={[200, 400]}
+                    sizes="(max-width: 768px) 40vw, 400px"
+                  />
+                </a>
+              )}
+              <div class="flex-grow">
+                <h3 class="mb-1 text-lg sm:text-xl leading-tight sm:leading-snug">
+                  <a href={`/blog/${post.id}`} class="block hover:text-primary transition duration-300 font-bold">
+                    {post.data.title}
+                  </a>
+                </h3>
+                {post.data.categories && post.data.categories.length > 0 && (
+                  <div class="flex items-center flex-wrap">
+                    {post.data.categories.map((category, i: number) => (
+                      <a
+                        href={`/categorias/${slugify(category)}`}
+                        class="text-primary font-bold uppercase text-[10px] sm:text-xs tracking-wide hover:underline"
+                      >
+                        {humanize(category)}
+                        {i !== post.data.categories.length - 1 && <span class="mx-1">,</span>}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    })
   }
 </div>
