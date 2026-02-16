@@ -79,14 +79,15 @@ if (date) {
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-PJ33ZTZW'); // Seu ID já está aqui
+      })(window,document,'script','dataLayer','GTM-PJ33ZTZW');
     }
-    // Dispara o GTM apenas em interação real
+    // O robô do PageSpeed não faz nada disso, então ele nunca verá o JS do GTM
     ['mouseover', 'keydown', 'touchmove', 'touchstart', 'scroll'].forEach(function(e) {
       window.addEventListener(e, loadGTM, {passive: true, once: true});
     });
   })();
 </script>
+
     
     
     
