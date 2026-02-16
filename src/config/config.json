@@ -24,7 +24,7 @@
     "meta_description": "GospelReads por Dan Coelho: Reflexões profundas sobre fé cristã, saúde mental bíblica e o impacto do Evangelho."
   },
   "google_tag_manager": {
-    "enable": true,
+    "enable": false,
     "gtm_id": "GTM-PJ33ZTZW"
   },
   "params": {

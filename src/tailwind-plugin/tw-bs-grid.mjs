@@ -10,7 +10,8 @@ module.exports = plugin.withOptions(() => {
       2: "0.75rem",
       3: "1.25rem",
       4: "2rem",
-      5: "3.5rem",
+      5: "2.5rem",
+      6: "3.5rem",
     };
     const respectImportant = true;
     const columns = Array.from({ length: gridColumns }, (_, i) => i + 1);

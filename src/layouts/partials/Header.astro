@@ -60,20 +60,18 @@ const { main }: { main: NavigationLink[] } = menu;
           <>
             {menu.name === "Categorias" ? (
               <>
-                <li class="nav-item md:hidden">
-                  <ul class="mb-4">
-                    {categories.map((category) => (
-                      <li>
-                        <a
-                          href={`/categorias/${category}`}
-                          class="nav-link block"
-                        >
-                          {humanize(category)}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
+                {/* Categorias no mobile: lista plana para espaçamento uniforme */}
+                {categories.map((category) => (
+                  <li class="nav-item md:hidden">
+                    <a
+                      href={`/categorias/${category}`}
+                      class="nav-link block"
+                    >
+                      {humanize(category)}
+                    </a>
+                  </li>
+                ))}
+                {/* Categorias no desktop: link único para a página de categorias */}
                 <li class="nav-item hidden md:block">
                   <a href={menu.url} class="nav-link block">
                     {menu.name}
@@ -109,15 +107,15 @@ const { main }: { main: NavigationLink[] } = menu;
         ))
       }
       
-      <li class="nav-item md:hidden w-full mt-8 px-4">
+      <li class="nav-item md:hidden w-full mt-10 px-4">
         <form action="/search" method="GET" class="relative w-full max-w-sm mx-auto">
           <input 
             type="text" 
             name="q" 
             placeholder="Buscar no GospelReads..." 
-            class="form-input w-full rounded-full border-border py-3 pl-6 pr-12 focus:border-primary focus:ring-0 text-dark bg-light"
+            class="form-input w-full rounded-full border-border py-4 pl-6 pr-12 focus:border-primary focus:ring-0 text-dark bg-light"
           />
-          <button type="submit" class="absolute right-4 top-1/2 -translate-y-1/2 text-primary text-xl">
+          <button type="submit" class="absolute right-4 top-1/2 -translate-y-1/2 text-primary text-2xl">
             <IoSearch />
           </button>
         </form>

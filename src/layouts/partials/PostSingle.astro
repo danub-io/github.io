@@ -54,13 +54,13 @@ const { title, description, authors, categories, image, image_alt, date, tags } 
             {dateFormat(date)}
           </li>
           <li class="mx-3 flex items-center flex-wrap">
-            <ul>
+            <ul class="flex flex-wrap">
               {
                 categories.map((category: string, i: number) => (
                   <li class="inline-block">
                     <a
                       href={`/categorias/${slugify(category)}`}
-                      class="mr-2 hover:text-primary font-medium"
+                      class="inline-block py-2 px-1 hover:text-primary font-medium"
                     >
                       {humanize(category)}
                       {i !== post.data.categories.length - 1 && ","}
@@ -86,17 +86,17 @@ const { title, description, authors, categories, image, image_alt, date, tags } 
       </div>
 
       <div class="md:col-10">
-        <div class="content mb-12 text-left">
+        <div class="content mb-10 text-left">
           <Content />
         </div>
         <div class="flex flex-wrap items-center justify-between">
           <ul class="mr-4 mb-4 space-x-3">
             {
               tags.map((tag: string) => (
-                <li class="inline-block">
+                <li class="inline-block mb-2">
                   <a
                     href={`/tags/${slugify(tag)}`}
-                    class="block rounded-lg bg-light px-4 py-2 font-semibold text-dark text-sm hover:text-primary transition duration-300"
+                    class="block rounded-lg bg-light px-4 py-3 font-semibold text-dark text-sm hover:text-primary transition duration-300"
                   >
                     #{humanize(tag)}
                   </a>
