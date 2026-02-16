@@ -69,26 +69,8 @@ if (date) {
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <script is:inline>
-      (function() {
-        const kill = (obj, prop) => {
-          if (!obj) return;
-          try {
-            Object.defineProperty(obj, prop, { 
-              get: () => undefined, 
-              configurable: true,
-              enumerable: false 
-            });
-          } catch (e) {}
-        };
-        // Mata as APIs que o Lighthouse penaliza
-        ['SharedStorage', 'sharedStorage', 'AttributionReporting', 'attributionReporting'].forEach(api => {
-          kill(window, api);
-          kill(navigator, api);
-          kill(Navigator.prototype, api);
-        });
-      })();
-    </script>
+    <script is:inline>window.SharedStorage=window.AttributionReporting=navigator.SharedStorage=navigator.AttributionReporting=undefined;</script>
+    
     
     
 <style is:inline>
