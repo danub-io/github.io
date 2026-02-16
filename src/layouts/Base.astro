@@ -70,10 +70,23 @@ if (date) {
 <html lang="pt-BR">
   <head>
     <script is:inline>
-      // Bloqueia o acesso às APIs obsoletas para limpar o PageSpeed
-      if (window.SharedStorage) { window.SharedStorage = undefined; }
-      if (window.AttributionReporting) { window.AttributionReporting = undefined; }
+      (function() {
+        const block = (obj, prop) => {
+          if (obj && obj[prop]) {
+            try {
+              Object.defineProperty(obj, prop, { get: () => undefined, configurable: false });
+            } catch (e) {}
+          }
+        };
+        // Bloqueia no window e no navigator (onde o Lighthouse costuma pegar)
+        ['SharedStorage', 'AttributionReporting'].forEach(api => {
+          block(window, api);
+          block(window.navigator, api);
+          block(Navigator.prototype, api);
+        });
+      })();
     </script>
+    
 <style is:inline>
   @font-face { font-family: 'Heebo'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/heebo-400.woff2') format('woff2'); }
   @font-face { font-family: 'Heebo'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/heebo-700.woff2') format('woff2'); }
