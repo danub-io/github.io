@@ -14,14 +14,6 @@ import {
 import { AstroFont } from "astro-font";
 
 
-const pf = theme.fonts.font_family.primary;
-let fontPrimary;
-if (theme.fonts.font_family.primary) {
-  fontPrimary = theme.fonts.font_family.primary
-    .replace(/\+/g, " ")
-    .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;]+/gi, "");
-}
-
 export interface Props {
   title?: string;
   meta_title?: string;
@@ -94,21 +86,29 @@ if (date) {
     
     
     
-<style is:inline>
-  @font-face { font-family: 'Heebo'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/heebo-400.woff2') format('woff2'); }
-  @font-face { font-family: 'Heebo'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/heebo-700.woff2') format('woff2'); }
-  @font-face { font-family: 'Lato'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/lato-400.woff2') format('woff2'); }
-  @font-face { font-family: 'Lato'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/lato-700.woff2') format('woff2'); }
-</style>
-<style is:inline>
-  @font-face {
-    font-family: 'Heebo';
-    src: url('/fonts/heebo.woff2') format('woff2');
-    font-display: swap;
-  }
-</style>
-    
-    
+    <AstroFont
+      config={[
+        {
+          src: [],
+          name: "Heebo",
+          googleFontsURL: 'https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap',
+          preload: true,
+          display: "swap",
+          selector: "body",
+          fallback: "sans-serif",
+        },
+        {
+          src: [],
+          name: "Lato",
+          googleFontsURL: 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap',
+          preload: true,
+          display: "swap",
+          selector: "body",
+          fallback: "sans-serif",
+        },
+      ]}
+    />
+
     {config.google_tag_manager.enable && <GoogleTagmanager id={config.google_tag_manager.gtm_id} />}
     <link rel="shortcut icon" href={config.site.favicon} />
     <meta name="theme-name" content="bookworm-light-astro" />
@@ -117,20 +117,6 @@ if (date) {
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
     <meta name="generator" content={Astro.generator} />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <AstroFont
-      config={[
-        {
-          src: [],
-          preload: false,
-          display: "swap",
-          name: fontPrimary!,
-          fallback: "sans-serif",
-          cssVariable: "font-primary",
-          googleFontsURL: `https://fonts.googleapis.com/css2?family=${pf}&display=swap`,
-        },
-      ]}
-    />
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <title>{plainify(meta_title ? meta_title : title ? title : config.site.title)}</title>

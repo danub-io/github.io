@@ -7,7 +7,6 @@ import similerItems from "@/lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 import { render } from "astro:content";
-import { BiCalendarEdit, BiCategoryAlt } from "react-icons/bi";
 
 const allAuthors = await getSinglePage("authors");
 const posts = await getSinglePage("posts");
@@ -22,7 +21,7 @@ const { title, description, authors, categories, image, image_alt, date, tags } 
   <div class="container">
     <article class="row justify-center">
       <div class="md:col-10 text-center">
-        <h1 set:html={markdownify(title)} class="h2" />
+        <h1 set:html={markdownify(title)} class="h1" />
         <ul class="mt-4 flex flex-wrap items-center justify-center text-text text-sm">
           <li class="mx-3">
             {
@@ -52,12 +51,9 @@ const { title, description, authors, categories, image, image_alt, date, tags } 
             }
           </li>
           <li class="mx-3 flex items-center flex-wrap font-medium">
-            <BiCalendarEdit className="mr-1 h-4 w-4 text-gray-600" />
             {dateFormat(date)}
           </li>
           <li class="mx-3 flex items-center flex-wrap">
-            <BiCategoryAlt className="mr-1 h-4 w-4 text-gray-600" />
-
             <ul>
               {
                 categories.map((category: string, i: number) => (
@@ -77,22 +73,20 @@ const { title, description, authors, categories, image, image_alt, date, tags } 
         </ul>
       </div>
 
-      <div class="col-12 mt-8 mb-2">
+      <div class="col-12 mt-8 mb-2 flex justify-center">
         {
           image && (
             <Image width={665} height={349} inferSize={true} loading="eager" fetchpriority="high"
               src={image}
-              height={349}
-              width={665}
               alt={image_alt || title}
-              class="rounded-lg"
+              class="rounded-lg object-cover"
             />
           )
         }
       </div>
 
       <div class="md:col-10">
-        <div class="content mb-16 text-left">
+        <div class="content mb-12 text-left">
           <Content />
         </div>
         <div class="flex flex-wrap items-center justify-between">

@@ -17,12 +17,14 @@
   },
   "fonts": {
     "font_family": {
-      "primary": "Mulish:wght@400;600;700",
-      "primary_type": "sans-serif"
+      "primary": "Heebo:wght@400;700",
+      "primary_type": "sans-serif",
+      "secondary": "Lato:wght@400;700",
+      "secondary_type": "sans-serif"
     },
     "font_size": {
-      "base": "16",
-      "scale": "1.15"
+      "base": "17",
+      "scale": "1.09"
     }
   }
 }

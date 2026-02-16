@@ -2,6 +2,10 @@
 import Logo from "@/components/Logo.astro";
 import menu from "@/config/menu.json";
 import { IoSearch, IoClose } from "react-icons/io5";
+import { getTaxonomy } from "@/lib/taxonomyParser.astro";
+import { humanize } from "@/lib/utils/textConverter";
+
+const categories = await getTaxonomy("posts", "categories");
 
 export interface ChildNavigationLink {
   name: string;
@@ -54,7 +58,29 @@ const { main }: { main: NavigationLink[] } = menu;
       {
         main.map((menu) => (
           <>
-            {menu.hasChildren ? (
+            {menu.name === "Categorias" ? (
+              <>
+                <li class="nav-item md:hidden">
+                  <ul class="mb-4">
+                    {categories.map((category) => (
+                      <li>
+                        <a
+                          href={`/categorias/${category}`}
+                          class="nav-link block"
+                        >
+                          {humanize(category)}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+                <li class="nav-item hidden md:block">
+                  <a href={menu.url} class="nav-link block">
+                    {menu.name}
+                  </a>
+                </li>
+              </>
+            ) : menu.hasChildren ? (
               <li class="nav-item nav-dropdown group relative cursor-pointer">
                 <span class="nav-link inline-flex items-center">
                   {menu.name}
@@ -151,43 +177,52 @@ const { main }: { main: NavigationLink[] } = menu;
 </header>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
+  const openSearch = (e) => {
+    e.preventDefault();
     const searchModal = document.getElementById('search-modal');
     const searchContainer = document.getElementById('search-container');
+    const searchInput = document.getElementById('search-input-desktop') as HTMLInputElement;
+    if (searchModal && searchContainer) {
+      searchModal.classList.remove('invisible', 'opacity-0');
+      searchModal.classList.add('visible', 'opacity-100');
+      searchContainer.classList.remove('scale-95');
+      searchContainer.classList.add('scale-100');
+      setTimeout(() => searchInput?.focus(), 100);
+    }
+  };
+
+  const closeSearch = () => {
+    const searchModal = document.getElementById('search-modal');
+    const searchContainer = document.getElementById('search-container');
+    if (searchModal && searchContainer) {
+      searchModal.classList.remove('visible', 'opacity-100');
+      searchModal.classList.add('invisible', 'opacity-0');
+      searchContainer.classList.remove('scale-100');
+      searchContainer.classList.add('scale-95');
+    }
+  };
+
+  function setupSearch() {
     const searchTriggers = document.querySelectorAll('[data-search-trigger]');
     const searchClose = document.getElementById('search-close');
     const searchBackdrop = document.getElementById('search-backdrop');
-    const searchInput = document.getElementById('search-input-desktop');
 
-    const openSearch = () => {
-      // Torna visível (Opacity 100)
-      searchModal?.classList.remove('invisible', 'opacity-0');
-      searchModal?.classList.add('visible', 'opacity-100');
-      
-      // Animação de Zoom (Scale 100)
-      searchContainer?.classList.remove('scale-95');
-      searchContainer?.classList.add('scale-100');
-
-      setTimeout(() => searchInput?.focus(), 100);
-    };
-
-    const closeSearch = () => {
-      // Torna invisível
-      searchModal?.classList.remove('visible', 'opacity-100');
-      searchModal?.classList.add('invisible', 'opacity-0');
-
-      // Reseta Zoom
-      searchContainer?.classList.remove('scale-100');
-      searchContainer?.classList.add('scale-95');
-    };
-
-    // Eventos
-    searchTriggers.forEach((t) => t.addEventListener('click', openSearch));
-    searchClose?.addEventListener('click', closeSearch);
-    searchBackdrop?.addEventListener('click', closeSearch);
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeSearch();
+    searchTriggers.forEach((t) => {
+      t.removeEventListener('click', openSearch);
+      t.addEventListener('click', openSearch);
     });
+
+    searchClose?.removeEventListener('click', closeSearch);
+    searchClose?.addEventListener('click', closeSearch);
+
+    searchBackdrop?.removeEventListener('click', closeSearch);
+    searchBackdrop?.addEventListener('click', closeSearch);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeSearch();
   });
+
+  // Correr após navegação (Astro)
+  document.addEventListener('astro:page-load', setupSearch);
 </script>
