@@ -1,4 +1,4 @@
-﻿---
+---
 import { humanize, slugify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
@@ -32,14 +32,14 @@ const { className, posts, fluid } = Astro.props;
                       alt={post.data.image_alt || post.data.title}
                       width={800}
                       height={420}
-                      widths={[400, 800]}
-                      sizes="(max-width: 768px) 95vw, 800px"
+                      widths={[300, 600, 800, 1200]}
+                      sizes="(max-width: 640px) 95vw, (max-width: 1024px) 700px, 800px"
                     />
                   </a>
                   {post.data.categories && post.data.categories.length > 0 && (
                     <a
                       href={`/categorias/${slugify(post.data.categories[0])}`}
-                      class="absolute top-4 left-4 text-white text-sm font-bold uppercase tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] hover:underline z-10 min-w-[44px] min-h-[44px] flex items-center justify-center px-3 bg-black/20 rounded"
+                      class="absolute top-4 left-4 text-white text-sm font-bold uppercase tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] hover:text-primary z-10 p-2 -m-2"
                     >
                       {humanize(post.data.categories[0])}
                     </a>
@@ -56,7 +56,7 @@ const { className, posts, fluid } = Astro.props;
             /* Regular Post Layout (Side-by-side) */
             <div class="flex items-start gap-3 sm:gap-4">
               {post.data.image && (
-                <a href={`/blog/${post.id}`} class="block hover:text-primary overflow-hidden group flex-shrink-0 w-[40%]">
+                <a href={`/blog/${post.id}`} class="block hover:text-primary overflow-hidden group flex-shrink-0 w-[40%]" aria-label={post.data.title}>
                   <Image
                     loading="lazy"
                     class="group-hover:scale-[1.03] transition duration-300 w-full aspect-[5/3] object-cover"
@@ -64,8 +64,8 @@ const { className, posts, fluid } = Astro.props;
                     alt={post.data.image_alt || post.data.title}
                     width={300}
                     height={180}
-                    widths={[200, 300, 600]}
-                    sizes="(max-width: 640px) 40vw, 300px"
+                    widths={[150, 300, 600]}
+                    sizes="(max-width: 640px) 35vw, 300px"
                   />
                 </a>
               )}

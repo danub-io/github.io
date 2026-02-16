@@ -74,8 +74,12 @@ if (date) {
       })(window,document,'script','dataLayer','GTM-PJ33ZTZW');
     }
     // Carrega apenas quando o usuário interage
-    ['mouseover','keydown','touchmove','touchstart','scroll'].forEach(function(e) {
+    ['touchmove','touchstart','scroll'].forEach(function(e) {
       window.addEventListener(e, loadGTM, {passive: true, once: true});
+    });
+    // Se não houver interação, carrega após 5 segundos para não prejudicar métricas iniciais
+    window.addEventListener('load', function() {
+      setTimeout(loadGTM, 5000);
     });
   })();
 </script>
@@ -135,11 +139,11 @@ if (date) {
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
-  <body>
+  <body class="flex flex-col min-h-screen">
     <TwSizeIndicator />
     <Header />
     <BackToTop />
-    <main id="main-content" class="min-h-[60vh]">
+    <main id="main-content" class="flex-grow">
       <slot />
     </main>
     <Footer />
