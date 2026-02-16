@@ -26,7 +26,7 @@ const recommendedPosts = [
 <section class="py-6">
   <div class="max-w-[1000px] px-4 mx-auto">
     <!-- Top Ad Dummy -->
-    <AdDummy />
+    <AdDummy className="mt-0 mb-8" />
 
     <article class="flex flex-col items-center">
       <div class="w-full md:w-10/12 text-left">
@@ -36,7 +36,7 @@ const recommendedPosts = [
             categories.map((category: string) => (
               <a
                 href={`/categorias/${slugify(category)}`}
-                class="text-primary font-bold normal-case text-[10px] sm:text-xs tracking-wide hover:underline mr-2 py-1"
+                class="text-primary font-bold normal-case text-[10px] sm:text-xs tracking-wide hover:underline mr-2 pb-1"
               >
                 {humanize(category)}
               </a>
@@ -88,7 +88,7 @@ const recommendedPosts = [
         <div class="content mb-10 text-left" id="article-content">
           <Content />
         </div>
-        <div class="flex flex-wrap items-center justify-between border-b border-border pb-6 mb-8">
+        <div class="flex flex-wrap items-center justify-between pb-6 mb-8">
           <ul class="mr-4 mb-4 space-x-3">
             {
               tags.map((tag: string) => (
@@ -147,7 +147,7 @@ const recommendedPosts = [
                   {p.data.categories.map((category: string, i: number) => (
                     <a
                       href={`/categorias/${slugify(category)}`}
-                      class="text-primary font-bold normal-case text-[10px] sm:text-xs tracking-wide hover:underline mr-2 py-1 px-2 -ml-2"
+                      class="text-primary font-bold normal-case text-[10px] sm:text-xs tracking-wide hover:underline mr-2 pb-1 px-2 -ml-2"
                     >
                       {humanize(category)}
                       {i !== p.data.categories.length - 1 && <span class="mx-1">,</span>}
@@ -156,7 +156,7 @@ const recommendedPosts = [
                 </div>
               )}
               <h3 class="text-[16px] sm:text-lg leading-tight sm:leading-snug">
-                <a href={`/blog/${p.id}`} class="block hover:text-primary transition duration-300 font-bold py-1">
+                <a href={`/blog/${p.id}`} class="block hover:text-primary transition duration-300 font-bold pb-1">
                   {p.data.title}
                 </a>
               </h3>
