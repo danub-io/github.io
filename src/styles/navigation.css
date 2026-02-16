@@ -21,11 +21,11 @@
 
 /* Ajustes de UX para Menu Aberto (Mobile) */
 #nav-menu .nav-item {
-  @apply my-2 md:my-0 w-full text-center;
+  @apply my-0.5 md:my-0 w-full text-center;
 }
 
 #nav-menu .nav-link {
-  @apply text-2xl font-bold tracking-tight py-4 block md:text-lg md:font-semibold;
+  @apply text-xl font-bold tracking-tight py-3 block md:text-lg md:font-semibold md:py-4;
 }
 
 .nav-dropdown-list {

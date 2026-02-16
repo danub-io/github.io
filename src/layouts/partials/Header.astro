@@ -22,7 +22,7 @@ export interface NavigationLink {
 const { main }: { main: NavigationLink[] } = menu;
 ---
 
-<header class="header pt-6 relative z-30">
+<header class="header pt-4 md:pt-6 relative z-30">
   <nav class="navbar container relative">
     <div class="order-0">
       <Logo />
@@ -107,7 +107,7 @@ const { main }: { main: NavigationLink[] } = menu;
         ))
       }
       
-      <li class="nav-item md:hidden w-full mt-10 px-4">
+      <li class="nav-item md:hidden w-full mt-4 px-4">
         <form action="/search" method="GET" class="relative w-full max-w-sm mx-auto">
           <input 
             type="text" 
@@ -223,4 +223,6 @@ const { main }: { main: NavigationLink[] } = menu;
 
   // Correr após navegação (Astro)
   document.addEventListener('astro:page-load', setupSearch);
+  // Inicialização direta para garantir funcionamento sem view transitions
+  setupSearch();
 </script>

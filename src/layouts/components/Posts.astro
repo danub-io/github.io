@@ -12,17 +12,17 @@ type Props = {
 const { className, posts, fluid } = Astro.props;
 ---
 
-<div class={`row gy-5 gx-4 ${className} ${posts.length == 1 ? "justify-center" : ""} `}>
+<div class={`row gy-3 gx-3 ${className} ${posts.length == 1 ? "justify-center" : ""} `}>
   {
     posts.map((post, i: number) => {
       const isFeatured = i === 0 && fluid != false;
       return (
-        <div class={isFeatured ? "col-12 mb-10" : "col-12 sm:col-6"}>
+        <div class={isFeatured ? "col-12 mb-6" : "col-12 sm:col-6"}>
           {isFeatured ? (
             /* Featured Post Layout */
             <>
               {post.data.image && (
-                <div class="relative rounded-lg overflow-hidden group">
+                <div class="relative overflow-hidden group">
                   <a href={`/blog/${post.id}`} class="block">
                     <Image
                       loading="eager"
@@ -46,8 +46,8 @@ const { className, posts, fluid } = Astro.props;
                   )}
                 </div>
               )}
-              <h3 class="mt-4 text-xl sm:text-2xl">
-                <a href={`/blog/${post.id}`} class="block hover:text-primary transition duration-300 leading-tight">
+              <h3 class="mt-4 text-lg sm:text-xl">
+                <a href={`/blog/${post.id}`} class="block hover:text-primary transition duration-300 leading-tight font-bold">
                   {post.data.title}
                 </a>
               </h3>
@@ -56,7 +56,7 @@ const { className, posts, fluid } = Astro.props;
             /* Regular Post Layout (Side-by-side) */
             <div class="flex items-start gap-3 sm:gap-4">
               {post.data.image && (
-                <a href={`/blog/${post.id}`} class="rounded-lg block hover:text-primary overflow-hidden group flex-shrink-0 w-[40%]">
+                <a href={`/blog/${post.id}`} class="block hover:text-primary overflow-hidden group flex-shrink-0 w-[40%]">
                   <Image
                     loading="lazy"
                     class="group-hover:scale-[1.03] transition duration-300 w-full aspect-[5/3] object-cover"
@@ -70,17 +70,12 @@ const { className, posts, fluid } = Astro.props;
                 </a>
               )}
               <div class="flex-grow">
-                <h3 class="mb-1 text-lg sm:text-xl leading-tight sm:leading-snug">
-                  <a href={`/blog/${post.id}`} class="block hover:text-primary transition duration-300 font-bold">
-                    {post.data.title}
-                  </a>
-                </h3>
                 {post.data.categories && post.data.categories.length > 0 && (
-                  <div class="flex items-center flex-wrap mt-2">
+                  <div class="flex items-center flex-wrap mb-1">
                     {post.data.categories.map((category, i: number) => (
                       <a
                         href={`/categorias/${slugify(category)}`}
-                        class="text-primary font-bold uppercase text-[10px] sm:text-xs tracking-wide hover:underline py-2 mr-2"
+                        class="text-primary font-bold normal-case text-[10px] sm:text-xs tracking-wide hover:underline mr-2"
                       >
                         {humanize(category)}
                         {i !== post.data.categories.length - 1 && <span class="mx-1">,</span>}
@@ -88,6 +83,11 @@ const { className, posts, fluid } = Astro.props;
                     ))}
                   </div>
                 )}
+                <h3 class="text-[16px] sm:text-lg leading-tight sm:leading-snug">
+                  <a href={`/blog/${post.id}`} class="block hover:text-primary transition duration-300 font-bold">
+                    {post.data.title}
+                  </a>
+                </h3>
               </div>
             </div>
           )}
