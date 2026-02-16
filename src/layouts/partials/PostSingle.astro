@@ -1,6 +1,6 @@
 ---
 import Share from "@/components/Share.astro";
-import SimilarPosts from "@/components/SimilarPosts.astro";
+import AdDummy from "@/components/AdDummy.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import dateFormat from "@/lib/utils/dateFormat";
 import similerItems from "@/lib/utils/similarItems";
@@ -11,19 +11,44 @@ import { render } from "astro:content";
 const allAuthors = await getSinglePage("authors");
 const posts = await getSinglePage("posts");
 const { post } = Astro.props;
-const similarPosts = similerItems(post, posts, post.slug);
+const similarPosts = similerItems(post, posts, post.id);
 const { Content } = await render(post);
 const { title, description, authors, categories, image, image_alt, date, tags } =
   post.data;
+
+// Combine similar posts with others to get 10 recommended posts
+const recommendedPosts = [
+  ...similarPosts,
+  ...posts.filter((p) => p.id !== post.id && !similarPosts.find((sp) => sp.id === p.id))
+].slice(0, 10);
 ---
 
 <section class="py-6">
   <div class="max-w-[1000px] px-4 mx-auto">
+    <!-- Top Ad Dummy -->
+    <AdDummy />
+
     <article class="flex flex-col items-center">
-      <div class="w-full md:w-10/12 text-center">
-        <h1 set:html={markdownify(title)} class="h1" />
-        <ul class="mt-4 flex flex-wrap items-center justify-center text-text text-sm">
-          <li class="mx-3">
+      <div class="w-full md:w-10/12 text-left">
+        <!-- Categories above title -->
+        <div class="flex items-center flex-wrap mb-2">
+          {
+            categories.map((category: string) => (
+              <a
+                href={`/categorias/${slugify(category)}`}
+                class="text-primary font-bold normal-case text-[10px] sm:text-xs tracking-wide hover:underline mr-2 py-1"
+              >
+                {humanize(category)}
+              </a>
+            ))
+          }
+        </div>
+
+        <h1 set:html={markdownify(title)} class="h1 mb-4 text-left" />
+
+        <!-- Author and Date meta -->
+        <ul class="flex flex-wrap items-center justify-start text-text-light text-xs">
+          <li class="mr-4">
             {
               allAuthors
                 .filter((author) =>
@@ -34,41 +59,15 @@ const { title, description, authors, categories, image, image_alt, date, tags } 
                 .map((author) => (
                   <a
                     href={`/autores/${slugify(author.id)}`}
-                    class="flex items-center hover:text-primary font-medium"
+                    class="hover:text-primary font-medium"
                   >
-                    {author.data.image && (
-                      <Image width={665} height={349} inferSize={true} loading="eager" fetchpriority="high"
-                        src={author.data.image}
-                        alt={author.data.title}
-                        height={349}
-                        width={665}
-                        class="mr-2 h-4 w-4 rounded-full"
-                      />
-                    )}
                     <span>{author.data.title}</span>
                   </a>
                 ))
             }
           </li>
-          <li class="mx-3 flex items-center flex-wrap font-medium">
+          <li class="font-medium">
             {dateFormat(date)}
-          </li>
-          <li class="mx-3 flex items-center flex-wrap">
-            <ul class="flex flex-wrap">
-              {
-                categories.map((category: string, i: number) => (
-                  <li class="inline-block">
-                    <a
-                      href={`/categorias/${slugify(category)}`}
-                      class="inline-block py-2 mr-2 hover:text-primary font-medium"
-                    >
-                      {humanize(category)}
-                      {i !== post.data.categories.length - 1 && ","}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
           </li>
         </ul>
       </div>
@@ -86,10 +85,10 @@ const { title, description, authors, categories, image, image_alt, date, tags } 
       </div>
 
       <div class="w-full md:w-10/12">
-        <div class="content mb-10 text-left">
+        <div class="content mb-10 text-left" id="article-content">
           <Content />
         </div>
-        <div class="flex flex-wrap items-center justify-between">
+        <div class="flex flex-wrap items-center justify-between border-b border-border pb-6 mb-8">
           <ul class="mr-4 mb-4 space-x-3">
             {
               tags.map((tag: string) => (
@@ -116,14 +115,83 @@ const { title, description, authors, categories, image, image_alt, date, tags } 
   </div>
 </section>
 
-<!-- similar posts -->
-{
-  similarPosts.length > 0 && (
-    <section class="py-6 pt-0">
-      <div class="max-w-[1000px] px-4 mx-auto">
-        <h2 class="mb-8 text-center h3">Posts Semelhantes</h2>
-        <SimilarPosts posts={similarPosts.slice(0, 3)} />
-      </div>
-    </section>
-  )
-}
+<!-- recommended posts -->
+<section class="py-6 pt-0">
+  <div class="max-w-[1000px] px-4 mx-auto">
+    <h2 class="mb-8 text-left h3">Recomendados</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
+      {recommendedPosts.map((p, index) => (
+        <>
+          {index === 5 && (
+            <div class="col-span-1 md:col-span-2 mb-6">
+              <AdDummy />
+            </div>
+          )}
+          <div class="flex items-start gap-3 sm:gap-4 mb-6">
+            {p.data.image && (
+              <a href={`/blog/${p.id}`} class="block hover:text-primary overflow-hidden group flex-shrink-0 w-[40%]" aria-label={p.data.title}>
+                <Image
+                  loading="lazy"
+                  class="group-hover:scale-[1.03] transition duration-300 w-full aspect-[5/3] object-cover"
+                  src={p.data.image}
+                  alt={p.data.image_alt || p.data.title}
+                  width={300}
+                  height={180}
+                />
+              </a>
+            )}
+            <div class="flex-grow">
+              {p.data.categories && p.data.categories.length > 0 && (
+                <div class="flex items-center flex-wrap mb-1">
+                  {p.data.categories.map((category: string, i: number) => (
+                    <a
+                      href={`/categorias/${slugify(category)}`}
+                      class="text-primary font-bold normal-case text-[10px] sm:text-xs tracking-wide hover:underline mr-2 py-1 px-2 -ml-2"
+                    >
+                      {humanize(category)}
+                      {i !== p.data.categories.length - 1 && <span class="mx-1">,</span>}
+                    </a>
+                  ))}
+                </div>
+              )}
+              <h3 class="text-[16px] sm:text-lg leading-tight sm:leading-snug">
+                <a href={`/blog/${p.id}`} class="block hover:text-primary transition duration-300 font-bold py-1">
+                  {p.data.title}
+                </a>
+              </h3>
+            </div>
+          </div>
+        </>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  function injectMiddleAd() {
+    const content = document.getElementById('article-content');
+    if (!content || content.querySelector('.middle-ad-dummy')) return;
+
+    const paragraphs = content.querySelectorAll('p');
+    if (paragraphs.length >= 3) {
+      const middleIndex = Math.floor(paragraphs.length / 2);
+      const adDummy = document.createElement('div');
+      adDummy.className = "my-8 flex justify-center middle-ad-dummy";
+      adDummy.innerHTML = `
+        <div class="w-full max-w-[728px] h-[90px] bg-gray-200 flex items-center justify-center text-gray-500 font-bold border border-gray-300">
+          Publicidade
+        </div>
+      `;
+      paragraphs[middleIndex].parentNode?.insertBefore(adDummy, paragraphs[middleIndex].nextSibling);
+    }
+  }
+
+  document.addEventListener('astro:page-load', injectMiddleAd);
+  // Also run on initial load if not using view transitions or if it's the first page
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    injectMiddleAd();
+  } else {
+    document.addEventListener('DOMContentLoaded', injectMiddleAd);
+  }
+</script>
