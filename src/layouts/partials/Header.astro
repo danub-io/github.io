@@ -1,4 +1,4 @@
-﻿---
+---
 import Logo from "@/components/Logo.astro";
 import menu from "@/config/menu.json";
 import { IoSearch, IoClose } from "react-icons/io5";
@@ -24,15 +24,12 @@ const { main }: { main: NavigationLink[] } = menu;
 
 <header class="pt-4 md:pt-6 relative z-30">
   <nav class="relative flex max-w-[1000px] px-4 mx-auto flex-wrap items-center justify-between">
-    <div class="order-0">
-      <Logo />
-    </div>
 
-    <input id="nav-toggle" type="checkbox" class="hidden group" />
+    <!-- Hamburguer Menu (Order 0 on Mobile, Order 1 on Desktop) -->
     <label
       id="show-button"
       for="nav-toggle"
-      class="order-2 flex cursor-pointer items-center text-black md:order-1 md:hidden"
+      class="order-0 flex cursor-pointer items-center text-black md:order-1 md:hidden flex-1 justify-start"
     >
       <svg class="h-6 fill-current" viewBox="0 0 20 20">
         <title>Menu Open</title>
@@ -42,7 +39,7 @@ const { main }: { main: NavigationLink[] } = menu;
     <label
       id="hide-button"
       for="nav-toggle"
-      class="order-2 hidden cursor-pointer items-center text-black md:order-1"
+      class="order-0 hidden cursor-pointer items-center text-black md:order-1"
     >
       <svg class="h-6 fill-current" viewBox="0 0 20 20">
         <title>Menu Close</title>
@@ -51,6 +48,14 @@ const { main }: { main: NavigationLink[] } = menu;
           transform="rotate(45 10 10)"></polygon>
       </svg>
     </label>
+
+    <!-- Logo (Order 1 on Mobile - Center, Order 0 on Desktop - Left) -->
+    <div class="order-1 md:order-0 flex-1 md:flex-none text-center md:text-left">
+      <Logo />
+    </div>
+
+    <input id="nav-toggle" type="checkbox" class="hidden group" />
+
     <ul
       id="nav-menu"
       class="order-3 hidden w-full text-center md:order-1 md:flex md:w-auto md:text-left"
@@ -116,7 +121,7 @@ const { main }: { main: NavigationLink[] } = menu;
         ))
       }
       
-      <li class="nav-item md:hidden w-full mt-4 px-4">
+      <li class="nav-item md:hidden w-full mt-4 px-4 border-t border-border pt-6">
         <form action="/search" method="GET" class="relative w-full max-w-sm mx-auto">
           <input 
             type="text" 
@@ -131,14 +136,25 @@ const { main }: { main: NavigationLink[] } = menu;
       </li>
     </ul>
 
-    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+    <!-- Search Icon (Order 2 on Mobile and Desktop) -->
+    <div class="order-2 flex items-center md:order-2 flex-1 md:flex-none justify-end lg:ml-0">
+      <!-- Desktop Search Button -->
       <button
         class="search-icon p-2 text-dark hover:text-primary transition hidden md:inline-block cursor-pointer"
         aria-label="search"
         data-search-trigger
       >
-        <IoSearch />
+        <IoSearch className="text-xl" />
       </button>
+
+      <!-- Mobile Search Link -->
+      <a
+        href="/search"
+        class="p-2 text-dark hover:text-primary transition md:hidden text-2xl active:text-primary"
+        aria-label="search"
+      >
+        <IoSearch />
+      </a>
     </div>
 
     <div 

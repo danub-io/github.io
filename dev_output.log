@@ -1,21 +1,14 @@
 yarn run v1.22.22
 $ astro dev
-19:33:32 [types] Generated 1ms
-19:33:33 [content] Syncing content
-19:33:33 [WARN] [glob-loader] The base directory "/app/src/content/pages/" does not exist.
-19:33:33 [content] Synced content
-19:33:33 [vite] Re-optimizing dependencies because vite config has changed
+22:47:06 [types] Generated 2ms
+22:47:08 [content] Syncing content
+22:47:08 [WARN] [glob-loader] The base directory "/app/src/content/pages/" does not exist.
+22:47:08 [content] Synced content
+22:47:08 [vite] Port 4321 is in use, trying another one...
 
- astro  v5.14.4 ready in 1431 ms
+ astro  v5.14.4 ready in 2620 ms
 
-┃ Local    http://localhost:4321/
+┃ Local    http://localhost:4322/
 ┃ Network  use --host to expose
 
-19:33:33 watching for file changes...
-
- update  ▶ New version of Astro available: 5.17.2
-  Run npx @astrojs/upgrade to update
-
-19:33:58 [200] / 313ms
-19:34:01 [200] / 19ms
-19:34:08 [200] /blog/resiliencia-cedro-do-libano-licoes-biblicas 22ms
+22:47:08 watching for file changes...
