@@ -69,6 +69,11 @@ if (date) {
 <!doctype html>
 <html lang="pt-BR">
   <head>
+    <script is:inline>
+      // Bloqueia o acesso às APIs obsoletas para limpar o PageSpeed
+      if (window.SharedStorage) { window.SharedStorage = undefined; }
+      if (window.AttributionReporting) { window.AttributionReporting = undefined; }
+    </script>
 <style is:inline>
   @font-face { font-family: 'Heebo'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/heebo-400.woff2') format('woff2'); }
   @font-face { font-family: 'Heebo'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/heebo-700.woff2') format('woff2'); }
