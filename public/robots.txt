@@ -1,5 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
-Disallow: /api/*
 
 Sitemap: https://gospelreads.com/sitemap-index.xml
