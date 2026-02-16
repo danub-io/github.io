@@ -38,7 +38,7 @@ const { title, description, authors, categories, image, date, tags } =
                     class="flex items-center hover:text-primary font-medium"
                   >
                     {author.data.image && (
-                      <Image loading="eager" fetchpriority="high"
+                      <Image inferSize={true} loading="eager" fetchpriority="high"
                         src={author.data.image}
                         alt={author.data.title}
                         height={50}
@@ -80,7 +80,7 @@ const { title, description, authors, categories, image, date, tags } =
       <div class="col-12 mt-8 mb-2">
         {
           image && (
-            <Image loading="eager" fetchpriority="high"
+            <Image inferSize={true} loading="eager" fetchpriority="high"
               src={image}
               height={500}
               width={1000}

@@ -27,7 +27,7 @@ const { className, posts, fluid } = Astro.props;
             href={`/blog/${post.id}`}
             class="rounded-lg block hover:text-primary overflow-hidden group"
           >
-            <Image
+            <Image inferSize={true}
           loading={i === 0 ? "eager" : "lazy"}
           fetchpriority={i === 0 ? "high" : "auto"}
               class="group-hover:scale-[1.03] transition duration-300 w-full"
@@ -54,7 +54,7 @@ const { className, posts, fluid } = Astro.props;
                   class="flex items-center hover:text-primary font-medium"
                 >
                   {author.data.image && (
-                    <Image
+                    <Image inferSize={true}
           loading={i === 0 ? "eager" : "lazy"}
           fetchpriority={i === 0 ? "high" : "auto"}
                       src={author.data.image}
