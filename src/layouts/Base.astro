@@ -71,21 +71,25 @@ if (date) {
   <head>
     <script is:inline>
       (function() {
-        const block = (obj, prop) => {
-          if (obj && obj[prop]) {
-            try {
-              Object.defineProperty(obj, prop, { get: () => undefined, configurable: false });
-            } catch (e) {}
-          }
+        const kill = (obj, prop) => {
+          if (!obj) return;
+          try {
+            Object.defineProperty(obj, prop, { 
+              get: () => undefined, 
+              configurable: true,
+              enumerable: false 
+            });
+          } catch (e) {}
         };
-        // Bloqueia no window e no navigator (onde o Lighthouse costuma pegar)
-        ['SharedStorage', 'AttributionReporting'].forEach(api => {
-          block(window, api);
-          block(window.navigator, api);
-          block(Navigator.prototype, api);
+        // Mata as APIs que o Lighthouse penaliza
+        ['SharedStorage', 'sharedStorage', 'AttributionReporting', 'attributionReporting'].forEach(api => {
+          kill(window, api);
+          kill(navigator, api);
+          kill(Navigator.prototype, api);
         });
       })();
     </script>
+    
     
 <style is:inline>
   @font-face { font-family: 'Heebo'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/heebo-400.woff2') format('woff2'); }

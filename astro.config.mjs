@@ -5,7 +5,7 @@ import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
 import react from "@astrojs/react";
 
-// Build ID: 20260215220942
+// Build ID: 221244
 export default defineConfig({
   site: "https://gospelreads.com",
   integrations: [
