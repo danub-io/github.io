@@ -33,10 +33,10 @@ const { className, posts, fluid } = Astro.props;
               class="group-hover:scale-[1.03] transition duration-300 w-full"
               src={post.data.image}
               alt={post.data.title}
-              width={i === 0 ? 925 : 445}
+              widths={[445, 665, 925]} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 665px, 925px"
   loading={i === 0 ? "eager" : "lazy"} 
   fetchpriority={i === 0 ? "high" : "auto"}
-              height={i === 0 ? 475 : 230}
+              
             />
           </a>
         )}
