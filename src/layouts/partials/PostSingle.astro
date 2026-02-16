@@ -38,11 +38,11 @@ const { title, description, authors, categories, image, image_alt, date, tags } 
                     class="flex items-center hover:text-primary font-medium"
                   >
                     {author.data.image && (
-                      <Image width={665} height={350} inferSize={true} loading="eager" fetchpriority="high"
+                      <Image width={665} height={349} inferSize={true} loading="eager" fetchpriority="high"
                         src={author.data.image}
                         alt={author.data.title}
-                        height={50}
-                        width={50}
+                        height={349}
+                        width={665}
                         class="mr-2 h-4 w-4 rounded-full"
                       />
                     )}
@@ -80,10 +80,10 @@ const { title, description, authors, categories, image, image_alt, date, tags } 
       <div class="col-12 mt-8 mb-2">
         {
           image && (
-            <Image width={665} height={350} inferSize={true} loading="eager" fetchpriority="high"
+            <Image width={665} height={349} inferSize={true} loading="eager" fetchpriority="high"
               src={image}
-              height={500}
-              width={1000}
+              height={349}
+              width={665}
               alt={image_alt || title}
               class="rounded-lg"
             />

@@ -29,7 +29,7 @@ const { className, posts, fluid } = Astro.props;
               src={post.data.image}
               alt={post.data.image_alt || post.data.title}
               width={665}
-              height={350}
+              height={349}
               widths={[400, 665]}
               sizes="(max-width: 768px) 95vw, 665px"
             />
@@ -45,8 +45,8 @@ const { className, posts, fluid } = Astro.props;
                     <Image
                       src={author.data.image}
                       alt={author.data.title}
-                      height={20}
-                      width={20}
+                      height={349}
+                      width={665}
                       class="mr-2 h-4 w-4 rounded-full"
                     />
                   )}
