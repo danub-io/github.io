@@ -24,15 +24,13 @@ const { main }: { main: NavigationLink[] } = menu;
 
 <header class="pt-4 md:pt-6 relative z-30">
   <nav class="relative flex max-w-[1000px] px-4 mx-auto flex-wrap items-center justify-between">
-    <div class="order-0">
-      <Logo />
-    </div>
+    <input id="nav-toggle" type="checkbox" class="hidden" />
 
-    <input id="nav-toggle" type="checkbox" class="hidden group" />
+    <!-- Mobile Hamburger (Left) -->
     <label
       id="show-button"
       for="nav-toggle"
-      class="order-2 flex cursor-pointer items-center text-black md:order-1 md:hidden"
+      class="order-1 flex w-1/4 cursor-pointer items-center text-black md:hidden"
     >
       <svg class="h-6 fill-current" viewBox="0 0 20 20">
         <title>Menu Open</title>
@@ -42,7 +40,7 @@ const { main }: { main: NavigationLink[] } = menu;
     <label
       id="hide-button"
       for="nav-toggle"
-      class="order-2 hidden cursor-pointer items-center text-black md:order-1"
+      class="order-1 hidden w-1/4 cursor-pointer items-center text-black"
     >
       <svg class="h-6 fill-current" viewBox="0 0 20 20">
         <title>Menu Close</title>
@@ -51,9 +49,29 @@ const { main }: { main: NavigationLink[] } = menu;
           transform="rotate(45 10 10)"></polygon>
       </svg>
     </label>
+
+    <!-- Logo (Center on Mobile, Left on Desktop) -->
+    <div class="order-2 flex w-2/4 justify-center md:order-0 md:w-auto md:justify-start">
+      <Logo />
+    </div>
+
+    <!-- Mobile Search (Right) & Desktop Search Trigger -->
+    <div class="order-3 flex w-1/4 justify-end md:order-2 md:w-auto">
+      <a href="/search" class="p-2 text-dark md:hidden" aria-label="search">
+        <IoSearch class="text-2xl" />
+      </a>
+      <button
+        class="search-icon p-2 text-dark hover:text-primary transition hidden md:inline-block cursor-pointer"
+        aria-label="search"
+        data-search-trigger
+      >
+        <IoSearch class="text-2xl" />
+      </button>
+    </div>
+
     <ul
       id="nav-menu"
-      class="order-3 hidden w-full text-center md:order-1 md:flex md:w-auto md:text-left"
+      class="order-4 hidden w-full text-center md:order-1 md:flex md:w-auto md:text-left"
     >
       {
         main.map((menu) => (
@@ -131,15 +149,6 @@ const { main }: { main: NavigationLink[] } = menu;
       </li>
     </ul>
 
-    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
-      <button
-        class="search-icon p-2 text-dark hover:text-primary transition hidden md:inline-block cursor-pointer"
-        aria-label="search"
-        data-search-trigger
-      >
-        <IoSearch />
-      </button>
-    </div>
 
     <div 
       class="fixed inset-0 z-50 flex items-start justify-center pt-[15vh] bg-stone-900/60 backdrop-blur-sm opacity-0 invisible transition-all duration-300" 

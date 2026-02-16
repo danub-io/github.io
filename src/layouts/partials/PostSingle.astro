@@ -1,6 +1,7 @@
 ---
 import Share from "@/components/Share.astro";
 import SimilarPosts from "@/components/SimilarPosts.astro";
+import Posts from "@/components/Posts.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import dateFormat from "@/lib/utils/dateFormat";
 import similerItems from "@/lib/utils/similarItems";
@@ -9,9 +10,15 @@ import { Image } from "astro:assets";
 import { render } from "astro:content";
 
 const allAuthors = await getSinglePage("authors");
-const posts = await getSinglePage("posts");
+const allPosts = await getSinglePage("posts");
 const { post } = Astro.props;
-const similarPosts = similerItems(post, posts, post.slug);
+const similarPosts = similerItems(post, allPosts, post.slug);
+// Get up to 10 recommended posts, excluding the current one
+const recommendedPosts = allPosts
+  .filter((p) => p.id !== post.id)
+  .sort(() => Math.random() - 0.5)
+  .slice(0, 10);
+
 const { Content } = await render(post);
 const { title, description, authors, categories, image, image_alt, date, tags } =
   post.data;
@@ -19,11 +26,34 @@ const { title, description, authors, categories, image, image_alt, date, tags } 
 
 <section class="py-6">
   <div class="max-w-[1000px] px-4 mx-auto">
-    <article class="flex flex-col items-center">
-      <div class="w-full md:w-10/12 text-center">
-        <h1 set:html={markdownify(title)} class="h1" />
-        <ul class="mt-4 flex flex-wrap items-center justify-center text-text text-sm">
-          <li class="mx-3">
+
+    <!-- DUMMY ANÚNCIO TOPO -->
+    <div class="mb-8 p-4 bg-gray-50 border-2 border-dashed border-gray-200 text-center text-gray-400 text-sm font-bold tracking-widest uppercase">
+      Publicidade
+    </div>
+
+    <article class="flex flex-col items-start">
+      <div class="w-full text-left">
+        <!-- CATEGORIA ACIMA DO TÍTULO -->
+        {categories && categories.length > 0 && (
+          <div class="flex items-center flex-wrap mb-2">
+            {categories.map((category: string, i: number) => (
+              <a
+                href={`/categorias/${slugify(category)}`}
+                class="text-primary font-bold normal-case text-xs sm:text-sm tracking-wide hover:underline mr-2"
+              >
+                {humanize(category)}
+                {i !== categories.length - 1 && <span class="mx-1">,</span>}
+              </a>
+            ))}
+          </div>
+        )}
+
+        <h1 set:html={markdownify(title)} class="h1 text-left" />
+
+        <!-- AUTOR E DATA (FONTE REDUZIDA, SEM LOGO, ALINHADO À ESQUERDA) -->
+        <ul class="mt-4 mb-8 flex flex-wrap items-center text-text-light text-[13px]">
+          <li class="mr-4">
             {
               allAuthors
                 .filter((author) =>
@@ -34,69 +64,44 @@ const { title, description, authors, categories, image, image_alt, date, tags } 
                 .map((author) => (
                   <a
                     href={`/autores/${slugify(author.id)}`}
-                    class="flex items-center hover:text-primary font-medium"
+                    class="hover:text-primary transition duration-200"
                   >
-                    {author.data.image && (
-                      <Image width={665} height={349} inferSize={true} loading="eager" fetchpriority="high"
-                        src={author.data.image}
-                        alt={author.data.title}
-                        height={349}
-                        width={665}
-                        class="mr-2 h-4 w-4 rounded-full"
-                      />
-                    )}
-                    <span>{author.data.title}</span>
+                    Por <strong>{author.data.title}</strong>
                   </a>
                 ))
             }
           </li>
-          <li class="mx-3 flex items-center flex-wrap font-medium">
+          <li class="flex items-center flex-wrap">
             {dateFormat(date)}
-          </li>
-          <li class="mx-3 flex items-center flex-wrap">
-            <ul class="flex flex-wrap">
-              {
-                categories.map((category: string, i: number) => (
-                  <li class="inline-block">
-                    <a
-                      href={`/categorias/${slugify(category)}`}
-                      class="inline-block py-2 mr-2 hover:text-primary font-medium"
-                    >
-                      {humanize(category)}
-                      {i !== post.data.categories.length - 1 && ","}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
           </li>
         </ul>
       </div>
 
-      <div class="w-full mt-8 mb-2 flex justify-center">
+      <div class="w-full mb-8 flex justify-center">
         {
           image && (
-            <Image width={665} height={349} inferSize={true} loading="eager" fetchpriority="high"
+            <Image width={800} height={420} inferSize={true} loading="eager" fetchpriority="high"
               src={image}
               alt={image_alt || title}
-              class="object-cover"
+              class="object-cover w-full"
             />
           )
         }
       </div>
 
-      <div class="w-full md:w-10/12">
+      <div class="w-full md:w-10/12 mx-auto">
         <div class="content mb-10 text-left">
           <Content />
         </div>
-        <div class="flex flex-wrap items-center justify-between">
+
+        <div class="flex flex-wrap items-center justify-between border-t border-border pt-8">
           <ul class="mr-4 mb-4 space-x-3">
             {
               tags.map((tag: string) => (
                 <li class="inline-block mb-2">
                   <a
                     href={`/tags/${slugify(tag)}`}
-                    class="block rounded-lg bg-light px-4 py-3 font-semibold text-dark text-sm hover:text-primary transition duration-300"
+                    class="block rounded-lg bg-light px-4 py-2 font-semibold text-dark text-xs hover:text-primary transition duration-300"
                   >
                     #{humanize(tag)}
                   </a>
@@ -116,14 +121,40 @@ const { title, description, authors, categories, image, image_alt, date, tags } 
   </div>
 </section>
 
-<!-- similar posts -->
-{
-  similarPosts.length > 0 && (
-    <section class="py-6 pt-0">
-      <div class="max-w-[1000px] px-4 mx-auto">
-        <h2 class="mb-8 text-center h3">Posts Semelhantes</h2>
-        <SimilarPosts posts={similarPosts.slice(0, 3)} />
-      </div>
-    </section>
-  )
-}
+<!-- RECOMENDAÇÕES FINAIS (10 POSTS ESTILO HOME) -->
+<section class="py-12 bg-light/50">
+  <div class="max-w-[1000px] px-4 mx-auto">
+    <h2 class="h3 mb-8 text-left border-l-4 border-primary pl-4">Recomendado para você</h2>
+    <Posts posts={recommendedPosts} fluid={false} />
+
+    <!-- DUMMY ANÚNCIO RODAPÉ -->
+    <div class="mt-12 p-4 bg-gray-50 border-2 border-dashed border-gray-200 text-center text-gray-400 text-sm font-bold tracking-widest uppercase">
+      Publicidade
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPT PARA INSERIR ANÚNCIO NO MEIO DO CONTEÚDO -->
+<script is:inline>
+  function injectAd() {
+    const content = document.querySelector('.content');
+    if (content) {
+      const paragraphs = Array.from(content.querySelectorAll('p'));
+      if (paragraphs.length >= 4) {
+        // Encontra o parágrafo mais próximo do meio
+        const middleIndex = Math.floor(paragraphs.length / 2);
+        const middleParagraph = paragraphs[middleIndex];
+
+        const adDummy = document.createElement('div');
+        adDummy.className = 'my-10 p-6 bg-gray-50 border-2 border-dashed border-gray-200 text-center text-gray-400 text-sm font-bold tracking-widest uppercase';
+        adDummy.innerHTML = 'Espaço para Anúncio';
+
+        middleParagraph.after(adDummy);
+      }
+    }
+  }
+
+  // Executa no carregamento inicial e em navegações do Astro
+  injectAd();
+  document.addEventListener('astro:page-load', injectAd);
+</script>
