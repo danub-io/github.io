@@ -60,7 +60,7 @@ const { title, description, authors, categories, image, image_alt, date, tags } 
                   <li class="inline-block">
                     <a
                       href={`/categorias/${slugify(category)}`}
-                      class="inline-block py-2 px-1 hover:text-primary font-medium"
+                      class="inline-block py-2 mr-2 hover:text-primary font-medium"
                     >
                       {humanize(category)}
                       {i !== post.data.categories.length - 1 && ","}
