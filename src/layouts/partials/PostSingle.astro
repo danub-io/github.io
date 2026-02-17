@@ -7,6 +7,7 @@ import similerItems from "@/lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 import { render } from "astro:content";
+import placeholder from "@/assets/images/placeholder.png";
 
 const allAuthors = await getSinglePage("authors");
 const posts = await getSinglePage("posts");
@@ -74,7 +75,7 @@ const recommendedPosts = [
 
       <div class="w-full mt-8 mb-2 flex justify-center">
         {
-          image && (
+          (image || placeholder) && (
             <Image
               width={1000}
               height={500}
@@ -82,7 +83,7 @@ const recommendedPosts = [
               sizes="(max-width: 768px) 95vw, 1000px"
               loading="eager"
               fetchpriority="high"
-              src={image}
+              src={image || placeholder}
               alt={image_alt || title}
               class="object-cover aspect-[21/9] sm:aspect-[3/1]"
               format="webp"
@@ -136,12 +137,12 @@ const recommendedPosts = [
             </div>
           )}
           <div class={`recommended-item col-span-1 flex items-start gap-3 sm:gap-4 mb-6 ${index >= 10 ? 'hidden' : ''}`}>
-            {p.data.image && (
+            {(p.data.image || placeholder) && (
               <a href={`/blog/${p.id}`} class="block hover:text-primary overflow-hidden group flex-shrink-0 w-[40%]" aria-label={p.data.title}>
                 <Image
                   loading="lazy"
                   class="group-hover:scale-[1.03] transition duration-300 w-full aspect-[5/3] object-cover"
-                  src={p.data.image}
+                  src={p.data.image || placeholder}
                   alt={p.data.image_alt || p.data.title}
                   width={300}
                   height={180}

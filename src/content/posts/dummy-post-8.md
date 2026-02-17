@@ -2,9 +2,9 @@
 title: "Post Dummy 8"
 date: 2026-02-19
 image: "../../assets/images/dummy-post-8.webp"
-categories: ["reflexão"]
+categories: ["reflexÃƒÂ£o"]
 authors: ["dan"]
-tags: ["estudo bíblico"]
+tags: ["estudo bÃ­blico"]
 draft: false
 ---
 
@@ -12,7 +12,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-### Subtítulo do Dummy 8$
+### SubtÃ­tulo do Dummy 8$
 
 Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin libero.
 

@@ -8,10 +8,13 @@ import { sortByDate } from "@/lib/utils/sortFunctions";
 
 const posts = await getSinglePage("posts");
 const sortedPosts = sortByDate(posts);
+const postsCount = posts.length;
 const totalPages =
-  posts.length > 7
-    ? 1 + Math.ceil((posts.length - 7) / config.settings.pagination)
-    : 1;
+  postsCount <= 7
+    ? 1
+    : postsCount <= 25
+      ? 1 + Math.ceil((postsCount - 7) / 6)
+      : 4 + Math.ceil((postsCount - 25) / 24);
 const currentPosts = sortedPosts.slice(0, 7);
 ---
 

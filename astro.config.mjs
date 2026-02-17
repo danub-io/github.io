@@ -6,6 +6,7 @@ import react from "@astrojs/react";
 
 export default defineConfig({
   site: "https://gospelreads.com",
+  prefetch: true,
   integrations: [
     react(),
     sitemap(),

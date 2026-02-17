@@ -1,5 +1,6 @@
 ---
 const { section, currentPage, totalPages } = Astro.props;
+const isMainFeed = section === "" || section === undefined;
 
 const indexPageLink = currentPage === 2;
 const hasPrevPage = currentPage > 1;
@@ -14,28 +15,39 @@ for (let i = 1; i <= totalPages; i++) {
 {
   totalPages > currentPage && (
     <div class="flex justify-center mt-12 mb-16">
-      <button
-        id="load-more-button"
-        data-current-page={currentPage}
-        data-total-pages={totalPages}
-        data-section={section || ""}
-        class="bg-[#0077B5] hover:bg-[#005a8a] text-white px-6 py-1 font-bold text-base uppercase tracking-widest transition-all duration-300 shadow-md hover:shadow-xl active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
-      >
-        <span>Ver Mais Postagens</span>
-        <svg class="w-5 h-5 animate-bounce-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
+      {isMainFeed && currentPage === 4 ? (
+        <a
+          href="/page/5"
+          class="bg-[#0077B5] hover:bg-[#005a8a] text-white px-6 py-1 font-bold text-base uppercase tracking-widest transition-all duration-300 shadow-md hover:shadow-xl active:scale-95 flex items-center gap-2"
+        >
+          <span>Ver Mais Postagens</span>
+          <svg class="w-5 h-5 animate-bounce-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+      ) : (
+        <button
+          id="load-more-button"
+          data-current-page={currentPage}
+          data-total-pages={totalPages}
+          data-section={section || ""}
+          class="bg-[#0077B5] hover:bg-[#005a8a] text-white px-6 py-1 font-bold text-base uppercase tracking-widest transition-all duration-300 shadow-md hover:shadow-xl active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+        >
+          <span class="button-text">Ver Mais Postagens</span>
+          <svg class="w-5 h-5 animate-bounce-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      )}
     </div>
   )
 }
 
 <style>
   .auto-loading {
-    opacity: 0;
-    pointer-events: none;
-    height: 1px;
-    margin: 0;
+    visibility: hidden;
+    height: 40px; /* Give it some height so it's not immediately triggered by previous content */
+    margin-top: 2rem;
   }
 </style>
 
@@ -49,15 +61,26 @@ for (let i = 1; i <= totalPages; i++) {
     const totalPages = parseInt(button.getAttribute('data-total-pages') || '1');
     const section = button.getAttribute('data-section') || '';
 
-    // Auto-load logic: Page 1 is initial. Page 2, 3, 4 are auto-loaded.
-    // Total secondary posts after Page 4: 6 (P1) + 6 (P2) + 6 (P3) + 6 (P4) = 24.
-    const shouldAutoLoad = () => currentPage < 4 && section === '';
+    // Auto-load logic:
+    // - On Main Feed: auto-load Pages 2, 3, 4 and then Page 5 onwards. Page 4 stops to show the "Ver Mais" button.
+    // - Note: if currentPage is 4, it should NOT auto-load.
+    const shouldAutoLoad = () => {
+      const isMainFeed = section === '';
+      return isMainFeed && (currentPage < 4 || currentPage >= 5);
+    };
 
     const updateButtonStyle = () => {
+      const textSpan = button.querySelector('.button-text');
+      const svg = button.querySelector('svg');
+
       if (shouldAutoLoad()) {
         button.parentElement?.classList.add('auto-loading');
+        if (textSpan) textSpan.textContent = 'Carregando mais...';
+        if (svg) svg.style.display = 'none';
       } else {
         button.parentElement?.classList.remove('auto-loading');
+        if (textSpan) textSpan.textContent = 'Ver Mais Postagens';
+        if (svg) svg.style.display = 'block';
       }
     };
 
@@ -66,9 +89,15 @@ for (let i = 1; i <= totalPages; i++) {
     const loadMore = async () => {
       if (button.getAttribute('disabled')) return;
 
+      // Special case for Page 4: Navigate to /page/5
+      if (currentPage === 4 && section === '') {
+        window.location.href = '/page/5';
+        return;
+      }
+
       button.setAttribute('disabled', 'true');
-      const originalContent = button.innerHTML;
-      button.innerHTML = '<span>Carregando...</span>';
+      const textSpan = button.querySelector('.button-text');
+      if (textSpan) textSpan.textContent = 'Carregando...';
 
       const nextPage = currentPage + 1;
       const url = section ? `/${section}/page/${nextPage}` : `/page/${nextPage}`;
@@ -90,20 +119,22 @@ for (let i = 1; i <= totalPages; i++) {
             postsContainer.appendChild(post);
           });
 
-          currentPage = nextPage;
-          button.setAttribute('data-current-page', currentPage.toString());
+          // Update pagination by replacing the entire container with the one from the AJAX response
+          const paginationContainer = button.closest('.flex.justify-center.mt-12.mb-16');
+          const newPaginationContainer = doc.querySelector('.flex.justify-center.mt-12.mb-16');
 
-          if (currentPage >= totalPages) {
-            button.parentElement?.remove();
-          } else {
-            button.removeAttribute('disabled');
-            button.innerHTML = originalContent;
-            updateButtonStyle();
+          if (paginationContainer && newPaginationContainer) {
+            paginationContainer.replaceWith(newPaginationContainer);
+            // Re-initialize for the new content (especially if it's a button for next auto-load)
+            setupLoadMore();
+          } else if (paginationContainer) {
+            paginationContainer.remove();
           }
         }
       } catch (error) {
         console.error(error);
-        button.innerHTML = '<span>Erro ao carregar. Tente novamente.</span>';
+        const textSpan = button.querySelector('.button-text');
+        if (textSpan) textSpan.textContent = 'Erro ao carregar. Tente novamente.';
         button.removeAttribute('disabled');
       }
     };
@@ -113,9 +144,12 @@ for (let i = 1; i <= totalPages; i++) {
     // Intersection Observer for Auto-load
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting && shouldAutoLoad() && !button.getAttribute('disabled')) {
-        loadMore();
+        // Add a slight delay to ensure the user is actually scrolling and not just hitting the bottom of a short page
+        setTimeout(() => {
+          if (entries[0].isIntersecting) loadMore();
+        }, 100);
       }
-    }, { rootMargin: '400px' });
+    }, { rootMargin: '0px' }); // Trigger only when actually visible
 
     observer.observe(button);
   }
