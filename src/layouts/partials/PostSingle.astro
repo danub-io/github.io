@@ -24,12 +24,12 @@ const recommendedPosts = [
 ---
 
 <section class="py-6">
-  <div class="max-w-[1000px] px-4 mx-auto">
+  <div class="max-w-[804px] px-4 md:px-0 mx-auto">
     <!-- Top Ad Dummy -->
     <AdDummy className="mt-0 mb-8" />
 
     <article class="flex flex-col items-center">
-      <div class="w-full md:w-10/12 text-left">
+      <div class="w-full text-left">
         <!-- Categories above title -->
         <div class="flex items-center flex-wrap mb-2">
           {
@@ -76,10 +76,10 @@ const recommendedPosts = [
         {
           image && (
             <Image
-              width={1000}
-              height={500}
-              widths={[400, 700, 1000]}
-              sizes="(max-width: 768px) 95vw, 1000px"
+              width={804}
+              height={402}
+              widths={[400, 600, 804]}
+              sizes="(max-width: 768px) 95vw, 804px"
               loading="eager"
               fetchpriority="high"
               src={image}
@@ -91,7 +91,7 @@ const recommendedPosts = [
         }
       </div>
 
-      <div class="w-full md:w-10/12">
+      <div class="w-full">
         <div class="content mb-10 text-left" id="article-content">
           <Content />
         </div>
@@ -124,7 +124,7 @@ const recommendedPosts = [
 
 <!-- recommended posts -->
 <section class="py-6 pt-0">
-  <div class="max-w-[1000px] px-4 mx-auto">
+  <div class="max-w-[804px] px-4 md:px-0 mx-auto">
     <h2 class="mb-8 text-left h1">Recomendados</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
