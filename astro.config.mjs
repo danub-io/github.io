@@ -1,4 +1,4 @@
-﻿import { defineConfig } from "astro/config";
+import { defineConfig } from "astro/config";
 import tailwind from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
@@ -14,5 +14,8 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwind()],
+  },
+  build: {
+    inlineStylesheets: "always",
   },
 });

@@ -1,4 +1,4 @@
-﻿---
+---
 import TwSizeIndicator from "@/components/TwSizeIndicator.astro";
 import config from "@/config/config.json";
 import theme from "@/config/theme.json";
@@ -72,6 +72,7 @@ if (date) {
 <!doctype html>
 <html lang="pt-BR">
   <head>
+    <meta charset="UTF-8" />
 <script is:inline>
   (function() {
     var gtmLoaded = false;
@@ -94,13 +95,6 @@ if (date) {
     });
   })();
 </script>
-
-
-    
-    
-    
-    
-    
     <AstroFont
       config={[
         {
@@ -130,7 +124,6 @@ if (date) {
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
     <meta name="generator" content={Astro.generator} />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <title>{plainify(meta_title ? meta_title : title ? title : config.site.title)}</title>

@@ -1,17 +1,17 @@
 ---
 title: "Sobre o GospelReads"
 meta_title: "Dan Coelho | Autor de O Principal Mandamento"
-description: "A miss„o de Dan Coelho e o propÛsito do GospelReads."
+description: "A miss√£o de Dan Coelho e o prop√≥sito do GospelReads."
 image: "/favicon.svg"
 draft: false
 what_i_do:
-  title: "Miss„o"
+  title: "Miss√£o"
   items:
     - title: "Literatura Edificante"
-      description: "Escrita focada no amor a Deus atravÈs de obras como 'O Principal Mandamento'."
-    - title: "Sa˙de Mental & FÈ"
-      description: "Explorando a renovaÁ„o da mente e a biologia da esperanÁa no projeto MODELO."
-    - title: "Teologia Pr·tica"
-      description: "AplicaÁ„o do Evangelho no cotidiano, alÈm da religiosidade superficial."
+      description: "Escrita focada no amor a Deus atrav√©s de obras como 'O Principal Mandamento'."
+    - title: "Sa√∫de Mental & F√©"
+      description: "Explorando a renova√ß√£o da mente e a biologia da esperan√ßa no projeto MODELO."
+    - title: "Teologia Pr√°tica"
+      description: "Aplica√ß√£o do Evangelho no cotidiano, al√©m da religiosidade superficial."
 ---
-Bem-vindo ao GospelReads. Este espaÁo nasceu do desejo de obedecer ao chamado divino de compartilhar as verdades essenciais da fÈ crist„. Sou Dan Coelho, autor dedicado a encorajar cada pessoa a viver uma fÈ autÍntica e transformadora.
+Bem-vindo ao GospelReads. Este espa√ßo nasceu do desejo de obedecer ao chamado divino de compartilhar as verdades essenciais da f√© crist√£. Sou Dan Coelho, autor dedicado a encorajar cada pessoa a viver uma f√© aut√™ntica e transformadora.

@@ -1,4 +1,4 @@
-﻿import { defineConfig } from "tinacms";
+import { defineConfig } from "tinacms";
 
 const branch = process.env.TINA_BRANCH || process.env.HEAD || "main";
 
@@ -56,8 +56,9 @@ export default defineConfig({
         label: "Páginas",
         path: "src/content/pages",
         format: "md",
-        fields: [{ type: "string", name: "title", label: "Título", isTitle: true }],
+        fields: [{ type: "string", name: "title", label: "Título", isTitle: true, required: true }],
       }
     ],
   },
 });
+

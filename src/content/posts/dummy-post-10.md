@@ -2,7 +2,7 @@
 title: "Post Dummy 10"
 date: 2026-02-12
 image: "../../assets/images/placeholder.png"
-categories: ["reflexÃ£o"]
+categories: ["reflexão"]
 authors: ["dan"]
 tags: ["estudo bíblico"]
 draft: false
