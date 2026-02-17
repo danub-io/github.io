@@ -27,11 +27,11 @@ const { className, posts, fluid } = Astro.props;
                     <Image
                       loading="eager"
                       fetchpriority="high"
-                      class="group-hover:scale-[1.03] transition duration-300 w-full aspect-[21/9] sm:aspect-[3/1] object-cover"
+                      class="group-hover:scale-[1.03] transition duration-300 w-full aspect-[5/3] object-cover"
                       src={post.data.image}
                       alt={post.data.image_alt || post.data.title}
                       width={1200}
-                      height={400}
+                      height={720}
                       widths={[400, 800, 1200]}
                       sizes="(max-width: 640px) 95vw, (max-width: 1024px) 700px, 1000px"
                       format="webp"
