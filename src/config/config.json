@@ -11,7 +11,7 @@
     "logo_text": "GospelReads"
   },
   "settings": {
-    "pagination": 5,
+    "pagination": 6,
     "summary_length": 200,
     "search": {
       "enable": true,

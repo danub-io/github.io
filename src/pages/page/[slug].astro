@@ -34,7 +34,9 @@ const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 <Base>
   <section class="py-6">
     <div class="max-w-[1000px] px-4 mx-auto">
-      <Posts className="mb-12" posts={currentPosts} fluid={false} />
+      <div id="posts-container">
+        <Posts className="mb-12" posts={currentPosts} fluid={false} />
+      </div>
       <Pagination totalPages={totalPages} currentPage={currentPage} />
     </div>
   </section>
