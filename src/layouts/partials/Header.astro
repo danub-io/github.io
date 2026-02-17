@@ -40,9 +40,9 @@ const { main }: { main: NavigationLink[] } = menu;
     <label
       id="hide-button"
       for="nav-toggle"
-      class="order-0 hidden cursor-pointer items-center text-black md:order-1"
+      class="order-0 hidden cursor-pointer items-center text-black md:order-1 p-2 -mr-2"
     >
-      <IoClose class="text-7xl" />
+      <IoClose class="text-[32px]" />
     </label>
 
     <!-- Logo (Order 1 on Mobile - Center, Order 0 on Desktop - Left) -->
@@ -125,7 +125,7 @@ const { main }: { main: NavigationLink[] } = menu;
         aria-label="search"
         data-search-trigger
       >
-        <IoSearch className="text-xl" />
+        <IoSearch class="text-xl" />
       </button>
 
       <!-- Mobile Search Link -->

@@ -8,7 +8,10 @@ import { sortByDate } from "@/lib/utils/sortFunctions";
 
 export async function getStaticPaths() {
   const posts = await getSinglePage("posts");
-  const totalPages = Math.ceil(posts.length / config.settings.pagination);
+  const totalPages =
+    posts.length > 7
+      ? 1 + Math.ceil((posts.length - 7) / config.settings.pagination)
+      : 1;
   const paths = [];
 
   for (let i = 1; i < totalPages; i++) {
@@ -24,10 +27,14 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const posts = await getSinglePage("posts");
 const sortedPosts = sortByDate(posts);
-const totalPages = Math.ceil(posts.length / config.settings.pagination);
+const totalPages =
+  posts.length > 7
+    ? 1 + Math.ceil((posts.length - 7) / config.settings.pagination)
+    : 1;
 const currentPage = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
-const indexOfLastPost = currentPage * config.settings.pagination;
-const indexOfFirstPost = indexOfLastPost - config.settings.pagination;
+
+const indexOfFirstPost = 7 + (currentPage - 2) * config.settings.pagination;
+const indexOfLastPost = 7 + (currentPage - 1) * config.settings.pagination;
 const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 ---
 
