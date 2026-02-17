@@ -1,24 +1,24 @@
-ï»¿---
-title: "A CiÃªncia da RenovaÃ§Ã£o: Como a BÃ­blia Antecipou a Neuroplasticidade"
-meta_title: "A CiÃªncia da RenovaÃ§Ã£o: Como a BÃ­blia Antecipou a Neuroplasticidade | GospelReads"
-description: "Descubra como a neuroplasticidade confirma o que a BÃ­blia ensina hÃ¡ milÃªnios sobre renovaÃ§Ã£o mental e transformaÃ§Ã£o espiritual."
+---
+title: "A Ciência da Renovação: Como a Bíblia Antecipou a Neuroplasticidade"
+meta_title: "A Ciência da Renovação: Como a Bíblia Antecipou a Neuroplasticidade | GospelReads"
+description: "Descubra como a neuroplasticidade confirma o que a Bíblia ensina há milênios sobre renovação mental e transformação espiritual."
 date: 2026-02-15T21:36:30
-image: "/images/renovacao-da-mente-neuroplasticidade-biblica.webp"
-image_alt: "RenovaÃ§Ã£o da mente e conexÃµes neurais luz bÃ­blica"
-categories: ["ReflexÃ£o"]
+image: "../../assets/images/renovacao-da-mente-neuroplasticidade-biblica.webp"
+image_alt: "Renovação da mente e conexões neurais luz bíblica"
+categories: ["Reflexão"]
 authors: ["Dan"]
-tags: ["Neuroplasticidade", "FÃ©", "Mente"]
+tags: ["Neuroplasticidade", "Fé", "Mente"]
 draft: false
 ---
 
-## A CiÃªncia da RenovaÃ§Ã£o: Onde a FÃ© Encontra a Mente
+## A Ciência da Renovação: Onde a Fé Encontra a Mente
 
-A ciÃªncia moderna tem vindo a descobrir o que a BÃ­blia afirma hÃ¡ milÃªnios: **nÃ£o somos prisioneiros da nossa estrutura mental inicial.** Durante dÃ©cadas, acreditou-se que o cÃ©rebro adulto era estÃ¡tico, mas a descoberta da **neuroplasticidade** revelou que nossos pensamentos podem, literalmente, remodelar nossa anatomia cerebral.
+A ciência moderna tem vindo a descobrir o que a Bíblia afirma há milênios: **não somos prisioneiros da nossa estrutura mental inicial.** Durante décadas, acreditou-se que o cérebro adulto era estático, mas a descoberta da **neuroplasticidade** revelou que nossos pensamentos podem, literalmente, remodelar nossa anatomia cerebral.
 
-### A BÃ­blia e a Neuroplasticidade
-Em Romanos 12:2, o apÃ³stolo Paulo nos exorta: *"NÃ£o se amoldem ao padrÃ£o deste mundo, mas transformem-se pela renovaÃ§Ã£o da sua mente"*. O termo grego para transformaÃ§Ã£o Ã© *metamorphoo*, indicando uma mudanÃ§a profunda de natureza. 
+### A Bíblia e a Neuroplasticidade
+Em Romanos 12:2, o apóstolo Paulo nos exorta: *"Não se amoldem ao padrão deste mundo, mas transformem-se pela renovação da sua mente"*. O termo grego para transformação é *metamorphoo*, indicando uma mudança profunda de natureza. 
 
-O que a neurociÃªncia hoje chama de \"reforÃ§o sinÃ¡ptico\", a BÃ­blia descreve como o ato de fixar o pensamento naquilo que Ã© nobre e puro (Filipenses 4:8). Quando escolhemos novos padrÃµes de pensamento baseados na Palavra, estamos criando novas rotas neurais.
+O que a neurociência hoje chama de \"reforço sináptico\", a Bíblia descreve como o ato de fixar o pensamento naquilo que é nobre e puro (Filipenses 4:8). Quando escolhemos novos padrões de pensamento baseados na Palavra, estamos criando novas rotas neurais.
 
-### MudanÃ§a Ã© PossÃ­vel
-Essa sinergia entre ciÃªncia e fÃ© prova que fomos projetados pelo Criador com a capacidade inerente de mudar. NÃ£o importa o quÃ£o rÃ­gido pareÃ§a um hÃ¡bito; a renovaÃ§Ã£o Ã© uma promessa bÃ­blica e uma realidade biolÃ³gica.
+### Mudança é Possível
+Essa sinergia entre ciência e fé prova que fomos projetados pelo Criador com a capacidade inerente de mudar. Não importa o quão rígido pareça um hábito; a renovação é uma promessa bíblica e uma realidade biológica.

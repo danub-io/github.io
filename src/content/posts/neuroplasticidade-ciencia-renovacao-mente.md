@@ -1,24 +1,24 @@
-ï»¿---
-title: "Neuroplasticidade: Como a CiÃªncia Comprova a RenovaÃ§Ã£o da Mente Descrita na BÃ­blia"
-meta_title: "Neuroplasticidade: Como a CiÃªncia Comprova a RenovaÃ§Ã£o da Mente Descrita na BÃ­blia | GospelReads"
-description: "Seu cÃ©rebro nÃ£o Ã© uma sentenÃ§a rÃ­gida. Descubra como a neuroplasticidade confirma o 'renovar da mente' de Romanos 12:2 e mude sua vida!"
+---
+title: "Neuroplasticidade: Como a Ciência Comprova a Renovação da Mente Descrita na Bíblia"
+meta_title: "Neuroplasticidade: Como a Ciência Comprova a Renovação da Mente Descrita na Bíblia | GospelReads"
+description: "Seu cérebro não é uma sentença rígida. Descubra como a neuroplasticidade confirma o 'renovar da mente' de Romanos 12:2 e mude sua vida!"
 date: 2026-02-15T21:19:17
-image: "/images/neuroplasticidade-ciencia-renovacao-mente.webp"
-categories: ["CiÃªncia e FÃ©"]
+image: "../../assets/images/neuroplasticidade-ciencia-renovacao-mente.webp"
+categories: ["Ciência e Fé"]
 authors: ["Dan"]
-tags: ["Neuroplasticidade", "SaÃºde Mental", "BÃ­blia"]
+tags: ["Neuroplasticidade", "Saúde Mental", "Bíblia"]
 draft: false
 ---
 
-Durante dÃ©cadas, acreditamos que o cÃ©rebro adulto era uma estrutura rÃ­gida. Mas a **neuroplasticidade** revela o que as Escrituras jÃ¡ ensinavam: vocÃª pode transformar sua realidade renovando sua mente.
+Durante décadas, acreditamos que o cérebro adulto era uma estrutura rígida. Mas a **neuroplasticidade** revela o que as Escrituras já ensinavam: você pode transformar sua realidade renovando sua mente.
 
-### A CiÃªncia da MudanÃ§a
-O cÃ©rebro Ã© maleÃ¡vel. Cada novo pensamento e hÃ¡bito cria conexÃµes fÃ­sicas. Quando meditamos na Palavra, estamos literalmente esculpindo uma nova biologia.
+### A Ciência da Mudança
+O cérebro é maleável. Cada novo pensamento e hábito cria conexões físicas. Quando meditamos na Palavra, estamos literalmente esculpindo uma nova biologia.
 
 ### Romanos 12:2 e o Design Divino
-A transformaÃ§Ã£o (*metamorphoo*) mencionada por Paulo Ã© um processo contÃ­nuo de reconfiguraÃ§Ã£o mental que nos afasta dos padrÃµes destrutivos deste mundo.
+A transformação (*metamorphoo*) mencionada por Paulo é um processo contínuo de reconfiguração mental que nos afasta dos padrões destrutivos deste mundo.
 
-> "Levem cativo todo pensamento Ã  obediÃªncia de Cristo." - 2 CorÃ­ntios 10:5
+> "Levem cativo todo pensamento à obediência de Cristo." - 2 Coríntios 10:5
 
-### ConclusÃ£o
-VocÃª nÃ£o estÃ¡ preso ao seu passado ou Ã  sua genÃ©tica. Pelo poder do EspÃ­rito Santo e pelo design da neuroplasticidade, a renovaÃ§Ã£o Ã© possÃ­vel hoje.
+### Conclusão
+Você não está preso ao seu passado ou à sua genética. Pelo poder do Espírito Santo e pelo design da neuroplasticidade, a renovação é possível hoje.
