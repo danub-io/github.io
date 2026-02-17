@@ -16,11 +16,11 @@ const { Content } = await render(post);
 const { title, description, authors, categories, image, image_alt, date, tags } =
   post.data;
 
-// Combine similar posts with others to get 10 recommended posts
+// Combine similar posts with others to get more recommended posts (up to 40)
 const recommendedPosts = [
   ...similarPosts,
   ...posts.filter((p) => p.id !== post.id && !similarPosts.find((sp) => sp.id === p.id))
-].slice(0, 10);
+].slice(0, 40);
 ---
 
 <section class="py-6">
@@ -127,7 +127,7 @@ const recommendedPosts = [
   <div class="max-w-[1000px] px-4 mx-auto">
     <h2 class="mb-8 text-left h1">Recomendados</h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8" id="recommended-container">
       {recommendedPosts.map((p, index) => (
         <>
           {index === 3 && (
@@ -135,7 +135,7 @@ const recommendedPosts = [
               <AdDummy className="mt-0 mb-8" />
             </div>
           )}
-          <div class="flex items-start gap-3 sm:gap-4 mb-6">
+          <div class={`recommended-item col-span-1 flex items-start gap-3 sm:gap-4 mb-6 ${index >= 10 ? 'hidden' : ''}`}>
             {p.data.image && (
               <a href={`/blog/${p.id}`} class="block hover:text-primary overflow-hidden group flex-shrink-0 w-[40%]" aria-label={p.data.title}>
                 <Image
@@ -175,8 +175,23 @@ const recommendedPosts = [
         </>
       ))}
     </div>
+
+    {recommendedPosts.length > 10 && (
+      <div class="flex justify-center mt-12 mb-16">
+        <button
+          id="load-more-recommended"
+          class="bg-[#0077B5] hover:bg-[#005a8a] text-white px-12 py-4 font-bold text-lg uppercase tracking-widest transition-all duration-300 shadow-md hover:shadow-xl active:scale-95 flex items-center gap-2"
+        >
+          <span>Ver Mais Postagens</span>
+          <svg class="w-5 h-5 animate-bounce-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+    )}
   </div>
 </section>
+
 
 <script>
   function injectMiddleAd() {
@@ -204,4 +219,26 @@ const recommendedPosts = [
   } else {
     document.addEventListener('DOMContentLoaded', injectMiddleAd);
   }
+
+  function setupLoadMoreRecommended() {
+    const button = document.getElementById('load-more-recommended');
+    if (!button || button.hasAttribute('data-initialized')) return;
+    button.setAttribute('data-initialized', 'true');
+
+    button.addEventListener('click', () => {
+      const hiddenItems = Array.from(document.querySelectorAll('.recommended-item.hidden'));
+      const toShow = hiddenItems.slice(0, 6);
+
+      toShow.forEach(item => {
+        item.classList.remove('hidden');
+      });
+
+      if (hiddenItems.length <= 6) {
+        button.parentElement?.remove();
+      }
+    });
+  }
+
+  document.addEventListener('astro:page-load', setupLoadMoreRecommended);
+  setupLoadMoreRecommended();
 </script>
