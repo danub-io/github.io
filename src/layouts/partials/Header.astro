@@ -24,6 +24,7 @@ const { main }: { main: NavigationLink[] } = menu;
 
 <header class="pt-4 md:pt-6 relative z-30">
   <nav class="relative flex max-w-[1000px] px-4 mx-auto flex-wrap items-center justify-between">
+    <input id="nav-toggle" type="checkbox" class="hidden group" />
 
     <!-- Hamburguer Menu (Order 0 on Mobile, Order 1 on Desktop) -->
     <label
@@ -41,20 +42,13 @@ const { main }: { main: NavigationLink[] } = menu;
       for="nav-toggle"
       class="order-0 hidden cursor-pointer items-center text-black md:order-1"
     >
-      <svg class="h-6 fill-current" viewBox="0 0 20 20">
-        <title>Menu Close</title>
-        <polygon
-          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-          transform="rotate(45 10 10)"></polygon>
-      </svg>
+      <IoClose class="text-4xl" />
     </label>
 
     <!-- Logo (Order 1 on Mobile - Center, Order 0 on Desktop - Left) -->
     <div class="order-1 md:order-0 flex-1 md:flex-none text-center md:text-left">
       <Logo />
     </div>
-
-    <input id="nav-toggle" type="checkbox" class="hidden group" />
 
     <ul
       id="nav-menu"
@@ -121,19 +115,6 @@ const { main }: { main: NavigationLink[] } = menu;
         ))
       }
       
-      <li class="nav-item md:hidden w-full mt-4 px-4 border-t border-border pt-6">
-        <form action="/search" method="GET" class="relative w-full max-w-sm mx-auto">
-          <input 
-            type="text" 
-            name="q" 
-            placeholder="Buscar no GospelReads..." 
-            class="form-input w-full rounded-full border-border py-4 pl-6 pr-12 focus:border-primary focus:ring-0 text-dark bg-light"
-          />
-          <button type="submit" class="absolute right-4 top-1/2 -translate-y-1/2 text-primary text-2xl">
-            <IoSearch />
-          </button>
-        </form>
-      </li>
     </ul>
 
     <!-- Search Icon (Order 2 on Mobile and Desktop) -->
