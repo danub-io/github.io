@@ -25,7 +25,15 @@ const authorsCollection = defineCollection({
   }),
 });
 
+const pagesCollection = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/pages" }),
+  schema: z.object({
+    title: z.string(),
+  }),
+});
+
 export const collections = {
   posts: postsCollection,
   authors: authorsCollection,
+  pages: pagesCollection,
 };
