@@ -4,7 +4,7 @@ authors:
 draft: false
 title: Teste alteração de título 1
 date: 2026-02-19T00:00:00.000Z
-image: ../../assets/images/dummy-post-8.webp
+image: /assets/images/4k-milky-way-universe-galaxy-stars-cosmos-4k-hdr-14-10-2024-1728961470-hd-wallpaper.jpg
 categories:
   - reflexão
 tags:
@@ -14,6 +14,7 @@ tags:
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+![](/assets/images/blowfish_logo_transparent.png)
 
 ### Subtítulo do Dummy 8$
 
