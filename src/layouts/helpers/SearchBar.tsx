@@ -3,6 +3,7 @@ import { humanize, slugify } from "@/lib/utils/textConverter";
 import Fuse from "fuse.js";
 import React, { useEffect, useRef, useState } from "react";
 import { BiCalendarEdit, BiCategoryAlt } from "react-icons/bi";
+import placeholder from "@/assets/images/placeholder.png";
 
 export type SearchItem = {
   slug: string;
@@ -90,17 +91,18 @@ export default function SearchBar({ searchList }: Props) {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {searchResults?.map(({ item }) => (
           <div key={item.slug} className={"mb-8"}>
-            {item.data.image && (
+            {(item.data.image || placeholder) && (
               <a
                 href={`/blog/${item.slug}`}
                 className="block hover:text-primary overflow-hidden group"
               >
                 <img
-                  className="group-hover:scale-[1.03] transition duration-300 w-full"
-                  src={item.data.image}
+                  className="group-hover:scale-[1.03] transition duration-300 w-full aspect-[5/3] object-cover"
+                  src={item.data.image?.src || placeholder.src}
                   alt={item.data.title}
                   width={445}
-                  height={230}
+                  height={267}
+                  loading="lazy"
                 />
               </a>
             )}

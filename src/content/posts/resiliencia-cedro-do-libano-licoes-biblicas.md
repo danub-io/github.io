@@ -3,7 +3,7 @@ title: "A Força do Cedro do Líbano: O Que a Bíblia Ensina Sobre Resiliência"
 meta_title: "A Força do Cedro do Líbano: O Que a Bíblia Ensina Sobre Resiliência | GospelReads"
 description: "Entenda por que a Bíblia compara o justo ao Cedro do Líbano. Descubra o segredo da resiliência espiritual para vencer as tempestades da vida."
 date: 2026-02-15T21:38:21
-image: "/images/resiliencia-cedro-do-libano-licoes-biblicas.webp"
+image: "../../assets/images/resiliencia-cedro-do-libano-licoes-biblicas.webp"
 image_alt: "Majestoso Cedro do Líbano simbolizando força e estabilidade bíblica"
 categories: ["Teologia"]
 authors: ["Dan"]

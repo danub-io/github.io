@@ -2,6 +2,7 @@
 import { humanize, slugify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import placeholder from "@/assets/images/placeholder.png";
 
 type Props = {
   posts: CollectionEntry<"posts">[];
@@ -16,19 +17,20 @@ const { className, posts, fluid } = Astro.props;
   {
     posts.map((post, i: number) => {
       const isFeatured = i === 0 && fluid != false;
+      const postImage = post.data.image || placeholder;
       return (
         <div class={isFeatured ? "col-span-1 sm:col-span-2 mb-6" : "col-span-1"}>
           {isFeatured ? (
             /* Featured Post Layout */
             <>
-              {post.data.image && (
+              {postImage && (
                 <div class="relative overflow-hidden group">
                   <a href={`/blog/${post.id}`} class="block">
                     <Image
                       loading="eager"
                       fetchpriority="high"
                       class="group-hover:scale-[1.03] transition duration-300 w-full aspect-[5/3] object-cover"
-                      src={post.data.image}
+                      src={postImage}
                       alt={post.data.image_alt || post.data.title}
                       width={1200}
                       height={720}
@@ -56,12 +58,12 @@ const { className, posts, fluid } = Astro.props;
           ) : (
             /* Regular Post Layout (Side-by-side) */
             <div class="flex items-start gap-3 sm:gap-4">
-              {post.data.image && (
+              {postImage && (
                 <a href={`/blog/${post.id}`} class="block hover:text-primary overflow-hidden group flex-shrink-0 w-[40%]" aria-label={post.data.title}>
                   <Image
                     loading="lazy"
                     class="group-hover:scale-[1.03] transition duration-300 w-full aspect-[5/3] object-cover"
-                    src={post.data.image}
+                    src={postImage}
                     alt={post.data.image_alt || post.data.title}
                     width={300}
                     height={180}

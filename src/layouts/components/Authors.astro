@@ -3,6 +3,7 @@ import { markdownify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { BsArrowRightCircle } from "react-icons/bs";
+import placeholder from "@/assets/images/placeholder.png";
 
 type Props = {
   authors: CollectionEntry<"authors">[];
@@ -14,10 +15,10 @@ const { authors } = Astro.props;
   {
     authors.map((author) => (
       <div class="mb-8 text-center">
-        {author.data.image && (
+        {(author.data.image || placeholder) && (
           <div class="mb-4">
             <Image
-              src={author.data.image}
+              src={author.data.image || placeholder}
               alt={author.data.title}
               height={150}
               width={150}

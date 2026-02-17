@@ -3,7 +3,7 @@ title: "O Verdadeiro Significado do Natal: Muito Além das Luzes e Tradições"
 meta_title: "O Verdadeiro Significado do Natal | Reflexão Cristã"
 description: "Descubra a essência teológica do Natal. Uma reflexão sobre a encarnação de Cristo e o que essa data realmente representa para a humanidade."
 date: 2026-12-25T00:00:00
-image: "/images/o-verdadeiro-significado-do-natal.jpg"
+image: "../../assets/images/o-verdadeiro-significado-do-natal.jpg"
 categories: ["Teologia"]
 authors: ["Dan"]
 tags: ["Natal", "Jesus Cristo", "Encarnação", "Fé"]

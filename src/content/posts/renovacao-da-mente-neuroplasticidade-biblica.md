@@ -3,7 +3,7 @@ title: "A Ciência da Renovação: Como a Bíblia Antecipou a Neuroplasticidade"
 meta_title: "A Ciência da Renovação: Como a Bíblia Antecipou a Neuroplasticidade | GospelReads"
 description: "Descubra como a neuroplasticidade confirma o que a Bíblia ensina há milênios sobre renovação mental e transformação espiritual."
 date: 2026-02-15T21:36:30
-image: "/images/renovacao-da-mente-neuroplasticidade-biblica.webp"
+image: "../../assets/images/renovacao-da-mente-neuroplasticidade-biblica.webp"
 image_alt: "Renovação da mente e conexões neurais luz bíblica"
 categories: ["Reflexão"]
 authors: ["Dan"]
