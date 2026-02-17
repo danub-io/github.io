@@ -2,7 +2,7 @@
 title: "O Cemitério de Gigantes: Por Que a Alta Performance Pode Matar Seu Propósito"
 meta_title: "O Cemitério de Gigantes: Por Que a Alta Performance Pode Matar Seu Propósito | GospelReads"
 description: "Você está correndo rápido ou na direção certa? Descubra o erro que derrubou gigantes como a Kodak e como ele ameaça sua vida espiritual."
-date: 2026-02-17T20:50:12
+date: 2026-02-17T20:56:08
 # Correção Técnica: Caminho relativo exato para o Astro encontrar a imagem a partir da pasta 'posts'
 image: "../../assets/images/cemiterio-gigantes-alta-performance-proposito.webp"
 # Categoria: Reflexão conecta o mundo secular ao espiritual.
