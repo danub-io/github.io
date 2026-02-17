@@ -1,10 +1,10 @@
----
+﻿---
 authors:
   - dan
 draft: false
 title: Teste alteração de título 1
 date: 2026-02-19T00:00:00.000Z
-image: /assets/images/4k-milky-way-universe-galaxy-stars-cosmos-4k-hdr-14-10-2024-1728961470-hd-wallpaper.jpg
+image: ../../assets/images/placeholder.png
 categories:
   - reflexão
 tags:
