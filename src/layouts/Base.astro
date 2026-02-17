@@ -36,7 +36,7 @@ const schema = {
   "@type": date ? "BlogPosting" : "WebPage",
   "headline": plainify(meta_title || title || config.site.title),
   "description": meta_description,
-  "image": (typeof og_image === "string" ? og_image.startsWith : false)('http') ? og_image : `${site_url}${og_image}`,
+  "image": ((typeof og_image === 'string' ? og_image : og_image?.src || '').startsWith)('http') ? og_image : `${site_url}${og_image}`,
   "author": {
     "@type": "Person",
     "name": meta_author,
@@ -134,8 +134,8 @@ if (date) {
     <meta property="og:url" content={`${site_url}${Astro.url.pathname}`} />
     <meta name="twitter:title" content={plainify(meta_title ? meta_title : title ? title : config.site.title)} />
     <meta name="twitter:description" content={meta_description} />
-    <meta property="og:image" content={(typeof og_image === "string" ? og_image.startsWith : false)('http') ? og_image : `${site_url}${og_image}`} />
-    <meta name="twitter:image" content={(typeof og_image === "string" ? og_image.startsWith : false)('http') ? og_image : `${site_url}${og_image}`} />
+    <meta property="og:image" content={((typeof og_image === 'string' ? og_image : og_image?.src || '').startsWith)('http') ? og_image : `${site_url}${og_image}`} />
+    <meta name="twitter:image" content={((typeof og_image === 'string' ? og_image : og_image?.src || '').startsWith)('http') ? og_image : `${site_url}${og_image}`} />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
@@ -149,3 +149,4 @@ if (date) {
     <Footer />
   </body>
 </html>
+
