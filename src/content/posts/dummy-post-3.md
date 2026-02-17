@@ -1,7 +1,7 @@
----
+﻿---
 title: "Post Dummy 3"
 date: 2026-02-14
-image: "/images/post-1.jpg"
+image: "/images/dummy-post-3.webp"
 categories: ["reflexão"]
 authors: ["dan"]
 tags: ["estudo bíblico"]
