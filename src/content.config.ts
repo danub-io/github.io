@@ -29,6 +29,20 @@ const pagesCollection = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/pages" }),
   schema: z.object({
     title: z.string(),
+    meta_title: z.string().optional(),
+    description: z.string().optional(),
+    draft: z.boolean().optional(),
+  }),
+});
+
+// Adicionando a coleção ABOUT para corrigir o erro do sobre.astro
+const aboutCollection = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/about" }),
+  schema: z.object({
+    title: z.string(),
+    meta_title: z.string().optional(),
+    description: z.string().optional(),
+    draft: z.boolean().optional(),
   }),
 });
 
@@ -36,4 +50,5 @@ export const collections = {
   posts: postsCollection,
   authors: authorsCollection,
   pages: pagesCollection,
+  about: aboutCollection,
 };
