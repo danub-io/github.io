@@ -1,10 +1,10 @@
-﻿---
+---
 title: "Neuroplasticidade: Como a Ciência Comprova a Renovação da Mente Descrita na Bíblia"
 meta_title: "Neuroplasticidade: Como a Ciência Comprova a Renovação da Mente Descrita na Bíblia | GospelReads"
 description: "Seu cérebro não é uma sentença rígida. Descubra como a neuroplasticidade confirma o 'renovar da mente' de Romanos 12:2 e mude sua vida!"
 date: 2026-02-15T21:19:17
 image: "../../assets/images/neuroplasticidade-ciencia-renovacao-mente.webp"
-categories: ["Ciência e Fé"]
+categories: ["CiÃªncia e FÃ©"]
 authors: ["Dan"]
 tags: ["Neuroplasticidade", "Saúde Mental", "Bíblia"]
 draft: false

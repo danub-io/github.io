@@ -1,8 +1,8 @@
-﻿---
+---
 title: "Post Dummy 7"
 date: 2026-02-18
 image: "../../assets/images/dummy-post-7.webp"
-categories: ["reflexão"]
+categories: ["reflexÃ£o"]
 authors: ["dan"]
 tags: ["estudo bíblico"]
 draft: false

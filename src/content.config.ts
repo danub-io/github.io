@@ -1,5 +1,5 @@
+﻿import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
-import { defineCollection, z } from "astro:content";
 
 // About collection schema
 const aboutCollection = defineCollection({
@@ -35,7 +35,6 @@ const contactCollection = defineCollection({
     }),
 });
 
-// Authors collection schema
 const authorsCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/authors" }),
   schema: ({ image }) =>
@@ -89,11 +88,9 @@ const pagesCollection = defineCollection({
     }),
 });
 
-// Export collections
 export const collections = {
   posts: postsCollection,
-  about: aboutCollection,
-  contact: contactCollection,
   authors: authorsCollection,
   pages: pagesCollection,
+  about: aboutCollection,
 };

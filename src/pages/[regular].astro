@@ -1,4 +1,4 @@
----
+﻿---
 import Base from "@/layouts/Base.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
@@ -6,10 +6,9 @@ import { render } from "astro:content";
 
 export async function getStaticPaths() {
   const pages = await getSinglePage("pages");
-
   const paths = pages.map((page) => ({
     params: {
-      regular: page.slug,
+      regular: page.id.replace(/\.[^/.]+$/, ""),
     },
     props: { page },
   }));

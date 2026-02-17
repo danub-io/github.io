@@ -1,8 +1,8 @@
-﻿---
+---
 title: "Post Dummy 10"
 date: 2026-02-12
 image: "../../assets/images/placeholder.png"
-categories: ["reflexão"]
+categories: ["reflexÃ£o"]
 authors: ["dan"]
 tags: ["estudo bíblico"]
 draft: false
