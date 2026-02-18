@@ -1,10 +1,10 @@
-﻿---
+---
 authors:
   - dan
 draft: false
 title: Teste alteração de título 1
 date: 2026-02-19T00:00:00.000Z
-image: ../../assets/images/placeholder.png
+image: ../../assets/images/dummy-post-8.webp
 categories:
   - reflexão
 tags:
