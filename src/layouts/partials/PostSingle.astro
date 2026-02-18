@@ -78,14 +78,14 @@ const recommendedPosts = [
           (image || placeholder) && (
             <Image
               width={1000}
-              height={500}
+              height={600}
               widths={[400, 700, 1000]}
               sizes="(max-width: 768px) 95vw, 1000px"
               loading="eager"
               fetchpriority="high"
               src={image || placeholder}
               alt={image_alt || title}
-              class="object-cover aspect-[21/9] sm:aspect-[3/1]"
+              class="object-cover aspect-[5/3]"
               format="webp"
             />
           )
