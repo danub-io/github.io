@@ -13,7 +13,6 @@ import {
 } from "@digi4care/astro-google-tagmanager";
 import { AstroFont } from "astro-font";
 
-
 export interface Props {
   title?: string;
   meta_title?: string;
@@ -30,16 +29,12 @@ const meta_author = author || config.metadata.meta_author;
 const meta_description = plainify(description ? description : config.metadata.meta_description);
 const site_url = config.site.base_url;
 const meta_image = image || config.metadata.meta_image;
-let og_image = "";
 
+let og_image = "";
 if (typeof meta_image === "string") {
-  og_image = meta_image.startsWith("http")
-    ? meta_image
-    : `${site_url}${meta_image}`;
+  og_image = meta_image.startsWith("http") ? meta_image : `${site_url}${meta_image}`;
 } else if (meta_image && typeof meta_image === "object" && "src" in meta_image) {
-  og_image = (meta_image as any).src.startsWith("http")
-    ? (meta_image as any).src
-    : `${site_url}${(meta_image as any).src}`;
+  og_image = (meta_image as any).src.startsWith("http") ? (meta_image as any).src : `${site_url}${(meta_image as any).src}`;
 }
 
 const schema = {
@@ -70,7 +65,7 @@ if (date) {
 ---
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
 <script is:inline>
@@ -85,11 +80,9 @@ if (date) {
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-PJ33ZTZW');
     }
-    // Carrega apenas quando o usuário interage
     ['touchmove','touchstart','scroll'].forEach(function(e) {
       window.addEventListener(e, loadGTM, {passive: true, once: true});
     });
-    // Se não houver interação, carrega após 5 segundos para não prejudicar métricas iniciais
     window.addEventListener('load', function() {
       setTimeout(loadGTM, 5000);
     });
@@ -99,17 +92,17 @@ if (date) {
       config={[
         {
           src: [],
-          name: "Heebo",
-          googleFontsURL: 'https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap',
+          name: "Playfair Display",
+          googleFontsURL: 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap',
           preload: true,
           display: "swap",
           selector: "body",
-          fallback: "sans-serif",
+          fallback: "serif",
         },
         {
           src: [],
-          name: "Lato",
-          googleFontsURL: 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap',
+          name: "Inter",
+          googleFontsURL: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap',
           preload: true,
           display: "swap",
           selector: "body",
@@ -119,18 +112,15 @@ if (date) {
     />
 
     <link rel="shortcut icon" href={config.site.favicon} />
-    <meta name="theme-name" content="bookworm-light-astro" />
-    <meta name="msapplication-TileColor" content="#000000" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
+    <meta name="theme-name" content="gospelreads-premium" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8fafc" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a" />
     <meta name="generator" content={Astro.generator} />
-
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <title>{plainify(meta_title ? meta_title : title ? title : config.site.title)}</title>
     {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
     {noindex && <meta name="robots" content="noindex,nofollow" />}
     <meta name="description" content={meta_description} />
-    
     <meta name="author" content={meta_author} />
     <meta property="og:title" content={plainify(meta_title ? meta_title : title ? title : config.site.title)} />
     <meta property="og:description" content={meta_description} />
@@ -143,7 +133,7 @@ if (date) {
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
-  <body class="flex flex-col min-h-screen">
+  <body class="bg-body text-text font-secondary antialiased selection:bg-primary selection:text-white flex flex-col min-h-screen pt-[72px]">
     <TwSizeIndicator />
     <Header />
     <BackToTop />
@@ -153,4 +143,3 @@ if (date) {
     <Footer />
   </body>
 </html>
-
