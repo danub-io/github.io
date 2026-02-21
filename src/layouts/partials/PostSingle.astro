@@ -28,26 +28,19 @@ const recommendedPosts = [
       <div class="w-full max-w-3xl text-left">
         <div class="flex items-center flex-wrap mb-6">
           {categories.map((category: string) => (
-            <a
-              href={`/categorias/${slugify(category)}`}
-              class="text-dark font-bold normal-case text-sm tracking-widest uppercase hover:text-slate-600 hover:underline mr-4"
-            >
+            <a href={`/categorias/${slugify(category)}`} class="text-dark font-bold normal-case text-sm tracking-widest uppercase hover:text-slate-600 hover:underline mr-4">
               {humanize(category)}
             </a>
           ))}
         </div>
-
-        <h1 set:html={markdownify(title)} class="font-primary text-4xl md:text-6xl font-bold text-dark mb-8 leading-tight" />
-
+        <h1 set:html={markdownify(title)} class="font-primary text-4xl md:text-5xl lg:text-6xl font-bold text-dark mb-8 leading-tight" />
         <ul class="flex flex-wrap items-center justify-start text-slate-500 text-base mb-12 border-b border-gray-200 pb-8">
           <li class="mr-6 font-medium flex items-center">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
             {dateFormat(date)}
           </li>
           <li class="flex items-center">
-            {allAuthors
-              .filter((author) => authors.map((a: string) => slugify(a)).includes(slugify(author.data.title)))
-              .map((author) => (
+            {allAuthors.filter((author) => authors.map((a: string) => slugify(a)).includes(slugify(author.data.title))).map((author) => (
                 <a href={`/autores/${slugify(author.id)}`} class="hover:text-dark transition font-medium">
                   <span class="text-slate-700">Por {author.data.title}</span>
                 </a>
@@ -58,18 +51,7 @@ const recommendedPosts = [
 
       <div class="w-full max-w-4xl mb-16 flex justify-center">
         {(image || placeholder) && (
-          <Image
-            width={900}
-            height={500}
-            widths={[400, 700, 900]}
-            sizes="(max-width: 1024px) 95vw, 900px"
-            loading="eager"
-            fetchpriority="high"
-            src={image || placeholder}
-            alt={image_alt || title}
-            class="object-cover aspect-[16/9] rounded-2xl shadow-md w-full border border-gray-100"
-            format="webp"
-          />
+          <Image width={900} height={500} widths={[400, 700, 900]} sizes="(max-width: 1024px) 95vw, 900px" loading="eager" fetchpriority="high" src={image || placeholder} alt={image_alt || title} class="object-cover aspect-[16/9] rounded-2xl shadow-md w-full border border-gray-100" format="webp" />
         )}
       </div>
 
@@ -78,17 +60,17 @@ const recommendedPosts = [
           <Content />
         </div>
 
-        <div class="bg-white border border-gray-200 p-8 md:p-12 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] mb-16 text-center relative overflow-hidden group">
+        <div class="bg-slate-50 border border-gray-200 p-8 md:p-12 rounded-2xl mb-16 text-center relative overflow-hidden group">
           <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-amber-300"></div>
           <h3 class="font-primary text-2xl md:text-3xl font-bold text-dark mb-4 md:mb-6">Este ensaio trouxe clareza à sua mente?</h3>
           <p class="text-text mb-8 md:mb-10 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
             O <strong>GospelReads</strong> é um refúgio literário mantido inteiramente por leitores. Sem anúncios invasivos, sem algoritmos tóxicos. Se este texto ajudou no seu ministério ou curou a sua mente hoje, considere apoiar a nossa missão.
           </p>
           <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="/#assinar" class="bg-dark hover:bg-slate-800 text-white px-8 py-4 rounded-md font-semibold transition-all shadow-md">
+            <a href="/#assinar" class="bg-dark hover:bg-slate-800 text-white px-8 py-4 rounded-md font-bold transition-all shadow-md">
               Apoiar a Missão
             </a>
-            <a href="/#livros" class="bg-white border border-gray-300 text-dark hover:bg-gray-50 px-8 py-4 rounded-md font-semibold transition-all">
+            <a href="/#livros" class="bg-white border border-gray-300 text-dark hover:bg-gray-50 px-8 py-4 rounded-md font-bold transition-all">
               Conheça a Biblioteca
             </a>
           </div>
@@ -98,21 +80,13 @@ const recommendedPosts = [
           <ul class="flex flex-wrap gap-2 mb-6 md:mb-0">
             {tags.map((tag: string) => (
               <li>
-                <a
-                  href={`/tags/${slugify(tag)}`}
-                  class="block rounded-md bg-slate-50 border border-gray-200 px-4 py-2 font-medium text-slate-500 text-sm hover:text-dark hover:bg-white hover:border-slate-400 transition duration-300"
-                >
+                <a href={`/tags/${slugify(tag)}`} class="block rounded-md bg-slate-50 border border-gray-200 px-4 py-2 font-medium text-slate-500 text-sm hover:text-dark hover:bg-white hover:border-slate-400 transition duration-300">
                   #{humanize(tag)}
                 </a>
               </li>
             ))}
           </ul>
-          <Share
-            className="social-share"
-            title={title}
-            description={description}
-            slug={post.id}
-          />
+          <Share className="social-share" title={title} description={description} slug={post.id} />
         </div>
       </div>
     </article>
@@ -127,23 +101,12 @@ const recommendedPosts = [
         <div class="flex flex-col sm:flex-row items-start gap-6 bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
           {(p.data.image || placeholder) && (
             <a href={`/blog/${p.id}`} class="block overflow-hidden rounded-xl flex-shrink-0 w-full sm:w-1/3" aria-label={p.data.title}>
-              <Image
-                loading="lazy"
-                class="hover:scale-105 transition duration-300 w-full aspect-[4/3] object-cover"
-                src={p.data.image || placeholder}
-                alt={p.data.image_alt || p.data.title}
-                width={300}
-                height={225}
-                format="webp"
-              />
+              <Image loading="lazy" class="hover:scale-105 transition duration-300 w-full aspect-[4/3] object-cover" src={p.data.image || placeholder} alt={p.data.image_alt || p.data.title} width={300} height={225} format="webp" />
             </a>
           )}
           <div class="flex-grow pt-2 sm:pt-0">
             {p.data.categories && p.data.categories.length > 0 && (
-              <a
-                href={`/categorias/${slugify(p.data.categories[0])}`}
-                class="text-dark font-bold normal-case text-xs tracking-widest uppercase hover:text-slate-600 hover:underline mb-3 block"
-              >
+              <a href={`/categorias/${slugify(p.data.categories[0])}`} class="text-dark font-bold normal-case text-xs tracking-widest uppercase hover:text-slate-600 hover:underline mb-3 block">
                 {humanize(p.data.categories[0])}
               </a>
             )}

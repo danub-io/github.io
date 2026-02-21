@@ -3,100 +3,48 @@ import { humanize, slugify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import placeholder from "@/assets/images/placeholder.png";
+import dateFormat from "@/lib/utils/dateFormat";
 
 type Props = {
   posts: CollectionEntry<"posts">[];
   className?: string;
   fluid?: boolean;
 };
-
 const { className, posts, fluid } = Astro.props;
 ---
 
-<div class={`grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-5 ${className} ${posts.length == 1 ? "justify-items-center" : ""} `}>
-  {
-    posts.map((post, i: number) => {
-      const isFeatured = i === 0 && fluid != false;
+<div class={`grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 ${className}`}>
+  {posts.map((post, i: number) => {
       const postImage = post.data.image || placeholder;
       return (
-        <div class={isFeatured ? "col-span-1 sm:col-span-2 mb-6" : "col-span-1"}>
-          {isFeatured ? (
-            /* Featured Post Layout */
-            <>
-              {postImage && (
-                <div class="relative overflow-hidden group">
-                  <a href={`/blog/${post.id}`} class="block">
-                    <Image
-                      loading="eager"
-                      fetchpriority="high"
-                      class="group-hover:scale-[1.03] transition duration-300 w-full aspect-[5/3] object-cover"
-                      src={postImage}
-                      alt={post.data.image_alt || post.data.title}
-                      width={1200}
-                      height={720}
-                      widths={[400, 800, 1200]}
-                      sizes="(max-width: 640px) 95vw, (max-width: 1024px) 700px, 1000px"
-                      format="webp"
-                    />
-                  </a>
-                  {post.data.categories && post.data.categories.length > 0 && (
-                    <a
-                      href={`/categorias/${slugify(post.data.categories[0])}`}
-                      class="absolute top-4 left-4 text-white text-sm font-bold tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] hover:text-primary z-10 p-2 -m-2"
-                    >
-                      {humanize(post.data.categories[0])}
-                    </a>
-                  )}
-                </div>
-              )}
-              <h3 class="mt-4 text-lg sm:text-xl">
-                <a href={`/blog/${post.id}`} class="block hover:text-primary transition duration-300 leading-tight font-bold">
-                  {post.data.title}
-                </a>
-              </h3>
-            </>
-          ) : (
-            /* Regular Post Layout (Side-by-side) */
-            <div class="flex items-start gap-3 sm:gap-4">
-              {postImage && (
-                <a href={`/blog/${post.id}`} class="block hover:text-primary overflow-hidden group flex-shrink-0 w-[40%]" aria-label={post.data.title}>
-                  <Image
-                    loading="lazy"
-                    class="group-hover:scale-[1.03] transition duration-300 w-full aspect-[5/3] object-cover"
-                    src={postImage}
-                    alt={post.data.image_alt || post.data.title}
-                    width={300}
-                    height={180}
-                    widths={[150, 300, 600]}
-                    sizes="(max-width: 640px) 35vw, 300px"
-                      format="webp"
-                  />
-                </a>
-              )}
-              <div class="flex-grow">
-                {post.data.categories && post.data.categories.length > 0 && (
-                  <div class="flex items-center flex-wrap mb-1">
-                    {post.data.categories.map((category, i: number) => (
-                      <a
-                        href={`/categorias/${slugify(category)}`}
-                        class="text-primary font-bold normal-case text-[10px] sm:text-xs tracking-wide hover:underline mr-2 pb-1 px-2 -ml-2"
-                      >
-                        {humanize(category)}
-                        {i !== post.data.categories.length - 1 && <span class="mx-1">,</span>}
-                      </a>
-                    ))}
-                  </div>
-                )}
-                <h3 class="text-[16px] sm:text-lg leading-tight sm:leading-snug">
-                  <a href={`/blog/${post.id}`} class="block hover:text-primary transition duration-300 font-bold pb-1">
-                    {post.data.title}
-                  </a>
-                </h3>
-              </div>
-            </div>
+        <article class="group col-span-1">
+          {postImage && (
+            <a href={`/blog/${post.id}`} class="block mb-6 overflow-hidden rounded-2xl shadow-sm border border-gray-100">
+              <Image
+                loading={i < 2 ? "eager" : "lazy"}
+                class="group-hover:scale-[1.03] transition duration-500 w-full aspect-[16/9] object-cover"
+                src={postImage}
+                alt={post.data.image_alt || post.data.title}
+                width={800} height={450} format="webp"
+              />
+            </a>
           )}
-        </div>
+          <div class="flex items-center space-x-3 mb-3">
+              {post.data.categories && (
+                  <a href={`/categorias/${slugify(post.data.categories[0])}`} class="text-dark text-xs font-bold uppercase tracking-wider hover:underline">
+                      {humanize(post.data.categories[0])}
+                  </a>
+              )}
+              <span class="text-slate-300 text-xs px-1">•</span>
+              <time class="text-slate-500 text-sm font-medium">{dateFormat(post.data.date)}</time>
+          </div>
+          <h3 class="font-primary text-2xl md:text-3xl font-bold text-dark group-hover:text-slate-600 transition-colors mb-4 leading-tight">
+            <a href={`/blog/${post.id}`} class="block">{post.data.title}</a>
+          </h3>
+          <p class="text-text leading-relaxed line-clamp-3">
+            {post.data.description || "Leia a reflexão completa sobre este tema."}
+          </p>
+        </article>
       );
-    })
-  }
+  })}
 </div>
