@@ -29,7 +29,7 @@ const recommendedPosts = [
           {categories.map((category: string) => (
             <a
               href={`/categorias/${slugify(category)}`}
-              class="text-primary font-bold normal-case text-xs tracking-widest uppercase hover:underline mr-2"
+              class="text-dark font-bold normal-case text-xs tracking-widest uppercase hover:text-slate-600 hover:underline mr-2"
             >
               {humanize(category)}
             </a>
@@ -47,7 +47,7 @@ const recommendedPosts = [
             {allAuthors
               .filter((author) => authors.map((a: string) => slugify(a)).includes(slugify(author.data.title)))
               .map((author) => (
-                <a href={`/autores/${slugify(author.id)}`} class="hover:text-primary transition font-medium">
+                <a href={`/autores/${slugify(author.id)}`} class="hover:text-dark transition font-medium">
                   <span class="text-slate-700">Por {author.data.title}</span>
                 </a>
               ))}
@@ -99,7 +99,7 @@ const recommendedPosts = [
               <li>
                 <a
                   href={`/tags/${slugify(tag)}`}
-                  class="block rounded-md bg-slate-50 border border-gray-100 px-3 py-1.5 font-medium text-slate-500 text-sm hover:text-primary hover:bg-white hover:border-primary/30 transition duration-300"
+                  class="block rounded-md bg-slate-50 border border-gray-100 px-3 py-1.5 font-medium text-slate-500 text-sm hover:text-dark hover:bg-white hover:border-slate-400 transition duration-300"
                 >
                   #{humanize(tag)}
                 </a>
@@ -141,13 +141,13 @@ const recommendedPosts = [
             {p.data.categories && p.data.categories.length > 0 && (
               <a
                 href={`/categorias/${slugify(p.data.categories[0])}`}
-                class="text-primary font-bold normal-case text-[10px] tracking-widest uppercase hover:underline mb-2 block"
+                class="text-dark font-bold normal-case text-[10px] tracking-widest uppercase hover:text-slate-600 hover:underline mb-2 block"
               >
                 {humanize(p.data.categories[0])}
               </a>
             )}
             <h3 class="text-base sm:text-lg leading-snug font-bold">
-              <a href={`/blog/${p.id}`} class="text-dark hover:text-primary transition duration-300">
+              <a href={`/blog/${p.id}`} class="text-dark hover:text-slate-600 transition duration-300">
                 {p.data.title}
               </a>
             </h3>

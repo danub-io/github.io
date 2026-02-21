@@ -32,7 +32,7 @@ const { main }: { main: NavigationLink[] } = menu;
     <ul class="hidden md:flex space-x-8 text-sm font-medium text-text items-center">
       {main.map((menu) => (
         <li>
-          <a href={menu.url} class="hover:text-primary transition-colors">{menu.name}</a>
+          <a href={menu.url} class="hover:text-dark transition-colors">{menu.name}</a>
         </li>
       ))}
       <li>
@@ -43,7 +43,7 @@ const { main }: { main: NavigationLink[] } = menu;
     </ul>
 
     <div class="flex items-center space-x-4">
-      <button class="text-dark hover:text-primary transition cursor-pointer" aria-label="search" data-search-trigger>
+      <button class="text-dark hover:text-slate-600 transition cursor-pointer" aria-label="search" data-search-trigger>
         <IoSearch class="text-xl sm:text-2xl" />
       </button>
 
@@ -59,7 +59,7 @@ const { main }: { main: NavigationLink[] } = menu;
 
     <div id="mobile-menu-dropdown" class="absolute top-[72px] left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-xl flex-col px-6 py-8 space-y-6 md:hidden hidden transform origin-top transition-all duration-300">
       {main.map((menu) => (
-        <a href={menu.url} class="block text-xl font-primary font-semibold text-dark hover:text-primary border-b border-gray-100 pb-2">{menu.name}</a>
+        <a href={menu.url} class="block text-xl font-primary font-semibold text-dark hover:text-slate-600 border-b border-gray-100 pb-2">{menu.name}</a>
       ))}
       <a href="/#assinar" class="block text-center w-full bg-dark hover:bg-black text-white px-5 py-4 rounded-md font-medium mt-6 shadow-md transition">
         Seja um Mantenedor
@@ -86,7 +86,6 @@ const { main }: { main: NavigationLink[] } = menu;
 </header>
 
 <script is:inline>
-  // Lógica do Menu Hamburger
   function initMobileMenu() {
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu-dropdown');
@@ -95,7 +94,6 @@ const { main }: { main: NavigationLink[] } = menu;
 
     if (!btn || !menu) return;
 
-    // Remove event listeners antigos clonando o botão (evita bugs no Astro)
     const newBtn = btn.cloneNode(true);
     btn.parentNode.replaceChild(newBtn, btn);
 
@@ -107,7 +105,6 @@ const { main }: { main: NavigationLink[] } = menu;
     });
   }
 
-  // Lógica da Pesquisa
   function initSearch() {
     const searchModal = document.getElementById('search-modal');
     const searchContainer = document.getElementById('search-container');
