@@ -21,7 +21,7 @@ const { main }: { main: NavigationLink[] } = menu;
 ---
 
 <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all h-[72px] flex items-center">
-  <nav class="w-full max-w-6xl mx-auto px-4 sm:px-6 flex justify-between items-center">
+  <nav class="w-full max-w-5xl mx-auto px-6 md:px-8 flex justify-between items-center">
     
     <div class="flex-1 md:flex-none">
       <a href="/" class="text-xl sm:text-2xl font-primary font-bold tracking-tight text-dark transition">
@@ -36,7 +36,7 @@ const { main }: { main: NavigationLink[] } = menu;
         </li>
       ))}
       <li>
-        <a href="/#assinar" class="bg-dark hover:bg-black text-white px-5 py-2.5 rounded-md transition-all shadow-md">
+        <a href="/#assinar" class="bg-dark hover:bg-black text-white px-6 py-2.5 rounded-md transition-all shadow-md">
           Seja um Mantenedor
         </a>
       </li>
@@ -68,7 +68,7 @@ const { main }: { main: NavigationLink[] } = menu;
 
     <div class="fixed inset-0 z-50 flex items-start justify-center pt-[15vh] bg-stone-900/60 backdrop-blur-sm opacity-0 invisible transition-all duration-300" id="search-modal">
       <div class="absolute inset-0" id="search-backdrop"></div>
-      <div class="relative w-full max-w-2xl mx-4 bg-white rounded-2xl shadow-2xl transform scale-95 transition-all duration-300" id="search-container">
+      <div class="relative w-full max-w-2xl mx-6 bg-white rounded-2xl shadow-2xl transform scale-95 transition-all duration-300" id="search-container">
         <form action="/search" method="GET" class="relative flex items-center">
           <span class="absolute left-6 text-gray-400 text-2xl"><IoSearch /></span>
           <input class="w-full bg-transparent py-6 pl-16 pr-16 text-xl text-dark placeholder:text-gray-400 border-0 focus:ring-0 rounded-2xl outline-none" placeholder="Buscar reflexões..." type="text" name="q" id="search-input-desktop" autocomplete="off" />
@@ -91,12 +91,9 @@ const { main }: { main: NavigationLink[] } = menu;
     const menu = document.getElementById('mobile-menu-dropdown');
     const iconOpen = document.getElementById('icon-open');
     const iconClose = document.getElementById('icon-close');
-
     if (!btn || !menu) return;
-
     const newBtn = btn.cloneNode(true);
     btn.parentNode.replaceChild(newBtn, btn);
-
     newBtn.addEventListener('click', () => {
       menu.classList.toggle('hidden');
       menu.classList.toggle('flex');
@@ -121,7 +118,6 @@ const { main }: { main: NavigationLink[] } = menu;
       searchContainer?.classList.add('scale-100');
       setTimeout(() => searchInput?.focus(), 100);
     };
-
     const closeSearch = () => {
       searchModal?.classList.remove('visible', 'opacity-100');
       searchModal?.classList.add('invisible', 'opacity-0');
@@ -129,25 +125,12 @@ const { main }: { main: NavigationLink[] } = menu;
       searchContainer?.classList.add('scale-95');
     };
 
-    searchTriggers.forEach((t) => {
-      t.removeEventListener('click', openSearch);
-      t.addEventListener('click', openSearch);
-    });
-    
-    searchClose?.removeEventListener('click', closeSearch);
-    searchClose?.addEventListener('click', closeSearch);
-    searchBackdrop?.removeEventListener('click', closeSearch);
-    searchBackdrop?.addEventListener('click', closeSearch);
-    
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeSearch();
-    });
+    searchTriggers.forEach((t) => { t.removeEventListener('click', openSearch); t.addEventListener('click', openSearch); });
+    searchClose?.removeEventListener('click', closeSearch); searchClose?.addEventListener('click', closeSearch);
+    searchBackdrop?.removeEventListener('click', closeSearch); searchBackdrop?.addEventListener('click', closeSearch);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSearch(); });
   }
 
-  document.addEventListener('astro:page-load', () => {
-    initMobileMenu();
-    initSearch();
-  });
-  initMobileMenu();
-  initSearch();
+  document.addEventListener('astro:page-load', () => { initMobileMenu(); initSearch(); });
+  initMobileMenu(); initSearch();
 </script>
