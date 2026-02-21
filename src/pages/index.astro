@@ -6,7 +6,7 @@ import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, slugify } from "@/lib/utils/textConverter";
 
 const posts = await getSinglePage("posts");
-const sortedPosts = sortByDate(posts).slice(0, 5); // Últimos 5 textos
+const sortedPosts = sortByDate(posts).slice(0, 5);
 ---
 
 <Base>
@@ -34,7 +34,6 @@ const sortedPosts = sortByDate(posts).slice(0, 5); // Últimos 5 textos
       <div class="max-w-4xl mx-auto">
           <div class="flex justify-between items-end mb-16 border-b-2 border-dark pb-4">
               <h2 class="font-primary text-3xl md:text-4xl font-bold text-dark">Ensaios Recentes</h2>
-              <a href="/arquivo" class="hidden md:block text-sm font-bold uppercase tracking-wider text-gray-500 hover:text-primary transition">Ver Arquivo &rarr;</a>
           </div>
 
           <div class="space-y-12 md:space-y-16">
@@ -53,56 +52,80 @@ const sortedPosts = sortByDate(posts).slice(0, 5); // Últimos 5 textos
                           <h3 class="font-primary text-3xl md:text-4xl font-bold text-dark group-hover:text-primary transition-colors mb-4 leading-tight">
                               {post.data.title}
                           </h3>
-                          <p class="text-gray-600 text-lg leading-relaxed md:max-w-3xl">
+                          <p class="text-gray-600 text-lg leading-relaxed md:max-w-3xl line-clamp-3">
                               {post.data.description}
                           </p>
                       </a>
                   </article>
               ))}
           </div>
-          <div class="mt-12 text-center md:hidden">
-              <a href="/arquivo" class="inline-block border border-gray-300 text-dark px-8 py-3 rounded hover:bg-gray-50 font-bold text-sm tracking-widest uppercase transition">Explorar Arquivo</a>
+          
+          <div class="mt-20 text-center">
+              <a href="/arquivo" class="inline-block bg-white border border-gray-200 text-dark px-10 py-4 rounded-lg hover:bg-dark hover:text-white hover:border-dark font-bold text-sm tracking-widest uppercase transition-all duration-300 shadow-sm">
+                  Explorar o Arquivo Completo
+              </a>
           </div>
       </div>
   </section>
 
-  <section id="livros" class="py-20 md:py-32 px-6 bg-dark text-white">
-      <div class="max-w-5xl mx-auto">
-          <div class="text-center mb-16 md:mb-24">
-              <span class="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-4 block">A Biblioteca</span>
-              <h2 class="font-primary text-4xl md:text-5xl font-bold mb-6">Manuais de Vida e Gestão</h2>
-              <p class="text-gray-400 text-lg max-w-2xl mx-auto">O conhecimento não deve ter barreiras. Baixe de graça ou pague o quanto a obra valer para a sua vida.</p>
+  <section id="livros" class="py-24 md:py-40 px-6 bg-white border-t border-gray-100">
+      <div class="max-w-6xl mx-auto">
+          
+          <div class="flex flex-col md:flex-row justify-between items-end mb-20 md:mb-32 gap-8">
+              <div class="max-w-2xl">
+                  <span class="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-6 block">A Biblioteca Literária</span>
+                  <h2 class="font-primary text-4xl md:text-6xl lg:text-7xl font-bold text-dark mb-6 leading-[1.1]">Manuais de Vida<br/>e Liderança.</h2>
+              </div>
+              <div class="max-w-md md:text-right pb-4">
+                  <p class="text-gray-500 text-lg leading-relaxed">O conhecimento não deve ter barreiras. Baixe as obras de graça ou contribua com o valor que elas gerarem na sua jornada.</p>
+              </div>
           </div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
               
-              <div class="flex flex-col sm:flex-row bg-gray-900 border border-gray-800 rounded-2xl p-6 md:p-8 hover:border-primary/50 transition-colors group">
-                  <div class="w-40 h-60 mx-auto sm:mx-0 shrink-0 bg-black rounded-lg flex flex-col items-center justify-center text-primary font-primary font-bold text-center leading-snug shadow-2xl relative overflow-hidden mb-6 sm:mb-0 sm:mr-8 border border-gray-800">
-                     <span class="text-5xl opacity-10 absolute top-4">I</span>
-                     <span class="z-10 px-4">O Principal<br/>Mandamento</span>
+              <div class="group relative">
+                  <div class="w-full bg-body rounded-3xl aspect-[4/3] md:aspect-[4/5] flex items-center justify-center p-8 md:p-12 mb-10 border border-gray-100 relative overflow-hidden transition-all duration-700 group-hover:bg-gray-100">
+                      <div class="absolute inset-0 bg-gradient-to-tr from-gray-200/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                      
+                      <div class="w-[65%] max-w-[300px] aspect-[2/3] bg-dark rounded-r-xl rounded-l-sm shadow-[20px_30px_50px_rgba(0,0,0,0.2),-5px_0_10px_rgba(0,0,0,0.3)] flex flex-col items-center justify-center text-primary font-primary relative z-10 transform group-hover:-translate-y-4 group-hover:rotate-2 group-hover:scale-105 transition-all duration-700 ease-out border-l-8 border-gray-800">
+                          <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-white/20"></div>
+                          <span class="text-6xl opacity-20 absolute top-10 font-bold">I</span>
+                          <h3 class="text-2xl md:text-3xl font-bold text-center px-6 leading-snug">O Principal<br/>Mandamento</h3>
+                      </div>
                   </div>
-                  <div class="flex flex-col justify-center flex-grow text-center sm:text-left">
-                      <span class="text-xs font-bold uppercase tracking-widest text-primary mb-2">Teologia</span>
-                      <h3 class="font-primary text-2xl font-bold text-white mb-3">O Principal Mandamento</h3>
-                      <p class="text-gray-400 text-sm mb-8 leading-relaxed">O Evangelho que o mundo não quer ouvir. Uma desconstrução do nosso orgulho diante do amor de Cristo.</p>
-                      <button class="bg-white hover:bg-gray-200 text-dark w-full sm:w-auto text-center px-6 py-3 rounded font-bold transition-colors mt-auto">
+                  <div class="pr-6">
+                      <div class="flex items-center space-x-4 mb-5">
+                          <span class="text-xs font-bold uppercase tracking-widest text-primary">Teologia</span>
+                          <span class="w-1 h-1 bg-gray-300 rounded-full"></span>
+                          <span class="text-xs font-bold uppercase tracking-widest text-gray-400">Lançamento</span>
+                      </div>
+                      <h3 class="font-primary text-3xl md:text-4xl font-bold text-dark mb-5 group-hover:text-primary transition-colors">O Principal Mandamento</h3>
+                      <p class="text-gray-600 text-lg mb-8 leading-relaxed">O Evangelho que o mundo não quer ouvir. Uma desconstrução do nosso orgulho diante da simplicidade do amor de Cristo.</p>
+                      <a href="#" class="inline-flex items-center justify-center w-full sm:w-auto bg-white border border-gray-300 text-dark px-10 py-4 rounded-lg font-bold tracking-wide hover:bg-dark hover:text-white hover:border-dark transition-all duration-300 shadow-sm">
                           Acessar Obra (R$ 0+)
-                      </button>
+                      </a>
                   </div>
               </div>
 
-              <div class="flex flex-col sm:flex-row bg-gray-900 border border-gray-800 rounded-2xl p-6 md:p-8 hover:border-primary/50 transition-colors group">
-                  <div class="w-40 h-60 mx-auto sm:mx-0 shrink-0 bg-gray-800 rounded-lg flex flex-col items-center justify-center text-white font-primary font-bold text-center leading-snug shadow-2xl relative overflow-hidden mb-6 sm:mb-0 sm:mr-8 border border-gray-700">
-                    <span class="text-5xl opacity-10 absolute top-4">II</span>
-                    <span class="z-10 px-4">Gestão de<br/>Pessoas</span>
+              <div class="group relative md:mt-32">
+                  <div class="w-full bg-body rounded-3xl aspect-[4/3] md:aspect-[4/5] flex items-center justify-center p-8 md:p-12 mb-10 border border-gray-100 relative overflow-hidden transition-all duration-700 group-hover:bg-gray-100">
+                      <div class="absolute inset-0 bg-gradient-to-tr from-gray-200/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                      
+                      <div class="w-[65%] max-w-[300px] aspect-[2/3] bg-[#E5E7EB] rounded-r-xl rounded-l-sm shadow-[20px_30px_50px_rgba(0,0,0,0.1),-5px_0_10px_rgba(0,0,0,0.05)] flex flex-col items-center justify-center text-dark font-primary relative z-10 transform group-hover:-translate-y-4 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-700 ease-out border-l-8 border-gray-300">
+                          <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-white/60"></div>
+                          <span class="text-6xl opacity-10 absolute top-10 font-bold">II</span>
+                          <h3 class="text-2xl md:text-3xl font-bold text-center px-6 leading-snug">Gestão de<br/>Pessoas</h3>
+                      </div>
                   </div>
-                  <div class="flex flex-col justify-center flex-grow text-center sm:text-left">
-                      <span class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Alta Performance</span>
-                      <h3 class="font-primary text-2xl font-bold text-white mb-3">Gestão de Pessoas</h3>
-                      <p class="text-gray-400 text-sm mb-8 leading-relaxed">Ferramentas práticas para líderes. Desvendando o potencial humano para resultados extraordinários.</p>
-                      <button class="bg-white hover:bg-gray-200 text-dark w-full sm:w-auto text-center px-6 py-3 rounded font-bold transition-colors mt-auto">
+                  <div class="pr-6">
+                      <div class="flex items-center space-x-4 mb-5">
+                          <span class="text-xs font-bold uppercase tracking-widest text-gray-500">Alta Performance</span>
+                      </div>
+                      <h3 class="font-primary text-3xl md:text-4xl font-bold text-dark mb-5 group-hover:text-primary transition-colors">Gestão de Pessoas</h3>
+                      <p class="text-gray-600 text-lg mb-8 leading-relaxed">Ferramentas práticas para líderes. Desvendando o potencial humano para resultados extraordinários nas organizações.</p>
+                      <a href="#" class="inline-flex items-center justify-center w-full sm:w-auto bg-white border border-gray-300 text-dark px-10 py-4 rounded-lg font-bold tracking-wide hover:bg-dark hover:text-white hover:border-dark transition-all duration-300 shadow-sm">
                           Acessar Obra (R$ 0+)
-                      </button>
+                      </a>
                   </div>
               </div>
 
@@ -110,6 +133,3 @@ const sortedPosts = sortByDate(posts).slice(0, 5); // Últimos 5 textos
       </div>
   </section>
 </Base>
-
-
-
