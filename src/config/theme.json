@@ -2,29 +2,29 @@
   "colors": {
     "default": {
       "theme_color": {
-        "primary": "#f59e0b",
-        "body": "#f8fafc",
-        "border": "#e2e8f0",
-        "light": "#f1f5f9",
-        "dark": "#0f172a"
+        "primary": "#b8905b",
+        "body": "#FAFAFA",
+        "border": "#E5E7EB",
+        "light": "#F3F4F6",
+        "dark": "#111827"
       },
       "text_color": {
-        "text": "#475569",
-        "text-dark": "#0f172a",
-        "text-light": "#94a3b8"
+        "text": "#374151",
+        "text-dark": "#111827",
+        "text-light": "#6B7280"
       }
     }
   },
   "fonts": {
     "font_family": {
-      "primary": "Playfair Display:ital,wght@0,400;0,600;0,700;1,400",
+      "primary": "Playfair Display:ital,wght@0,400;0,600;0,700;1,400;1,600",
       "primary_type": "serif",
       "secondary": "Inter:wght@300;400;500;600",
       "secondary_type": "sans-serif"
     },
     "font_size": {
       "base": "17",
-      "scale": "1.07"
+      "scale": "1.08"
     }
   }
 }

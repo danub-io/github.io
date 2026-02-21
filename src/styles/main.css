@@ -3,106 +3,18 @@
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";
 
-/* ------------------------------------------------------------------
-   BASE STYLES
-   ------------------------------------------------------------------ */
 @layer base {
-  html {
-    @apply text-base;
-  }
-  body {
-    @apply bg-body font-secondary font-normal leading-relaxed text-text;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-primary font-bold leading-tight text-dark;
-  }
-  h1, .h1 {
-    @apply text-h1-sm md:text-h1;
-  }
-  h2, .h2 {
-    @apply text-h2-sm md:text-h2;
-  }
-  h3, .h3 {
-    @apply text-h3-sm md:text-h3;
-  }
-  h4, .h4 {
-    @apply text-h4;
-  }
-  h5, .h5 {
-    @apply text-h5;
-  }
-  h6, .h6 {
-    @apply text-h6;
-  }
-  b, strong {
-    @apply font-semibold;
-  }
-  img {
-    @apply inline-block;
-  }
+  html { @apply text-base scroll-smooth; }
+  body { @apply bg-body font-secondary font-normal leading-relaxed text-text antialiased selection:bg-primary selection:text-white; }
+  h1, h2, h3, h4, h5, h6 { @apply font-primary font-bold leading-tight text-dark tracking-tight; }
+  h1, .h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
+  h2, .h2 { @apply text-3xl md:text-4xl; }
+  h3, .h3 { @apply text-2xl md:text-3xl; }
+  b, strong { @apply font-semibold text-dark; }
 }
 
-/* ------------------------------------------------------------------
-   UTILITIES
-   ------------------------------------------------------------------ */
-@utility shadow {
-  box-shadow: 0 10px 30px rgb(22 28 45 / 10%);
-}
+.form-input { @apply rounded-md border-border py-3 text-text focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all; }
 
-/* ------------------------------------------------------------------
-   MOBILE MENU (NAVBAR TOGGLER)
-   ------------------------------------------------------------------ */
-input#nav-toggle:checked ~ label#show-button {
-  @apply hidden;
-}
-
-input#nav-toggle:checked ~ label#hide-button {
-  @apply flex fixed top-6 right-4 z-[60] text-dark;
-}
-
-input#nav-toggle:checked ~ #nav-menu {
-  @apply fixed top-0 left-0 w-screen h-screen bg-white z-50 flex flex-col items-center justify-start pt-16 px-8 overflow-y-auto;
-  display: flex !important;
-}
-
-/* Prevent scroll when menu is open */
-body:has(#nav-toggle:checked) {
-  overflow: hidden;
-}
-
-.form-input {
-  @apply rounded-md border-border py-3 text-text focus:border-primary focus:ring-transparent;
-}
-
-/* ------------------------------------------------------------------
-   CONTENT STYLING (PROSE CUSTOMIZATION)
-   ------------------------------------------------------------------ */
 .content {
-  @apply prose max-w-none prose-headings:font-primary prose-headings:font-bold prose-h1:mb-6 prose-h1:text-h1-sm prose-h2:mb-4 prose-h2:mt-8 prose-h2:text-h2-sm prose-h3:mb-4 prose-h3:mt-6 prose-h3:text-h3-sm prose-h4:mt-6 prose-h5:mb-4 prose-h6:mb-6 prose-blockquote:border-primary prose-blockquote:bg-light prose-blockquote:px-7 prose-blockquote:py-3 prose-blockquote:text-lg prose-blockquote:leading-8 prose-pre:px-6 prose-pre:py-5 md:prose-h1:text-h1 md:prose-h2:text-h2 md:prose-h3:text-h3;
-  @apply prose-p:mb-6 prose-p:leading-relaxed;
-  @apply prose-a:text-primary prose-a:transition prose-a:duration-200 prose-a:hover:text-dark;
-  @apply prose-table:relative prose-table:overflow-hidden prose-table:before:absolute prose-table:before:left-0 prose-table:before:top-0 prose-table:before:h-full prose-table:before:w-full prose-table:before:rounded-[inherit] prose-table:before:border prose-table:before:border-border prose-table:before:content-[""];
-  @apply prose-thead:border-border prose-thead:bg-light;
-  @apply prose-th:relative prose-th:z-10 prose-th:px-4 prose-th:py-[18px] prose-th:text-text-dark;
-  @apply prose-tr:border-border;
-  @apply prose-td:relative prose-td:z-10 prose-td:px-3 prose-td:py-[18px];
-}
-
-/* Removed rounded-lg from prose images and blockquotes for consistency */
-.content blockquote {
-    border-radius: 0 !important;
-}
-.content img {
-    border-radius: 0 !important;
-}
-.content table {
-    border-radius: 0 !important;
-}
-
-@keyframes bounce-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(3px); }
-}
-.animate-bounce-slow {
-  animation: bounce-slow 2s infinite;
+  @apply prose max-w-none prose-headings:font-primary prose-headings:font-bold prose-headings:text-dark prose-p:text-lg prose-p:leading-relaxed prose-p:text-gray-700 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-gray-50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:text-xl prose-blockquote:font-primary prose-blockquote:italic prose-blockquote:text-gray-800 prose-img:rounded-xl prose-img:shadow-md;
 }
