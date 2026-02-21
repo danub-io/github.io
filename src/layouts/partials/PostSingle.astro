@@ -1,6 +1,5 @@
 ---
 import Share from "@/components/Share.astro";
-import AdDummy from "@/components/AdDummy.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import dateFormat from "@/lib/utils/dateFormat";
 import similerItems from "@/lib/utils/similarItems";
@@ -14,105 +13,101 @@ const posts = await getSinglePage("posts");
 const { post } = Astro.props;
 const similarPosts = similerItems(post, posts, post.id);
 const { Content } = await render(post);
-const { title, description, authors, categories, image, image_alt, date, tags } =
-  post.data;
+const { title, description, authors, categories, image, image_alt, date, tags } = post.data;
 
-// Combine similar posts with others to get more recommended posts (up to 40)
 const recommendedPosts = [
   ...similarPosts,
   ...posts.filter((p) => p.id !== post.id && !similarPosts.find((sp) => sp.id === p.id))
-].slice(0, 40);
+].slice(0, 6);
 ---
 
-<section class="py-6">
-  <div class="max-w-[1000px] px-4 mx-auto">
-    <!-- Top Ad Dummy -->
-    <AdDummy className="mt-0 mb-8" />
-
+<section class="py-12">
+  <div class="max-w-[768px] px-6 mx-auto">
     <article class="flex flex-col items-center">
       <div class="w-full text-left">
-        <!-- Categories above title -->
-        <div class="flex items-center flex-wrap mb-2">
-          {
-            categories.map((category: string) => (
-              <a
-                href={`/categorias/${slugify(category)}`}
-                class="text-primary font-bold normal-case text-[10px] sm:text-xs tracking-wide hover:underline mr-2 pb-1"
-              >
-                {humanize(category)}
-              </a>
-            ))
-          }
+        <div class="flex items-center flex-wrap mb-4">
+          {categories.map((category: string) => (
+            <a
+              href={`/categorias/${slugify(category)}`}
+              class="text-primary font-bold normal-case text-xs tracking-widest uppercase hover:underline mr-2"
+            >
+              {humanize(category)}
+            </a>
+          ))}
         </div>
 
-        <h1 set:html={markdownify(title)} class="h1 mb-4 text-left" />
+        <h1 set:html={markdownify(title)} class="font-primary text-4xl md:text-5xl font-bold text-dark mb-6 leading-tight" />
 
-        <!-- Author and Date meta -->
-        <ul class="flex flex-wrap items-center justify-start text-text-light text-xs">
-          <li class="mr-4">
-            {
-              allAuthors
-                .filter((author) =>
-                  authors
-                    .map((author: string) => slugify(author))
-                    .includes(slugify(author.data.title))
-                )
-                .map((author) => (
-                  <a
-                    href={`/autores/${slugify(author.id)}`}
-                    class="hover:text-primary font-medium"
-                  >
-                    <span>{author.data.title}</span>
-                  </a>
-                ))
-            }
-          </li>
-          <li class="font-medium">
+        <ul class="flex flex-wrap items-center justify-start text-slate-500 text-sm mb-10 border-b border-gray-100 pb-6">
+          <li class="mr-4 font-medium flex items-center">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
             {dateFormat(date)}
+          </li>
+          <li class="flex items-center">
+            {allAuthors
+              .filter((author) => authors.map((a: string) => slugify(a)).includes(slugify(author.data.title)))
+              .map((author) => (
+                <a href={`/autores/${slugify(author.id)}`} class="hover:text-primary transition font-medium">
+                  <span class="text-slate-700">Por {author.data.title}</span>
+                </a>
+              ))}
           </li>
         </ul>
       </div>
 
-      <div class="w-full mt-8 mb-2 flex justify-center">
-        {
-          (image || placeholder) && (
-            <Image
-              width={1000}
-              height={600}
-              widths={[400, 700, 1000]}
-              sizes="(max-width: 768px) 95vw, 1000px"
-              loading="eager"
-              fetchpriority="high"
-              src={image || placeholder}
-              alt={image_alt || title}
-              class="object-cover aspect-[5/3]"
-              format="webp"
-            />
-          )
-        }
+      <div class="w-full mb-12 flex justify-center">
+        {(image || placeholder) && (
+          <Image
+            width={800}
+            height={450}
+            widths={[400, 700, 800]}
+            sizes="(max-width: 768px) 95vw, 800px"
+            loading="eager"
+            fetchpriority="high"
+            src={image || placeholder}
+            alt={image_alt || title}
+            class="object-cover aspect-[16/9] rounded-xl shadow-sm w-full border border-gray-100"
+            format="webp"
+          />
+        )}
       </div>
 
       <div class="w-full">
-        <div class="content mb-10 text-left" id="article-content">
+        <div class="content mb-16 text-left text-lg leading-relaxed text-slate-800" id="article-content">
           <Content />
         </div>
-        <div class="flex flex-wrap items-center justify-between">
-          <ul class="mr-4 mb-4 space-x-3">
-            {
-              tags.map((tag: string) => (
-                <li class="inline-block mb-2">
-                  <a
-                    href={`/tags/${slugify(tag)}`}
-                    class="block rounded-lg bg-light px-4 py-3 font-semibold text-dark text-sm hover:text-primary transition duration-300"
-                  >
-                    #{humanize(tag)}
-                  </a>
-                </li>
-              ))
-            }
+
+        <div class="bg-white border border-gray-200 p-8 md:p-10 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] my-16 text-center relative overflow-hidden group">
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-amber-300"></div>
+          <h3 class="font-primary text-2xl md:text-3xl font-bold text-dark mb-4">Este ensaio trouxe clareza à sua mente?</h3>
+          <p class="text-text mb-8 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+            O <strong>GospelReads</strong> é um refúgio literário mantido inteiramente por leitores. Sem anúncios invasivos, sem algoritmos tóxicos. Se este texto ajudou no seu ministério ou curou a sua mente hoje, considere apoiar a nossa missão.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="/#assinar" class="bg-dark hover:bg-slate-800 text-white px-8 py-3.5 rounded-md font-semibold transition-all shadow-md">
+              Apoiar a Missão
+            </a>
+            <a href="/#livros" class="bg-white border border-gray-300 text-dark hover:bg-gray-50 px-8 py-3.5 rounded-md font-semibold transition-all">
+              Conheça a Biblioteca
+            </a>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center justify-between border-t border-gray-100 pt-8 mt-8">
+          <ul class="flex flex-wrap gap-2 mb-4 md:mb-0">
+            {tags.map((tag: string) => (
+              <li>
+                <a
+                  href={`/tags/${slugify(tag)}`}
+                  class="block rounded-md bg-slate-50 border border-gray-100 px-3 py-1.5 font-medium text-slate-500 text-sm hover:text-primary hover:bg-white hover:border-primary/30 transition duration-300"
+                >
+                  #{humanize(tag)}
+                </a>
+              </li>
+            ))}
           </ul>
           <Share
-            className="social-share mb-4"
+            className="social-share"
             title={title}
             description={description}
             slug={post.id}
@@ -123,123 +118,42 @@ const recommendedPosts = [
   </div>
 </section>
 
-<!-- recommended posts -->
-<section class="py-6 pt-0">
-  <div class="max-w-[1000px] px-4 mx-auto">
-    <h2 class="mb-8 text-left h1">Recomendados</h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8" id="recommended-container">
-      {recommendedPosts.map((p, index) => (
-        <>
-          {index === 3 && (
-            <div class="col-span-1 md:col-span-2 mb-6">
-              <AdDummy className="mt-0 mb-8" />
-            </div>
+<section class="py-16 bg-slate-50 border-t border-gray-100">
+  <div class="max-w-[1000px] px-6 mx-auto">
+    <h2 class="mb-10 text-left font-primary text-2xl md:text-3xl font-bold text-dark">Reflexões Semelhantes</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {recommendedPosts.map((p) => (
+        <div class="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+          {(p.data.image || placeholder) && (
+            <a href={`/blog/${p.id}`} class="block overflow-hidden rounded-lg flex-shrink-0 w-1/3" aria-label={p.data.title}>
+              <Image
+                loading="lazy"
+                class="hover:scale-105 transition duration-300 w-full aspect-[4/3] object-cover"
+                src={p.data.image || placeholder}
+                alt={p.data.image_alt || p.data.title}
+                width={300}
+                height={225}
+                format="webp"
+              />
+            </a>
           )}
-          <div class={`recommended-item col-span-1 flex items-start gap-3 sm:gap-4 mb-6 ${index >= 10 ? 'hidden' : ''}`}>
-            {(p.data.image || placeholder) && (
-              <a href={`/blog/${p.id}`} class="block hover:text-primary overflow-hidden group flex-shrink-0 w-[40%]" aria-label={p.data.title}>
-                <Image
-                  loading="lazy"
-                  class="group-hover:scale-[1.03] transition duration-300 w-full aspect-[5/3] object-cover"
-                  src={p.data.image || placeholder}
-                  alt={p.data.image_alt || p.data.title}
-                  width={300}
-                  height={180}
-                  widths={[150, 300, 600]}
-                  sizes="(max-width: 640px) 35vw, 300px"
-                  format="webp"
-                />
+          <div class="flex-grow">
+            {p.data.categories && p.data.categories.length > 0 && (
+              <a
+                href={`/categorias/${slugify(p.data.categories[0])}`}
+                class="text-primary font-bold normal-case text-[10px] tracking-widest uppercase hover:underline mb-2 block"
+              >
+                {humanize(p.data.categories[0])}
               </a>
             )}
-            <div class="flex-grow">
-              {p.data.categories && p.data.categories.length > 0 && (
-                <div class="flex items-center flex-wrap mb-1">
-                  {p.data.categories.map((category: string, i: number) => (
-                    <a
-                      href={`/categorias/${slugify(category)}`}
-                      class="text-primary font-bold normal-case text-[10px] sm:text-xs tracking-wide hover:underline mr-2 pb-1 px-2 -ml-2"
-                    >
-                      {humanize(category)}
-                      {i !== p.data.categories.length - 1 && <span class="mx-1">,</span>}
-                    </a>
-                  ))}
-                </div>
-              )}
-              <h3 class="text-[16px] sm:text-lg leading-tight sm:leading-snug">
-                <a href={`/blog/${p.id}`} class="block hover:text-primary transition duration-300 font-bold pb-1">
-                  {p.data.title}
-                </a>
-              </h3>
-            </div>
+            <h3 class="text-base sm:text-lg leading-snug font-bold">
+              <a href={`/blog/${p.id}`} class="text-dark hover:text-primary transition duration-300">
+                {p.data.title}
+              </a>
+            </h3>
           </div>
-        </>
+        </div>
       ))}
     </div>
-
-    {recommendedPosts.length > 10 && (
-      <div class="flex justify-center mt-12 mb-16">
-        <button
-          id="load-more-recommended"
-          class="bg-[#0077B5] hover:bg-[#005a8a] text-white px-6 py-1 font-bold text-base uppercase tracking-widest transition-all duration-300 shadow-md hover:shadow-xl active:scale-95 flex items-center gap-2"
-        >
-          <span>Ver Mais Postagens</span>
-          <svg class="w-5 h-5 animate-bounce-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-      </div>
-    )}
   </div>
 </section>
-
-
-<script>
-  function injectMiddleAd() {
-    const content = document.getElementById('article-content');
-    if (!content || content.querySelector('.middle-ad-dummy')) return;
-
-    const paragraphs = content.querySelectorAll('p');
-    if (paragraphs.length >= 3) {
-      const middleIndex = Math.floor(paragraphs.length / 2);
-      const adDummy = document.createElement('div');
-      adDummy.className = "my-8 flex justify-center middle-ad-dummy";
-      adDummy.innerHTML = `
-        <div class="w-full max-w-[728px] h-[90px] bg-gray-200 flex items-center justify-center text-gray-500 font-bold border border-gray-300">
-          Publicidade
-        </div>
-      `;
-      paragraphs[middleIndex].parentNode?.insertBefore(adDummy, paragraphs[middleIndex].nextSibling);
-    }
-  }
-
-  document.addEventListener('astro:page-load', injectMiddleAd);
-  // Also run on initial load if not using view transitions or if it's the first page
-  if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    injectMiddleAd();
-  } else {
-    document.addEventListener('DOMContentLoaded', injectMiddleAd);
-  }
-
-  function setupLoadMoreRecommended() {
-    const button = document.getElementById('load-more-recommended');
-    if (!button || button.hasAttribute('data-initialized')) return;
-    button.setAttribute('data-initialized', 'true');
-
-    button.addEventListener('click', () => {
-      const hiddenItems = Array.from(document.querySelectorAll('.recommended-item.hidden'));
-      const toShow = hiddenItems.slice(0, 6);
-
-      toShow.forEach(item => {
-        item.classList.remove('hidden');
-      });
-
-      if (hiddenItems.length <= 6) {
-        button.parentElement?.remove();
-      }
-    });
-  }
-
-  document.addEventListener('astro:page-load', setupLoadMoreRecommended);
-  setupLoadMoreRecommended();
-</script>

@@ -38,7 +38,7 @@ const { main }: { main: NavigationLink[] } = menu;
         </li>
       ))}
       <li>
-        <a href="#assinar" class="bg-dark hover:bg-black text-white px-5 py-2.5 rounded-md transition-all shadow-md">
+        <a href="/#assinar" class="bg-dark hover:bg-black text-white px-5 py-2.5 rounded-md transition-all shadow-md">
           Seja um Mantenedor
         </a>
       </li>
@@ -60,7 +60,7 @@ const { main }: { main: NavigationLink[] } = menu;
       {main.map((menu) => (
         <a href={menu.url} class="block text-lg font-medium text-dark hover:text-primary">{menu.name}</a>
       ))}
-      <a href="#assinar" class="block text-center w-full bg-dark text-white px-5 py-3 rounded-md font-medium mt-4 shadow-md">
+      <a href="/#assinar" class="block text-center w-full bg-dark text-white px-5 py-3 rounded-md font-medium mt-4 shadow-md">
         Seja um Mantenedor
       </a>
     </div>
@@ -75,7 +75,7 @@ const { main }: { main: NavigationLink[] } = menu;
             <IoClose class="text-2xl" />
           </button>
         </form>
-        <div class="px-6 py-3 bg-gray-50 rounded-b-2xl border-t border-gray-100 text-xs text-gray-500 flex justify-between">
+        <div class="px-6 py-3 bg-gray-50 rounded-b-2xl border-t border-gray-100 text-xs text-gray-500 hidden md:flex justify-between">
           <span>Pressione <strong>Enter</strong> para buscar</span>
           <span><strong>ESC</strong> para fechar</span>
         </div>
