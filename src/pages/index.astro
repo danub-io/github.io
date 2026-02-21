@@ -1,5 +1,12 @@
 ---
 import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import dateFormat from "@/lib/utils/dateFormat";
+import { humanize, slugify } from "@/lib/utils/textConverter";
+
+const posts = await getSinglePage("posts");
+const sortedPosts = sortByDate(posts).slice(0, 4); // Pega os 4 ensaios mais recentes
 ---
 
 <Base>
@@ -18,7 +25,7 @@ import Base from "@/layouts/Base.astro";
           
           <form class="flex flex-col sm:flex-row justify-center max-w-lg mx-auto gap-3 px-2">
               <input type="email" placeholder="O seu melhor e-mail..." class="w-full px-5 py-3 sm:py-4 bg-white/10 border border-white/20 rounded-md text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary transition-all backdrop-blur-sm" required/>
-              <button type="button" class="w-full sm:w-auto bg-primary hover:bg-amber-400 text-dark px-8 py-3 sm:py-4 rounded-md font-semibold transition-all shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+              <button type="button" class="w-full sm:w-auto bg-primary hover:bg-[#9c4505] text-white px-8 py-3 sm:py-4 rounded-md font-semibold transition-all shadow-lg">
                   Assinar Grátis
               </button>
           </form>
@@ -34,8 +41,8 @@ import Base from "@/layouts/Base.astro";
               <h3 class="font-primary text-xl font-bold text-dark mb-3">Neurociência da Fé</h3>
               <p class="text-sm text-text leading-relaxed">As vitórias sinápticas e como a renovação da mente é um processo biológico desenhado pelo Criador.</p>
           </div>
-          <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 ring-1 ring-primary/20">
-              <div class="w-12 h-12 bg-amber-50 rounded-lg flex items-center justify-center mb-6">
+          <div class="bg-white p-8 rounded-xl shadow-lg border border-primary/30 ring-1 ring-primary/10">
+              <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
                   <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
               </div>
               <h3 class="font-primary text-xl font-bold text-dark mb-3">Alta Performance</h3>
@@ -51,13 +58,45 @@ import Base from "@/layouts/Base.astro";
       </div>
   </section>
 
-  <section id="livros" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 mb-20">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-gray-200 pb-6">
+  <section id="ensaios" class="max-w-4xl mx-auto px-4 sm:px-6 py-10">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-10 border-b border-gray-200 pb-4">
           <div>
-              <h2 class="font-primary text-3xl sm:text-4xl font-bold text-dark">A Biblioteca</h2>
-              <p class="text-text mt-2">Pague o quanto quiser. O conhecimento não deve ter barreiras.</p>
+              <h2 class="font-primary text-3xl font-bold text-dark">Últimos Ensaios</h2>
+              <p class="text-text mt-1 text-sm">Reflexões recentes enviadas aos domingos.</p>
           </div>
-          <a href="/categorias" class="hidden md:inline-block text-primary font-medium hover:underline mt-4 md:mt-0">Ver todos os artigos &rarr;</a>
+          <a href="/categorias" class="hidden md:inline-block text-primary font-medium hover:underline mb-1">Explorar por Temas &rarr;</a>
+      </div>
+
+      <div class="space-y-10">
+          {sortedPosts.map((post) => (
+              <article class="group">
+                  <div class="flex items-center space-x-3 mb-2">
+                      {post.data.categories && (
+                          <a href={`/categorias/${slugify(post.data.categories[0])}`} class="text-primary text-xs font-bold uppercase tracking-wider hover:underline">
+                              {humanize(post.data.categories[0])}
+                          </a>
+                      )}
+                      <span class="text-slate-400 text-xs px-2">•</span>
+                      <time class="text-slate-500 text-xs font-medium">{dateFormat(post.data.date)}</time>
+                  </div>
+                  <a href={`/blog/${post.id}`} class="block">
+                      <h3 class="font-primary text-2xl font-bold text-dark group-hover:text-primary transition-colors mb-3 leading-tight">
+                          {post.data.title}
+                      </h3>
+                      <p class="text-text leading-relaxed line-clamp-2">
+                          {post.data.description || "Leia a reflexão completa sobre este tema."}
+                      </p>
+                  </a>
+              </article>
+          ))}
+      </div>
+      <a href="/categorias" class="md:hidden block text-center text-primary font-medium hover:underline mt-8">Explorar por Temas &rarr;</a>
+  </section>
+
+  <section id="livros" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 mb-10 bg-slate-50 mt-16 rounded-3xl border border-gray-100">
+      <div class="flex flex-col mb-12 text-center">
+          <h2 class="font-primary text-3xl sm:text-4xl font-bold text-dark">A Biblioteca</h2>
+          <p class="text-text mt-2 max-w-xl mx-auto">Manuais práticos para a sua mente e liderança. Pague o quanto quiser. O conhecimento não deve ter barreiras.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
@@ -76,7 +115,7 @@ import Base from "@/layouts/Base.astro";
           </div>
 
           <div class="flex flex-col sm:flex-row gap-6 bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow">
-              <div class="w-full sm:w-1/3 bg-slate-200 rounded-lg aspect-[2/3] flex items-center justify-center text-dark font-primary font-bold text-center px-4 leading-tight shadow-inner">
+              <div class="w-full sm:w-1/3 bg-slate-200 rounded-lg aspect-[2/3] flex items-center justify-center text-dark font-primary font-bold text-center px-4 leading-tight shadow-inner border border-gray-300">
                 Gestão de Pessoas
               </div>
               <div class="w-full sm:w-2/3 flex flex-col justify-center">
@@ -89,6 +128,5 @@ import Base from "@/layouts/Base.astro";
               </div>
           </div>
       </div>
-      <a href="/categorias" class="md:hidden block text-center text-primary font-medium hover:underline mt-8">Ver todos os artigos &rarr;</a>
   </section>
 </Base>

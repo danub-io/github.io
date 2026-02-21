@@ -20,18 +20,16 @@ export interface NavigationLink {
 const { main }: { main: NavigationLink[] } = menu;
 ---
 
-<header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all h-[72px] flex items-center">
+<header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all h-[72px] flex items-center">
   <nav class="w-full max-w-6xl mx-auto px-4 sm:px-6 flex justify-between items-center">
     
-    <input id="nav-toggle" type="checkbox" class="hidden group" />
-
     <div class="flex-1 md:flex-none">
       <a href="/" class="text-xl sm:text-2xl font-primary font-bold tracking-tight text-dark transition">
         GospelReads<span class="text-primary">.</span>
       </a>
     </div>
 
-    <ul id="nav-menu" class="hidden md:flex space-x-8 text-sm font-medium text-text items-center">
+    <ul class="hidden md:flex space-x-8 text-sm font-medium text-text items-center">
       {main.map((menu) => (
         <li>
           <a href={menu.url} class="hover:text-primary transition-colors">{menu.name}</a>
@@ -49,18 +47,21 @@ const { main }: { main: NavigationLink[] } = menu;
         <IoSearch class="text-xl sm:text-2xl" />
       </button>
 
-      <label for="nav-toggle" class="cursor-pointer text-dark md:hidden block">
-        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <button id="mobile-menu-btn" class="cursor-pointer text-dark md:hidden block focus:outline-none p-1" aria-label="Toggle Menu">
+        <svg id="icon-open" class="w-7 h-7 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
-      </label>
+        <svg id="icon-close" class="w-7 h-7 hidden transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
     </div>
 
-    <div id="mobile-menu-dropdown" class="absolute top-[72px] left-0 w-full bg-white border-b border-gray-200 shadow-lg hidden flex-col px-4 py-6 space-y-4 md:hidden">
+    <div id="mobile-menu-dropdown" class="absolute top-[72px] left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-xl flex-col px-6 py-8 space-y-6 md:hidden hidden transform origin-top transition-all duration-300">
       {main.map((menu) => (
-        <a href={menu.url} class="block text-lg font-medium text-dark hover:text-primary">{menu.name}</a>
+        <a href={menu.url} class="block text-xl font-primary font-semibold text-dark hover:text-primary border-b border-gray-100 pb-2">{menu.name}</a>
       ))}
-      <a href="/#assinar" class="block text-center w-full bg-dark text-white px-5 py-3 rounded-md font-medium mt-4 shadow-md">
+      <a href="/#assinar" class="block text-center w-full bg-dark hover:bg-black text-white px-5 py-4 rounded-md font-medium mt-6 shadow-md transition">
         Seja um Mantenedor
       </a>
     </div>
@@ -84,56 +85,72 @@ const { main }: { main: NavigationLink[] } = menu;
   </nav>
 </header>
 
-<style>
-  input#nav-toggle:checked ~ #mobile-menu-dropdown {
-    display: flex;
+<script is:inline>
+  // Lógica do Menu Hamburger
+  function initMobileMenu() {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu-dropdown');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+
+    if (!btn || !menu) return;
+
+    // Remove event listeners antigos clonando o botão (evita bugs no Astro)
+    const newBtn = btn.cloneNode(true);
+    btn.parentNode.replaceChild(newBtn, btn);
+
+    newBtn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    });
   }
-</style>
 
-<script>
-  const openSearch = (e) => {
-    e.preventDefault();
+  // Lógica da Pesquisa
+  function initSearch() {
     const searchModal = document.getElementById('search-modal');
     const searchContainer = document.getElementById('search-container');
-    const searchInput = document.getElementById('search-input-desktop') as HTMLInputElement;
-    if (searchModal && searchContainer) {
-      searchModal.classList.remove('invisible', 'opacity-0');
-      searchModal.classList.add('visible', 'opacity-100');
-      searchContainer.classList.remove('scale-95');
-      searchContainer.classList.add('scale-100');
-      setTimeout(() => searchInput?.focus(), 100);
-    }
-  };
-
-  const closeSearch = () => {
-    const searchModal = document.getElementById('search-modal');
-    const searchContainer = document.getElementById('search-container');
-    if (searchModal && searchContainer) {
-      searchModal.classList.remove('visible', 'opacity-100');
-      searchModal.classList.add('invisible', 'opacity-0');
-      searchContainer.classList.remove('scale-100');
-      searchContainer.classList.add('scale-95');
-    }
-  };
-
-  function setupSearch() {
+    const searchInput = document.getElementById('search-input-desktop');
     const searchTriggers = document.querySelectorAll('[data-search-trigger]');
     const searchClose = document.getElementById('search-close');
     const searchBackdrop = document.getElementById('search-backdrop');
+
+    const openSearch = (e) => {
+      e.preventDefault();
+      searchModal?.classList.remove('invisible', 'opacity-0');
+      searchModal?.classList.add('visible', 'opacity-100');
+      searchContainer?.classList.remove('scale-95');
+      searchContainer?.classList.add('scale-100');
+      setTimeout(() => searchInput?.focus(), 100);
+    };
+
+    const closeSearch = () => {
+      searchModal?.classList.remove('visible', 'opacity-100');
+      searchModal?.classList.add('invisible', 'opacity-0');
+      searchContainer?.classList.remove('scale-100');
+      searchContainer?.classList.add('scale-95');
+    };
 
     searchTriggers.forEach((t) => {
       t.removeEventListener('click', openSearch);
       t.addEventListener('click', openSearch);
     });
+    
     searchClose?.removeEventListener('click', closeSearch);
     searchClose?.addEventListener('click', closeSearch);
     searchBackdrop?.removeEventListener('click', closeSearch);
     searchBackdrop?.addEventListener('click', closeSearch);
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeSearch();
+    });
   }
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeSearch();
+  document.addEventListener('astro:page-load', () => {
+    initMobileMenu();
+    initSearch();
   });
-  document.addEventListener('astro:page-load', setupSearch);
-  setupSearch();
+  initMobileMenu();
+  initSearch();
 </script>
