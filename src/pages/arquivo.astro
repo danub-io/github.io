@@ -9,114 +9,92 @@ import placeholder from "@/assets/images/placeholder.png";
 
 const posts = await getSinglePage("posts");
 const sortedPosts = sortByDate(posts);
-// Quantidade de posts a carregar inicialmente
-const INITIAL_LOAD = 6;
+const INITIAL_LOAD = 8;
 ---
 
 <Base title="Arquivo - Acervo de Postagens">
-  <section class="py-20 md:py-32 bg-white min-h-[80vh]">
-    <div class="max-w-5xl mx-auto px-6">
-      
-      <div class="mb-16 md:mb-24 text-center border-b border-gray-100 pb-12">
-        <span class="text-primary font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Acervo Completo</span>
-        <h1 class="font-primary text-5xl md:text-6xl font-bold text-dark mb-6">Arquivo</h1>
-        <p class="text-gray-500 text-lg">Todas as postagens publicadas, do mais recente ao mais antigo.</p>
-      </div>
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-10 mb-10 min-h-[80vh]">
+    <div class="mb-12 border-b border-gray-200 pb-6">
+      <h2 class="font-primary text-3xl sm:text-4xl font-bold text-dark">Acervo Completo</h2>
+      <p class="text-text mt-2">Todas as postagens publicadas, do mais recente ao mais antigo.</p>
+    </div>
 
-      <div id="archive-container" class="space-y-12">
-        {sortedPosts.map((post, index) => (
-          <article class={`archive-item ${index >= INITIAL_LOAD ? 'hidden' : 'flex'} flex-col sm:flex-row items-center sm:items-start gap-8 border-b border-gray-100 pb-12 last:border-0 last:pb-0 group`}>
-            
-            <a href={`/blog/${post.id}`} class="w-full sm:w-2/5 shrink-0 overflow-hidden rounded-xl shadow-sm block relative">
+    <div id="archive-container" class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
+      {sortedPosts.map((post, index) => (
+        <article class={`archive-item ${index >= INITIAL_LOAD ? 'hidden' : 'flex'} flex-col sm:flex-row gap-5 items-start group`}>
+          <a href={`/blog/${post.id}`} class="block w-full sm:w-2/5 shrink-0 overflow-hidden rounded-xl shadow-sm relative">
               <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-10"></div>
               <Image
-                src={post.data.image || placeholder}
-                alt={post.data.title}
-                width={500}
-                height={281}
-                class="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-700"
-                format="webp"
+                  src={post.data.image || placeholder}
+                  alt={post.data.title}
+                  width={400}
+                  height={320}
+                  class="w-full aspect-[5/4] object-cover group-hover:scale-105 transition-transform duration-700"
+                  format="webp"
               />
-            </a>
-
-            <div class="flex-1 w-full text-left py-2">
-              <div class="flex items-center space-x-3 mb-4">
-                <time class="text-gray-400 text-sm font-medium tracking-wide">{dateFormat(post.data.date)}</time>
-                {post.data.categories && (
-                  <>
-                    <span class="text-gray-300">|</span>
-                    <a href={`/categorias/${slugify(post.data.categories[0])}`} class="text-primary text-sm font-bold uppercase tracking-widest hover:text-dark transition">
-                      {humanize(post.data.categories[0])}
-                    </a>
-                  </>
-                )}
+          </a>
+          <div class="flex-1 w-full">
+              <div class="flex items-center space-x-2 mb-2">
+                  {post.data.categories && (
+                      <a href={`/categorias/${slugify(post.data.categories[0])}`} class="text-dark text-[11px] font-bold uppercase tracking-wider hover:underline">
+                          {humanize(post.data.categories[0])}
+                      </a>
+                  )}
+                  <span class="text-slate-300 text-xs">•</span>
+                  <time class="text-slate-500 text-[11px] font-medium">{dateFormat(post.data.date)}</time>
               </div>
               <a href={`/blog/${post.id}`} class="block">
-                <h3 class="font-primary text-2xl md:text-3xl font-bold text-dark group-hover:text-primary transition-colors mb-4 leading-tight">
-                  {post.data.title}
-                </h3>
-                <p class="text-gray-600 text-lg leading-relaxed line-clamp-3">
-                  {post.data.description || "Leia a reflexão completa sobre este tema."}
-                </p>
+                  <h3 class="font-primary text-xl sm:text-2xl font-bold text-dark group-hover:text-slate-600 transition-colors mb-2 leading-tight">
+                      {post.data.title}
+                  </h3>
+                  <p class="text-text text-sm leading-relaxed line-clamp-2">
+                      {post.data.description || "Leia a reflexão completa sobre este tema."}
+                  </p>
               </a>
-            </div>
-          </article>
-        ))}
-      </div>
-
-      {sortedPosts.length > INITIAL_LOAD && (
-        <div id="infinite-scroll-trigger" class="w-full h-32 flex items-center justify-center mt-8">
-          <div class="animate-pulse flex space-x-3 items-center">
-            <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
-            <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
-            <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
           </div>
-        </div>
-      )}
-
+        </article>
+      ))}
     </div>
+
+    {sortedPosts.length > INITIAL_LOAD && (
+      <div id="infinite-scroll-trigger" class="w-full h-32 flex items-center justify-center mt-8">
+        <div class="animate-pulse flex space-x-3 items-center">
+          <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+          <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+          <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+        </div>
+      </div>
+    )}
   </section>
 
   <script is:inline>
     function initInfiniteScroll() {
       const trigger = document.getElementById('infinite-scroll-trigger');
-      // Captura todos os posts que foram pré-renderizados mas estão ocultos
       const hiddenPosts = Array.from(document.querySelectorAll('.archive-item.hidden'));
-      const batchSize = 4; // Quantos posts carregar por cada scroll
+      const batchSize = 6; 
 
       if (!trigger || hiddenPosts.length === 0) return;
 
-      // Cria um observador para detectar quando o fundo da página se aproxima
       const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
-          
-          // Extrai o próximo lote de posts ocultos
           const nextBatch = hiddenPosts.splice(0, batchSize);
-          
-          // Remove a classe 'hidden' e adiciona 'flex' para exibi-los
           nextBatch.forEach(post => {
             post.classList.remove('hidden');
             post.classList.add('flex');
-            // Pequeno truque para animar a entrada (fade-in)
             post.style.opacity = '0';
             post.style.transition = 'opacity 0.5s ease-in-out';
             setTimeout(() => post.style.opacity = '1', 50);
           });
-
-          // Se não houver mais posts ocultos, destrói o observador e esconde o loader
           if (hiddenPosts.length === 0) {
             observer.disconnect();
             trigger.style.display = 'none';
           }
         }
-      }, { rootMargin: '300px' }); // Inicia o carregamento 300px ANTES do utilizador chegar ao fim
+      }, { rootMargin: '300px' });
 
       observer.observe(trigger);
     }
-
-    // Garante que o script roda suavemente nas transições do Astro
     document.addEventListener('astro:page-load', initInfiniteScroll);
     initInfiniteScroll();
   </script>
 </Base>
-
