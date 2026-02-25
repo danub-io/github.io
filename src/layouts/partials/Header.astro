@@ -7,57 +7,56 @@ export interface NavigationLink { name: string; url: string; hasChildren?: boole
 const { main }: { main: NavigationLink[] } = menu;
 ---
 
-<header class="fixed top-0 w-full z-50 bg-body/95 backdrop-blur-md border-b border-gray-200 transition-all h-[76px] flex items-center">
-  <nav class="w-full max-w-6xl mx-auto px-6 flex justify-between items-center">
+<header class="fixed top-0 w-full z-40 bg-body/95 backdrop-blur-md border-b border-gray-200 transition-all h-[76px] flex items-center">
+  <nav class="w-full max-w-5xl mx-auto px-6 md:px-8 flex justify-between items-center">
     
-    <a href="/" class="text-2xl md:text-3xl font-primary font-bold tracking-tight text-dark transition hover:opacity-80">
-      GospelReads<span class="text-primary">.</span>
-    </a>
-
-    <ul class="hidden md:flex space-x-10 text-[15px] font-medium text-gray-600 items-center">
-      {main.map((menu) => (
-        <li><a href={menu.url} class="hover:text-primary transition-colors">{menu.name}</a></li>
-      ))}
-      <li>
-        <a href="/#assinar" class="bg-dark hover:bg-gray-800 text-white px-6 py-2.5 rounded text-sm font-semibold transition-all shadow-sm">
-          Apoiar Missão
-        </a>
-      </li>
-    </ul>
-
-    <div class="flex items-center space-x-5">
-      <button class="text-dark hover:text-primary transition cursor-pointer" aria-label="search" data-search-trigger>
-        <IoSearch class="text-2xl" />
-      </button>
-
-      <button id="mobile-menu-btn" class="text-dark md:hidden focus:outline-none p-1 z-50 relative" aria-label="Toggle Menu">
-        <svg id="icon-open" class="w-8 h-8 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-        <svg id="icon-close" class="w-8 h-8 hidden transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-      </button>
-    </div>
-
-    <div id="mobile-menu-dropdown" class="absolute top-[76px] left-0 w-full bg-body border-b border-gray-200 shadow-2xl flex-col px-6 py-8 space-y-6 md:hidden hidden origin-top transition-all duration-300">
-      {main.map((menu) => (
-        <a href={menu.url} class="block text-2xl font-primary font-bold text-dark hover:text-primary border-b border-gray-100 pb-4">{menu.name}</a>
-      ))}
-      <a href="/#assinar" class="block text-center w-full bg-dark text-white px-6 py-4 rounded-lg text-lg font-bold mt-8 shadow-md">
-        Apoiar a Missão
+    <div class="flex-1">
+      <a href="/" class="text-xl sm:text-2xl font-primary font-bold tracking-tight text-dark transition hover:opacity-80">
+        GospelReads<span class="text-primary">.</span>
       </a>
     </div>
 
-    <div class="fixed inset-0 z-[60] flex items-start justify-center pt-[15vh] opacity-0 invisible transition-all duration-300" id="search-modal">
-      <div class="absolute inset-0 bg-dark/60 backdrop-blur-md cursor-pointer transition-opacity" id="search-backdrop" aria-label="Fechar busca"></div>
-      
-      <div class="relative w-full max-w-3xl mx-6 bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] transform scale-95 transition-all duration-300 z-10" id="search-container">
-        <form action="/search" method="GET" class="relative flex items-center p-2">
-          <span class="absolute left-6 text-gray-400 text-2xl"><IoSearch /></span>
-          <input class="w-full bg-transparent py-6 pl-16 pr-16 text-2xl font-primary text-dark placeholder:text-gray-400 border-0 focus:ring-0 outline-none" placeholder="O que você busca hoje?" type="text" name="q" id="search-input-desktop" autocomplete="off" />
-          <button type="button" class="absolute right-6 text-gray-400 hover:text-dark transition cursor-pointer" id="search-close"><IoClose class="text-3xl" /></button>
-        </form>
+    <div class="flex items-center space-x-5">
+      <button class="text-dark hover:text-slate-600 transition cursor-pointer p-1" aria-label="search" data-search-trigger>
+        <IoSearch class="text-2xl" />
+      </button>
+
+      <button id="mobile-menu-btn" class="cursor-pointer text-dark focus:outline-none p-1 z-50 relative" aria-label="Toggle Menu">
+        <svg id="icon-open" class="w-7 h-7 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="icon-close" class="w-7 h-7 hidden transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu-dropdown" class="absolute top-[76px] left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-xl flex-col px-6 py-8 hidden transform origin-top transition-all duration-300">
+      <div class="max-w-5xl mx-auto w-full">
+        <div class="space-y-4 mb-8">
+          {main.map((menu) => (
+            <a href={menu.url} class="block text-xl font-primary font-semibold text-dark hover:text-slate-600 border-b border-gray-100 pb-4">{menu.name}</a>
+          ))}
+        </div>
+        <a href="/#assinar" class="block text-center w-full sm:w-auto sm:inline-block bg-dark hover:bg-black text-white px-8 py-4 rounded-md font-medium shadow-md transition">
+          Apoiar a Missão
+        </a>
       </div>
     </div>
   </nav>
 </header>
+
+<div class="fixed inset-0 z-[60] flex items-start justify-center pt-[15vh] opacity-0 invisible transition-all duration-300" id="search-modal">
+  <div class="absolute inset-0 bg-dark/60 backdrop-blur-md cursor-pointer transition-opacity" id="search-backdrop" aria-label="Fechar busca"></div>
+  
+  <div class="relative w-full max-w-3xl mx-6 bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] transform scale-95 transition-all duration-300 z-10" id="search-container">
+    <form action="/search" method="GET" class="relative flex items-center p-2">
+      <span class="absolute left-6 text-gray-400 text-2xl"><IoSearch /></span>
+      <input class="w-full bg-transparent py-6 pl-16 pr-16 text-2xl font-primary text-dark placeholder:text-gray-400 border-0 focus:ring-0 outline-none" placeholder="O que você busca hoje?" type="text" name="q" id="search-input-desktop" autocomplete="off" />
+      <button type="button" class="absolute right-6 text-gray-400 hover:text-dark transition cursor-pointer" id="search-close"><IoClose class="text-3xl" /></button>
+    </form>
+  </div>
+</div>
 
 <script is:inline>
   function initNav() {
@@ -100,7 +99,7 @@ const { main }: { main: NavigationLink[] } = menu;
 
     searchTriggers.forEach((t) => { t.addEventListener('click', openSearch); });
     searchClose?.addEventListener('click', closeSearch);
-    searchBackdrop?.addEventListener('click', closeSearch); // Clique fora fecha a caixa
+    searchBackdrop?.addEventListener('click', closeSearch); // Clique no fundo fecha
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSearch(); });
   }
   document.addEventListener('astro:page-load', initNav);
