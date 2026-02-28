@@ -7,7 +7,7 @@ export interface NavigationLink { name: string; url: string; hasChildren?: boole
 const { main }: { main: NavigationLink[] } = menu;
 ---
 
-<header class="fixed top-0 w-full z-40 bg-body/95 backdrop-blur-md border-b border-gray-200 transition-all h-[76px] flex items-center">
+<header class="fixed top-0 w-full z-40 bg-body border-b border-gray-200 transition-all h-[76px] flex items-center">
   <nav class="w-full max-w-5xl mx-auto px-6 md:px-8 flex justify-between items-center">
     
     <div class="flex-1">
@@ -31,14 +31,14 @@ const { main }: { main: NavigationLink[] } = menu;
       </button>
     </div>
 
-    <div id="mobile-menu-dropdown" class="absolute top-[76px] left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-xl flex-col px-6 py-8 hidden transform origin-top transition-all duration-300">
+    <div id="mobile-menu-dropdown" class="absolute top-[76px] left-0 w-full bg-white border-b border-gray-200 shadow-xl flex-col px-6 py-8 hidden transform origin-top transition-all duration-300">
       <div class="max-w-5xl mx-auto w-full">
         <div class="space-y-4 mb-8">
           {main.map((menu) => (
             <a href={menu.url} class="block text-xl font-primary font-semibold text-dark hover:text-slate-600 border-b border-gray-100 pb-4">{menu.name}</a>
           ))}
         </div>
-        <a href="/#assinar" class="block text-center w-full sm:w-auto sm:inline-block bg-dark hover:bg-black text-white px-8 py-4 rounded-md font-medium shadow-md transition">
+        <a href="/#assinar" class="block text-center w-full sm:w-auto sm:inline-block bg-dark hover:bg-black text-white px-8 py-4 rounded-none font-medium shadow-md transition">
           Apoiar a Missão
         </a>
       </div>
@@ -49,7 +49,7 @@ const { main }: { main: NavigationLink[] } = menu;
 <div class="fixed inset-0 z-[60] flex items-start justify-center pt-[15vh] px-4 sm:px-6 opacity-0 invisible transition-all duration-300" id="search-modal">
   <div class="absolute inset-0 bg-dark/60 backdrop-blur-md cursor-pointer transition-opacity" id="search-backdrop" aria-label="Fechar busca"></div>
   
-  <div class="relative w-full max-w-3xl bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] transform scale-95 transition-all duration-300 z-10" id="search-container">
+  <div class="relative w-full max-w-3xl bg-white rounded-none shadow-[0_20px_60px_rgba(0,0,0,0.3)] transform scale-95 transition-all duration-300 z-10" id="search-container">
     <form action="/search" method="GET" class="relative flex items-center p-1 sm:p-2">
       <span class="absolute left-4 sm:left-6 text-gray-400 text-xl sm:text-2xl"><IoSearch /></span>
       <input class="w-full bg-transparent py-4 sm:py-6 pl-12 pr-12 sm:pl-16 sm:pr-16 text-lg sm:text-2xl font-primary text-dark placeholder:text-gray-400 border-0 focus:ring-0 outline-none" placeholder="O que você busca hoje?" type="text" name="q" id="search-input-desktop" autocomplete="off" />
