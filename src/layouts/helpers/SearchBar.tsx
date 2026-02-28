@@ -94,14 +94,14 @@ export default function SearchBar({ searchList }: Props) {
             {(item.data.image || placeholder) && (
               <a
                 href={`/blog/${item.slug}`}
-                className="block hover:text-primary overflow-hidden group"
+                className="block mb-6 overflow-hidden rounded-none shadow-sm border border-gray-100"
               >
                 <img
-                  className="group-hover:scale-[1.03] transition duration-300 w-full aspect-[5/3] object-cover"
+                  className="group-hover:scale-[1.03] transition duration-300 w-full aspect-[16/9] object-cover"
                   src={item.data.image?.src || placeholder.src}
                   alt={item.data.title}
-                  width={445}
-                  height={267}
+                  width={800}
+                  height={450}
                   loading="lazy"
                 />
               </a>
@@ -132,7 +132,7 @@ export default function SearchBar({ searchList }: Props) {
               </li>
             </ul>
 
-            <h3 className="mb-2">
+            <h3 className="font-primary text-2xl md:text-3xl font-bold text-dark group-hover:text-slate-600 transition-colors mb-4 leading-tight">
               <a
                 href={`/blog/${item.slug}`}
                 className="block hover:text-primary transition duration-300 py-1"
@@ -140,9 +140,6 @@ export default function SearchBar({ searchList }: Props) {
                 {item.data.title}
               </a>
             </h3>
-            <p className="text-text line-clamp-2">
-              {item.content}
-            </p>
           </div>
         ))}
       </div>

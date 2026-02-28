@@ -29,15 +29,15 @@ const filterByCategories = taxonomyFilter(posts, "categories", categoria!);
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
       {filterByCategories.map((post) => (
-        <article class="group flex flex-col sm:flex-row gap-5 items-start">
-          <a href={`/blog/${post.id}`} class="block w-full sm:w-2/5 shrink-0 overflow-hidden rounded-xl shadow-sm relative">
+        <article class="group flex flex-col gap-5 items-start">
+          <a href={`/blog/${post.id}`} class="block w-full overflow-hidden rounded-none shadow-sm relative">
               <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-10"></div>
               <Image
                   src={post.data.image || placeholder}
                   alt={post.data.title}
-                  width={400}
-                  height={320}
-                  class="w-full aspect-[5/4] object-cover group-hover:scale-105 transition-transform duration-700"
+                  width={800}
+                  height={450}
+                  class="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-700"
                   format="webp"
               />
           </a>
@@ -52,12 +52,9 @@ const filterByCategories = taxonomyFilter(posts, "categories", categoria!);
                   <time class="text-slate-500 text-[11px] font-medium">{dateFormat(post.data.date)}</time>
               </div>
               <a href={`/blog/${post.id}`} class="block">
-                  <h3 class="font-primary text-xl sm:text-2xl font-bold text-dark group-hover:text-slate-600 transition-colors mb-2 leading-tight">
+                  <h3 class="font-primary text-2xl sm:text-3xl font-bold text-dark group-hover:text-slate-600 transition-colors mb-2 leading-tight">
                       {post.data.title}
                   </h3>
-                  <p class="text-text text-sm leading-relaxed line-clamp-2">
-                      {post.data.description || "Leia a reflexão completa sobre este tema."}
-                  </p>
               </a>
           </div>
         </article>

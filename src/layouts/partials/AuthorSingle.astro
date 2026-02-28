@@ -26,7 +26,7 @@ const { Content } = await render(author);
           </div>
         )
       }
-      <h1 set:html={markdownify(title)} class="h2 mb-8 text-center font-bold leading-10 after:mx-auto after:mt-4 after:block after:h-1 after:w-10 after:rounded-full after:bg-primary after:content-['']" />
+      <h1 set:html={markdownify(title)} class="h2 mb-8 text-center font-bold leading-10 after:mx-auto after:mt-4 after:block after:h-1 after:w-10 after:rounded-none after:bg-primary after:content-['']" />
 
       <Social source={social} className="social-icons-simple" />
       <div class="content">
