@@ -79,7 +79,7 @@ const recommendedPosts = [
 
         <div class="bg-white border border-gray-200 p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] mb-16 text-center relative overflow-hidden group">
           <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-amber-300"></div>
-          <h3 class="font-primary text-2xl md:text-3xl font-bold text-dark mb-4 md:mb-6">Esta postagem trouxe clareza à sua mente?</h3>
+          <h2 class="font-primary text-2xl md:text-3xl font-bold text-dark mb-4 md:mb-6">Esta postagem trouxe clareza à sua mente?</h2>
           <p class="text-text mb-8 md:mb-10 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
             O <strong>GospelReads</strong> é um refúgio literário mantido inteiramente por leitores. Sem anúncios invasivos, sem algoritmos tóxicos. Se esta postagem ajudou no seu ministério ou curou a sua mente hoje, considere apoiar a nossa missão.
           </p>
@@ -133,6 +133,8 @@ const recommendedPosts = [
                 alt={p.data.image_alt || p.data.title}
                 width={800}
                 height={450}
+                widths={[400, 600, 800]}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 450px"
                 class="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-700"
                 format="webp"
             />

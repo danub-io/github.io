@@ -39,21 +39,21 @@ const sortedPosts = sortByDate(posts).slice(0, 4);
               <div class="w-12 h-12 bg-slate-100 flex items-center justify-center mb-6">
                   <svg class="w-6 h-6 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
               </div>
-              <h3 class="font-primary text-xl font-bold text-dark mb-3">Neurociência da Fé</h3>
+              <h2 class="font-primary text-xl font-bold text-dark mb-3">Neurociência da Fé</h2>
               <p class="text-sm text-text leading-relaxed">As vitórias sinápticas e como a renovação da mente é um processo biológico desenhado pelo Criador.</p>
           </div>
           <div class="bg-white p-8 shadow-lg border border-gray-100 ring-1 ring-primary/20">
               <div class="w-12 h-12 bg-amber-50 flex items-center justify-center mb-6">
                   <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
               </div>
-              <h3 class="font-primary text-xl font-bold text-dark mb-3">Alta Performance</h3>
+              <h2 class="font-primary text-xl font-bold text-dark mb-3">Alta Performance</h2>
               <p class="text-sm text-text leading-relaxed">Ferramentas de Engenharia e Gestão aplicadas à liderança de equipes e ministérios.</p>
           </div>
           <div class="bg-white p-8 shadow-lg border border-gray-100">
               <div class="w-12 h-12 bg-slate-100 flex items-center justify-center mb-6">
                   <svg class="w-6 h-6 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
               </div>
-              <h3 class="font-primary text-xl font-bold text-dark mb-3">Teologia Prática</h3>
+              <h2 class="font-primary text-xl font-bold text-dark mb-3">Teologia Prática</h2>
               <p class="text-sm text-text leading-relaxed">O evangelho que o mundo não quer ouvir. Respostas críticas baseadas no Getsêmani e no amor prático.</p>
           </div>
       </div>
@@ -77,6 +77,10 @@ const sortedPosts = sortByDate(posts).slice(0, 4);
                           alt={post.data.title}
                           width={800}
                           height={450}
+                          widths={[400, 600, 800]}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 450px"
+                          loading={sortedPosts.indexOf(post) === 0 ? "eager" : "lazy"}
+                          fetchpriority={sortedPosts.indexOf(post) === 0 ? "high" : "auto"}
                           class="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-700"
                           format="webp"
                       />
@@ -119,7 +123,7 @@ const sortedPosts = sortByDate(posts).slice(0, 4);
           <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 bg-white p-6 sm:p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-shadow items-center sm:items-start">
               <div class="w-32 sm:w-40 shrink-0 bg-dark aspect-[2/3] flex flex-col items-center justify-center text-primary font-primary relative shadow-md">
                  <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-white/20"></div>
-                 <span class="text-4xl opacity-20 absolute top-4 font-bold">I</span>
+                 <span class="text-4xl opacity-20 absolute top-4 font-bold" aria-hidden="true">I</span>
                  <span class="font-bold text-center px-2 leading-snug text-sm sm:text-base mt-4">O Principal<br/>Mandamento</span>
               </div>
               <div class="flex flex-col justify-center text-center sm:text-left h-full">
@@ -135,7 +139,7 @@ const sortedPosts = sortByDate(posts).slice(0, 4);
           <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 bg-white p-6 sm:p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-shadow items-center sm:items-start">
               <div class="w-32 sm:w-40 shrink-0 bg-slate-200 aspect-[2/3] flex flex-col items-center justify-center text-dark font-primary relative shadow-md border border-gray-300">
                 <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-white/60"></div>
-                <span class="text-4xl opacity-10 absolute top-4 font-bold">II</span>
+                <span class="text-4xl opacity-10 absolute top-4 font-bold" aria-hidden="true">II</span>
                 <span class="font-bold text-center px-2 leading-snug text-sm sm:text-base mt-4">Gestão de<br/>Pessoas</span>
               </div>
               <div class="flex flex-col justify-center text-center sm:text-left h-full">

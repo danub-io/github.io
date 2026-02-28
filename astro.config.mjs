@@ -6,12 +6,23 @@ import react from "@astrojs/react";
 
 export default defineConfig({
   site: "https://gospelreads.com",
-  prefetch: true,
+  prefetch: {
+    prefetchAll: false,
+    defaultStrategy: 'viewport',
+  },
   integrations: [
     react(),
     sitemap(),
     mdx({ optimize: true }),
   ],
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+      config: {
+        quality: 80,
+      },
+    },
+  },
   vite: {
     plugins: [tailwind()],
   },
