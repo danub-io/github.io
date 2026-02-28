@@ -22,10 +22,14 @@ const { className, posts, fluid } = Astro.props;
             <a href={`/blog/${post.id}`} class="block mb-6 overflow-hidden rounded-none shadow-sm border border-gray-100">
               <Image
                 loading={i < 2 ? "eager" : "lazy"}
+                fetchpriority={i === 0 ? "high" : "auto"}
                 class="group-hover:scale-[1.03] transition duration-500 w-full aspect-[16/9] object-cover"
                 src={postImage}
                 alt={post.data.image_alt || post.data.title}
-                width={800} height={450} format="webp"
+                width={800} height={450}
+                widths={[400, 600, 800]}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 450px"
+                format="webp"
               />
             </a>
           )}
