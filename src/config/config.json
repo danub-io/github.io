@@ -1,6 +1,6 @@
 ﻿{
   "site": {
-    "title": "GospelReads | Fé Cristã, Saúde Mental e Teologia Prática",
+    "title": "GospelReads | Teologia Prática, Liderança Cristã e Sabedoria Bíblica",
     "base_url": "https://gospelreads.com",
     "base_path": "/",
     "trailing_slash": false,
@@ -15,13 +15,13 @@
     "summary_length": 200,
     "search": {
       "enable": true,
-      "placeholder": "Buscar reflexões..."
+      "placeholder": "O que você busca aprender hoje? (Ex: graça, liderança, ansiedade...)"
     }
   },
   "metadata": {
     "meta_author": "Dan Coelho",
     "meta_image": "/images/og-image.png",
-    "meta_description": "GospelReads por Dan Coelho: Reflexões profundas sobre fé cristã, saúde mental bíblica e o impacto do Evangelho."
+    "meta_description": "GospelReads: Reflexões profundas sobre o Evangelho, liderança cristã, saúde mental bíblica e teologia prática para transformar sua vida e vocação."
   },
   "google_tag_manager": {
     "enable": false,
@@ -30,7 +30,7 @@
   "params": {
     "contact_form_action": "#",
     "support_url": "https://gospelreads.com/apoio",
-    "copyright": "Copyright © 2026 GospelReads. Todos os direitos reservados."
+    "copyright": "Copyright © 2026 GospelReads. Semeando a sabedoria do Reino. Todos os direitos reservados."
   },
   "contactinfo": {
     "address": "Brasil",

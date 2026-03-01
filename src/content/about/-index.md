@@ -1,17 +1,17 @@
 ---
-title: "Sobre o GospelReads"
-meta_title: "Dan Coelho | Autor de O Principal Mandamento"
-description: "A missão de Dan Coelho e o propósito do GospelReads."
-image: "../../assets/images/favicon-blue.svg"
-draft: false
+title: "Nossa Missão: Evangelho, Mente e Vocação"
+meta_title: "Sobre o GospelReads | Teologia, Liderança e Saúde Mental"
+description: "Descubra a missão do GospelReads: conectar a sabedoria das Escrituras com os desafios práticos da atualidade."
 what_i_do:
-  title: "Missão"
+  title: "Pilares do Nosso Conteúdo"
   items:
-    - title: "Literatura Edificante"
-      description: "Escrita focada no amor a Deus através de obras como 'O Principal Mandamento'."
-    - title: "Saúde Mental & Fé"
-      description: "Explorando a renovação da mente e a biologia da esperança no projeto MODELO."
-    - title: "Teologia Prática"
-      description: "Aplicação do Evangelho no cotidiano, além da religiosidade superficial."
+    - title: "Teologia Prática & Discipulado"
+      description: "A aplicação do Evangelho puro no cotidiano, em seus relacionamentos, finanças, família e superação de dores."
+    - title: "Liderança & Vida Profissional"
+      description: "Como ser um profissional de excelência e um líder que reflete o caráter de Cristo no mercado de trabalho."
+    - title: "Saúde Mental & Espiritualidade"
+      description: "A verdadeira renovação da mente: unindo a neurociência à biologia e às promessas bíblicas."
 ---
-Bem-vindo ao GospelReads. Este espaço nasceu do desejo de obedecer ao chamado divino de compartilhar as verdades essenciais da fé cristã. Sou Dan Coelho, autor dedicado a encorajar cada pessoa a viver uma fé autêntica e transformadora.
+Bem-vindo ao GospelReads. Este espaço nasceu do desejo profundo de resgatar a riqueza da fé cristã em um mundo marcado pela superficialidade e pela exaustão. 
+
+Sou Dan Coelho, e minha missão é atuar como um construtor de pontes entre a sabedoria inesgotável da Palavra de Deus e os complexos dilemas da vida moderna. Através de artigos, postagens e livros, dedico-me a encorajar pessoas a viverem uma fé autêntica, com mentes renovadas, propósitos inabaláveis e corações alinhados ao Reino de Deus.
