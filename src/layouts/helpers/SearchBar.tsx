@@ -2,7 +2,6 @@ import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, slugify } from "@/lib/utils/textConverter";
 import Fuse from "fuse.js";
 import React, { useEffect, useRef, useState } from "react";
-import { BiCalendarEdit, BiCategoryAlt } from "react-icons/bi";
 import placeholder from "@/assets/images/placeholder.png";
 
 export type SearchItem = {
@@ -34,7 +33,7 @@ export default function SearchBar({ searchList }: Props) {
   const fuse = new Fuse(searchList, {
     keys: ["data.title", "data.tags"],
     includeMatches: true,
-    minMatchCharLength: 2,
+    minMatchCharLength: 1,
     threshold: 0.5,
   });
 
@@ -88,59 +87,37 @@ export default function SearchBar({ searchList }: Props) {
         </div>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
         {searchResults?.map(({ item }) => (
-          <div key={item.slug} className={"mb-8"}>
-            {(item.data.image || placeholder) && (
-              <a
-                href={`/blog/${item.slug}`}
-                className="block mb-6 overflow-hidden rounded-none shadow-sm border border-gray-100"
-              >
-                <img
-                  className="group-hover:scale-[1.03] transition duration-300 w-full aspect-[16/9] object-cover"
-                  src={item.data.image?.src || placeholder.src}
-                  alt={item.data.title}
-                  width={800}
-                  height={450}
-                  loading="lazy"
-                />
+          <article key={item.slug} className="archive-item flex flex-col gap-5 items-start group">
+            <a href={`/blog/${item.slug}`} className="block w-full overflow-hidden rounded-none shadow-sm relative">
+              <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-10"></div>
+              <img
+                src={item.data.image?.src || placeholder.src}
+                alt={item.data.title}
+                width={800}
+                height={450}
+                className="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+            </a>
+            <div className="flex-1 w-full">
+              <div className="flex items-center space-x-2 mb-2">
+                {item.data.tags && item.data.tags.length > 0 && (
+                  <a href={`/tags/${slugify(item.data.tags[0])}`} className="text-dark text-[11px] font-bold uppercase tracking-wider hover:underline">
+                    {humanize(item.data.tags[0])}
+                  </a>
+                )}
+                <span className="text-slate-300 text-xs">•</span>
+                <time className="text-slate-500 text-[11px] font-medium">{dateFormat(item.data.date)}</time>
+              </div>
+              <a href={`/blog/${item.slug}`} className="block">
+                <h3 className="font-primary text-2xl sm:text-3xl font-bold text-dark group-hover:text-slate-600 transition-colors mb-2 leading-tight">
+                  {item.data.title}
+                </h3>
               </a>
-            )}
-
-            <ul className="mt-6 mb-4 flex flex-wrap items-center text-text">
-              <li className="mr-5 flex items-center flex-wrap font-medium">
-                <BiCalendarEdit className="mr-1 h-5 w-5 text-gray-600" />
-                <>{dateFormat(item.data.date)}</>
-              </li>
-              <li className="mr-5 flex items-center flex-wrap">
-                <BiCategoryAlt className="mr-1 h-[18px] w-[18px] text-gray-600" />
-                <>
-                  <ul>
-                    {item.data.tags.map((tag: string, i: number) => (
-                      <li key={i} className="inline-block">
-                        <a
-                          href={`/tags/${slugify(tag)}`}
-                          className="mr-2 hover:text-primary font-medium"
-                        >
-                          {humanize(tag)}
-                          {i !== item.data.tags.length - 1 && ","}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              </li>
-            </ul>
-
-            <h3 className="font-primary text-2xl md:text-3xl font-bold text-dark group-hover:text-slate-600 transition-colors mb-4 leading-tight">
-              <a
-                href={`/blog/${item.slug}`}
-                className="block hover:text-primary transition duration-300 py-1"
-              >
-                {item.data.title}
-              </a>
-            </h3>
-          </div>
+            </div>
+          </article>
         ))}
       </div>
     </div>

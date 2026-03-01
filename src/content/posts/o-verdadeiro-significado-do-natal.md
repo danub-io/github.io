@@ -5,7 +5,7 @@ description: "Descubra a essência teológica do Natal. Uma reflexão sobre a en
 date: 2026-12-25T00:00:00
 image: "../../assets/images/o-verdadeiro-significado-do-natal.webp"
 authors: ["Dan"]
-tags: ["Teologia", "Natal", "Jesus Cristo", "Encarnação", "Fé"]
+tags: ["Teologia"]
 draft: false
 ---
 
