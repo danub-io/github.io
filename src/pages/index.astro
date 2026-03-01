@@ -81,53 +81,53 @@ const sortedPosts = sortByDate(posts).slice(0, 4);
       </div>
   </section>
 
-  <section id="livros" class="max-w-5xl mx-auto px-4 sm:px-6 py-20 bg-slate-50 border border-gray-100">
+  <section id="livros" class="max-w-5xl mx-auto px-4 sm:px-6 pt-12 pb-20">
       <div class="flex flex-col mb-12 text-center">
           <h2 class="font-primary text-3xl sm:text-4xl font-bold text-dark">A Biblioteca</h2>
           <p class="text-text mt-3 max-w-xl mx-auto">Manuais práticos para a sua mente e liderança. Pague o quanto quiser. O conhecimento não deve ter barreiras.</p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 px-2 md:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           
-          <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 bg-white p-6 sm:p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-shadow items-center sm:items-start">
-              <div class="w-32 sm:w-40 shrink-0 relative shadow-2xl">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10"></div>
-                <div class="absolute left-0 top-0 bottom-0 w-1 bg-white/10 z-20"></div>
+          <div class="group flex flex-col sm:flex-row gap-6 sm:gap-8 md:gap-10 bg-white p-6 sm:p-8 md:p-10 shadow-sm border border-gray-100 hover:shadow-xl hover:border-gray-200 transition-all duration-300 items-center sm:items-start">
+              <div class="w-40 sm:w-48 shrink-0 relative shadow-2xl group-hover:-translate-y-2 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10 pointer-events-none"></div>
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-white/10 z-20 pointer-events-none"></div>
                 <Image
                     src={capaPrincipalMandamento}
                     alt="O Principal Mandamento"
-                    width={200}
-                    height={300}
-                    class="w-full aspect-[2/3] object-cover"
+                    width={300}
+                    height={450}
+                    class="w-full h-auto object-contain block"
                 />
               </div>
               <div class="flex flex-col justify-center text-center sm:text-left h-full">
                   <span class="text-xs font-bold uppercase tracking-wider text-dark mb-2">Lançamento</span>
                   <h3 class="font-primary text-2xl font-bold text-dark mb-3">O Principal Mandamento</h3>
                   <p class="text-sm text-text mb-6 line-clamp-3">O Evangelho que o mundo não quer ouvir. Uma desconstrução do nosso orgulho.</p>
-                  <button class="bg-dark hover:bg-black text-white w-full sm:w-auto text-center px-6 py-3 rounded-none text-sm font-semibold transition-colors shadow-md mt-auto">
+                  <button class="bg-dark hover:bg-black text-white w-full sm:w-auto text-center px-6 py-3 rounded-none text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md mt-auto">
                       Ler Agora
                   </button>
               </div>
           </div>
 
-          <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 bg-white p-6 sm:p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-shadow items-center sm:items-start">
-              <div class="w-32 sm:w-40 shrink-0 relative shadow-2xl">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10"></div>
-                <div class="absolute left-0 top-0 bottom-0 w-1 bg-white/10 z-20"></div>
+          <div class="group flex flex-col sm:flex-row gap-6 sm:gap-8 md:gap-10 bg-white p-6 sm:p-8 md:p-10 shadow-sm border border-gray-100 hover:shadow-xl hover:border-gray-200 transition-all duration-300 items-center sm:items-start">
+              <div class="w-40 sm:w-48 shrink-0 relative shadow-2xl group-hover:-translate-y-2 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10 pointer-events-none"></div>
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-white/10 z-20 pointer-events-none"></div>
                 <Image
                     src={capaGestaoPessoas}
                     alt="Gestão de Pessoas"
-                    width={200}
-                    height={300}
-                    class="w-full aspect-[2/3] object-cover"
+                    width={300}
+                    height={450}
+                    class="w-full h-auto object-contain block"
                 />
               </div>
               <div class="flex flex-col justify-center text-center sm:text-left h-full">
                   <span class="text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Business & Fé</span>
                   <h3 class="font-primary text-2xl font-bold text-dark mb-3">Gestão de Pessoas</h3>
                   <p class="text-sm text-text mb-6 line-clamp-3">Para Alta Performance. Desvendando o Potencial Humano para Resultados Extraordinários.</p>
-                  <button class="bg-dark hover:bg-black text-white w-full sm:w-auto text-center px-6 py-3 rounded-none text-sm font-semibold transition-colors shadow-md mt-auto">
+                  <button class="bg-dark hover:bg-black text-white w-full sm:w-auto text-center px-6 py-3 rounded-none text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md mt-auto">
                       Ler Agora
                   </button>
               </div>
