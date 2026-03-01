@@ -6,13 +6,15 @@ import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, slugify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 import placeholder from "@/assets/images/placeholder.png";
+import capaPrincipalMandamento from "@/assets/images/capa-principal-mandamento.jpg";
+import capaGestaoPessoas from "@/assets/images/capa-gestao-pessoas.png";
 
 const posts = await getSinglePage("posts");
 const sortedPosts = sortByDate(posts).slice(0, 4);
 ---
 
 <Base>
-  <section class="relative bg-dark pt-20 pb-16 sm:pt-28 sm:pb-24 lg:pt-40 lg:pb-32 overflow-hidden -mt-[60px]">
+  <section class="relative bg-dark pt-24 pb-20 sm:pt-32 sm:pb-28 lg:pt-48 lg:pb-40 overflow-hidden -mt-[60px]">
       <div class="absolute inset-0 bg-gradient-to-br from-dark to-slate-800 opacity-90"></div>
       <div class="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 sm:w-80 sm:h-80 bg-primary blur-[100px] sm:blur-[120px] opacity-20"></div>
       
@@ -20,46 +22,13 @@ const sortedPosts = sortByDate(posts).slice(0, 4);
           <h1 class="font-primary text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight mb-6 sm:mb-8">
               Clareza para mentes exaustas. <br/> <span class="text-primary italic font-medium">Graça para líderes.</span>
           </h1>
-          <p class="text-slate-300 text-base sm:text-lg md:text-xl font-secondary font-light mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed px-2">
+          <p class="text-slate-300 text-base sm:text-lg md:text-xl font-secondary font-light mb-0 max-w-2xl mx-auto leading-relaxed px-2">
               A intersecção onde a precisão da gestão de alta performance encontra a profunda neuroplasticidade da fé.
           </p>
-          
-          <form class="flex flex-col sm:flex-row justify-center max-w-xl mx-auto gap-3 px-2">
-              <input type="email" placeholder="O seu melhor e-mail..." class="w-full px-5 py-3 sm:py-4 bg-white/10 border border-white/20 rounded-none text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary transition-all backdrop-blur-sm" required/>
-              <button type="button" class="w-full sm:w-auto bg-primary hover:bg-[#d97706] text-dark px-8 py-3 sm:py-4 rounded-none font-semibold transition-all shadow-[0_0_15px_rgba(245,158,11,0.3)] whitespace-nowrap">
-                  Assinar Grátis
-              </button>
-          </form>
       </div>
   </section>
 
-  <section id="manifesto" class="max-w-6xl mx-auto px-4 sm:px-6 py-20 -mt-10 relative z-20">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-white p-8 shadow-lg border border-gray-100">
-              <div class="w-12 h-12 bg-slate-100 flex items-center justify-center mb-6">
-                  <svg class="w-6 h-6 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-              </div>
-              <h2 class="font-primary text-xl font-bold text-dark mb-3">Neurociência da Fé</h2>
-              <p class="text-sm text-text leading-relaxed">As vitórias sinápticas e como a renovação da mente é um processo biológico desenhado pelo Criador.</p>
-          </div>
-          <div class="bg-white p-8 shadow-lg border border-gray-100 ring-1 ring-primary/20">
-              <div class="w-12 h-12 bg-amber-50 flex items-center justify-center mb-6">
-                  <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-              </div>
-              <h2 class="font-primary text-xl font-bold text-dark mb-3">Alta Performance</h2>
-              <p class="text-sm text-text leading-relaxed">Ferramentas de Engenharia e Gestão aplicadas à liderança de equipes e ministérios.</p>
-          </div>
-          <div class="bg-white p-8 shadow-lg border border-gray-100">
-              <div class="w-12 h-12 bg-slate-100 flex items-center justify-center mb-6">
-                  <svg class="w-6 h-6 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-              </div>
-              <h2 class="font-primary text-xl font-bold text-dark mb-3">Teologia Prática</h2>
-              <p class="text-sm text-text leading-relaxed">O evangelho que o mundo não quer ouvir. Respostas críticas baseadas no Getsêmani e no amor prático.</p>
-          </div>
-      </div>
-  </section>
-
-  <section id="ensaios" class="max-w-5xl mx-auto px-4 sm:px-6 py-10 mb-10">
+  <section id="ensaios" class="max-w-5xl mx-auto px-4 sm:px-6 py-20">
       <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-gray-200 pb-6">
           <div>
               <h2 class="font-primary text-3xl sm:text-4xl font-bold text-dark">Postagens Recentes</h2>
@@ -112,7 +81,7 @@ const sortedPosts = sortByDate(posts).slice(0, 4);
       </div>
   </section>
 
-  <section id="livros" class="max-w-5xl mx-auto px-4 sm:px-6 py-16 mb-20 bg-slate-50 border border-gray-100">
+  <section id="livros" class="max-w-5xl mx-auto px-4 sm:px-6 py-20 bg-slate-50 border border-gray-100">
       <div class="flex flex-col mb-12 text-center">
           <h2 class="font-primary text-3xl sm:text-4xl font-bold text-dark">A Biblioteca</h2>
           <p class="text-text mt-3 max-w-xl mx-auto">Manuais práticos para a sua mente e liderança. Pague o quanto quiser. O conhecimento não deve ter barreiras.</p>
@@ -121,33 +90,45 @@ const sortedPosts = sortByDate(posts).slice(0, 4);
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 px-2 md:px-6">
           
           <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 bg-white p-6 sm:p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-shadow items-center sm:items-start">
-              <div class="w-32 sm:w-40 shrink-0 bg-dark aspect-[2/3] flex flex-col items-center justify-center text-primary font-primary relative shadow-md">
-                 <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-white/20"></div>
-                 <span class="text-4xl opacity-20 absolute top-4 font-bold" aria-hidden="true">I</span>
-                 <span class="font-bold text-center px-2 leading-snug text-sm sm:text-base mt-4">O Principal<br/>Mandamento</span>
+              <div class="w-32 sm:w-40 shrink-0 relative shadow-2xl">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10"></div>
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-white/10 z-20"></div>
+                <Image
+                    src={capaPrincipalMandamento}
+                    alt="O Principal Mandamento"
+                    width={200}
+                    height={300}
+                    class="w-full aspect-[2/3] object-cover"
+                />
               </div>
               <div class="flex flex-col justify-center text-center sm:text-left h-full">
                   <span class="text-xs font-bold uppercase tracking-wider text-dark mb-2">Lançamento</span>
                   <h3 class="font-primary text-2xl font-bold text-dark mb-3">O Principal Mandamento</h3>
                   <p class="text-sm text-text mb-6 line-clamp-3">O Evangelho que o mundo não quer ouvir. Uma desconstrução do nosso orgulho.</p>
                   <button class="bg-dark hover:bg-black text-white w-full sm:w-auto text-center px-6 py-3 rounded-none text-sm font-semibold transition-colors shadow-md mt-auto">
-                      Baixar Obra (R$ 0+)
+                      Ler Agora
                   </button>
               </div>
           </div>
 
           <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 bg-white p-6 sm:p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-shadow items-center sm:items-start">
-              <div class="w-32 sm:w-40 shrink-0 bg-slate-200 aspect-[2/3] flex flex-col items-center justify-center text-dark font-primary relative shadow-md border border-gray-300">
-                <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-white/60"></div>
-                <span class="text-4xl opacity-10 absolute top-4 font-bold" aria-hidden="true">II</span>
-                <span class="font-bold text-center px-2 leading-snug text-sm sm:text-base mt-4">Gestão de<br/>Pessoas</span>
+              <div class="w-32 sm:w-40 shrink-0 relative shadow-2xl">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10"></div>
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-white/10 z-20"></div>
+                <Image
+                    src={capaGestaoPessoas}
+                    alt="Gestão de Pessoas"
+                    width={200}
+                    height={300}
+                    class="w-full aspect-[2/3] object-cover"
+                />
               </div>
               <div class="flex flex-col justify-center text-center sm:text-left h-full">
                   <span class="text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Business & Fé</span>
                   <h3 class="font-primary text-2xl font-bold text-dark mb-3">Gestão de Pessoas</h3>
                   <p class="text-sm text-text mb-6 line-clamp-3">Para Alta Performance. Desvendando o Potencial Humano para Resultados Extraordinários.</p>
                   <button class="bg-dark hover:bg-black text-white w-full sm:w-auto text-center px-6 py-3 rounded-none text-sm font-semibold transition-colors shadow-md mt-auto">
-                      Baixar Obra (R$ 0+)
+                      Ler Agora
                   </button>
               </div>
           </div>

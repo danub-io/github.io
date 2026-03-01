@@ -7,6 +7,7 @@ import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 import { render } from "astro:content";
 import placeholder from "@/assets/images/placeholder.png";
+import config from "@/config/config.json";
 
 const allAuthors = await getSinglePage("authors");
 const posts = await getSinglePage("posts");
@@ -18,6 +19,8 @@ const recommendedPosts = [
   ...similarPosts,
   ...posts.filter((p) => p.id !== post.id && !similarPosts.find((sp) => sp.id === p.id))
 ].slice(0, 6);
+
+const { support_url } = config.params;
 ---
 
 <section class="py-16 md:py-24 bg-body">
@@ -84,7 +87,7 @@ const recommendedPosts = [
             O <strong>GospelReads</strong> é um refúgio literário mantido inteiramente por leitores. Sem anúncios invasivos, sem algoritmos tóxicos. Se esta postagem ajudou no seu ministério ou curou a sua mente hoje, considere apoiar a nossa missão.
           </p>
           <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="/#assinar" class="bg-dark hover:bg-slate-800 text-white px-8 py-4 rounded-none font-semibold transition-all shadow-md">
+            <a href={support_url} class="bg-dark hover:bg-slate-800 text-white px-8 py-4 rounded-none font-semibold transition-all shadow-md">
               Apoiar a Missão
             </a>
             <a href="/#livros" class="bg-white border border-gray-300 text-dark hover:bg-gray-50 px-8 py-4 rounded-none font-semibold transition-all">
