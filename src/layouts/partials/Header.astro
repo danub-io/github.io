@@ -81,6 +81,16 @@ const { support_url } = config.params;
           iconOpen.classList.toggle('hidden');
           iconClose.classList.toggle('hidden');
         });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!menu.classList.contains('hidden') && !menu.contains(event.target) && !newBtn.contains(event.target)) {
+            menu.classList.add('hidden');
+            menu.classList.remove('flex');
+            iconOpen.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+          }
+        });
       }
 
       const searchModal = document.getElementById('search-modal');
