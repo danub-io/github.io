@@ -3,8 +3,11 @@ import menu from "@/config/menu.json";
 import { IoSearch, IoClose } from "react-icons/io5";
 
 export interface ChildNavigationLink { name: string; url: string; }
+import config from "@/config/config.json";
+
 export interface NavigationLink { name: string; url: string; hasChildren?: boolean; children?: ChildNavigationLink[]; }
 const { main }: { main: NavigationLink[] } = menu;
+const { support_url } = config.params;
 ---
 
 <header class="fixed top-0 w-full z-40 bg-body border-b border-gray-200 transition-all h-[60px] flex items-center">
@@ -35,10 +38,10 @@ const { main }: { main: NavigationLink[] } = menu;
       <div class="max-w-5xl mx-auto w-full">
         <div class="space-y-4 mb-8">
           {main.map((menu) => (
-            <a href={menu.url} class="block text-xl font-primary font-semibold text-dark hover:text-slate-600 border-b border-gray-100 pb-4">{menu.name}</a>
+            <a href={menu.url} class="block text-xl font-primary font-semibold text-dark hover:text-slate-600">{menu.name}</a>
           ))}
         </div>
-        <a href="/#assinar" class="block text-center w-full sm:w-auto sm:inline-block bg-dark hover:bg-black text-white px-8 py-4 rounded-none font-medium shadow-md transition">
+        <a href={support_url} class="block text-center w-full sm:w-auto sm:inline-block bg-dark hover:bg-black text-white px-8 py-4 rounded-none font-medium shadow-md transition">
           Apoiar a Missão
         </a>
       </div>
