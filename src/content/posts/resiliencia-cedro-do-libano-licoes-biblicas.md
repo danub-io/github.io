@@ -5,9 +5,8 @@ description: "Entenda por que a Bíblia compara o justo ao Cedro do Líbano. Des
 date: 2026-02-15T21:38:21
 image: "../../assets/images/resiliencia-cedro-do-libano-licoes-biblicas.webp"
 image_alt: "Majestoso Cedro do Líbano simbolizando força e estabilidade bíblica"
-categories: ["Teologia"]
 authors: ["Dan"]
-tags: ["Resiliência", "Estudo Bíblico", "Crescimento"]
+tags: ["Teologia", "Resiliência", "Estudo Bíblico", "Crescimento"]
 draft: false
 ---
 

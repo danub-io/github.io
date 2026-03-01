@@ -12,11 +12,11 @@ const sortedPosts = sortByDate(posts).slice(0, 4);
 ---
 
 <Base>
-  <section class="relative bg-dark pt-20 pb-16 sm:pt-28 sm:pb-24 lg:pt-40 lg:pb-32 overflow-hidden -mt-[72px]">
+  <section class="relative bg-dark pt-20 pb-16 sm:pt-28 sm:pb-24 lg:pt-40 lg:pb-32 overflow-hidden -mt-[60px]">
       <div class="absolute inset-0 bg-gradient-to-br from-dark to-slate-800 opacity-90"></div>
       <div class="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 sm:w-80 sm:h-80 bg-primary blur-[100px] sm:blur-[120px] opacity-20"></div>
       
-      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center z-10 mt-[72px]">
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center z-10 mt-[60px]">
           <h1 class="font-primary text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight mb-6 sm:mb-8">
               Clareza para mentes exaustas. <br/> <span class="text-primary italic font-medium">Graça para líderes.</span>
           </h1>
@@ -24,9 +24,9 @@ const sortedPosts = sortByDate(posts).slice(0, 4);
               A intersecção onde a precisão da gestão de alta performance encontra a profunda neuroplasticidade da fé.
           </p>
           
-          <form class="flex flex-col sm:flex-row justify-center max-w-lg mx-auto gap-3 px-2">
+          <form class="flex flex-col sm:flex-row justify-center max-w-xl mx-auto gap-3 px-2">
               <input type="email" placeholder="O seu melhor e-mail..." class="w-full px-5 py-3 sm:py-4 bg-white/10 border border-white/20 rounded-none text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary transition-all backdrop-blur-sm" required/>
-              <button type="button" class="w-full sm:w-auto bg-primary hover:bg-[#d97706] text-dark px-8 py-3 sm:py-4 rounded-none font-semibold transition-all shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+              <button type="button" class="w-full sm:w-auto bg-primary hover:bg-[#d97706] text-dark px-8 py-3 sm:py-4 rounded-none font-semibold transition-all shadow-[0_0_15px_rgba(245,158,11,0.3)] whitespace-nowrap">
                   Assinar Grátis
               </button>
           </form>
@@ -87,9 +87,9 @@ const sortedPosts = sortByDate(posts).slice(0, 4);
                   </a>
                   <div class="flex-1 w-full">
                       <div class="flex items-center space-x-2 mb-2">
-                          {post.data.categories && (
-                              <a href={`/categorias/${slugify(post.data.categories[0])}`} class="text-dark text-[11px] font-bold uppercase tracking-wider hover:underline">
-                                  {humanize(post.data.categories[0])}
+                          {post.data.tags && post.data.tags.length > 0 && (
+                              <a href={`/tags/${slugify(post.data.tags[0])}`} class="text-dark text-[11px] font-bold uppercase tracking-wider hover:underline">
+                                  {humanize(post.data.tags[0])}
                               </a>
                           )}
                           <span class="text-slate-300 text-xs">•</span>

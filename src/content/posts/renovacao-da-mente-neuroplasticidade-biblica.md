@@ -5,9 +5,8 @@ description: "Descubra como a neuroplasticidade confirma o que a Bíblia ensina 
 date: 2026-02-15T21:36:30
 image: "../../assets/images/renovacao-da-mente-neuroplasticidade-biblica.webp"
 image_alt: "Renovação da mente e conexões neurais luz bíblica"
-categories: ["Reflexão"]
 authors: ["Dan"]
-tags: ["Neuroplasticidade", "Fé", "Mente"]
+tags: ["Reflexão", "Neuroplasticidade", "Fé", "Mente"]
 draft: false
 ---
 

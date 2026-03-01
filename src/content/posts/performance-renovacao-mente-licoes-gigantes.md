@@ -4,9 +4,8 @@ meta_title: "O Perigo da Performance sem Renovação: Lições dos Gigantes | Go
 description: "Cuidado com a alta performance na direção errada. Aprenda como a renovação da mente evita que você se torne um gigante em um modelo morto."
 date: 2026-02-17T20:35:25
 image: ../../assets/images/performance-renovacao-mente-licoes-gigantes.webp
-categories: ["Reflexão"]
 authors: ["Dan"]
-tags: ["Renovação da Mente", "Liderança Cristã", "Performance", "Romanos 12:2"]
+tags: ["Reflexão", "Renovação da Mente", "Liderança Cristã", "Performance", "Romanos 12:2"]
 draft: false
 ---
 

@@ -34,13 +34,13 @@ const { className, posts, fluid } = Astro.props;
             </a>
           )}
           <div class="flex items-center space-x-3 mb-3">
-              {post.data.categories && (
-                  <a href={`/categorias/${slugify(post.data.categories[0])}`} class="text-dark text-xs font-bold uppercase tracking-wider hover:underline">
-                      {humanize(post.data.categories[0])}
+              {post.data.tags && post.data.tags.length > 0 && (
+                  <a href={`/tags/${slugify(post.data.tags[0])}`} class="text-dark text-xs font-bold uppercase tracking-wider hover:underline">
+                      {humanize(post.data.tags[0])}
                   </a>
               )}
               <span class="text-slate-300 text-xs px-1">•</span>
-              <time class="text-slate-500 text-sm font-medium">{dateFormat(post.data.date)}</time>
+              <time class="text-slate-500 text-sm font-medium">{post.data.date && dateFormat(post.data.date)}</time>
           </div>
           <h3 class="font-primary text-3xl md:text-3xl font-bold text-dark group-hover:text-slate-600 transition-colors mb-4 leading-tight">
             <a href={`/blog/${post.id}`} class="block">{post.data.title}</a>

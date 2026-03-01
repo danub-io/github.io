@@ -9,18 +9,14 @@
                      "url":  "/sobre"
                  },
                  {
-                     "name":  "Categorias",
-                     "url":  "/categorias"
+                     "name":  "Tags",
+                     "url":  "/tags"
                  }
              ],
     "footer":  [
                    {
                        "name":  "Sobre",
                        "url":  "/sobre"
-                   },
-                   {
-                       "name":  "Categorias",
-                       "url":  "/categorias"
                    },
                    {
                        "name":  "Tags",
