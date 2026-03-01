@@ -59,49 +59,73 @@ const { main }: { main: NavigationLink[] } = menu;
 </div>
 
 <script is:inline>
-  function initNav() {
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu-dropdown');
-    const iconOpen = document.getElementById('icon-open');
-    const iconClose = document.getElementById('icon-close');
-    if(btn && menu) {
-      const newBtn = btn.cloneNode(true);
-      btn.parentNode.replaceChild(newBtn, btn);
-      newBtn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-        menu.classList.toggle('flex');
-        iconOpen.classList.toggle('hidden');
-        iconClose.classList.toggle('hidden');
-      });
+  (function() {
+    let onKeyDown;
+
+    function initNav() {
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu-dropdown');
+      const iconOpen = document.getElementById('icon-open');
+      const iconClose = document.getElementById('icon-close');
+
+      if(btn && menu) {
+        // Remove existing listener if any to avoid duplicates
+        const newBtn = btn.cloneNode(true);
+        btn.parentNode.replaceChild(newBtn, btn);
+        newBtn.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+          menu.classList.toggle('flex');
+          iconOpen.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+
+      const searchModal = document.getElementById('search-modal');
+      const searchContainer = document.getElementById('search-container');
+      const searchInput = document.getElementById('search-input-desktop');
+      const searchTriggers = document.querySelectorAll('[data-search-trigger]');
+      const searchClose = document.getElementById('search-close');
+      const searchBackdrop = document.getElementById('search-backdrop');
+
+      const openSearch = function(e) {
+        e.preventDefault();
+        if (searchModal) {
+          searchModal.classList.remove('invisible', 'opacity-0');
+          searchModal.classList.add('visible', 'opacity-100');
+        }
+        if (searchContainer) {
+          searchContainer.classList.remove('scale-95');
+          searchContainer.classList.add('scale-100');
+        }
+        setTimeout(function() { if (searchInput) searchInput.focus(); }, 100);
+      };
+
+      const closeSearch = function() {
+        if (searchModal) {
+          searchModal.classList.remove('visible', 'opacity-100');
+          searchModal.classList.add('invisible', 'opacity-0');
+        }
+        if (searchContainer) {
+          searchContainer.classList.remove('scale-100');
+          searchContainer.classList.add('scale-95');
+        }
+      };
+
+      searchTriggers.forEach(function(t) { t.addEventListener('click', openSearch); });
+      if (searchClose) searchClose.addEventListener('click', closeSearch);
+      if (searchBackdrop) searchBackdrop.addEventListener('click', closeSearch);
+
+      // Properly manage keydown listener reference
+      if (onKeyDown) {
+        document.removeEventListener('keydown', onKeyDown);
+      }
+      onKeyDown = function(e) { if (e.key === 'Escape') closeSearch(); };
+      document.addEventListener('keydown', onKeyDown);
     }
 
-    const searchModal = document.getElementById('search-modal');
-    const searchContainer = document.getElementById('search-container');
-    const searchInput = document.getElementById('search-input-desktop');
-    const searchTriggers = document.querySelectorAll('[data-search-trigger]');
-    const searchClose = document.getElementById('search-close');
-    const searchBackdrop = document.getElementById('search-backdrop');
-
-    const openSearch = (e) => {
-      e.preventDefault();
-      searchModal?.classList.remove('invisible', 'opacity-0');
-      searchModal?.classList.add('visible', 'opacity-100');
-      searchContainer?.classList.remove('scale-95');
-      searchContainer?.classList.add('scale-100');
-      setTimeout(() => searchInput?.focus(), 100);
-    };
-    const closeSearch = () => {
-      searchModal?.classList.remove('visible', 'opacity-100');
-      searchModal?.classList.add('invisible', 'opacity-0');
-      searchContainer?.classList.remove('scale-100');
-      searchContainer?.classList.add('scale-95');
-    };
-
-    searchTriggers.forEach((t) => { t.addEventListener('click', openSearch); });
-    searchClose?.addEventListener('click', closeSearch);
-    searchBackdrop?.addEventListener('click', closeSearch); // Clique no fundo fecha
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSearch(); });
-  }
-  document.addEventListener('astro:page-load', initNav);
-  initNav();
+    // Always init on load
+    initNav();
+    // Re-init on page load if Astro View Transitions are used (failsafe)
+    document.addEventListener('astro:page-load', initNav);
+  })();
 </script>

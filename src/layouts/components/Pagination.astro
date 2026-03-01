@@ -51,110 +51,105 @@ for (let i = 1; i <= totalPages; i++) {
   }
 </style>
 
-<script>
-  function setupLoadMore() {
-    const button = document.getElementById('load-more-button') as HTMLButtonElement;
-    if (!button || button.hasAttribute('data-initialized')) return;
-    button.setAttribute('data-initialized', 'true');
+<script is:inline>
+  (function() {
+    function setupLoadMore() {
+      const button = document.getElementById('load-more-button');
+      if (!button || button.hasAttribute('data-initialized')) return;
+      button.setAttribute('data-initialized', 'true');
 
-    let currentPage = parseInt(button.getAttribute('data-current-page') || '1');
-    const totalPages = parseInt(button.getAttribute('data-total-pages') || '1');
-    const section = button.getAttribute('data-section') || '';
+      let currentPage = parseInt(button.getAttribute('data-current-page') || '1');
+      const totalPages = parseInt(button.getAttribute('data-total-pages') || '1');
+      const section = button.getAttribute('data-section') || '';
 
-    // Auto-load logic:
-    // - On Main Feed: auto-load Pages 2, 3, 4 and then Page 5 onwards. Page 4 stops to show the "Ver Mais" button.
-    // - Note: if currentPage is 4, it should NOT auto-load.
-    const shouldAutoLoad = () => {
-      const isMainFeed = section === '';
-      return isMainFeed && (currentPage < 4 || currentPage >= 5);
-    };
+      const shouldAutoLoad = () => {
+        const isMainFeed = section === '';
+        return isMainFeed && (currentPage < 4 || currentPage >= 5);
+      };
 
-    const updateButtonStyle = () => {
-      const textSpan = button.querySelector('.button-text');
-      const svg = button.querySelector('svg');
-
-      if (shouldAutoLoad()) {
-        button.parentElement?.classList.add('auto-loading');
-        if (textSpan) textSpan.textContent = 'Carregando mais...';
-        if (svg) svg.style.display = 'none';
-      } else {
-        button.parentElement?.classList.remove('auto-loading');
-        if (textSpan) textSpan.textContent = 'Ver Mais Postagens';
-        if (svg) svg.style.display = 'block';
-      }
-    };
-
-    updateButtonStyle();
-
-    const loadMore = async () => {
-      if (button.getAttribute('disabled')) return;
-
-      // Special case for Page 4: Navigate to /page/5
-      if (currentPage === 4 && section === '') {
-        window.location.href = '/page/5';
-        return;
-      }
-
-      button.setAttribute('disabled', 'true');
-      const textSpan = button.querySelector('.button-text');
-      if (textSpan) textSpan.textContent = 'Carregando...';
-
-      const nextPage = currentPage + 1;
-      const url = section ? `/${section}/page/${nextPage}` : `/page/${nextPage}`;
-
-      try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('Falha ao carregar mais postagens');
-
-        const html = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-
-        const postsContainer = document.querySelector('#posts-container .grid');
-        const newPostsContainer = doc.querySelector('#posts-container .grid');
-
-        if (postsContainer && newPostsContainer) {
-          const newPosts = Array.from(newPostsContainer.children);
-          newPosts.forEach(post => {
-            postsContainer.appendChild(post);
-          });
-
-          // Update pagination by replacing the entire container with the one from the AJAX response
-          const paginationContainer = button.closest('.flex.justify-center.mt-12.mb-16');
-          const newPaginationContainer = doc.querySelector('.flex.justify-center.mt-12.mb-16');
-
-          if (paginationContainer && newPaginationContainer) {
-            paginationContainer.replaceWith(newPaginationContainer);
-            // Re-initialize for the new content (especially if it's a button for next auto-load)
-            setupLoadMore();
-          } else if (paginationContainer) {
-            paginationContainer.remove();
-          }
-        }
-      } catch (error) {
-        console.error(error);
+      const updateButtonStyle = () => {
         const textSpan = button.querySelector('.button-text');
-        if (textSpan) textSpan.textContent = 'Erro ao carregar. Tente novamente.';
-        button.removeAttribute('disabled');
-      }
-    };
+        const svg = button.querySelector('svg');
 
-    button.addEventListener('click', loadMore);
+        if (shouldAutoLoad()) {
+          button.parentElement?.classList.add('auto-loading');
+          if (textSpan) textSpan.textContent = 'Carregando mais...';
+          if (svg) svg.style.display = 'none';
+        } else {
+          button.parentElement?.classList.remove('auto-loading');
+          if (textSpan) textSpan.textContent = 'Ver Mais Postagens';
+          if (svg) svg.style.display = 'block';
+        }
+      };
 
-    // Intersection Observer for Auto-load
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && shouldAutoLoad() && !button.getAttribute('disabled')) {
-        // Add a slight delay to ensure the user is actually scrolling and not just hitting the bottom of a short page
-        setTimeout(() => {
-          if (entries[0].isIntersecting) loadMore();
-        }, 100);
-      }
-    }, { rootMargin: '0px' }); // Trigger only when actually visible
+      updateButtonStyle();
 
-    observer.observe(button);
-  }
+      const loadMore = async () => {
+        if (button.getAttribute('disabled')) return;
 
-  setupLoadMore();
-  document.addEventListener('astro:page-load', setupLoadMore);
+        if (currentPage === 4 && section === '') {
+          window.location.href = '/page/5';
+          return;
+        }
+
+        button.setAttribute('disabled', 'true');
+        const textSpan = button.querySelector('.button-text');
+        if (textSpan) textSpan.textContent = 'Carregando...';
+
+        const nextPage = currentPage + 1;
+        const url = section ? `/${section}/page/${nextPage}` : `/page/${nextPage}`;
+
+        try {
+          const response = await fetch(url);
+          if (!response.ok) throw new Error('Falha ao carregar mais postagens');
+
+          const html = await response.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+
+          const postsContainer = document.querySelector('#posts-container .grid');
+          const newPostsContainer = doc.querySelector('#posts-container .grid');
+
+          if (postsContainer && newPostsContainer) {
+            const fragment = document.createDocumentFragment();
+            const newPosts = Array.from(newPostsContainer.children);
+            newPosts.forEach(post => {
+              fragment.appendChild(post);
+            });
+            postsContainer.appendChild(fragment);
+
+            const paginationContainer = button.closest('.flex.justify-center.mt-12.mb-16');
+            const newPaginationContainer = doc.querySelector('.flex.justify-center.mt-12.mb-16');
+
+            if (paginationContainer && newPaginationContainer) {
+              paginationContainer.replaceWith(newPaginationContainer);
+              setupLoadMore();
+            } else if (paginationContainer) {
+              paginationContainer.remove();
+            }
+          }
+        } catch (error) {
+          console.error(error);
+          const textSpan = button.querySelector('.button-text');
+          if (textSpan) textSpan.textContent = 'Erro ao carregar. Tente novamente.';
+          button.removeAttribute('disabled');
+        }
+      };
+
+      button.addEventListener('click', loadMore);
+
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && shouldAutoLoad() && !button.getAttribute('disabled')) {
+          setTimeout(() => {
+            if (entries[0].isIntersecting) loadMore();
+          }, 100);
+        }
+      }, { rootMargin: '0px' });
+
+      observer.observe(button);
+    }
+
+    setupLoadMore();
+    document.addEventListener('astro:page-load', setupLoadMore);
+  })();
 </script>
-
