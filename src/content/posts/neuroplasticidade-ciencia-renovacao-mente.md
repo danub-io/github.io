@@ -5,7 +5,7 @@ description: "Seu cérebro não é uma sentença rígida. Descubra como a neurop
 date: 2026-02-15T21:19:17
 image: "../../assets/images/neuroplasticidade-ciencia-renovacao-mente.webp"
 authors: ["Dan"]
-tags: ["Ciência e Fé", "Neuroplasticidade", "Saúde Mental", "Bíblia"]
+tags: ["Ciência e Fé"]
 draft: false
 ---
 

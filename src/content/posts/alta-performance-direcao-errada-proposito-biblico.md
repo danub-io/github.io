@@ -6,7 +6,7 @@ date: 2026-02-17T20:44:04
 # Correção Crucial: Caminho relativo para o Astro
 image: ../../assets/images/alta-performance-direcao-errada-proposito-biblico.webp
 authors: ["Dan"]
-tags: ["Reflexão", "Propósito", "Liderança Cristã", "Sabedoria", "Renovação da Mente"]
+tags: ["Reflexão"]
 draft: false
 ---
 

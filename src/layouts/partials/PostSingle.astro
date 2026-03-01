@@ -26,14 +26,14 @@ const recommendedPosts = [
       
       <div class="w-full max-w-3xl text-left">
         <div class="flex items-center flex-wrap mb-6">
-          {tags.map((tag: string) => (
+          {tags && tags.length > 0 && (
             <a
-              href={`/tags/${slugify(tag)}`}
+              href={`/tags/${slugify(tags[0])}`}
               class="text-dark font-bold normal-case text-sm tracking-widest uppercase hover:text-slate-600 hover:underline mr-4"
             >
-              {humanize(tag)}
+              {humanize(tags[0])}
             </a>
-          ))}
+          )}
         </div>
 
         <h1 set:html={markdownify(title)} class="font-primary text-4xl md:text-6xl font-bold text-dark mb-8 leading-tight" />
@@ -94,18 +94,16 @@ const recommendedPosts = [
         </div>
 
         <div class="flex flex-col md:flex-row items-center justify-between border-t border-gray-200 pt-8 mt-8">
-          <ul class="flex flex-wrap gap-2 mb-6 md:mb-0">
-            {tags.map((tag: string) => (
-              <li>
-                <a
-                  href={`/tags/${slugify(tag)}`}
-                  class="block rounded-none bg-slate-50 border border-gray-200 px-4 py-2 font-medium text-slate-500 text-sm hover:text-dark hover:bg-white hover:border-slate-400 transition duration-300"
-                >
-                  #{humanize(tag)}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div class="mb-6 md:mb-0">
+            {tags && tags.length > 0 && (
+              <a
+                href={`/tags/${slugify(tags[0])}`}
+                class="inline-block rounded-none bg-slate-50 border border-gray-200 px-4 py-2 font-medium text-slate-500 text-sm hover:text-dark hover:bg-white hover:border-slate-400 transition duration-300"
+              >
+                #{humanize(tags[0])}
+              </a>
+            )}
+          </div>
           <Share
             className="social-share"
             title={title}

@@ -3,7 +3,7 @@ title: "Post Dummy 7"
 date: 2026-02-18
 image: "../../assets/images/dummy-post-7.webp"
 authors: ["dan"]
-tags: ["reflexão", "estudo bíblico"]
+tags: ["reflexão"]
 draft: false
 ---
 

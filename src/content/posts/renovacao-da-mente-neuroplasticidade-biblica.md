@@ -6,7 +6,7 @@ date: 2026-02-15T21:36:30
 image: "../../assets/images/renovacao-da-mente-neuroplasticidade-biblica.webp"
 image_alt: "Renovação da mente e conexões neurais luz bíblica"
 authors: ["Dan"]
-tags: ["Reflexão", "Neuroplasticidade", "Fé", "Mente"]
+tags: ["Reflexão"]
 draft: false
 ---
 

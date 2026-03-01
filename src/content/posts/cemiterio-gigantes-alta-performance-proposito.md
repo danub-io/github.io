@@ -8,7 +8,7 @@ image: "../../assets/images/cemiterio-gigantes-alta-performance-proposito.webp"
 # Categoria: Reflexão conecta o mundo secular ao espiritual.
 authors: ["Dan"]
 # Tags: Mistura de termos corporativos e espirituais para ampliar o alcance.
-tags: ["Reflexão", "Liderança", "Propósito", "Sabedoria", "Vida Cristã"]
+tags: ["Reflexão"]
 draft: false
 ---
 

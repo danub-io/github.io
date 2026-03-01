@@ -5,7 +5,7 @@ description: "Descubra como a falta de renovação da mente (Romanos 12:2) destr
 date: 2026-02-17T21:10:43
 image: "../../assets/images/por-que-gigantes-caem-renovacao-mente-performance.webp"
 authors: ["Dan"]
-tags: ["Reflexão", "Mentalidade", "Liderança Cristã", "Romanos 12:2", "Propósito"]
+tags: ["Reflexão"]
 draft: false
 ---
 

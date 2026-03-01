@@ -5,7 +5,7 @@ description: "Cuidado com a alta performance na direção errada. Aprenda como a
 date: 2026-02-17T20:35:25
 image: ../../assets/images/performance-renovacao-mente-licoes-gigantes.webp
 authors: ["Dan"]
-tags: ["Reflexão", "Renovação da Mente", "Liderança Cristã", "Performance", "Romanos 12:2"]
+tags: ["Reflexão"]
 draft: false
 ---
 
