@@ -32,7 +32,7 @@ export default function SearchBar({ searchList }: Props) {
   };
 
   const fuse = new Fuse(searchList, {
-    keys: ["data.title", "data.categories", "data.tags"],
+    keys: ["data.title", "data.tags"],
     includeMatches: true,
     minMatchCharLength: 2,
     threshold: 0.5,
@@ -116,14 +116,14 @@ export default function SearchBar({ searchList }: Props) {
                 <BiCategoryAlt className="mr-1 h-[18px] w-[18px] text-gray-600" />
                 <>
                   <ul>
-                    {item.data.categories.map((category: string, i: number) => (
+                    {item.data.tags.map((tag: string, i: number) => (
                       <li key={i} className="inline-block">
                         <a
-                          href={`/categorias/${slugify(category)}`}
+                          href={`/tags/${slugify(tag)}`}
                           className="mr-2 hover:text-primary font-medium"
                         >
-                          {humanize(category)}
-                          {i !== item.data.categories.length - 1 && ","}
+                          {humanize(tag)}
+                          {i !== item.data.tags.length - 1 && ","}
                         </a>
                       </li>
                     ))}

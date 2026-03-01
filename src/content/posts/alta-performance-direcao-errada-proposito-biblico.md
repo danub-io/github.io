@@ -5,9 +5,8 @@ description: "Sua vida está no piloto automático? Descubra por que a Bíblia v
 date: 2026-02-17T20:44:04
 # Correção Crucial: Caminho relativo para o Astro
 image: ../../assets/images/alta-performance-direcao-errada-proposito-biblico.webp
-categories: ["Reflexão"]
 authors: ["Dan"]
-tags: ["Propósito", "Liderança Cristã", "Sabedoria", "Renovação da Mente"]
+tags: ["Reflexão", "Propósito", "Liderança Cristã", "Sabedoria", "Renovação da Mente"]
 draft: false
 ---
 

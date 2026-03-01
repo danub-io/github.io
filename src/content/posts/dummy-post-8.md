@@ -5,10 +5,7 @@ draft: false
 title: Teste alteração de título 1
 date: 2026-02-19T00:00:00.000Z
 image: ../../assets/images/dummy-post-8.webp
-categories:
-  - reflexão
-tags:
-  - estudo bíblico
+tags: ["reflexão", "estudo bíblico"]
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

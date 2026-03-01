@@ -4,9 +4,8 @@ meta_title: "Por Que Gigantes Caem? Renovação da Mente e a Armadilha da Perfor
 description: "Descubra como a falta de renovação da mente (Romanos 12:2) destrói o propósito. Lições de gigantes corporativos aplicadas à sua jornada espiritual e liderança."
 date: 2026-02-17T21:10:43
 image: "../../assets/images/por-que-gigantes-caem-renovacao-mente-performance.webp"
-categories: ["Reflexão"]
 authors: ["Dan"]
-tags: ["Mentalidade", "Liderança Cristã", "Romanos 12:2", "Propósito"]
+tags: ["Reflexão", "Mentalidade", "Liderança Cristã", "Romanos 12:2", "Propósito"]
 draft: false
 ---
 

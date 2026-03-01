@@ -13,7 +13,7 @@ const posts = await getSinglePage("posts");
 const { post } = Astro.props;
 const similarPosts = similerItems(post, posts, post.id);
 const { Content } = await render(post);
-const { title, description, authors, categories, image, image_alt, date, tags } = post.data;
+const { title, description, authors, image, image_alt, date, tags } = post.data;
 const recommendedPosts = [
   ...similarPosts,
   ...posts.filter((p) => p.id !== post.id && !similarPosts.find((sp) => sp.id === p.id))
@@ -26,12 +26,12 @@ const recommendedPosts = [
       
       <div class="w-full max-w-3xl text-left">
         <div class="flex items-center flex-wrap mb-6">
-          {categories.map((category: string) => (
+          {tags.map((tag: string) => (
             <a
-              href={`/categorias/${slugify(category)}`}
+              href={`/tags/${slugify(tag)}`}
               class="text-dark font-bold normal-case text-sm tracking-widest uppercase hover:text-slate-600 hover:underline mr-4"
             >
-              {humanize(category)}
+              {humanize(tag)}
             </a>
           ))}
         </div>
@@ -141,9 +141,9 @@ const recommendedPosts = [
         </a>
         <div class="flex-1 w-full">
             <div class="flex items-center space-x-2 mb-2">
-                {p.data.categories && p.data.categories.length > 0 && (
-                    <a href={`/categorias/${slugify(p.data.categories[0])}`} class="text-dark text-[11px] font-bold uppercase tracking-wider hover:underline">
-                        {humanize(p.data.categories[0])}
+                {p.data.tags && p.data.tags.length > 0 && (
+                    <a href={`/tags/${slugify(p.data.tags[0])}`} class="text-dark text-[11px] font-bold uppercase tracking-wider hover:underline">
+                        {humanize(p.data.tags[0])}
                     </a>
                 )}
                 <span class="text-slate-300 text-xs">•</span>
