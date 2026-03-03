@@ -17,7 +17,7 @@ export interface Props {
   title?: string;
   meta_title?: string;
   description?: string;
-  image?: string;
+  image?: any;
   noindex?: boolean;
   canonical?: string;
   author?: string;
@@ -37,7 +37,7 @@ if (typeof meta_image === "string") {
   og_image = (meta_image as any).src.startsWith("http") ? (meta_image as any).src : `${site_url}${(meta_image as any).src}`;
 }
 
-const schema = {
+const schema: any = {
   "@context": "https://schema.org",
   "@type": date ? "BlogPosting" : "WebPage",
   "headline": plainify(meta_title || title || config.site.title),
@@ -137,7 +137,7 @@ if (date) {
     <TwSizeIndicator />
     <Header />
     <BackToTop />
-    <main id="main-content" class="flex-grow">
+    <main id="main-content" class="flex-grow pt-[60px]">
       <slot />
     </main>
     <Footer />
