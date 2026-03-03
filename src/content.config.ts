@@ -8,6 +8,7 @@ const aboutCollection = defineCollection({
     z.object({
       title: z.string(),
       meta_title: z.string().optional(),
+      description: z.string().optional(),
       image: image().optional(),
       draft: z.boolean().optional(),
       what_i_do: z.object({
