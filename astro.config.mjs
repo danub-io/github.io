@@ -6,10 +6,6 @@ import react from "@astrojs/react";
 
 export default defineConfig({
   site: "https://gospelreads.com",
-  prefetch: {
-    prefetchAll: false,
-    defaultStrategy: 'viewport',
-  },
   integrations: [
     react(),
     sitemap(),
