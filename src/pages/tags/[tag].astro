@@ -23,9 +23,9 @@ const filterByTags = taxonomyFilter(posts, "tags", tag!);
 <Base title={`Tag: ${humanize(tag!)}`}>
   <section class="max-w-5xl mx-auto px-4 sm:px-6 pt-24 md:pt-32 pb-16">
     <div class="mb-12 border-b border-gray-200 pb-6">
-      <h2 class="font-primary text-3xl sm:text-4xl font-bold text-dark">
+      <h1 class="font-primary text-3xl sm:text-4xl font-bold text-dark">
         #{humanize(tag!)}
-      </h2>
+      </h1>
       <p class="text-text mt-2">Tópico específico abordado nas postagens.</p>
     </div>
 
@@ -43,6 +43,7 @@ const filterByTags = taxonomyFilter(posts, "tags", tag!);
                 alt={post.data.title}
                 width={800}
                 height={450}
+                loading="lazy"
                 class="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-700"
                 format="webp"
               />
