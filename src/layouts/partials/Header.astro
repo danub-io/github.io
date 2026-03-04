@@ -7,6 +7,8 @@ export interface ChildNavigationLink {
   url: string;
 }
 import config from "@/config/config.json";
+import { getTaxonomy } from "@/lib/taxonomyParser.astro";
+import { humanize } from "@/lib/utils/textConverter";
 
 export interface NavigationLink {
   name: string;
@@ -16,6 +18,14 @@ export interface NavigationLink {
 }
 const { main }: { main: NavigationLink[] } = menu;
 const { support_url } = config.params;
+
+const tags = await getTaxonomy("posts", "tags");
+const sortedTags = tags
+  .map((tag) => ({
+    name: humanize(tag),
+    url: `/tags/${tag}`,
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
 ---
 
 <header class="w-full z-40 bg-white mb-6 relative">
@@ -141,16 +151,16 @@ const { support_url } = config.params;
   <!-- Mobile Menu Dropdown -->
   <div
     id="mobile-menu-dropdown"
-    class="absolute top-full left-0 w-full bg-white border-b-4 border-black shadow-xl flex-col px-6 py-8 hidden transform origin-top transition-all duration-300 z-50"
+    class="absolute top-full left-0 w-full bg-white border-b-4 border-black shadow-xl flex-col px-6 py-8 hidden transform origin-top transition-all duration-300 z-50 overflow-y-auto max-h-[80vh]"
   >
     <div class="max-w-5xl mx-auto w-full space-y-6 text-center">
       {
-        main.map((menu) => (
+        sortedTags.map((tag) => (
           <a
-            href={menu.url}
+            href={tag.url}
             class="block text-xl font-primary font-bold text-dark hover:text-gray-500"
           >
-            {menu.name}
+            {tag.name}
           </a>
         ))
       }
