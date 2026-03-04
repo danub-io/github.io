@@ -51,6 +51,8 @@ const recentPosts = sortedPosts.slice(1, 5);
               alt={latestPost.data.title}
               width={800}
               height={500}
+              widths={[400, 660, 800]}
+              sizes="(max-width: 768px) 100vw, 800px"
               loading="eager"
               fetchpriority="high"
               class="w-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-500"
@@ -111,6 +113,8 @@ const recentPosts = sortedPosts.slice(1, 5);
               alt="O Principal Mandamento"
               width={300}
               height={450}
+              widths={[220, 300]}
+              sizes="(max-width: 768px) 33vw, 300px"
               class="w-full h-auto object-contain block group-hover:opacity-90 transition"
             />
           </div>
@@ -135,6 +139,8 @@ const recentPosts = sortedPosts.slice(1, 5);
               alt="Gestão de Pessoas"
               width={300}
               height={450}
+              widths={[220, 300]}
+              sizes="(max-width: 768px) 33vw, 300px"
               class="w-full h-auto object-contain block group-hover:opacity-90 transition"
             />
           </div>
