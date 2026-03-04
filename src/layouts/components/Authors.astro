@@ -11,7 +11,9 @@ type Props = {
 const { authors } = Astro.props;
 ---
 
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center"
+>
   {
     authors.map((author) => (
       <div class="mb-8 text-center">
@@ -32,7 +34,7 @@ const { authors } = Astro.props;
         <h3 class="h4 mt-8 mb-3">
           <a
             href={`/autores/${author.id}`}
-            class="block hover:text-primary transition duration-200"
+            class="block hover:text-slate-600 transition duration-200"
           >
             {author.data.title}
           </a>
@@ -51,5 +53,3 @@ const { authors } = Astro.props;
     ))
   }
 </div>
-
-

@@ -18,7 +18,7 @@ const { title, description, slug, className } = Astro.props;
       href={`https://facebook.com/sharer/sharer.php?u=${base_url}/${slug}`}
       target="_blank"
       rel="noreferrer noopener"
-      class="block p-3 transition duration-300 hover:text-primary"
+      class="block p-3 transition duration-300 hover:text-slate-600"
     >
       <IoLogoFacebook />
     </a>
@@ -29,7 +29,7 @@ const { title, description, slug, className } = Astro.props;
       href={`https://twitter.com/intent/tweet/?text=${title}&amp;url=${base_url}/${slug}`}
       target="_blank"
       rel="noreferrer noopener"
-      class="block p-3 transition duration-300 hover:text-primary"
+      class="block p-3 transition duration-300 hover:text-slate-600"
     >
       <IoLogoTwitter />
     </a>
@@ -40,7 +40,7 @@ const { title, description, slug, className } = Astro.props;
       href={`https://www.linkedin.com/shareArticle?mini=true&url=${base_url}/${slug}&title=${title}&summary=${description}&source=${base_url}`}
       target="_blank"
       rel="noreferrer noopener"
-      class="block p-3 transition duration-300 hover:text-primary"
+      class="block p-3 transition duration-300 hover:text-slate-600"
     >
       <IoLogoLinkedin />
     </a>
@@ -51,7 +51,7 @@ const { title, description, slug, className } = Astro.props;
       href={`https://pinterest.com/pin/create/button/?url=${base_url}/${slug}&media=&description=${description}`}
       target="_blank"
       rel="noreferrer noopener"
-      class="block p-3 transition duration-300 hover:text-primary"
+      class="block p-3 transition duration-300 hover:text-slate-600"
     >
       <IoLogoPinterest />
     </a>

@@ -34,15 +34,13 @@ const normalize = (src: any): ISocial[] => {
 
 const items = normalize(source);
 
-const isStandard = className?.includes('social-icons');
-const isSimple = className?.includes('social-icons-simple');
+const isStandard = className?.includes("social-icons");
+const isSimple = className?.includes("social-icons-simple");
 ---
 
-<ul class:list={[
-  className,
-  isStandard && 'space-x-4',
-  isSimple && 'space-x-2'
-]}>
+<ul
+  class:list={[className, isStandard && "space-x-4", isSimple && "space-x-2"]}
+>
   {
     items.map((social: ISocial) => (
       <li class="inline-block">
@@ -52,15 +50,13 @@ const isSimple = className?.includes('social-icons-simple');
           target="_blank"
           rel="noopener noreferrer nofollow"
           class:list={[
-            isStandard && 'block h-11 w-11 text-center text-white transition hover:text-primary hover:bg-white/10 flex items-center justify-center',
-            isSimple && 'block p-3 text-dark transition hover:text-primary'
+            isStandard &&
+              "block h-11 w-11 text-center text-white transition hover:text-slate-600 hover:bg-white/10 flex items-center justify-center",
+            isSimple && "block p-3 text-dark transition hover:text-slate-600",
           ]}
         >
           <span class="sr-only">{social.name}</span>
-          <DynamicIcon
-            className="inline-block"
-            icon={social.icon}
-          />
+          <DynamicIcon className="inline-block" icon={social.icon} />
         </a>
       </li>
     ))
