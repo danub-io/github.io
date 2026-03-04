@@ -1,6 +1,6 @@
 ---
-title: "Fé e Prática: Como Diminuir o Abismo na Vida Cristã"
-meta_title: "Fé e Prática: Como Diminuir o Abismo na Vida Cristã | GospelReads"
+title: "Cristianismo Moderno: O Abismo Entre a Fé e a Prática"
+meta_title: "Cristianismo Moderno: O Abismo Entre a Fé e a Prática | GospelReads"
 description: "Sua fé reflete suas ações? Descubra como vencer a hipocrisia e viver um evangelho genuíno focado no amor ao próximo e liderança serva. Leia agora!"
 date: 2026-03-04T17:58:24
 image: "../../assets/images/fe-pratica-abismo-vida-crista.webp"
