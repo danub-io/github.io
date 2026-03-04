@@ -5,22 +5,22 @@
             "url": "/"
         },
         {
-            "name": "Sobre",
-            "url": "/sobre"
-        },
-        {
             "name": "Tópicos",
             "url": "/tags"
+        },
+        {
+            "name": "Sobre",
+            "url": "/sobre"
         }
     ],
     "footer": [
         {
-            "name": "Sobre",
-            "url": "/sobre"
-        },
-        {
             "name": "Tópicos",
             "url": "/tags"
+        },
+        {
+            "name": "Sobre",
+            "url": "/sobre"
         }
     ]
 }
