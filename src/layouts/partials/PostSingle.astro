@@ -26,8 +26,8 @@ const { support_url } = config.params;
 ---
 
 <section class="pt-10 md:pt-16 pb-16 md:pb-24 bg-white">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6">
-    <article class="flex flex-col items-center">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <article class="w-full flex flex-col">
       <div class="w-full text-center border-b border-black pb-8 mb-8">
         <div class="flex items-center justify-center flex-wrap mb-4">
           {
@@ -49,14 +49,14 @@ const { support_url } = config.params;
 
         {
           description && (
-            <p class="text-xl md:text-2xl text-gray-700 font-secondary font-light max-w-3xl mx-auto leading-relaxed mb-6">
+            <p class="text-xl md:text-2xl text-gray-700 font-secondary font-light mx-auto leading-relaxed mb-6">
               {description}
             </p>
           )
         }
 
         <div
-          class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-sm font-secondary text-gray-600 mt-6 border-t border-gray-300 pt-4 max-w-xl mx-auto"
+          class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-sm font-secondary text-gray-600 mt-6 border-t border-gray-300 pt-4 mx-auto"
         >
           <div class="flex items-center space-x-2">
             <span
@@ -113,7 +113,7 @@ const { support_url } = config.params;
         )
       }
 
-      <div class="w-full max-w-2xl px-4 sm:px-0">
+      <div class="w-full max-w-5xl sm:px-0">
         <div
           class="content text-lg md:text-xl leading-loose text-gray-800 font-secondary font-light"
         >
@@ -153,7 +153,14 @@ const { support_url } = config.params;
         <div
           class="flex flex-col md:flex-row items-center justify-between mt-8 border-t border-gray-200 pt-6"
         >
-          <div class="flex flex-wrap gap-2 mb-6 md:mb-0">
+          <div class="flex flex-wrap items-center gap-2 mb-6 md:mb-0">
+            {
+              tags && tags.length > 0 && (
+                <span class="text-[10px] font-secondary font-bold text-gray-400 uppercase tracking-widest mr-1">
+                  Tópico:
+                </span>
+              )
+            }
             {
               tags &&
                 tags.length > 0 &&
@@ -179,14 +186,13 @@ const { support_url } = config.params;
   </div>
 </section>
 
-<section class="border-t border-black bg-gray-50 py-16 mt-8 relative">
-  <div class="absolute -top-[3px] left-0 w-full border-t border-black"></div>
+<section class="border-t-[4px] border-black bg-gray-50 py-16 mt-8">
   <div class="max-w-5xl mx-auto px-4 sm:px-6">
     <div class="mb-10 text-center">
       <h2
-        class="font-primary text-3xl font-bold text-black uppercase tracking-widest"
+        class="font-primary text-xl md:text-2xl font-bold text-black uppercase tracking-widest"
       >
-        Mais Lidos
+        Leia mais ...
       </h2>
       <div class="w-24 h-px bg-black mx-auto mt-4"></div>
     </div>
