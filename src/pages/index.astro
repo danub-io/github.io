@@ -18,11 +18,9 @@ const recentPosts = sortedPosts.slice(1, 5);
 <Base>
   {
     latestPost && (
-      <section class="max-w-5xl mx-auto px-4 sm:px-6 pt-8 pb-8 sm:pt-12 sm:pb-10">
+      <section class="max-w-5xl mx-auto px-4 sm:px-6 pt-24 md:pt-32 pb-8 sm:pb-10">
         <div class="mb-6 flex items-center justify-between">
-          <span class="text-primary font-bold tracking-widest text-xs sm:text-sm uppercase">
-            Em Destaque
-          </span>
+          <span class="text-primary font-bold tracking-widest text-xs sm:text-sm uppercase hidden" />
         </div>
         <article class="group flex flex-col md:flex-row bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden relative">
           <a
@@ -72,7 +70,7 @@ const recentPosts = sortedPosts.slice(1, 5);
 
             <a
               href={`/blog/${latestPost.id}`}
-              class="inline-block bg-dark border border-dark text-white hover:bg-white hover:text-dark px-6 py-2 text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 self-start mt-auto shadow-sm"
+              class="inline-flex items-center justify-center bg-white border border-gray-200 text-dark px-5 py-2 hover:bg-dark hover:text-white hover:border-dark text-xs font-bold tracking-widest uppercase transition-all duration-300 shadow-sm self-start mt-auto"
             >
               Ler Artigo
             </a>
@@ -149,7 +147,7 @@ const recentPosts = sortedPosts.slice(1, 5);
     <div class="mt-16 text-center">
       <a
         href="/arquivo"
-        class="inline-block bg-white border border-gray-200 text-dark px-6 py-2 hover:bg-dark hover:text-white hover:border-dark font-bold text-sm tracking-widest uppercase transition-all duration-300 shadow-sm"
+        class="inline-flex items-center justify-center bg-white border border-gray-200 text-dark px-5 py-2 hover:bg-dark hover:text-white hover:border-dark text-sm font-bold tracking-widest uppercase transition-all duration-300 shadow-sm"
       >
         Explorar o Arquivo
       </a>
@@ -269,7 +267,7 @@ const recentPosts = sortedPosts.slice(1, 5);
             administração cristã.
           </p>
           <span
-            class="inline-block bg-dark border border-dark text-white group-hover:bg-white group-hover:text-dark group-hover:border-dark px-6 py-2 text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 self-center sm:self-start mt-auto"
+            class="inline-flex items-center justify-center bg-white border border-gray-200 text-dark group-hover:bg-dark group-hover:text-white group-hover:border-dark px-5 py-2 text-xs font-bold tracking-widest uppercase transition-all duration-300 shadow-sm self-center sm:self-start mt-auto"
           >
             Ler Agora
           </span>

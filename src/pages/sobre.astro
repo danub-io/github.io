@@ -10,28 +10,38 @@ const { title, description, meta_title, image } = about.data;
 ---
 
 <Base title={title} meta_title={meta_title} description={description}>
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-20 min-h-[80vh] flex items-center">
+  <section
+    class="max-w-5xl mx-auto px-4 sm:px-6 pt-24 md:pt-32 pb-20 min-h-[80vh] flex items-center"
+  >
     <div class="flex flex-col md:flex-row gap-8 sm:gap-12 items-start w-full">
-      
-      {image && (
-        <div class="w-32 sm:w-40 md:w-1/4 shrink-0 relative">
-          <Image 
-            src={image} 
-            width={400} height={400} 
-            alt={title} 
-            class="w-full h-auto object-contain" 
-          />
-        </div>
-      )}
+      {
+        image && (
+          <div class="w-32 sm:w-40 md:w-1/4 shrink-0 relative">
+            <Image
+              src={image}
+              width={400}
+              height={400}
+              alt={title}
+              class="w-full h-auto object-contain"
+            />
+          </div>
+        )
+      }
 
       <div class="flex-1 w-full">
-        <span class="text-primary font-bold tracking-widest text-xs uppercase mb-3 block">O Arquiteto de Conteúdo</span>
-        <h1 set:html={markdownify(title)} class="font-primary text-4xl sm:text-5xl font-bold text-dark mb-6 leading-tight" />
-        <div class="content text-base sm:text-lg leading-relaxed text-slate-800">
+        <span
+          class="text-primary font-bold tracking-widest text-xs uppercase mb-3 block hidden"
+        ></span>
+        <h1
+          set:html={markdownify(title)}
+          class="font-primary text-4xl sm:text-5xl font-bold text-dark mb-6 leading-tight"
+        />
+        <div
+          class="content text-base sm:text-lg leading-relaxed text-slate-800"
+        >
           <Content />
         </div>
       </div>
-
     </div>
   </section>
 </Base>

@@ -21,44 +21,56 @@ const filterByTags = taxonomyFilter(posts, "tags", tag!);
 ---
 
 <Base title={`Tag: ${humanize(tag!)}`}>
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-20 min-h-[80vh]">
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 pt-24 md:pt-32 pb-16">
     <div class="mb-12 border-b border-gray-200 pb-6">
-      <h2 class="font-primary text-3xl sm:text-4xl font-bold text-dark">#{humanize(tag!)}</h2>
+      <h2 class="font-primary text-3xl sm:text-4xl font-bold text-dark">
+        #{humanize(tag!)}
+      </h2>
       <p class="text-text mt-2">Tópico específico abordado nas postagens.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
-      {filterByTags.map((post) => (
-        <article class="group flex flex-col gap-5 items-start">
-          <a href={`/blog/${post.id}`} class="block w-full overflow-hidden rounded-none shadow-sm relative">
-              <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-10"></div>
+      {
+        filterByTags.map((post) => (
+          <article class="group flex flex-col gap-5 items-start">
+            <a
+              href={`/blog/${post.id}`}
+              class="block w-full overflow-hidden rounded-none shadow-sm relative"
+            >
+              <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-10" />
               <Image
-                  src={post.data.image || placeholder}
-                  alt={post.data.title}
-                  width={800}
-                  height={450}
-                  class="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-700"
-                  format="webp"
+                src={post.data.image || placeholder}
+                alt={post.data.title}
+                width={800}
+                height={450}
+                class="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-700"
+                format="webp"
               />
-          </a>
-          <div class="flex-1 w-full">
+            </a>
+            <div class="flex-1 w-full">
               <div class="flex items-center space-x-2 mb-2">
-                  {post.data.tags && post.data.tags.length > 0 && (
-                      <a href={`/tags/${slugify(post.data.tags[0])}`} class="text-dark text-[11px] font-bold uppercase tracking-wider hover:underline">
-                          {humanize(post.data.tags[0])}
-                      </a>
-                  )}
-                  <span class="text-slate-300 text-xs">•</span>
-                  <time class="text-slate-500 text-[11px] font-medium">{dateFormat(post.data.date)}</time>
+                {post.data.tags && post.data.tags.length > 0 && (
+                  <a
+                    href={`/tags/${slugify(post.data.tags[0])}`}
+                    class="text-dark text-[11px] font-bold uppercase tracking-wider hover:underline"
+                  >
+                    {humanize(post.data.tags[0])}
+                  </a>
+                )}
+                <span class="text-slate-300 text-xs">•</span>
+                <time class="text-slate-500 text-[11px] font-medium">
+                  {dateFormat(post.data.date)}
+                </time>
               </div>
               <a href={`/blog/${post.id}`} class="block">
-                  <h3 class="font-primary text-2xl sm:text-3xl font-bold text-dark group-hover:text-slate-600 transition-colors mb-2 leading-tight">
-                      {post.data.title}
-                  </h3>
+                <h3 class="font-primary text-2xl sm:text-3xl font-bold text-dark group-hover:text-[#0a66c2] transition-colors mb-2 leading-tight">
+                  {post.data.title}
+                </h3>
               </a>
-          </div>
-        </article>
-      ))}
+            </div>
+          </article>
+        ))
+      }
     </div>
   </section>
 </Base>
