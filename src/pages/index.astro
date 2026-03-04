@@ -16,20 +16,36 @@ const recentPosts = sortedPosts.slice(1, 5);
 ---
 
 <Base>
-  {
-    latestPost && (
-      <section class="max-w-5xl mx-auto px-4 sm:px-6 pt-24 md:pt-32 pb-8 sm:pb-10">
-        <div class="mb-6 flex items-center justify-between">
-          <h1 class="text-primary font-bold tracking-widest text-xs sm:text-sm uppercase hidden">
-            GospelReads - Evangelho, Mente e Vocação
-          </h1>
-        </div>
-        <article class="group flex flex-col md:flex-row bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden relative">
-          <a
-            href={`/blog/${latestPost.id}`}
-            class="block w-full md:w-3/5 overflow-hidden relative order-1"
-          >
-            <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-10" />
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 mt-2">
+    <!-- Top News Grid -->
+    {latestPost && (
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 border-b-2 border-black pb-8">
+        
+        <!-- Main Featured Article -->
+        <article class="md:col-span-8 md:border-r border-gray-300 md:pr-8 flex flex-col">
+          <div class="mb-4">
+            <a href={`/blog/${latestPost.id}`} class="block group">
+              <h2 class="font-primary text-4xl sm:text-5xl md:text-6xl font-bold text-black leading-[1.1] hover:text-gray-600 transition-colors mb-3">
+                {latestPost.data.title}
+              </h2>
+            </a>
+            {latestPost.data.description && (
+              <p class="text-gray-800 text-lg sm:text-xl font-secondary leading-relaxed mb-4 font-light">
+                {latestPost.data.description}
+              </p>
+            )}
+            <div class="flex items-center space-x-2 text-xs font-secondary font-bold text-gray-500 uppercase tracking-widest mb-6">
+              {latestPost.data.tags && latestPost.data.tags.length > 0 && (
+                <a href={`/tags/${slugify(latestPost.data.tags[0])}`} class="hover:text-black">
+                  {humanize(latestPost.data.tags[0])}
+                </a>
+              )}
+              <span>•</span>
+              <time>{dateFormat(latestPost.data.date)}</time>
+            </div>
+          </div>
+          
+          <a href={`/blog/${latestPost.id}`} class="block overflow-hidden relative border border-gray-200 group">
             <Image
               src={latestPost.data.image || placeholder}
               alt={latestPost.data.title}
@@ -37,244 +53,105 @@ const recentPosts = sortedPosts.slice(1, 5);
               height={500}
               loading="eager"
               fetchpriority="high"
-              class="w-full h-[250px] sm:h-[350px] md:h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              class="w-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-500"
               format="webp"
             />
           </a>
-
-          <div class="w-full md:w-2/5 p-6 sm:p-8 md:p-10 flex flex-col justify-center order-2 bg-white z-20">
-            <div class="flex items-center space-x-2 mb-4">
-              {latestPost.data.tags && latestPost.data.tags.length > 0 && (
-                <a
-                  href={`/tags/${slugify(latestPost.data.tags[0])}`}
-                  class="text-dark text-[11px] sm:text-xs font-bold uppercase tracking-wider hover:text-slate-600 transition-colors"
-                >
-                  {humanize(latestPost.data.tags[0])}
-                </a>
-              )}
-              <span class="text-slate-300 text-xs">•</span>
-              <time class="text-slate-500 text-[11px] sm:text-xs font-medium">
-                {dateFormat(latestPost.data.date)}
-              </time>
-            </div>
-
-            <a href={`/blog/${latestPost.id}`} class="block mb-4">
-              <h2 class="font-primary text-2xl sm:text-3xl lg:text-4xl font-bold text-dark group-hover:text-primary transition-colors leading-tight">
-                {latestPost.data.title}
-              </h2>
-            </a>
-
-            {latestPost.data.description && (
-              <p class="text-slate-500 text-sm sm:text-base font-light mb-8 line-clamp-3 leading-relaxed">
-                {latestPost.data.description}
-              </p>
-            )}
-
-            <a
-              href={`/blog/${latestPost.id}`}
-              class="inline-flex items-center justify-center bg-white border border-gray-200 text-dark px-5 py-2 hover:bg-dark hover:text-white hover:border-dark text-xs font-bold tracking-widest uppercase transition-all duration-300 shadow-sm self-start mt-auto"
-            >
-              Ler Artigo
-            </a>
-          </div>
         </article>
-      </section>
-    )
-  }
 
-  <section id="ensaios" class="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
-    <div
-      class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 pb-6 border-b border-gray-200"
-    >
-      <div>
-        <h2 class="font-primary text-3xl sm:text-4xl font-bold text-dark">
-          Reflexões que Transformam
-        </h2>
-        <p class="text-text mt-2">
-          Artigos, postagens e estudos profundos para nutrir sua fé e afiar sua
-          mente.
-        </p>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
-      {
-        recentPosts.map((post) => (
-          <article class="group flex flex-col gap-5 items-start">
-            <a
-              href={`/blog/${post.id}`}
-              class="block w-full overflow-hidden rounded-none shadow-sm relative group-hover:shadow-md transition-shadow duration-300"
-            >
-              <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity duration-300 z-10" />
-              <Image
-                src={post.data.image || placeholder}
-                alt={post.data.title}
-                width={800}
-                height={450}
-                widths={[400, 600, 800]}
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 450px"
-                loading="lazy"
-                class="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-500"
-                format="webp"
-              />
-            </a>
-
-            <div class="flex-1 w-full">
-              <div class="flex items-center space-x-2 mb-2">
-                {post.data.tags && post.data.tags.length > 0 && (
-                  <a
-                    href={`/tags/${slugify(post.data.tags[0])}`}
-                    class="text-dark text-[11px] font-bold uppercase tracking-wider hover:text-slate-600 transition-colors"
-                  >
-                    {humanize(post.data.tags[0])}
-                  </a>
+        <!-- Sidebar Recent Posts -->
+        <div class="md:col-span-4 flex flex-col h-full">
+          <h3 class="font-primary text-xl font-bold border-b-2 border-black pb-2 mb-2 tracking-tight">Análises & Perspectivas</h3>
+          <div class="flex flex-col h-full divide-y divide-gray-300 border-b border-black pb-4">
+            {recentPosts.map((post) => (
+              <article class="py-4">
+                <div class="flex items-center space-x-2 text-[10px] font-secondary font-bold text-gray-500 uppercase tracking-widest mb-1">
+                  {post.data.tags && post.data.tags.length > 0 && (
+                    <a href={`/tags/${slugify(post.data.tags[0])}`} class="hover:text-black">
+                      {humanize(post.data.tags[0])}
+                    </a>
+                  )}
+                  <span>•</span>
+                  <time>{dateFormat(post.data.date)}</time>
+                </div>
+                <a href={`/blog/${post.id}`} class="block group">
+                  <h4 class="font-primary text-xl sm:text-2xl font-bold text-black leading-tight hover:text-gray-600 transition-colors mb-2">
+                    {post.data.title}
+                  </h4>
+                </a>
+                {post.data.description && (
+                  <p class="text-gray-700 text-sm font-secondary line-clamp-3 leading-relaxed">
+                    {post.data.description}
+                  </p>
                 )}
-                <span class="text-slate-300 text-xs">•</span>
-                <time class="text-slate-500 text-[11px] font-medium">
-                  {dateFormat(post.data.date)}
-                </time>
-              </div>
-
-              <a href={`/blog/${post.id}`} class="block">
-                <h3 class="font-primary text-2xl sm:text-3xl font-bold text-dark group-hover:text-primary transition-colors mb-2 leading-tight">
-                  {post.data.title}
-                </h3>
-              </a>
-            </div>
-          </article>
-        ))
-      }
-    </div>
-
-    <div class="mt-16 text-center">
-      <a
-        href="/arquivo"
-        class="inline-flex items-center justify-center bg-white border border-gray-200 text-dark px-5 py-2 hover:bg-dark hover:text-white hover:border-dark text-sm font-bold tracking-widest uppercase transition-all duration-300 shadow-sm"
-      >
-        Explorar o Arquivo
-      </a>
-    </div>
-  </section>
-
-  <section
-    id="livros"
-    class="max-w-5xl mx-auto px-4 sm:px-6 pt-12 md:pt-16 pb-24 md:pb-32"
-  >
-    <div class="flex flex-col mb-16 md:mb-20 text-center">
-      <h2
-        class="font-primary text-3xl sm:text-4xl md:text-5xl font-bold text-dark tracking-tight"
-      >
-        A Biblioteca do Discipulado
-      </h2>
-      <p
-        class="text-slate-500 mt-4 max-w-2xl mx-auto font-light text-base md:text-lg"
-      >
-        Manuais práticos e obras teológicas para sua jornada espiritual e
-        profissional. Pague o quanto quiser. O conhecimento do Reino não deve
-        ter barreiras.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
-      <a
-        href="#"
-        class="group flex flex-col sm:flex-row gap-6 md:gap-10 lg:gap-8 bg-white p-6 md:p-10 lg:p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 items-center sm:items-start relative overflow-hidden"
-      >
-        <div
-          class="w-48 sm:w-44 md:w-56 lg:w-40 shrink-0 relative shadow-md group-hover:-translate-y-2 group-hover:shadow-2xl transition-all duration-500 ease-out z-10"
-        >
-          <div
-            class="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-transparent z-10 pointer-events-none"
-          >
+              </article>
+            ))}
           </div>
-          <div
-            class="absolute left-0 top-0 bottom-0 w-[1px] bg-white/30 z-20 pointer-events-none"
-          >
-          </div>
-          <Image
-            src={capaPrincipalMandamento}
-            alt="O Principal Mandamento"
-            width={300}
-            height={450}
-            class="w-full h-auto object-contain block"
-          />
+          <a href="/arquivo" class="block text-center mt-6 w-full bg-white border border-gray-300 text-black px-4 py-2 hover:bg-black hover:text-white text-xs font-bold uppercase tracking-widest transition-colors duration-300">
+            Ver Edições Anteriores
+          </a>
         </div>
-        <div
-          class="flex flex-col justify-center text-center sm:text-left h-full z-10 w-full min-w-0"
-        >
-          <span
-            class="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-2 lg:mb-3 block"
-            >Lançamento</span
-          >
-          <h3
-            class="font-primary text-2xl md:text-3xl lg:text-2xl font-bold text-dark mb-3 lg:mb-4 leading-snug group-hover:text-slate-600 transition-colors duration-300 break-words"
-          >
-            O Principal Mandamento
-          </h3>
-          <p
-            class="text-sm md:text-base lg:text-sm text-slate-500 font-light mb-6 lg:mb-8 line-clamp-3 leading-relaxed"
-          >
-            O Evangelho que confronta nosso ego e restaura nossa essência. Uma
-            jornada de volta ao coração de Deus, indo muito além da
-            religiosidade superficial.
-          </p>
-          <span
-            class="inline-flex items-center justify-center bg-white border border-gray-200 text-dark group-hover:bg-dark group-hover:text-white group-hover:border-dark px-5 py-2 text-xs font-bold tracking-widest uppercase transition-all duration-300 shadow-sm self-center sm:self-start mt-auto"
-          >
-            Ler Agora
-          </span>
-        </div>
-      </a>
+      </div>
+    )}
 
-      <a
-        href="#"
-        class="group flex flex-col sm:flex-row gap-6 md:gap-10 lg:gap-8 bg-white p-6 md:p-10 lg:p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 items-center sm:items-start relative overflow-hidden"
-      >
-        <div
-          class="w-48 sm:w-44 md:w-56 lg:w-40 shrink-0 relative shadow-md group-hover:-translate-y-2 group-hover:shadow-2xl transition-all duration-500 ease-out z-10"
-        >
-          <div
-            class="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-transparent z-10 pointer-events-none"
-          >
+    <!-- Books Section -->
+    <section id="livros" class="py-12 md:py-16">
+      <div class="border-t-[3px] border-black border-b border-gray-300 py-3 mb-8 text-center bg-gray-50">
+        <h2 class="font-primary text-2xl md:text-3xl font-bold text-black uppercase tracking-widest">
+          A Biblioteca do Discipulado
+        </h2>
+        <p class="text-gray-700 text-sm italic font-primary mt-1">Manuais práticos e obras teológicas para sua jornada</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <a href="#" class="group flex flex-col sm:flex-row gap-6 items-start border-b border-gray-300 pb-8 md:pb-0 md:border-b-0 md:border-r md:pr-6">
+          <div class="w-1/3 sm:w-2/5 shrink-0 border border-gray-200 p-2 bg-white">
+            <Image
+              src={capaPrincipalMandamento}
+              alt="O Principal Mandamento"
+              width={300}
+              height={450}
+              class="w-full h-auto object-contain block group-hover:opacity-90 transition"
+            />
           </div>
-          <div
-            class="absolute left-0 top-0 bottom-0 w-[1px] bg-white/30 z-20 pointer-events-none"
-          >
+          <div class="w-full flex flex-col justify-center text-left">
+            <span class="text-[10px] uppercase font-bold text-gray-500 tracking-widest mb-1">Lançamento</span>
+            <h3 class="font-primary text-2xl font-bold text-black mb-2 group-hover:text-gray-600 leading-tight">
+              O Principal Mandamento
+            </h3>
+            <p class="text-sm text-gray-700 font-secondary line-clamp-4 leading-relaxed mb-4">
+              O Evangelho que confronta nosso ego e restaura nossa essência. Uma jornada de volta ao coração de Deus.
+            </p>
+            <span class="text-xs font-bold text-black uppercase tracking-widest border-b border-black self-start hover:text-gray-600 transition-colors">
+              Adquirir Exemplar
+            </span>
           </div>
-          <Image
-            src={capaGestaoPessoas}
-            alt="Gestão de Pessoas"
-            width={300}
-            height={450}
-            class="w-full h-auto object-contain block"
-          />
-        </div>
-        <div
-          class="flex flex-col justify-center text-center sm:text-left h-full z-10 w-full min-w-0"
-        >
-          <span
-            class="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-2 lg:mb-3 block"
-            >Business & Fé</span
-          >
-          <h3
-            class="font-primary text-2xl md:text-3xl lg:text-2xl font-bold text-dark mb-3 lg:mb-4 leading-snug group-hover:text-slate-600 transition-colors duration-300 break-words"
-          >
-            Gestão de Pessoas
-          </h3>
-          <p
-            class="text-sm md:text-base lg:text-sm text-slate-500 font-light mb-6 lg:mb-8 line-clamp-3 leading-relaxed"
-          >
-            Liderança com propósito. Desbloqueie o potencial humano alinhando a
-            excelência profissional do mercado às verdades imutáveis da
-            administração cristã.
-          </p>
-          <span
-            class="inline-flex items-center justify-center bg-white border border-gray-200 text-dark group-hover:bg-dark group-hover:text-white group-hover:border-dark px-5 py-2 text-xs font-bold tracking-widest uppercase transition-all duration-300 shadow-sm self-center sm:self-start mt-auto"
-          >
-            Ler Agora
-          </span>
-        </div>
-      </a>
-    </div>
-  </section>
+        </a>
+
+        <a href="#" class="group flex flex-col sm:flex-row gap-6 items-start">
+          <div class="w-1/3 sm:w-2/5 shrink-0 border border-gray-200 p-2 bg-white">
+            <Image
+              src={capaGestaoPessoas}
+              alt="Gestão de Pessoas"
+              width={300}
+              height={450}
+              class="w-full h-auto object-contain block group-hover:opacity-90 transition"
+            />
+          </div>
+          <div class="w-full flex flex-col justify-center text-left">
+            <span class="text-[10px] uppercase font-bold text-gray-500 tracking-widest mb-1">Business & Fé</span>
+            <h3 class="font-primary text-2xl font-bold text-black mb-2 group-hover:text-gray-600 leading-tight">
+              Gestão de Pessoas
+            </h3>
+            <p class="text-sm text-gray-700 font-secondary line-clamp-4 leading-relaxed mb-4">
+              Liderança com propósito. Desbloqueie o potencial humano alinhando a excelência profissional do mercado às verdades imutáveis.
+            </p>
+            <span class="text-xs font-bold text-black uppercase tracking-widest border-b border-black self-start hover:text-gray-600 transition-colors">
+              Adquirir Exemplar
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
 </Base>
