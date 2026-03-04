@@ -67,6 +67,7 @@ const postsCollection = defineCollection({
       description: z.string().optional(),
       date: z.date().optional(),
       image: image().optional(),
+      image_alt: z.string().optional(), // <-- Adicione esta linha
       authors: z.array(z.string()).default(["Admin"]),
       tags: z.array(z.string()).default(["others"]),
       draft: z.boolean().optional(),
