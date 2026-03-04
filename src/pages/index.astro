@@ -57,7 +57,7 @@ const recentPosts = sortedPosts.slice(1, 5);
             </div>
 
             <a href={`/blog/${latestPost.id}`} class="block mb-4">
-              <h2 class="font-primary text-2xl sm:text-3xl lg:text-4xl font-bold text-dark group-hover:text-slate-600 transition-colors leading-tight">
+              <h2 class="font-primary text-2xl sm:text-3xl lg:text-4xl font-bold text-dark group-hover:text-primary transition-colors leading-tight">
                 {latestPost.data.title}
               </h2>
             </a>
@@ -134,7 +134,7 @@ const recentPosts = sortedPosts.slice(1, 5);
               </div>
 
               <a href={`/blog/${post.id}`} class="block">
-                <h3 class="font-primary text-2xl sm:text-3xl font-bold text-dark group-hover:text-slate-600 transition-colors mb-2 leading-tight">
+                <h3 class="font-primary text-2xl sm:text-3xl font-bold text-dark group-hover:text-primary transition-colors mb-2 leading-tight">
                   {post.data.title}
                 </h3>
               </a>
