@@ -60,7 +60,7 @@ const { support_url } = config.params;
         >
           <div class="flex items-center space-x-2">
             <span
-              class="font-bold text-black uppercase tracking-widest text-[10px]"
+              class="font-medium text-gray-600 uppercase tracking-widest text-[10px]"
               >Por</span
             >
             {
@@ -73,7 +73,7 @@ const { support_url } = config.params;
                 .map((author, i) => (
                   <a
                     href={`/autores/${slugify(author.id)}`}
-                    class="font-bold text-black hover:underline"
+                    class="font-medium text-gray-600 uppercase tracking-widest text-[10px] hover:underline"
                   >
                     {author.data.title}
                     {i < authors.length - 1 ? "," : ""}
