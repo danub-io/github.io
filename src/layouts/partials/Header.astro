@@ -18,7 +18,7 @@ const { main }: { main: NavigationLink[] } = menu;
 const { support_url } = config.params;
 ---
 
-<header class="w-full z-40 bg-white border-b-4 border-black mb-6 relative">
+<header class="w-full z-40 bg-white mb-6 relative">
   <div class="max-w-5xl mx-auto px-4 md:px-8">
     <!-- Top Bar with Date -->
     <div
@@ -39,7 +39,7 @@ const { support_url } = config.params;
 
     <!-- Masthead -->
     <div
-      class="w-full flex flex-col items-center justify-center py-6 sm:py-8 border-b-2 border-black"
+      class="w-full flex flex-col items-center justify-center py-6 sm:py-8 border-b border-black"
     >
       <a
         href="/"
@@ -55,7 +55,9 @@ const { support_url } = config.params;
     </div>
 
     <!-- Navigation -->
-    <nav class="w-full flex justify-between items-center py-3">
+    <nav
+      class="w-full flex justify-between items-center py-3 border-b border-black/10"
+    >
       <div
         class="flex-1 flex justify-center md:justify-start space-x-6 overflow-x-auto no-scrollbar"
       >
@@ -132,6 +134,7 @@ const { support_url } = config.params;
         </button>
       </div>
     </nav>
+    <div class="w-full border-b border-black mt-[2px]"></div>
   </div>
 
   <!-- Mobile Menu Dropdown -->
