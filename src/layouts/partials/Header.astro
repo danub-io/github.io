@@ -38,9 +38,7 @@ const { support_url } = config.params;
     </div>
 
     <!-- Masthead -->
-    <div
-      class="w-full flex flex-col items-center justify-center py-6 sm:py-8 border-b border-black"
-    >
+    <div class="w-full flex flex-col items-center justify-center py-6 sm:py-8">
       <a
         href="/"
         class="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-primary font-bold text-black transition hover:opacity-80 leading-none tracking-tight text-center"
@@ -55,86 +53,89 @@ const { support_url } = config.params;
     </div>
 
     <!-- Navigation -->
-    <nav
-      class="w-full flex justify-between items-center py-3 border-b border-black/10"
-    >
-      <div
-        class="flex-1 flex justify-center md:justify-start space-x-6 overflow-x-auto no-scrollbar"
+    <div class="w-full border-t border-black relative mt-1">
+      <div class="absolute -top-[3px] left-0 w-full border-t border-black">
+      </div>
+      <nav
+        class="w-full flex justify-between items-center py-3 border-b border-black"
       >
-        {
-          main.map((menu) => (
-            <a
-              href={menu.url}
-              class="text-xs sm:text-sm font-secondary font-bold text-dark hover:text-gray-500 uppercase tracking-widest whitespace-nowrap"
+        <div
+          class="flex-1 flex justify-center md:justify-start space-x-6 overflow-x-auto no-scrollbar"
+        >
+          {
+            main.map((menu) => (
+              <a
+                href={menu.url}
+                class="text-xs sm:text-sm font-secondary font-bold text-dark hover:text-gray-500 uppercase tracking-widest whitespace-nowrap"
+              >
+                {menu.name}
+              </a>
+            ))
+          }
+        </div>
+
+        <div
+          class="hidden md:flex items-center space-x-5 ml-4 border-l border-gray-300 pl-4"
+        >
+          <a
+            href={support_url}
+            class="text-xs font-bold tracking-widest uppercase text-dark hover:text-gray-500 transition"
+          >
+            Apoiar
+          </a>
+          <button
+            class="text-dark hover:text-gray-500 transition cursor-pointer p-1"
+            aria-label="search"
+            data-search-trigger
+          >
+            <IoSearch className="text-[20px]" />
+          </button>
+        </div>
+
+        <!-- Mobile Controls -->
+        <div class="flex md:hidden items-center space-x-3 ml-auto pl-4">
+          <button
+            class="text-dark hover:text-gray-500 transition cursor-pointer p-1"
+            aria-label="search"
+            data-search-trigger
+          >
+            <IoSearch className="text-[20px]" />
+          </button>
+          <button
+            id="mobile-menu-btn"
+            class="cursor-pointer text-dark focus:outline-none p-1 z-50 relative"
+            aria-label="Toggle Menu"
+          >
+            <svg
+              id="icon-open"
+              class="w-6 h-6 transition-opacity duration-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              {menu.name}
-            </a>
-          ))
-        }
-      </div>
-
-      <div
-        class="hidden md:flex items-center space-x-5 ml-4 border-l border-gray-300 pl-4"
-      >
-        <a
-          href={support_url}
-          class="text-xs font-bold tracking-widest uppercase text-dark hover:text-gray-500 transition"
-        >
-          Apoiar
-        </a>
-        <button
-          class="text-dark hover:text-gray-500 transition cursor-pointer p-1"
-          aria-label="search"
-          data-search-trigger
-        >
-          <IoSearch className="text-[20px]" />
-        </button>
-      </div>
-
-      <!-- Mobile Controls -->
-      <div class="flex md:hidden items-center space-x-3 ml-auto pl-4">
-        <button
-          class="text-dark hover:text-gray-500 transition cursor-pointer p-1"
-          aria-label="search"
-          data-search-trigger
-        >
-          <IoSearch className="text-[20px]" />
-        </button>
-        <button
-          id="mobile-menu-btn"
-          class="cursor-pointer text-dark focus:outline-none p-1 z-50 relative"
-          aria-label="Toggle Menu"
-        >
-          <svg
-            id="icon-open"
-            class="w-6 h-6 transition-opacity duration-300"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-          <svg
-            id="icon-close"
-            class="w-6 h-6 hidden transition-opacity duration-300"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-    </nav>
-    <div class="w-full border-b border-black mt-[2px]"></div>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg
+              id="icon-close"
+              class="w-6 h-6 hidden transition-opacity duration-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
   </div>
 
   <!-- Mobile Menu Dropdown -->
