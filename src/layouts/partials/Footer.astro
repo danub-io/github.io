@@ -6,26 +6,63 @@ import social from "@/config/social.json";
 import { markdownify } from "@/lib/utils/textConverter";
 ---
 
-<footer class="py-6 bg-dark pt-[60px] pb-[60px]">
-  <div class="max-w-[1000px] px-4 mx-auto text-center">
-    {/* footer menu */}
-    <ul class="mb-8 space-x-4">
-      {
-        menu.footer.map((menu) => (
-          <li class="inline-block">
-            <a
-              href={menu.url}
-              class="p-4 text-white/75 hover:text-white transition-all"
-            >
-              {menu.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-    {/* social icons */}
-    <Social source={social.main} className="social-icons mb-8" />
-    {/* copyright */}
-    <p set:html={markdownify(config.params.copyright)} class="text-white/75" />
+<footer class="py-12 bg-white border-t-4 border-black">
+  <div class="max-w-5xl px-4 md:px-8 mx-auto text-center md:text-left">
+    <div
+      class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8"
+    >
+      <div class="flex-1">
+        <a
+          href="/"
+          class="text-3xl font-primary font-bold text-black tracking-tight"
+        >
+          GospelReads.
+        </a>
+        <p class="text-gray-600 text-sm mt-2 font-secondary italic">
+          Evangelho, Mente e Vocação
+        </p>
+      </div>
+
+      <div class="flex-1">
+        <h4
+          class="text-xs font-bold uppercase tracking-[0.2em] text-black mb-4"
+        >
+          Navegação
+        </h4>
+        <ul class="space-y-2">
+          {
+            menu.footer.map((menu) => (
+              <li>
+                <a
+                  href={menu.url}
+                  class="text-gray-600 hover:text-black text-sm transition-colors font-secondary"
+                >
+                  {menu.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="flex-1 flex flex-col items-center md:items-end">
+        <h4
+          class="text-xs font-bold uppercase tracking-[0.2em] text-black mb-4"
+        >
+          Conecte-se
+        </h4>
+        <Social
+          source={social.main}
+          className="social-icons grayscale opacity-70 hover:opacity-100 transition"
+        />
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-gray-200">
+      <p
+        set:html={markdownify(config.params.copyright)}
+        class="text-gray-500 text-[10px] uppercase tracking-widest text-center"
+      />
+    </div>
   </div>
 </footer>
