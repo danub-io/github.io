@@ -1,26 +1,26 @@
 ﻿{
-    "main":  [
-                 {
-                     "name":  "Início",
-                     "url":  "/"
-                 },
-                 {
-                     "name":  "Sobre",
-                     "url":  "/sobre"
-                 },
-                 {
-                     "name":  "Tags",
-                     "url":  "/tags"
-                 }
-             ],
-    "footer":  [
-                   {
-                       "name":  "Sobre",
-                       "url":  "/sobre"
-                   },
-                   {
-                       "name":  "Tags",
-                       "url":  "/tags"
-                   }
-               ]
+    "main": [
+        {
+            "name": "Início",
+            "url": "/"
+        },
+        {
+            "name": "Sobre",
+            "url": "/sobre"
+        },
+        {
+            "name": "Tópicos",
+            "url": "/tags"
+        }
+    ],
+    "footer": [
+        {
+            "name": "Sobre",
+            "url": "/sobre"
+        },
+        {
+            "name": "Tópicos",
+            "url": "/tags"
+        }
+    ]
 }
