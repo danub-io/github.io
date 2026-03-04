@@ -52,9 +52,10 @@ const recentPosts = sortedPosts.slice(1, 5);
               width={800}
               height={500}
               widths={[400, 660, 800]}
-              sizes="(max-width: 768px) 100vw, 800px"
+              sizes="(max-width: 768px) calc(100vw - 2rem), 800px"
               loading="eager"
               fetchpriority="high"
+              quality={70}
               class="w-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-500"
               format="webp"
             />
