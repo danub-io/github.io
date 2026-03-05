@@ -16,4 +16,4 @@ Bem-vindo ao GospelReads. Este espaço nasceu do desejo profundo de resgatar a r
 
 Nossa missão é atuar como uma ponte entre a sabedoria inesgotável da Palavra de Deus e os complexos dilemas da vida moderna. Acreditamos que o Evangelho não se restringe aos domingos, mas deve permear nossa vocação, nossa mente e nossos relacionamentos.
 
-Através de artigos, estudos e livros, dedicamo-nos a encorajar pessoas a viverem uma fé autêntica. Queremos ajudar você a desenvolver uma mente renovada, forjar uma liderança de excelência e manter um coração inabalável, sempre alinhado aos propósitos do Reino de Deus.
+Através de artigos, estudos e livros, nos dedicamos a encorajar pessoas a viverem uma fé autêntica. Queremos ajudar você a desenvolver uma mente renovada, forjar uma liderança de excelência e manter um coração inabalável, sempre alinhado aos propósitos do Reino de Deus.
