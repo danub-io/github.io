@@ -24,7 +24,7 @@ Transformamos Jesus em uma espécie de "coach" celestial, cuja função primordi
 
 Quando a busca por bênçãos se torna o centro, Deus corre o risco de ser rebaixado a um meio para nossos fins, a adoração vira barganha e a oração se reduz a uma lista de exigências.
 
-> "Se alguém quer ser meu seguidor, negue a si mesmo, tome sua cruz diariamente e siga-me." (Lucas 9:23 - NVT)
+> Se alguém quer ser meu seguidor, negue a si mesmo, tome sua cruz diariamente e siga-me. (Lucas 9:23 - NVT)
 
 ## O Esquecimento do Próximo e a Liderança Celebridade
 
@@ -34,7 +34,7 @@ Em vez do amor inclusivo ensinado por Cristo, vemos florescer um tribalismo excl
 
 Isso também afeta brutalmente nossos modelos de gestão e influência. Jesus estabeleceu que liderança é serviço humilde. O que vemos, contudo, são líderes buscando status, ostentando poder e comportando-se como celebridades.
 
-> "Se um irmão ou uma irmã necessitar de roupas ou do alimento de cada dia, e um de vocês lhe disser: 'Vá em paz, aqueça-se e alimente-se', mas não lhe der nada, de que adianta? Assim também a fé, por si só, se não for acompanhada de obras, está morta." (Tiago 2:15-17 - NVT)
+> Se um irmão ou uma irmã necessitar de roupas ou do alimento de cada dia, e um de vocês lhe disser: 'Vá em paz, aqueça-se e alimente-se', mas não lhe der nada, de que adianta? Assim também a fé, por si só, se não for acompanhada de obras, está morta. (Tiago 2:15-17 - NVT)
 
 ## As Raízes Desse Desvio
 
