@@ -165,6 +165,14 @@ if (date) {
     <meta name="twitter:image" content={og_image} />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NH2GTCFDKJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-NH2GTCFDKJ');
+    </script>
   </head>
   <body
     class="bg-body text-text font-secondary antialiased selection:bg-primary selection:text-white flex flex-col min-h-screen"
