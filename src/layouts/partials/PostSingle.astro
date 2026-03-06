@@ -28,7 +28,7 @@ const { support_url } = config.params;
 <section class="pt-10 md:pt-16 pb-16 md:pb-[68px] bg-white">
   <div class="max-w-5xl mx-auto px-4 sm:px-6">
     <article class="w-full flex flex-col">
-      <div class="w-full text-center pb-8 mb-8">
+      <div class="w-full text-center mb-6 md:mb-12">
         <div class="flex items-center justify-center flex-wrap mb-4">
           {
             tags && tags.length > 0 && (
@@ -91,7 +91,7 @@ const { support_url } = config.params;
 
       {
         (image || placeholder) && (
-          <div class="w-full max-w-5xl mb-10 md:mb-16">
+          <div class="w-full max-w-5xl mb-6 md:mb-12">
             <Image
               width={1000}
               height={562}
@@ -105,7 +105,7 @@ const { support_url } = config.params;
               format="webp"
             />
             {image_alt && (
-              <p class="text-center text-xs text-gray-500 mt-2 font-secondary italic mt-3">
+              <p class="text-center text-xs text-gray-500 font-secondary italic mt-3">
                 {image_alt}
               </p>
             )}
