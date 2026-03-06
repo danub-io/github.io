@@ -58,5 +58,3 @@ O primeiro passo para construir pontes é reconhecer o tamanho do abismo. Comece
 Um cristianismo que se distancia da sua essência do amor perde o seu poder transformador. Ele corre o grave risco de se tornar irrelevante ou apenas uma caricatura distorcida dAquele que se entregou por nós.
 
 É tempo de voltarmos ao coração da mensagem. É tempo de redescobrirmos o que realmente sustenta a nossa vocação e eternidade.
-
-Você está pronto para mergulhar mais fundo e realinhar sua vida, mente e liderança ao propósito inabalável de Deus? Adquira agora o livro **"O Principal Mandamento"**, de onde este artigo foi inspirado, e inicie hoje mesmo sua jornada de restauração genuína!
