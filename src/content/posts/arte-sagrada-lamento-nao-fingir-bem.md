@@ -3,8 +3,8 @@ title: "A Arte Sagrada do Lamento: Por que não fingir que está bem"
 meta_title: "A Arte Sagrada do Lamento: Por que não fingir que está bem | GospelReads"
 description: "Descubra como o lamento bíblico e a neurobiologia revelam que expressar sua dor a Deus é um ato de fé e saúde mental. Pare de fingir e encontre cura real."
 date: 2026-03-05T22:24:03
-image: ../../assets/images/arte-sagrada-lamento-nao-fingir-bem.webp
-image_alt: "Homem em momento de reflexão profunda em ambiente rústico com luz lateral suave atravessando a janela"
+image: "../../assets/images/arte-sagrada-lamento-nao-fingir-bem.webp"
+image_alt: "Homem em momento de oração sincera ao ar livre expressando sentimentos profundos"
 authors: ["Dan Coelho"]
 tags: ["Mente"]
 draft: false
