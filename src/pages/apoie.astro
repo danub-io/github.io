@@ -1,0 +1,135 @@
+---
+import Base from "@/layouts/Base.astro";
+import { Image } from "astro:assets";
+import pixQr from "../assets/images/pix-qr.png";
+
+const title = "Apoie a Missão";
+const description = "Sua colaboração ajuda o GospelReads a continuar semeando a sabedoria do Reino e produzindo conteúdo teológico de qualidade.";
+const pixPayload = "00020101021126790014BR.GOV.BCB.PIX2557pix-qr.mercadopago.com/instore/ol/v2/rYe3ByqUOUiJKV443IaB5204000053039865802BR5911GospelReads6009SAO PAULO62080504mpis63049E6F";
+---
+
+<Base title={title} description={description}>
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 mb-20 min-h-[60vh] pt-[60px]">
+    <div class="flex flex-col items-center w-full max-w-2xl mx-auto text-center">
+      <div class="w-full border-b-[4px] border-black pb-8 mb-12">
+        <h1 class="font-primary text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 leading-tight tracking-tight">
+          {title}
+        </h1>
+        <p class="text-gray-600 font-secondary italic font-light tracking-wide">
+          Semeando a Sabedoria do Reino Juntos
+        </p>
+      </div>
+
+      <div class="content text-lg md:text-xl leading-loose text-gray-800 font-secondary font-light mb-12">
+        <p>
+          O GospelReads nasceu com o propósito de oferecer reflexões profundas sobre o Evangelho, liderança cristã e teologia prática. Sua colaboração é fundamental para que possamos manter este projeto ativo, cobrir custos de manutenção e expandir nossa produção de conteúdo.
+        </p>
+        <p class="mt-4">
+          Ao apoiar nossa missão, você se torna um parceiro na divulgação de ensinos bíblicos que transformam vidas e vocações.
+        </p>
+      </div>
+
+      <div class="bg-white border border-gray-200 p-8 w-full max-w-md shadow-sm">
+        <h2 class="text-xl font-bold mb-6 text-black uppercase tracking-wider">Doe via PIX</h2>
+
+        <div class="flex justify-center mb-8">
+          <div class="p-2 border border-gray-300 bg-white">
+            <Image
+              src={pixQr}
+              alt="QR Code PIX GospelReads"
+              width={300}
+              height={300}
+              class="w-full max-w-[250px] h-auto"
+            />
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <p class="text-sm text-gray-500 font-secondary">
+            Escaneie o QR Code acima ou utilize o código "Copia e Cola" abaixo:
+          </p>
+
+          <div class="relative group">
+            <input
+              type="text"
+              readonly
+              value={pixPayload}
+              id="pix-payload"
+              class="w-full bg-gray-50 border border-gray-300 text-gray-600 text-xs p-3 pr-10 focus:outline-none focus:ring-1 focus:ring-[#0077B5]"
+            />
+            <button
+              id="copy-button"
+              class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#0077B5] transition-colors"
+              title="Copiar código"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+
+          <button
+            id="copy-button-main"
+            class="w-full bg-[#0077B5] text-white font-bold py-4 px-6 hover:bg-[#006396] transition-colors uppercase tracking-widest text-sm"
+          >
+            Copiar Código PIX
+          </button>
+
+          <div id="copy-success" class="hidden text-green-600 text-sm font-medium animate-fade-in">
+            Código copiado com sucesso!
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script is:inline>
+  function setupCopy() {
+    const copyBtn = document.getElementById('copy-button');
+    const copyBtnMain = document.getElementById('copy-button-main');
+    const payloadInput = document.getElementById('pix-payload');
+    const successMsg = document.getElementById('copy-success');
+
+    function copyToClipboard() {
+      payloadInput.select();
+      payloadInput.setSelectionRange(0, 99999); // For mobile devices
+
+      navigator.clipboard.writeText(payloadInput.value).then(() => {
+        successMsg.classList.remove('hidden');
+        if (copyBtnMain) {
+          copyBtnMain.textContent = 'Copiado!';
+          copyBtnMain.classList.add('bg-green-600');
+        }
+
+        setTimeout(() => {
+          successMsg.classList.add('hidden');
+          if (copyBtnMain) {
+            copyBtnMain.textContent = 'Copiar Código PIX';
+            copyBtnMain.classList.remove('bg-green-600');
+          }
+        }, 3000);
+      });
+    }
+
+    if (copyBtn) copyBtn.addEventListener('click', copyToClipboard);
+    if (copyBtnMain) copyBtnMain.addEventListener('click', copyToClipboard);
+  }
+
+  // Run on page load
+  setupCopy();
+
+  // Run on view transitions (if any)
+  document.addEventListener('astro:after-swap', setupCopy);
+</script>
+
+<style>
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
