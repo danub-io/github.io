@@ -4,7 +4,7 @@ meta_title: "E se o mundo vivesse o amor de Cristo? | GospelReads"
 description: "E se os ensinos de Jesus guiassem cada escolha humana? Descubra como o amor radical de Cristo redefine a mente, a vocaÃƒÂ§ÃƒÂ£o e as estruturas da nossa sociedade."
 date: 2026-03-07T11:09:39
 image: "../../assets/images/amor-cristo-como-seria-mundo-vivessemos.webp"
-image_alt: "Caminho sereno em uma floresta"
+image_alt: "escolha"
 authors: ["Dan Coelho"]
 tags: ["Vida CristÃƒÂ£"]
 draft: false
