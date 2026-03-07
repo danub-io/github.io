@@ -10,9 +10,6 @@ tags: ["Vida Cristã"]
 draft: false
 ---
 
-
-
-
 # E se o mundo vivesse o amor de Cristo? 
 
 Você já parou para pensar por que o cristianismo parece tão difícil na prática? A jornada com Jesus nos chama para um caminho estreito que, muitas vezes, vai na contramão de tudo o que o mundo moderno valoriza.
@@ -27,7 +24,7 @@ Se cada pessoa amasse a Deus acima de todas as coisas, nossas prioridades sofrer
 
 Nesse cenário, o materialismo perderia o seu brilho. Quando o coração está satisfeito em Deus, a ambição egoísta dá lugar ao contentamento. As decisões, das mais simples às mais complexas, não seriam mais pautadas pelo "o que eu ganho com isso?", mas por "como isso glorifica a Deus?".
 
-> "Ame o Senhor, seu Deus, de todo o seu coração, de toda a sua alma e de toda a sua mente. Este é o primeiro e maior mandamento." (Mateus 22:37-38 - NVT)
+> Ame o Senhor, seu Deus, de todo o seu coração, de toda a sua alma e de toda a sua mente. Este é o primeiro e maior mandamento. (Mateus 22:37-38 - NVT)
 
 A consequência direta seria uma paz profunda dominando a sociedade. O medo do futuro e a ansiedade paralisante seriam dissolvidos pela confiança na bondade de Deus. A integridade não seria uma regra imposta, mas um fluxo natural de um coração transformado.
 
@@ -50,7 +47,7 @@ Ao olharmos para o mundo ao redor, marcado por guerras, divisões na igreja e l�
 
 No entanto, essa visão do Reino não serve para nos entristecer, mas para nos dar um norte. Ela prova que o problema nunca esteve na mensagem de Jesus, mas na nossa resistência em vivê-la plenamente.
 
-> "Ele enxugará dos olhos toda lágrima, e não haverá mais morte, nem tristeza, nem choro, nem dor. Todas essas coisas passaram para sempre." (Apocalipse 21:4 - NVT)
+> Ele enxugará dos olhos toda lágrima, e não haverá mais morte, nem tristeza, nem choro, nem dor. Todas essas coisas passaram para sempre. (Apocalipse 21:4 - NVT)
 
 Essa esperança nos sustenta enquanto aguardamos a restauração completa de todas as coisas. Nossos esforços hoje, por menores que pareçam, são sementes desse futuro que Deus prometeu.
 
@@ -68,4 +65,4 @@ Viver o amor de Jesus em um mundo egoísta é o maior desafio da liderança e da
 
 Embora esse exercício de imaginação nos ajude a entender a perfeição dos planos de Deus, a Bíblia nos prepara para uma realidade diferente. Sabemos que, neste sistema corrompido, o mundo como um todo não viverá o amor de Cristo, mas será consumido. O cristão precisa ter consciência de que este mundo está passando, e a nossa esperança real está em vivermos para sempre com Cristo na eternidade.
 
-"Este mundo está passando, com tudo que ele oferece para satisfazer os desejos das pessoas. Mas quem faz a vontade de Deus vive para sempre." (1 João 2:17 - NVT)
+> Este mundo está passando, com tudo que ele oferece para satisfazer os desejos das pessoas. Mas quem faz a vontade de Deus vive para sempre. (1 João 2:17 - NVT)
