@@ -1,0 +1,18 @@
+
+> bookworm-light-astro@3.2.0 dev
+> astro dev
+
+15:40:49 [types] Generated 2ms
+15:40:50 [content] Syncing content
+15:40:50 [content] Synced content
+
+ astro  v5.14.4 ready in 1965 ms
+
+┃ Local    http://localhost:4321/
+┃ Network  use --host to expose
+
+15:40:50 watching for file changes...
+15:41:05 [200] /blog/amor-cristo-como-seria-mundo-vivessemos/ 354ms
+15:41:06 [200] /_image 514ms
+15:41:17 [200] /blog/amor-cristo-como-seria-mundo-vivessemos/ 22ms
+15:41:18 [200] /_image 174ms
