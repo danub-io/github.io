@@ -1,6 +1,6 @@
 ---
-title: "Amor de Cristo: Como seria o mundo se o vivêssemos?"
-meta_title: "Amor de Cristo: Como seria o mundo se o vivêssemos? | GospelReads"
+title: "E se o mundo vivesse o amor de Cristo?"
+meta_title: "E se o mundo vivesse o amor de Cristo? | GospelReads"
 description: "E se os ensinos de Jesus guiassem cada escolha humana? Descubra como o amor radical de Cristo redefine a mente, a vocação e as estruturas da nossa sociedade."
 date: 2026-03-07T11:09:39
 image: "../../assets/images/amor-cristo-como-seria-mundo-vivessemos.webp"
