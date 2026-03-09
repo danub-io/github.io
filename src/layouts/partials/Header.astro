@@ -35,7 +35,7 @@ const sortedTags = tags
       class="flex justify-between items-center py-2 border-b border-gray-300 text-[10px] sm:text-xs uppercase tracking-widest text-gray-500 font-secondary"
     >
       <span></span>
-      <span>
+      <span id="current-date">
         {
           new Intl.DateTimeFormat("pt-BR", {
             weekday: "long",
@@ -220,7 +220,26 @@ const sortedTags = tags
   (function () {
     let onKeyDown;
 
+    function updateDate() {
+      const dateEl = document.getElementById("current-date");
+      if (dateEl) {
+        const now = new Date();
+        const locale =
+          navigator.languages && navigator.languages.length
+            ? navigator.languages[0]
+            : navigator.language;
+        const formattedDate = new Intl.DateTimeFormat(locale, {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        }).format(now);
+        dateEl.textContent = formattedDate;
+      }
+    }
+
     function initNav() {
+      updateDate();
       const btn = document.getElementById("mobile-menu-btn");
       const menu = document.getElementById("mobile-menu-dropdown");
       const iconOpen = document.getElementById("icon-open");
