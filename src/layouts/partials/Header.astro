@@ -224,10 +224,7 @@ const sortedTags = tags
       const dateEl = document.getElementById("current-date");
       if (dateEl) {
         const now = new Date();
-        const locale =
-          navigator.languages && navigator.languages.length
-            ? navigator.languages[0]
-            : navigator.language;
+        const locale = "pt-BR";
         const formattedDate = new Intl.DateTimeFormat(locale, {
           weekday: "long",
           year: "numeric",
