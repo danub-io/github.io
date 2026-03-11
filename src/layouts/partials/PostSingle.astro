@@ -95,8 +95,8 @@ const { support_url } = config.params;
             <Image
               width={1000}
               height={562}
-              widths={[400, 700, 1000]}
-              sizes="(max-width: 1024px) 95vw, 1000px"
+              widths={[400, 662, 1000]}
+              sizes="(max-width: 1024px) 95vw, 662px"
               loading="eager"
               fetchpriority="high"
               src={image || placeholder}
@@ -229,9 +229,9 @@ const { support_url } = config.params;
                 )}
               </div>
               <a href={`/blog/${p.id}`} class="block group">
-                <h3 class="font-primary text-xl font-bold text-black group-hover:text-gray-600 transition-colors leading-tight">
+                <h2 class="font-primary text-xl font-bold text-black group-hover:text-gray-600 transition-colors leading-tight">
                   {p.data.title}
-                </h3>
+                </h2>
               </a>
             </div>
           </article>
