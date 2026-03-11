@@ -1,4 +1,4 @@
-﻿---
+---
 import Social from "@/components/Social.astro";
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
@@ -24,11 +24,11 @@ import { markdownify } from "@/lib/utils/textConverter";
       </div>
 
       <div class="flex-1">
-        <h4
+        <h2
           class="text-xs font-bold uppercase tracking-[0.2em] text-black mb-4"
         >
           Navegação
-        </h4>
+        </h2>
         <ul class="space-y-2">
           {
             menu.footer.map((menu) => (
@@ -46,11 +46,11 @@ import { markdownify } from "@/lib/utils/textConverter";
       </div>
 
       <div class="flex-1">
-        <h4
+        <h2
           class="text-xs font-bold uppercase tracking-[0.2em] text-black mb-4"
         >
           Redes Sociais
-        </h4>
+        </h2>
         <Social
           source={{
             x: "https://x.com/GospelReads_ofc",

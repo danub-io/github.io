@@ -158,9 +158,9 @@ const { support_url } = config.params;
           <div class="flex flex-wrap items-center justify-center gap-2 mb-2">
             {
               tags && tags.length > 0 && (
-                <span class="text-[10px] font-secondary font-bold text-gray-400 uppercase tracking-widest mr-1">
+                <div class="text-[10px] font-secondary font-bold text-gray-600 uppercase tracking-widest mr-1">
                   Tópico:
-                </span>
+                </div>
               )
             }
             {
@@ -229,9 +229,9 @@ const { support_url } = config.params;
                 )}
               </div>
               <a href={`/blog/${p.id}`} class="block group">
-                <h2 class="font-primary text-xl font-bold text-black group-hover:text-gray-600 transition-colors leading-tight">
+                <h3 class="font-primary text-xl font-bold text-black group-hover:text-gray-600 transition-colors leading-tight">
                   {p.data.title}
-                </h2>
+                </h3>
               </a>
             </div>
           </article>

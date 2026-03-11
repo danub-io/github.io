@@ -50,19 +50,20 @@ const pixPayload = "00020101021126790014BR.GOV.BCB.PIX2557pix-qr.mercadopago.com
           </p>
 
           <div class="relative group">
+            <label for="pix-payload" class="sr-only">Código PIX Copia e Cola</label>
             <input
               type="text"
               readonly
               value={pixPayload}
               id="pix-payload"
-              class="w-full bg-gray-50 border border-gray-300 text-gray-600 text-xs p-3 pr-10 focus:outline-none focus:ring-1 focus:ring-black"
+              class="w-full bg-gray-50 border border-gray-300 text-gray-600 text-xs p-4 pr-14 focus:outline-none focus:ring-1 focus:ring-black"
             />
             <button
               id="copy-button"
-              class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black transition-colors"
+              class="absolute right-0 top-1/2 -translate-y-1/2 p-2 text-gray-400 hover:text-black transition-colors"
               title="Copiar código"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
               </svg>
@@ -129,6 +130,17 @@ const pixPayload = "00020101021126790014BR.GOV.BCB.PIX2557pix-qr.mercadopago.com
 </script>
 
 <style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
   .animate-fade-in {
     animation: fadeIn 0.3s ease-in-out;
   }
