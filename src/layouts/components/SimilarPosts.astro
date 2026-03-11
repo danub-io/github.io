@@ -1,4 +1,4 @@
-﻿---
+---
 import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, slugify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
@@ -52,14 +52,14 @@ const { posts } = Astro.props;
             )}
           </li>
         </ul>
-        <h3 class="h5">
+        <h2 class="h5">
           <a
             href={`/blog/${post.id}`}
             class="block hover:text-[#0a66c2] transition duration-300 py-2"
           >
             {post.data.title}
           </a>
-        </h3>
+        </h2>
       </div>
     ))
   }
