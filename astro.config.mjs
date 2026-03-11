@@ -5,7 +5,7 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 
 export default defineConfig({
-  site: "https://gospelreads-aff1e.web.app",
+  site: "https://gospelreads-64144831-fb00d.web.app/",
   integrations: [
     react(),
     sitemap(),

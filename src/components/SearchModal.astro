@@ -1,0 +1,89 @@
+
+---
+import { IoSearch, IoClose } from "react-icons/io5";
+---
+
+<div id="search-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 items-center justify-center p-4" aria-hidden="true">
+  <div class="w-full max-w-2xl">
+    <form action="/search" method="GET" class="relative">
+      <label for="search-modal-input" class="sr-only">Buscar</label>
+      <span class="absolute left-6 text-gray-400 text-2xl">
+        <IoSearch />
+      </span>
+      <input
+        class="w-full bg-white py-6 pl-16 pr-16 text-2xl font-primary text-dark placeholder:text-gray-400 border-0 focus:ring-0 outline-none rounded-md shadow-lg"
+        placeholder="Buscar postagens, artigos..."
+        type="text"
+        name="q"
+        id="search-modal-input"
+        autocomplete="off"
+      />
+      <button
+        type="button"
+        class="absolute right-6 text-gray-400 hover:text-dark transition cursor-pointer"
+        id="search-modal-close"
+      >
+        <IoClose className="text-3xl" />
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const searchModal = document.getElementById("search-modal");
+    const searchInput = document.getElementById("search-modal-input");
+    const searchTriggers = document.querySelectorAll("[data-search-trigger]");
+    const closeButton = document.getElementById("search-modal-close");
+
+    function openSearchModal() {
+      searchModal.classList.remove("hidden");
+      searchModal.classList.add("flex");
+      document.body.classList.add("overflow-hidden");
+      searchInput.focus();
+    }
+
+    function closeSearchModal() {
+      searchModal.classList.add("hidden");
+      searchModal.classList.remove("flex");
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    searchTriggers.forEach(trigger => {
+      trigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        openSearchModal();
+      });
+    });
+
+    closeButton.addEventListener("click", () => {
+      closeSearchModal();
+    });
+
+    searchModal.addEventListener("click", (e) => {
+      if (e.target === searchModal) {
+        closeSearchModal();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !searchModal.classList.contains("hidden")) {
+        closeSearchModal();
+      }
+    });
+  });
+</script>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style>
