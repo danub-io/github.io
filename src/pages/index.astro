@@ -77,9 +77,9 @@ const recentPosts = sortedPosts.slice(1, 5);
                   <time>{dateFormat(post.data.date)}</time>
                 </div>
                 <a href={`/blog/${post.id}`} class="block group">
-                  <h4 class="font-primary text-xl sm:text-2xl font-bold text-black leading-tight hover:text-gray-600 transition-colors mb-2">
+                  <h2 class="font-primary text-xl sm:text-2xl font-bold text-black leading-tight hover:text-gray-600 transition-colors mb-2">
                     {post.data.title}
-                  </h4>
+                  </h2>
                 </a>
                 {post.data.description && (
                   <p class="text-gray-700 text-sm font-secondary line-clamp-3 leading-relaxed">
