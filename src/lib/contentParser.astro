@@ -16,15 +16,10 @@ type PageData = {
 export const getSinglePage = async <C extends CollectionKey>(
   collectionName: C
 ): Promise<CollectionEntry<C>[]> => {
-  const allPages = await getCollection(collectionName);
-
-  const removeIndex = allPages.filter((data) => data.id.match(/^(?!-)/));
-
-  const removeDrafts = removeIndex.filter((data) => {
-    const pageData = data.data as PageData;
-    return pageData.draft !== true;
+  const allPages = await getCollection(collectionName, (entry) => {
+    const pageData = entry.data as PageData;
+    return entry.id.match(/^(?!-)/) && !pageData.draft;
   });
-
-  return removeDrafts;
+  return allPages;
 };
 ---
