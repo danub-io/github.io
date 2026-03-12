@@ -3,7 +3,7 @@ title: "O Abismo Entre a Fé e a Prática"
 meta_title: "O Abismo Entre a Fé e a Prática | GospelReads"
 description: "Seja honesto: quando você olha para o cenário do cristianismo hoje, o que você vê? Existe um abismo crescente e doloroso entre o ideal proclamado por Jesus e a realidade vivida por muitos de nós."
 date: 2026-03-04T18:23:26
-image: "../../assets/images/abismo-fe-pratica-cristianismo-moderno.webp"
+image: "/images/abismo-fe-pratica-cristianismo-moderno.webp"
 image_alt: "Bíblia aberta sobre uma mesa de madeira com luz suave, simbolizando reflexão e retorno às Escrituras."
 authors: ["Dan Coelho"]
 tags: ["Teologia"]

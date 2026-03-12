@@ -12,6 +12,7 @@ what_i_do:
     - title: "Saúde Mental & Espiritualidade"
       description: "A verdadeira renovação da mente: unindo a neurociência à biologia e às promessas bíblicas."
 ---
+
 Bem-vindo ao GospelReads. Este espaço nasceu do desejo profundo de resgatar a riqueza da fé cristã em um mundo marcado pela superficialidade e pela exaustão.
 
 Nossa missão é atuar como uma ponte entre a sabedoria inesgotável da Palavra de Deus e os complexos dilemas da vida moderna. Acreditamos que o Evangelho não se restringe aos domingos, mas deve permear nossa vocação, nossa mente e nossos relacionamentos.

@@ -3,14 +3,14 @@ title: "E se o mundo vivesse o amor de Cristo?"
 meta_title: "E se o mundo vivesse o amor de Cristo? | GospelReads"
 description: "E se os ensinos de Jesus guiassem cada escolha humana? Descubra como o amor radical de Cristo redefine a mente, a vocação e as estruturas da nossa sociedade."
 date: 2026-03-07T11:09:39.000Z
-image: "../../assets/images/amor-cristo-como-seria-mundo-vivessemos.webp"
+image: "/images/amor-cristo-como-seria-mundo-vivessemos.webp"
 image_alt: "Uma bíblia antiga aberta"
 authors: ["Dan Coelho"]
 tags: ["Vida Cristã"]
 draft: false
 ---
 
-# E se o mundo vivesse o amor de Cristo? 
+# E se o mundo vivesse o amor de Cristo?
 
 Você já parou para pensar por que o cristianismo parece tão difícil na prática? A jornada com Jesus nos chama para um caminho estreito que, muitas vezes, vai na contramão de tudo o que o mundo moderno valoriza.
 
@@ -34,12 +34,12 @@ Quando o amor a Deus transborda para o amor ao próximo, as estruturas sociais s
 
 Nesta realidade governada por um amor de entrega total, veríamos mudanças drásticas:
 
-* **Fim da exploração:** O racismo, a desigualdade extrema e a opressão seriam memórias de um passado sombrio.
-* **Economia da generosidade:** Os sistemas existiriam para promover o bem-estar coletivo, com recursos compartilhados de forma justa.
-* **Justiça que restaura:** O foco deixaria de ser apenas a punição para se tornar a cura e a reconciliação de relacionamentos rompidos.
-* **Cuidado com a criação:** A natureza deixaria de ser um objeto de exploração predatória para ser tratada com a responsabilidade e o respeito que a obra de Deus merece.
+- **Fim da exploração:** O racismo, a desigualdade extrema e a opressão seriam memórias de um passado sombrio.
+- **Economia da generosidade:** Os sistemas existiriam para promover o bem-estar coletivo, com recursos compartilhados de forma justa.
+- **Justiça que restaura:** O foco deixaria de ser apenas a punição para se tornar a cura e a reconciliação de relacionamentos rompidos.
+- **Cuidado com a criação:** A natureza deixaria de ser um objeto de exploração predatória para ser tratada com a responsabilidade e o respeito que a obra de Deus merece.
 
-A união dessas forças criaria o que as Escrituras chamam de *Shalom*: uma harmonia total que cura o sofrimento causado pela ganância e pelo ódio.
+A união dessas forças criaria o que as Escrituras chamam de _Shalom_: uma harmonia total que cura o sofrimento causado pela ganância e pelo ódio.
 
 ## O choque de realidade e a nossa esperança
 
