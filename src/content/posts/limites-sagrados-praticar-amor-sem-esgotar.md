@@ -3,7 +3,7 @@ title: "Limites Sagrados: Como Praticar o Amor sem se Esgotar"
 meta_title: "Limites Sagrados: Como Praticar o Amor sem se Esgotar | GospelReads"
 description: "O Equilíbrio de Jesus: Sirva ao próximo com amor e preserve sua saúde mental. Descubra como estabelecer limites saudáveis sem anular sua vocação."
 date: 2026-03-06T17:28:22
-image: "../../assets/images/limites-sagrados-praticar-amor-sem-esgotar.webp"
+image: "/images/limites-sagrados-praticar-amor-sem-esgotar.webp"
 image_alt: "Caminho sereno em uma floresta"
 authors: ["Dan Coelho"]
 tags: ["Liderança"]
@@ -32,9 +32,9 @@ Um conceito que traz liberdade é entender que nosso tempo, energia e talentos n
 
 Às vezes, dar dinheiro a alguém que se recusa a enfrentar a raiz de um vício ou da acomodação não é um ato de bondade, mas sim um investimento que alimenta um ciclo destrutivo. Nesses casos, a verdadeira sabedoria redireciona o recurso para o que realmente transforma:
 
-* Oferecer conselhos.
-* Encaminhar para apoio profissional.
-* Estabelecer limites claros que incentivem a responsabilidade.
+- Oferecer conselhos.
+- Encaminhar para apoio profissional.
+- Estabelecer limites claros que incentivem a responsabilidade.
 
 Nossa missão é investir nos recursos de Deus onde eles gerem frutos reais para o Reino.
 
@@ -44,9 +44,9 @@ Amar o próximo "como a si mesmo" pressupõe que você cuida de si. Se você neg
 
 Impor limites não é falta de carinho. É uma atitude de proteção para que seu serviço seja sustentável. Isso inclui:
 
-* Saber dizer "não" a demandas que não são sua prioridade divina.
-* Blindar o tempo com sua família, que é seu primeiro campo de missão.
-* Afastar-se de relações abusivas onde não há arrependimento ou mudança.
+- Saber dizer "não" a demandas que não são sua prioridade divina.
+- Blindar o tempo com sua família, que é seu primeiro campo de missão.
+- Afastar-se de relações abusivas onde não há arrependimento ou mudança.
 
 Dizer "no" para o que é acessório é o que permite dizer "sim" para o que é essencial.
 

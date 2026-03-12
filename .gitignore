@@ -1,25 +1,34 @@
-# build output
-dist/
-.output/
-
 # dependencies
-node_modules/
+/node_modules
+/.pnp
+.pnp.js
+/yarn.lock
 
-# logs
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
 
+# local env files
+.env*.local
 
-# environment variables
-.env
-.env.production
+# vercel
+.vercel
 
-# macOS-specific files
-.DS_Store
-
-# ignore .astro directory
-.astro
-
-node_modules
+# typescript
+*.tsbuildinfo
+next-env.d.ts
